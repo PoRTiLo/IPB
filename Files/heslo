@@ -1,0 +1,5 @@
+#!/bin/bash
+echo -n "Enter a Password: " 
+read -s pass_value
+echo ""
+echo "Password Entered: $pass_value"

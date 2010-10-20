@@ -1,0 +1,586 @@
+Content-Type: multipart/related; start=<op.mhtml.1257033817248.dc9f216d1c6210ca@192.168.2.104>; boundary=----------xFFCVsOnc5Wg1f22Iz2GYX
+Content-Location: http://www.linux.cz/noviny/1998-1112/clanek11.html
+Subject: =?utf-8?Q?Programujeme=20v=20C=20s=20ncurses=20-=20Linuxov=C3=A9=20noviny=2011-12/1998?=
+MIME-Version: 1.0
+
+------------xFFCVsOnc5Wg1f22Iz2GYX
+Content-Disposition: inline; filename=clanek11.html
+Content-Type: text/html; charset=ISO-8859-2; name=clanek11.html
+Content-ID: <op.mhtml.1257033817248.dc9f216d1c6210ca@192.168.2.104>
+Content-Location: http://www.linux.cz/noviny/1998-1112/clanek11.html
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--
+
+  Linuxové noviny prosinec 1998
+  (c) 1998 Pavel Janík ml. <Pavel.Janik@linux.cz>
+  sazba: Ondøej Vácha <Ondrej.Vacha@cstug.cz>
+  pøevod do HTML: Pavel Juran <juran@proca.cz>
+  pøeklady: Hanu¹ Adler <had@pdas.cz>
+  jazykový korektor: Bohumil Chalupa <bochal@met.mff.cuni.cz>
+
+-->
+<HTML>
+<HEAD>
+<TITLE>Programujeme v C s ncurses - Linuxové noviny 11-12/1998</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" LINK="#006D29" VLINK="#00100A" ALINK="#00AA40">
+<BASEFONT SIZE=2>
+
+<!-- Horní navigace -->
+- <A HREF="clanek10.html">pøedchozí èlánek</A>
+- <A HREF="clanek12.html">následující èlánek</A>
+- <A HREF="index.html">obsah</A>
+- <A HREF="../index.html">úvodní stránka</A>
+-
+<HR>
+<P>
+
+<CENTER>
+<TABLE WIDTH=590 BORDER=0 CELLSPACING=0 CELLPADDING=1>
+
+<!-- Hlavièka -->
+<TR>
+   <TD><FONT SIZE="+1">Linuxové noviny</FONT></TD>
+   <TD ALIGN="RIGHT"><FONT SIZE="+1">11-12/98</FONT></TD>
+</TR>
+<TR><TD COLSPAN=3>
+<HR NOSHADE>
+<P>
+</TD></TR>
+
+<!-- Text -->
+<TR>
+<TD VALIGN="TOP" COLSPAN=2>
+
+<TABLE WIDTH="100%" CELLSPACING=1 CELLPADDING=0 BORDER=0>
+<TR><TD><H2>Programujeme v C s ncurses</H2></TD></TR>
+<TR><TD ALIGN="RIGHT"><FONT SIZE="-1">Karel ®ák, 25. øíjna 1998</FONT></TD></TR>
+</TABLE>
+<P>
+
+Tento èlánek by mìl být malou rychlokuchaøkou do svìta ncurses. Snad
+jen na zaèátek, malé vysvìtlení co to ncurses jsou. Název &quot;ncurses&quot;
+je slo¾eninou ze slov &quot;new curses&quot;. Jedná se o volnì
+distibuovatelný klon System V Release 4.0 (SVr4) curses. A jak øíkají
+FAQ, je to slovní høíèka k &quot;cursor optimization&quot;.  Ale jinak (a vá¾nì) jedná se o knihovnu k managamentu výstupu na &quot;character-cell
+terminals&quot; tedy na znakovì orientované terminály.
+<P>
+
+Ale rychle k programování. Tato knihovna není ¾ádným drobeèkem (pøi
+pohledu do adresáøe <TT>/lib</TT> je - alespoò na mém disku - po <TT>libc</TT> tou nejvìt¹í) tak¾e snad nìkteøí prominou pokud se o nìkterých
+mo¾nostech nezmíním. Pokusím se zamìøit pouze na to jak nenásilnì a rychle dosáhnout &quot;poèmárání screenu ve stylu ncurses&quot; <TT>:-)</TT>
+<H3><A NAME="1">Inicializace</A></H3>
+Jako první by si mìl program nainicializovat obrazovku do curses
+módu. To se provede funkcí <TT>initscr()</TT>. Po provedení této funkce,
+by programátor nikdy nemìl zapomenout, ¾e po ukonèení programu by v¹e
+mìlo být jako pøed jeho spu¹tìním.  Návrat z curses módu se provede
+funkcí <TT>endwin()</TT>. Pokud si nejste jisti, ¾e jste tuto funkci
+zavolali tak se o tom mù¾ete pøesvìdèit pomocí <TT>isendwin()</TT>.
+Proto¾e nikdy není tak úplnì jisté kdy a kde program skonèí, tak
+napø. já to dìlám tak, ¾e si do <TT>atexit()</TT> pøidám <TT>endwin()</TT>,
+tedy
+<P>
+
+<PRE>
+atexit((void *) endwin)
+</PRE>
+<P>
+
+Pokud se divíte, proè taková pøemíra starostí o <TT>endwin()</TT>, tak
+proto, ¾e program, který se ukonèí bez zavolání této funkce nechá vá¹
+terminál v tom lep¹ím stavu. Funkce <TT>initscr()</TT> vrací pointer <TT>stdscr</TT> typu <TT>WINDOW</TT> (jedná se o globální promìnnou, ke které
+ncurses vztahuje funkce, které nepou¾ívají okno jako parametr.
+<P>
+
+Po inicializaci je mo¾né si doopravit nìkteré dal¹í vlastnosti screenu
+/ terminálu. Napøíklad:
+<P>
+
+<UL>
+<LI><TT>curs_set()</TT> - nastavení kursoru
+<LI><TT>echo()</TT> / <TT>noecho()</TT> - mají se zobrazovat znaky
+pøicházející z klávesnice (napø. pøi volání funkce <TT>mvwgetstr()</TT>)
+<LI><TT>cbreak()</TT> - nastaven &quot;line bufferingu&quot;
+<LI><TT>keypad()</TT> - nastavení pou¾ívání kláves <FONT COLOR="#606060"><B><TT>F1</TT></B></FONT> a¾ <FONT COLOR="#606060"><B><TT>Fn</TT></B></FONT>
+</UL>
+<P>
+
+U poslední zmínìné funkci snad je¹tì poznámka: pokud pou¾íváte ve svém
+programu <TT>WINDOW</TT>, tak je nutné pro ka¾dé nové okno tuto funkci
+volat, jinak pøi nepou¾ívání oken je mo¾né zavolat na poèátku
+<P>
+
+<PRE>
+keypad(stdscr, TRUE)
+</PRE>
+<P>
+
+Po pøepnutí do curses módu jsou dostupné dvì globální promìnné <TT>(int) LINES</TT> a <TT>COLS</TT>, ve kterých je ulo¾ena aktuální velikost
+obrazovky. Èasté je napø. poøadí inicializace: <TT>initscr()</TT>, <TT>cbreak()</TT>, <TT>noecho()</TT> - pak u¾ je obrazovka pøipravena ve stavu
+&quot;neøádkování&quot;, ale naopak ve stavu &quot;kam pøesnì co chce¹&quot; (na jakou
+øádku a do jakého sloupce).
+<P>
+
+Nìkdy je nutné se z ncurses programu pøepnout nazpìt do pùvodního
+(v terminologii ncurses - shell) módu. To je nutné napøíklad pøi
+volání nìjakého externího programu, který pou¾ívá terminál standardním
+zpùsobem. K tomu se pou¾ívá skupina funkcí okolo <TT>reset_shell_mode()</TT> (více manuál).
+<P>
+
+Pochopitelnì, ze ncurses obsahují je¹tì dal¹í pøepínaèe, ale to u¾ by
+mohlo být otázkou samostudia nad manuály <TT>:-)</TT> Podobnì jako
+zále¾itosti týkající se mo¾nosti otevøít si vlastní screen pomocí
+funkce <TT>newterm()</TT>.
+<P>
+
+<H3><A NAME="2">Výstup a okna</A></H3>
+U¾ jsem se zmínil o <TT>WINDOW</TT>. Nové okno si vytvoøíte pomocí funkce
+<TT>newwin()</TT>.  Jako parametry se zadávají poloha okna a to vzhledem
+k levému hornímu rohu a velikost okna. Po vytvoøení okna je mo¾né
+s ním zacházet jako se samostatnou podmno¾inou a tedy volat pak funkce
+s parametry øádek a sloupcù vzhledem k levému hornímu roku
+okna. Funkce <TT>newwin()</TT> vrací pointer na nové okno (funkce sama
+alokuje pomocí <TT>malloc</TT> strukturu <TT>WINDOW</TT>) proto se okno
+deklaruje jako pointer (podobnì jako <TT>FILE</TT>). Naopak uvolnìní
+pamìti a zru¹ení okna se provede funkcí <TT>delwin()</TT>. Smazání ze
+screenu se provede funkcí <TT>werase()</TT> (a pak je vhodné <TT>wrefresh()</TT>).  V oknì mù¾e existovat i tzv. subwin, jedná se to samé
+jako <TT>WINDOW</TT>, ale vzhledem k rodièovskému oknu (narozdíl od okna,
+které je definováno vzhledem ke screenu).  S okny lze vytváøet docela
+zajímavé vìci. Napøíklad zapsat do souboru a pak naopak naèíst okno ze
+souboru. Èasto je vyu¾ívána i napøíklad funkce <TT>redrawwin()</TT>,
+která znova nakreslí okno na screen. Je mo¾né s okny pohybovat pomocí
+<TT>mvwin()</TT>, duplikovat okna - <TT>dupwin()</TT> atd.
+<P>
+
+Funkce zacházející s okny lze jednodu¹e poznat dle prefixu <TT>mvw-</TT> nebo
+samotného <TT>w-</TT>. Tak¾e obdoba klasického <TT>printf()</TT> je v ncurses pøi
+pou¾ití oken
+<P>
+
+<PRE>
+   mvwprintw(okno, øádka, sloupec,\
+    &quot;nìco: %s&quot;, øetìzec);
+</PRE>
+<P>
+
+(pozor na znak <TT>\n</TT> - v ncurses se dostáváme na dal¹í
+øádku tím, ¾e zvý¹íme &quot;øádku&quot; o jedna).
+<P>
+
+<A NAME="ncursesexample"></A>
+<TABLE BORDER=1 CELLPADDING=10 WIDTH="100%">
+<TR BGCOLOR="#E7F7E7"><TD>
+<FONT SIZE="-1"><PRE>
+#include &lt;curses.h&gt;             /* stdio.h neni nutne je v curses.h */
+#include &lt;ctype.h&gt;
+
+#define COLOR2      1            /* barvicka 1. */
+#define COLOR1      2            /* barvicka 2. */
+
+int main () {
+   int      c;
+   char      *s;
+
+   initscr ();            
+   cbreak ();
+   noecho ();                  /* vypnuti echa */
+   start_color ();                  /* chceme barvy */
+   keypad (stdscr, TRUE);            /* chceme klavesy pod makry KEY_neco */
+   curs_set(0);                  /* at tam ta mrska neblika */
+
+   if (!has_colors ()) {            /* umi terminal barvy ? */
+       endwin ();
+       fputs (&quot;Hmm.. tady barvy nejdou !&quot;, stderr); 
+       exit (1);
+   }
+   /*         barva - popredi   -       pozadi            */ 
+   init_pair (COLOR1, COLOR_RED,       COLOR_BLUE);      /* barvicka 1. */
+   init_pair (COLOR2, COLOR_YELLOW, COLOR_BLACK);      /* a druha */
+
+   attron (COLOR_PAIR( COLOR1 ));                  /* pouzivat barvu 1. */
+   mvaddstr (2, 5, &quot;Cervene na modrem&quot;);
+
+   attron (COLOR_PAIR( COLOR2 ));
+   mvaddstr (3, 5, &quot;Zlute na cernem&quot;);
+
+   attron (A_BOLD);                        /* od ted vse BOLD */
+   mvaddstr (4, 5, &quot;Zlute na cernem a tucne&quot;);
+
+   attroff (COLOR_PAIR( COLOR2 ));                  /* vypne barvu */
+   mvhline(LINES-2, 0, ACS_HLINE, COLS);            /* nakresli caru */
+   mvaddstr (LINES-1, COLS-15, &quot;F10 - konec&quot;);
+   mvaddstr (10, 5, &quot;Jmeno klavesy:&quot;);
+
+   while ( (c=getch()) != KEY_F(10)) {
+           s = (char *) keyname(c);            /* jmeno klavesy ? */
+           mvhline(10, 20, ' ', COLS);            /* smaz */
+           if (s)
+                 mvprintw (10, 20, &quot;'%s'&quot;, s);
+           else       
+                 mvprintw (10, 20, &quot;'%c'&quot;, (isprint(c) ? c : '.'));
+   }
+   erase ();                        /* smaz nase vytvory */      
+   refresh ();                        
+   endwin ();                        /* konec curses */
+   exit (0);                        /* ....bye */
+}
+</PRE></FONT>
+</TD></TR>
+</TABLE>
+<P>
+<CENTER>Výpis è. 2: Pøíklad pou¾ití ncurses</CENTER>
+<P>
+
+Dal¹í mo¾ností jak tisknout na screen je nevyu¾ívat <TT>WINDOW</TT>
+a vyu¾ívat funkcí, které nepo¾adují <TT>WINDOW</TT> jako svùj
+parametr. <TT>Lines</TT> a <TT>cols</TT> v parametrech tìchto funkcí se pak
+vztahují k levému hornímu rohu screenu.  Tyto funkce pak vìt¹inou
+zaèínají prefixem <TT>mv-</TT> napø. <TT>mvaddstr(y,x, str)</TT>.
+<P>
+
+Ncurses je¹tì umo¾òují pou¾ívat funkce bez parametrù <TT>line</TT> a <TT>cols</TT>. Takové funkce pak vypisují svùj výstup na aktuální pozici
+kursoru. Nutno øíct, ¾e tento zpùsob je asi nejménì programátorsky
+pøíjemný. Takovouto funkcí je napø. <TT>addstr(str)</TT>. Jak je
+z uvedených pøíkladù zøejmé, tak u vìt¹iny funkcí existují v¹echny tøi
+alternativy, tedy napø. <TT>mvwaddstr</TT>, <TT>mvaddstr</TT> i <TT>addstr</TT>.
+<P>
+
+V ncurses jsou pak je¹tì alternativy tìchto funkcí umo¾òující pøesné
+zacházení se øetìzci (podobnì jako známé stringové <TT>strcpy</TT> a <TT>strncpy</TT>), tedy napø. <TT>addstr()</TT> a <TT>addnstr()</TT>.
+<P>
+
+Pokud potøebujete tisknout nìkteré speciální znaky tak doporuèuji
+podívat se na <TT>man addch</TT>, kde jsou popsána makra <TT>ASC_nìco</TT>
+obsahující tyto znaky (napø. èáry, rùzné ¹ipky apod.). Ke snadnìj¹ímu
+kreslení èar existují i funkce <TT>hline()</TT> (horizontální) a <TT>vline()</TT> (vertikální) a jejich alternativy pro okna.  Èasto se u oken
+pou¾ívají rámeèky. Rámeèek mù¾ete nakreslit pomocí vý¹e zmínìných
+funkcí a nebo pomocí, k tìmto úèelùm pøeddefinované, funkce <TT>wborder()</TT>.
+<P>
+
+Pro pøesnost snad je¹tì poznámku - vìt¹ina funkcí které nepo¾adují
+<TT>WINDOW</TT> jsou ve skuteènosti makra typu:
+<P>
+
+<PRE>
+   #define mvaddstr(y, x, str)\
+    mvwaddstr(stdscr, y, x, str)
+</PRE>
+<P>
+
+Pro dobré zacházení s výstupem je¹tì doporuèuji prohlédnut si manuály
+k funkcím <TT>refresh()</TT>, <TT>wrefresh()</TT>, <TT>redrawwin()</TT> atd. Co
+tyto dìlají je myslím patrné u¾ z jejich názvu.
+<P>
+
+Zaznìlo zde ji¾ i nìco o pozici kursoru, i tu lze pochopitelnì mìnit.
+Pomocí <TT>wmove(y, x, win)</TT> v rámci okna a pomocí <TT>move()</TT>
+vzhledem ke screenu.  Dal¹í a ji¾ zmínìnou mo¾ností je zapínaní resp.
+vypínaní cursoru a to pomocí <TT>curs_set(0)</TT> a <TT>curs_set(1)</TT>.
+<P>
+
+Mo¾ná se ptáte, co je lep¹í - pou¾ívat v programu okna nebo ne?
+Abych upøímnì odpovìdìl - tak nevím. Pou¾ívání oken s sebou nese
+nìkolik výhod.  Èásti výstupu jsou umístìny v podmno¾inách, se
+kterými lze samostatnì zacházet. Napøíklad pokud jedním oknem
+pøekryjete druhé, pak snadno to pøekryté obnovíte pomocí <TT>redrawwin()</TT>,
+zatímco pokud okna nepou¾íváte tak tím, co na screen
+napí¹ete nenávratnì pøepí¹e to, co tam bylo (na dané pozici).  Ale pøi
+nepou¾ívání oken ve va¹em programu ubude volání <TT>malloc</TT> (pøi
+ka¾dém <TT>newwin</TT>), nebudete muset programem vláèet struktury <TT>WINDOW</TT>
+a pravdìpodobnì program bude rychlej¹í. Na zamy¹lení snad
+uvedu, ¾e napø. v Midnight Commanderu okna pou¾ívána nejsou, já sám
+jsem (malá reklama <TT>:-)</TT>) napø. v programu <TT>kim</TT> (mana¾er
+procesù) okna pou¾il, ale v následující verzi u¾ nebudou. To v¹e, ale
+neznamená, ¾e okna jsou nìco nedobrého, jen je nìkdy dobré, pokud se
+program stará o nìkteré vìci sám, a i v programování platí, ¾e ménì je
+nìkdy více.
+<P>
+
+Za výstup snad lze je¹tì pova¾ovat to, co dìlá funkce <TT>beep()</TT>. Jak u¾ je z názvu patrno, jedná se o zvukové znamení.
+<P>
+
+<H3><A NAME="3">Vstup</A></H3>
+Aby mohl program &quot;vnímat&quot; u¾ivatele tak pochopitelnì knihovna
+obsahuje funkce vracející znaky nebo øetìzce zadané
+z klávesnice. Základní je <TT>getch()</TT> a pøi pou¾ití oken <TT>wgetch()</TT>. Pozor, nezapomínat pøi pou¾ívání oken volat po vytvoøení
+okna funkci <TT>keypad()</TT>. Tìmito funkcemi vrácená hodnota (<TT>int</TT>) obsahuje znak nebo v pøípadì stisku nìjaké speciální (funkèní)
+klávesy v <TT>curses.h</TT> nadefinované makro mající prefix <TT>KEY_</TT>,
+napø. pøi stisku klávesy <IMG SRC="sipka_nahoru.gif" WIDTH=12 HEIGHT=11 BORDER=0 ALT="¹ipka_nahoru"> (&quot;¹ipka nahoru&quot;) je
+vráceno <TT>KEY_UP</TT>.
+<P>
+
+Klávesu je mo¾né i vrátit (podobnì jako u souboru znak) pomocí <TT>ungetch()</TT>.  Pochopitelnì jsou definovány i funkce vracející znak
+nejen do programu, ale opisující ho také na screen nebo okno (pozor
+- nesmí být vypnuto echo pomocí <TT>noecho()</TT>). Napø. <TT>mvgetch()</TT>, <TT>mwvgetch()</TT>.  Také je mo¾né pomocí <TT>has_key()</TT>
+zjistit, zná-li terminál nìkterou klávesu (ta je jako parametr této
+funkce) nebo napøíklad jméno klávesy a to pomocí <TT>keyname()</TT>.
+<P>
+
+Pro pøijetí celého øetìzce lze vyu¾ít funkce z rodiny <TT>getstr()</TT>. Tyto naèítají v¹echny zadané znaky a¾ do stisku klávesy
+<FONT COLOR="#606060"><B><TT>Enter</TT></B></FONT> do øetìzce. Existují pochopitelnì i bezpeènìj¹í varianty
+tìchto funkcí, tedy <TT>getnstr()</TT>.
+<P>
+
+Zajímavostí mù¾e být nastavení timeoutù pro ètení klávesy. Toho lze
+efektivnì vy¾ít napøíklad k tomu, ¾e bìhem toho co program èeká na to
+a¾ se u¾ivatel rozhodne nìco stisknout tak mù¾e napø. testovat nìjakou
+událost. Já to napøíklad pou¾ívám pokud chci provést nìjakou
+slo¾itìj¹í a nároènìj¹í reakci na signál, kdy není vhodné, aby tuto
+èinnost vykonával handler signálu. Nastavení timeoutu se provede
+funkcí <TT>timeout()</TT> nebo <TT>wtimeout()</TT> s parametrem
+v milisekundách. Pokud do nastavené doby nedo¹lo k stisknutí nìjaké
+klávesy vrací napø. funkce <TT>getch()</TT> hodnotu <TT>ERR</TT>.
+<P>
+
+Dal¹í mo¾ností jak naèítat &quot;nìco&quot; do va¹í aplikace je mo¾nost èíst
+ze screenu nebo okna znak nebo øetìzec le¾ící na zadaných souøadnicích
+a to pomocí rodiny funkcí <TT>inch</TT> a <TT>instr</TT> (<TT>mvinch()</TT>,
+<TT>mvwinch()</TT>, <TT>mvinstr()</TT>).  U funkcí <TT>inch</TT> lze nejen
+zjistit znak na dané pozici, ale i jeho barvu a atributy.
+<P>
+
+<H3><A NAME="4">Barvy</A></H3>
+Chcete-li pou¾ívat ve svém programu barvy musí být splnìno nìkolik
+základních podmínek. Prvnì je nutné po inicializaci screenu zavolat
+funkci <TT>start_color()</TT>, kterou sdìlíte ncurses, ¾e máte takovýto
+úmysl. Podporuje-li terminál barvy zjistíte funkcí <TT>has_colors()</TT>.
+<P>
+
+Jak bude vypadat výstup je mo¾né nastavit pomocí <TT>attron()</TT> nebo
+pro okno <TT>watrron()</TT> a naopak zru¹it pomocí <TT>attroff()</TT> (<TT>wattroff()</TT>). Kde jako parametr je uvádí po¾adovaný stav, tedy
+napø. <TT>A_BOLD</TT>, <TT>A_BLINK</TT>, <TT>A_NORMAL</TT> atd. Od chvíle
+nastavení pomocí <TT>attron</TT> v¹echen výstup pou¾ívá toto nastavení
+a to a¾ do dal¹í zmìny pomocí <TT>attron</TT> nebo do jeho zru¹ení pomocí
+<TT>attroff</TT>.
+<P>
+
+<CENTER><IMG SRC="LN_Curses.gif" WIDTH=400 HEIGHT=252 BORDER=0 ALT="[ Pøíklad pou¾ití ncurses ]"></CENTER>
+<P>
+
+Pøed pou¾íváním barev je nutné je nadefinovat. To se provede pomocí
+<TT>init_pair(barva, popøedí, pozadí)</TT>. Kde <TT>barva</TT> je èíslo
+a <TT>popøedí</TT> (písmo) a <TT>pozadí</TT> jsou jedna z nadefinovaných
+barev (<TT>COLOR_RED</TT>, <TT>COLOR_BLUE</TT>, <TT>COLOR_YELLOW</TT>, <TT>COLOR_GREEN</TT>, <TT>COLOR_CYAN</TT>, <TT>COLOR_BLACK</TT>, <TT>COLOR_WHITE</TT> a <TT>COLOR_MAGENTA)</TT>.
+<P>
+
+Chceme-li pak pou¾ít takto nadefinovaných barev provedeme to zase
+pomocí <TT>attron()</TT>. A to takto: <TT>attron(COLOR_PAIR(barva));</TT>.
+Pochopitelnì lze kombinovat i s bold. Pou¾ití bude asi nejlépe
+viditelné na pøíkladu a na jeho výstupu.
+<P>
+
+Ncurses pochopitelnì dovolují i dal¹í operace s barvami, ale to je nad
+rámec tohoto èlánku a lze to pomìrnì pohodlnì nastudovat z manuálu.
+<P>
+
+<H3><A NAME="5">Resize</A></H3>
+Je to také trochu nad rámec tohoto èlánku, ale proto¾e je to èastým
+dotazem na rùzných konferencích, tak to zde zmíním. Pokud provozujete
+ncurses program pod <TT>xtermem</TT>, tak se bì¾nì stává, ¾e u¾ivatel
+mìní velikost okna x<TT>termu</TT>. Je tedy vhodné zjistit novou velikost
+<TT>LINES</TT> a <TT>COLS</TT>. O zmìnì velikosti okna je aplikace
+informována signálem <TT>SIGWINCH</TT>. Obèerstvit <TT>LINES</TT> a <TT>COLS</TT> mù¾ete napø. takto:
+<P>
+
+<PRE>
+   struct winsize size;
+   size.ws_row = size.ws_col = 0;
+
+   ioctl(0, TIOCGWINSZ, &size); 
+   if (size.ws_row && size.ws_col) {
+      LINES = size.ws_row;
+      COLS = size.ws_col;		
+   }
+</PRE>
+<P>
+
+<H3><A NAME="6">My¹ka</A></H3>
+Pøi dùkladném proèítání manuálu ncurses zjistíte, ¾e ncurses obsahují
+funkce <TT>getmouse()</TT> atd. Tyto funkce, ale nejsou v pùvodním
+SVr4. Já osobnì jsem tìchto funkcí nikdy nepou¾il. Stalo se zvykem
+pou¾ívat <TT>gpm</TT> a jsem toho názoru, ¾e nìkteré zvyky jsou dobré,
+tak proè je mìnit. Knihovna <TT>gpm</TT> dokonce na programy s ncurses
+pamatuje, tak¾e jsou zde vytvoøené alternativy <TT>getch()</TT> a <TT>wgetch()</TT> (<TT>Gpm_Getch()</TT> a <TT>Gpm_Wgetch()</TT>) pro pou¾ívání
+my¹i.  Ka¾dopádnì <TT>gpm</TT> s ncurses pracuje bezvadnì. Ale o <TT>gpm</TT> a¾ nìkdy pøí¹tì.
+<P>
+
+<H3><A NAME="8">Závìr</A></H3>
+Proto¾e nìkterým programátorùm nevyhovovaly pouze základní mo¾nosti
+ncurses, tak vznikla øada nástaveb. Standardnì jsou s ncurses
+distribuované <TT>menu</TT>, <TT>panel</TT>, <TT>form</TT>. Je otázkou jak moc
+jsou tyto rùzná &quot;udìlátka&quot; ¹ikovná a hlavnì útlá a jestli náhodou
+programátora nesvazují a koneènému produktu nevtiskují tváø jakou
+chtìjí oni.
+<P>
+
+K pøilo¾eným pøíkladùm: kompilace programu s knihovnou se provede
+napø. takto:
+<P>
+
+<PRE>
+   gcc -Wall -O3 program.c -o program -lncurses
+</PRE>
+<P>
+
+(to <TT>-Wall</TT> doporuèuji, èasto uká¾e programátorùm vìci
+&quot;netu¹ené&quot; <TT>:-)</TT>
+Ti dloubavìj¹í si mo¾ná v místech, kde se zmiòuji o <TT>mc</TT> vzpomnìli
+na knihovnu <TT>slang</TT>. Ano, v souèasné dobì se tento program
+distribuuje kompilovaný s touto knihovnou (s ncurses to ale jde
+kompilovat také). Programy psané pro ncurses, lze po malých úpravách
+kompilovat i s knihovnou slang. Je jen nutné místo <TT>curses.h</TT>
+includovat <TT>slcurses.h</TT>.
+<P>
+
+Jako dal¹í studijní materiál doporuèuji obsáhlý <TT>man curses</TT>
+a je¹tì (a to nejlépe) zdrojáky nìjakého ncurses programu.
+<P>
+
+Pøilo¾ený pøíklad lze najít vèetnì <TT>Makefile</TT> v adresáøi
+s Linuxovými novinami nebo na adrese <A HREF="http://home.zf.jcu.cz/~zakkr/LN/">http://home.zf.jcu.cz/~zakkr/LN/</A>.
+
+<IMG SRC="../pixel.gif" WIDTH=8 HEIGHT=8 BORDER=0 ALT="*" ALIGN="RIGHT">
+
+</TD>
+</TR>
+</TABLE>
+</CENTER>
+<P>
+
+<!-- Dolní navigace -->
+<DIV ALIGN="RIGHT">
+<HR>
+- <A HREF="clanek10.html">pøedchozí èlánek</A>
+- <A HREF="clanek12.html">následující èlánek</A>
+- <A HREF="index.html">obsah</A>
+- <A HREF="../index.html">úvodní stránka</A>
+-
+</DIV>
+
+</BODY>
+</HTML>
+
+------------xFFCVsOnc5Wg1f22Iz2GYX
+Content-Disposition: inline; filename=sipka_nahoru.gif
+Content-Type: image/gif; name=sipka_nahoru.gif
+Content-Location: http://www.linux.cz/noviny/1998-1112/sipka_nahoru.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhDAALAID/AP///2BgYCH5BAEAAAAALAAAAAAMAAsAQAIXhB1xe8mIFJAt
+2Rdx1fMyB1KLw5GaaRQAOw==
+
+------------xFFCVsOnc5Wg1f22Iz2GYX
+Content-Disposition: inline; filename=LN_Curses.gif
+Content-Type: image/gif; name=LN_Curses.gif
+Content-Location: http://www.linux.cz/noviny/1998-1112/LN_Curses.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhkAH8APcAAP//////zP//mf//Zv//M///AP/M///MzP/Mmf/MZv/MM//M
+AP+Z//+ZzP+Zmf+ZZv+ZM/+ZAP9m//9mzP9mmf9mZv9mM/9mAP8z//8zzP8zmf8z
+Zv8zM/8zAP8A//8AzP8Amf8AZv8AM/8AAMz//8z/zMz/mcz/Zsz/M8z/AMzM/8zM
+zMzMmczMZszMM8zMAMyZ/8yZzMyZmcyZZsyZM8yZAMxm/8xmzMxmmcxmZsxmM8xm
+AMwz/8wzzMwzmcwzZswzM8wzAMwA/8wAzMwAmcwAZswAM8wAAJn//5n/zJn/mZn/
+Zpn/M5n/AJnM/5nMzJnMmZnMZpnMM5nMAJmZ/5mZzJmZmZmZZpmZM5mZAJlm/5lm
+zJlmmZlmZplmM5lmAJkz/5kzzJkzmZkzZpkzM5kzAJkA/5kAzJkAmZkAZpkAM5kA
+AGb//2b/zGb/mWb/Zmb/M2b/AGbM/2bMzGbMmWbMZmbMM2bMAGaZ/2aZzGaZmWaZ
+ZmaZM2aZAGZm/2ZmzGZmmWZmZmZmM2ZmAGYz/2YzzGYzmWYzZmYzM2YzAGYA/2YA
+zGYAmWYAZmYAM2YAADP//zP/zDP/mTP/ZjP/MzP/ADPM/zPMzDPMmTPMZjPMMzPM
+ADOZ/zOZzDOZmTOZZjOZMzOZADNm/zNmzDNmmTNmZjNmMzNmADMz/zMzzDMzmTMz
+ZjMzMzMzADMA/zMAzDMAmTMAZjMAMzMAAAD//wD/zAD/mQD/ZgD/MwD/AADM/wDM
+zADMmQDMZgDMMwDMAACZ/wCZzACZmQCZZgCZMwCZAABm/wBmzABmmQBmZgBmMwBm
+AAAz/wAzzAAzmQAzZgAzMwAzAAAA/wAAzAAAmQAAZgAAMwAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAACwAAAAAkAH8AEAI/wBXCBxIsKDBgwgTKlzIsKHDhxAjSpxI
+saLFixgzatxY0coKK4CsAbDCyhqrVatYCbRGraVLagCqVKsGCACgajBrqqpWRQXO
+l0CDCh1KtKjRo0iTKl3KtKnTp1CjSp1KlRrNhIFaflQ5kJUVKzOrDLx2bSCLVdSs
+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
+G7vbxCqyW7u2e7u4m7u6y7oBAQA7
+
+------------xFFCVsOnc5Wg1f22Iz2GYX
+Content-Disposition: inline; filename=pixel.gif
+Content-Type: image/gif; name=pixel.gif
+Content-Location: http://www.linux.cz/noviny/pixel.gif
+Content-Transfer-Encoding: Base64
+
+R0lGODlhAQABAJEAAP///xIPEwAAAAAAACwAAAAAAQABAEACAkwBADs=
+
+------------xFFCVsOnc5Wg1f22Iz2GYX--
