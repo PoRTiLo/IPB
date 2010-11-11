@@ -13,50 +13,42 @@
 #include <ncurses.h>
 #include <gloox/connectionlistener.h>
 #include <gloox/rostermanager.h>
+#include <gloox/presence.h>
 using namespace std;
 using namespace gloox;
 
-class Bot : public MessageHandler, ConnectionListener  //dedi z MessageHandler
+
+class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListener  //dedi z MessageHandler
 {
    public:
-      Bot();
+      Bot(){}
       Bot(string login, string pass)
       {
-         JID jid( login );
-         j = new Client( jid, pass );
-         j->registerConnectionListener( this );
-         j->registerMessageHandler( this );
+         JID jid(login);
+			cerr << login << pass <<endl;
+         j = new Client(jid, pass);
+         j->registerConnectionListener(this);
+         j->registerMessageHandler(this);
+			j->rosterManager()->registerRosterListener(this);
          j->disco()->setVersion("Pokus", "0.0.1", "UBUNTU"); //zaobrazi se v infu, nazev, verze, system
          j->disco()->setIdentity( "client", "bot" );
-         j->setPresence( PresenceAvailable, 5 );   //Nastaveni statusu
-         roster = new RosterManager(j); 
-         cerr<<"item:"<<roster->getRosterItem(jid)<<".."<<endl; 
+			//PresenceType pesenece;// = Chat;
+         //j->setPresence( Chat, 5 );   //Nastaveni statusuvailable
+
+			j->logInstance().registerLogHandler(LogLevelDebug, LogAreaAll, this);
 
          
          if( !j->connect() )  //kontrola spojeni se servrem
          {
            cerr << "chyba, zadal jste spatne uzivatelske jmeno" << endl;
          }
+
+			delete(j);
       }
-
-
-
-
-     virtual void handleMessage( Stanza* stanza, MessageSession* session = 0 ) {   //reaguje na prisle zpravy
-           
-           cerr << "ch" << endl;
-         JID from = stanza->from().full();
-         cerr << "bare "<<from.bare()<<endl;
-         cerr << "stanza-from() " << from << endl;
-         JID poslat("bot-jeryy@portilo-laptop");
-         Stanza *s = Stanza::createMessageStanza(poslat, stanza->body() );  //posle vsem kontaktum......
-         j->send( s );
-
-      }
-      virtual void onDisconnect( ConnectionError /*e*/ ) {
-        cerr << j->authError()<<endl;
-         cerr << j->streamErrorText()<<endl;
-         printf("chyab spojeni \n"); 
+		~Bot(){}
+	
+      virtual void onDisconnect( ConnectionError  ) {
+         printf("onDisconecct \n"); 
       }
       virtual void onConnect() {
 
@@ -66,6 +58,98 @@ class Bot : public MessageHandler, ConnectionListener  //dedi z MessageHandler
          printf( "info %d:\n ",info.status);
          return true;
       }
+
+		virtual void onResourceBindError( ResourceBindError error ) {
+			printf("OnResourceError:%d\n", error);
+		}
+
+		virtual void onSessionCreateError( SessionCreateError error ) {
+			printf("SessionCreateError:%d\n", error);
+		}
+
+
+		virtual void handleItemSubscribed( const JID& jid ) {
+			printf("handled subscribed:%s\n", jid.bare().c_str());
+		}
+
+		virtual void handleItemAdded( const JID& jid ) {
+			printf("handle ADD:%s\n", jid.bare().c_str());
+		}
+
+		virtual void handleItemUnsubscribed( const JID& jid ) {
+			printf("hande UNSUBSCRIED:%s\n", jid.bare().c_str());
+		}
+
+		virtual void handleItemRemoved ( const JID& jid ) {
+			printf("handle REMOVED:%s\n", jid.bare().c_str());
+		}
+
+		virtual void handleItemUpdated( const JID& jid ) {
+			printf("handle UPDATE:%s\n", jid.bare().c_str());
+		}
+
+		virtual void handleRoster( const Roster& roster ) {
+			printf("-----------------------------------------------------------\n");
+			printf("Roster arrived\n");
+			Roster::const_iterator it = roster.begin();
+			for( ; it != roster.end(); ++it )
+			{
+				printf("jid: %s, name: %s, subscription: %d\n",(*it).second->jid().c_str(), (*it).second->name().c_str(), (*it).second->subscription());
+				StringList g = (*it).second->groups();
+				StringList::const_iterator it_g = g.begin();
+				for( ; it_g != g.end(); ++it_g )
+				{
+					printf("\tgroup:%s\n",(*it_g).c_str());
+				}
+				RosterItem::ResourceMap::const_iterator rit = (*it).second->resources().begin();
+				for( ; rit != (*it).second->resources().end(); ++rit )
+				{
+					printf("resources:%s\n",(*rit).first.c_str());
+				}
+			}
+			printf(".................................................\n");
+		}
+
+		virtual void handleRosterError( const IQ& ) {
+			printf("");
+		}
+		
+		virtual void handleRosterPresence( const RosterItem& item, const std::string& resource, Presence::PresenceType presence, const std::string& ) {
+			printf("");
+		}
+		
+		virtual void handleSelfPresence( const RosterItem& item, const std::string& resources, Presence::PresenceType presence, const std::string& ) {
+			printf("");
+		}
+
+		virtual bool handleSubscriptionRequest( const JID& jid, const std::string& ) {
+			printf("");
+			StringList groups;
+			JID id(jid);
+			j->rosterManager()->subscribe(id, "", groups, "" );
+			return true;
+		}
+
+		virtual bool handleUnsubscriptionRequest( const JID& jid, const std::string& ) {
+			printf("");
+			return true;
+		}
+
+		virtual void handleNonrosterPresence( const Presence& presence ) {
+			printf("");
+		}
+
+		
+	
+		virtual void handleMessage( const Message& message, MessageSession * /*session=0*/ )	{
+//		 message.subject();
+			/*if( msg.body() == "quit" )quiPt*/
+		}
+
+
+
+
+
 
 // debugovaci fce
       virtual void handleLog( LogLevel level, LogArea area, const std::string& message ) {
@@ -81,6 +165,8 @@ class Bot : public MessageHandler, ConnectionListener  //dedi z MessageHandler
 
 int main( int argc, char* argv[] )
 {
+
+	
 //rozparsrovat login
    string login = argv[1];
    char heslo[80];
@@ -100,6 +186,10 @@ int main( int argc, char* argv[] )
 
    stringstream ss;  ss << heslo;  string pass;  ss>>pass;   //prevede char na string
 
-   Bot b(login, pass);
+	//Client* k;
+	Bot bot(login, pass);
+	//delete(k);
+
+	return 0;
 } 
 
