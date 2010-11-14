@@ -11,10 +11,10 @@
 
 #include "param.h"
 #include "bot.h"
+#include "errors.h"
 /**
  */
 int main( int argc, char* argv[] ) {
-
 	if( argc > 1 )	//jid vlozeno jako argumnet pri spousteni
 	{
 		Param param(argc, argv);

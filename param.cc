@@ -1,4 +1,5 @@
 #include "param.h"
+#include "errors.h"
 
 Param::Param( int argc, char * argv[] )
 {
@@ -21,24 +22,20 @@ int Param::regExp( char* argvJid ) {
 	reHandle = pcre_compile(REG_EXP, PCRE_UTF8, &err, &errOffset, NULL);	//kompila regulatni vyrazu
 	if( !reHandle )
 	{
-		printf("chyba\n");
-		//printf error;
-		//return ERROR;
+		getErrors( EREGCOMP ); // kompilace reg vyrazu se nepovedla
 	}
 
 	res = pcre_exec(reHandle, NULL, argvJid, strlen(argvJid), 0, 0, oVector, VEC_SIZE);
-	if(res > 0 )
+	if(res > 0 )					// spravne JID
 	{
-		printf("nasel\n");
+		getErrors( CREGFOUND );
 		//nasel 
 		//rozepsat do struktury
 		resultJids.pass = "pes";
 	}
-	else
+	else								// chybne JID
 	{
-		printf("NEEEEEEEEEEEEEEEEnasel\n");
-		//nenasel chyba
-		//napsat v jakem tvaru to musi byt
+		getErrors( EREGNOTFOUND );
 	}
 	pcre_free(reHandle);
 }
@@ -55,17 +52,15 @@ int Param::getParams( ) {
 
 	if( pArgc == 2 && ((strcmp("-h", pArgv[1]) == 0) | (strcmp("--h", pArgv[1]) == 0) | (strcmp("-help", pArgv[1]) == 0) | (strcmp("--help", pArgv[1]) == 0)) )
 	{
-		/////print napovedaaaaaaaaaaa
-		return 0; //OK-HELP
+		getErrors( CHELP );		// napoveda
 	}
 	else if( pArgc == 2 )
 	{
 		regExp(pArgv[1]);
-		//return povedlo nepovedlo
 	}
 	else
 	{
-		//zadal jset moc paramrtru
+		getErrors( WMOREPAR );	//zadal jset moc parametru
 	}
 
 	return 0;
