@@ -22,8 +22,30 @@ enum errors {
 	UNKNOWN,
 };
 
+/**
+ * Vytiskne chybove hlaseni.
+ * @param[in] <enum errors> N
+ */
 extern void printErrors( enum errors N );
+
+/**
+ * Vytiskne chybova hlaseni.
+ * @parm[in] <enum errors> N
+ * @param[in] <enum errors> IN
+ */
 extern void printErrors( enum errors N, enum errors IN );
+
+/**
+ * Vytiskne chybove hlaseni.
+ * @param[in] <enum errors> N
+ * @param[in] <enum errors> IN
+ * @param[in] <FILE> oustream
+ */
 extern void printErrors( enum errors N, enum errors IN, FILE *outstream );
+
+/**
+ * Rozhodne o typu chyby.
+ * @param[in] <enum errors> N
+ */
 extern void getErrors( enum errors N );
 #endif //ERRORS_H__

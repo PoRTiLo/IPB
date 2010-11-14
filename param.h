@@ -20,7 +20,7 @@
 #define REG_DOMAIN "REG_HNAME[\".\"REG_HNAME]*"
 #define REG_NODE "REG_CONFORMING_CHAR[REG_CONFORMING_CHAR]*"
 //#define REG_EXP "[REG_NODE\"@\"]REG_DOMAIN[\"/\"REG_RESOURCE]"
-#define REG_EXP "^([a-z]|[A-Z]|[0-9]){1,127}@([[a-z]|[A-Z]|[0-9]]){1,127}/[[a-z]|[A-Z]|[0-9]]{0,127}"
+#define REG_EXP "^([a-zA-Z0-9]){1,127}+@([a-zA-Z0-9]){1,127}+/([a-zA-Z]){0,127}$"
 
 #define VEC_SIZE 100
 
