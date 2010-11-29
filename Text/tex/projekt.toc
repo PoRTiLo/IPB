@@ -4,8 +4,19 @@
 \contentsline {section}{\numberline {1.2}Mus\IeC {\'\i }me v\v ed\v et, komu to chceme \v r\IeC {\'\i }ci}{2}{section.1.2}
 \contentsline {section}{\numberline {1.3}Mus\IeC {\'\i }me si dokonale promyslet obsah}{2}{section.1.3}
 \contentsline {section}{\numberline {1.4}Mus\IeC {\'\i }me ps\'at strukturovan\v e}{3}{section.1.4}
-\contentsline {chapter}{\numberline {2}N\v ekolik form\'aln\IeC {\'\i }ch pravidel}{4}{chapter.2}
-\contentsline {chapter}{\numberline {3}Nikdy to nebude naprosto dokonal\'e}{5}{chapter.3}
-\contentsline {chapter}{\numberline {4}Typografick\'e a~jazykov\'e z\'asady}{6}{chapter.4}
-\contentsline {section}{\numberline {4.1}Co to je normovan\'a str\'anka?}{7}{section.4.1}
-\contentsline {chapter}{\numberline {5}Z\'av\v er}{9}{chapter.5}
+\contentsline {chapter}{\numberline {2}XMPP}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Historie}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Jabber}{4}{section.2.2}
+\contentsline {section}{\numberline {2.3}Knihovny}{4}{section.2.3}
+\contentsline {chapter}{\numberline {3}Dataming}{5}{chapter.3}
+\contentsline {chapter}{\numberline {4}Developer}{6}{chapter.4}
+\contentsline {section}{\numberline {4.1}Cile}{6}{section.4.1}
+\contentsline {section}{\numberline {4.2}Slepa ulicka}{6}{section.4.2}
+\contentsline {section}{\numberline {4.3}knihivna, jazyk}{6}{section.4.3}
+\contentsline {section}{\numberline {4.4}Jine produkty}{6}{section.4.4}
+\contentsline {chapter}{\numberline {5}Nikdy to nebude naprosto dokonal\'e}{8}{chapter.5}
+\contentsline {chapter}{\numberline {6}Typografick\'e a~jazykov\'e z\'asady}{9}{chapter.6}
+\contentsline {section}{\numberline {6.1}Co to je normovan\'a str\'anka?}{10}{section.6.1}
+\contentsline {chapter}{\numberline {7}Z\'av\v er}{12}{chapter.7}
+\contentsline {chapter}{\numberline {A}Struktura XMPP}{14}{appendix.A}
+\contentsline {chapter}{\numberline {B}Slovnik pojmu}{17}{appendix.B}

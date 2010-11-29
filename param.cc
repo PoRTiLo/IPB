@@ -5,7 +5,7 @@ Param::Param( int argc, char * argv[] )
 {
 	pArgc = argc;
 	pArgv = argv;
-	initTJids(resultJids);
+	initTJids();
 }
 
 int Param::regExp( char* argvJid ) {
@@ -14,6 +14,7 @@ int Param::regExp( char* argvJid ) {
 	const char *err;
 	int res;
 	int oVector[VEC_SIZE];
+	memset(oVector,'\0', sizeof(oVector));
 
 	// 0 - kodovani retezce (default)
 	// err - pointer s textem pripadne chyby
@@ -28,10 +29,14 @@ int Param::regExp( char* argvJid ) {
 	res = pcre_exec(reHandle, NULL, argvJid, strlen(argvJid), 0, 0, oVector, VEC_SIZE);
 	if(res > 0 )					// spravne JID
 	{
-		getErrors( CREGFOUND );
-		//nasel 
-		//rozepsat do struktury
-		resultJids.pass = "pes";
+//		getErrors( CREGFOUND );
+
+		resultJids.jids = argvJid;
+		resultJids.user = cpString(oVector[2], oVector[3]);
+		resultJids.server = cpString(oVector[4], oVector[5]);
+		resultJids.resource = cpString(oVector[6], oVector[7]);
+
+//		printStructJids();
 	}
 	else								// chybne JID
 	{
@@ -40,7 +45,18 @@ int Param::regExp( char* argvJid ) {
 	pcre_free(reHandle);
 }
 
-void Param::initTJids( TJids &resultJids) {
+string Param::cpString( int start, int end ) {
+	string pomString;
+	for( int i = start; i < end; i++ )
+		pomString += resultJids.jids[i];
+	return pomString;
+}
+
+void Param::printStructJids() {
+	fprintf(stdout, "result.jids : %s\nresult.user : %s\nresult.server : %s\nresult.resource : %s\nresulJids.pass : %s\n",resultJids.jids.c_str(), resultJids.user.c_str(), resultJids.server.c_str(), resultJids.resource.c_str(), resultJids.pass.c_str() );
+}
+
+void Param::initTJids() {
 	resultJids.jids = "";
 	resultJids.user = "";
 	resultJids.server = "";
@@ -64,4 +80,20 @@ int Param::getParams( ) {
 	}
 
 	return 0;
+}
+
+TJids Param::getTJids() {
+	return resultJids;
+}
+
+int Param::getPArgc() {
+	return pArgc;
+}
+
+char** Param::getPArgv() {
+	return pArgv;
+}
+
+void Param::setTJidsPass( string pass ) {
+	resultJids.pass = pass;
 }

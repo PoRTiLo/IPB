@@ -1,4 +1,5 @@
 //Hlavicka
+#pragma once
 #ifndef BOT_H__
 #define BOT_H__
 
@@ -13,12 +14,46 @@
 #include <gloox/loghandler.h>
 #include <gloox/logsink.h>
 #include <gloox/message.h>
+#include <gloox/messagesessionhandler.h>
+
+
+
+
+
+
+#include "gloox/messagesessionhandler.h"
+#include "gloox/messageeventhandler.h"
+#include "gloox/messageeventfilter.h"
+#include "gloox/chatstatehandler.h"
+#include "gloox/chatstatefilter.h"
+#include "gloox/connectionlistener.h"
+#include "gloox/disco.h"
+#include "gloox/message.h"
+#include "gloox/gloox.h"
+#include "gloox/lastactivity.h"
+#include "gloox/loghandler.h"
+#include "gloox/logsink.h"
+#include "gloox/connectiontcpclient.h"
+#include "gloox/connectionsocks5proxy.h"
+#include "gloox/connectionhttpproxy.h"
+#include "gloox/messagehandler.h"
+
+#include <gloox/vcard.h>
+#include <gloox/vcardhandler.h>
+#include <gloox/vcardmanager.h>
+
+
 
 #include <string>
 #include <fstream>
 
+#include "errors.h"
+#include "const.h"
+#include "database.h"
+
 #define DEF_LOGIN "konsole@localhost"
 #define DEF_PASS "javier"
+
 
 using namespace gloox;
 using namespace std;
@@ -27,7 +62,7 @@ using namespace std;
  * 
  * 
  */
-class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListener
+class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListener, VCardHandler
 {
 	protected:
 		string login;										// JID
@@ -35,7 +70,10 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 	private:
 		Client* j;
 		RosterManager* roster;
-
+		MessageSession* m_session;
+		VCardManager* m_vManager;
+		Database* database;
+		int m_count;
 	public:
 		/**
 		 * Konstruktor bezparametricky.
@@ -159,6 +197,16 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 		 * 
 		 */
 		virtual void handleLog( LogLevel level, LogArea area, const std::string& message );
+
+		/**
+		 *
+		 */
+		virtual void handleVCard( const JID& jid, const VCard* v );
+
+		/**
+		 *
+		 */
+		virtual void handleVCardResult( VCardContext context, const JID& jid, StanzaError se );
 };	
 
 #endif //BOT_H__

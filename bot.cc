@@ -39,20 +39,27 @@
 		//PresenceType pesenece;// = Chat;
 		//j->setPresence( Chat, 5 );   //Nastaveni statusuvailable
 		j->logInstance().registerLogHandler(LogLevelDebug, LogAreaAll, this);
+		
+		StringList ca;
+		ca.push_back( "/pathto/cacert.crt" );
+		j->setCACerts(ca);
+		m_vManager = new VCardManager(j);
+
+		database = new Database();
+		database->start();
 
 		if( !j->connect() )  //kontrola spojeni se servrem
 		{
-			fprintf(stderr, "chyba, zadal jste spatne uzivatelske jmeno");
+			getErrors( ENOCONNECT );
 		}
-
 		delete(j);
 	}
 
-      void Bot::onDisconnect( ConnectionError  ) {
-         printf("onDisconecct \n"); 
-      }
-      void Bot::onConnect() {
+	void Bot::onDisconnect( ConnectionError  ) {
+		printf("onDisconecct \n"); 
+	}
 
+      void Bot::onConnect() {
       }
 
       bool Bot::onTLSConnect( const CertInfo& info ) {
@@ -73,6 +80,9 @@
 
 		void Bot::handleItemSubscribed( const JID& jid ) {
 			printf("handled subscribed:%s\n", jid.bare().c_str());
+
+			m_vManager->fetchVCard(jid,this);
+			//handleVCard(jid(), this);
 		}
 
 		void Bot::handleItemAdded( const JID& jid ) {
@@ -85,6 +95,7 @@
 
 		void Bot::handleItemRemoved ( const JID& jid ) {
 			printf("handle REMOVED:%s\n", jid.bare().c_str());
+
 		}
 
 		void Bot::handleItemUpdated( const JID& jid ) {
@@ -93,24 +104,14 @@
 
 		void Bot::handleRoster( const Roster& roster ) {
 			printf("-----------------------------------------------------------\n");
-			printf("Roster arrived\n");
 			Roster::const_iterator it = roster.begin();
 			for( ; it != roster.end(); ++it )
 			{
-				printf("jid: %s, name: %s, subscription: %d\n",(*it).second->jid().c_str(), (*it).second->name().c_str(), (*it).second->subscription());
-				StringList g = (*it).second->groups();
-				StringList::const_iterator it_g = g.begin();
-				for( ; it_g != g.end(); ++it_g )
-				{
-					printf("\tgroup:%s\n",(*it_g).c_str());
-				}
-				RosterItem::ResourceMap::const_iterator rit = (*it).second->resources().begin();
-				for( ; rit != (*it).second->resources().end(); ++rit )
-				{
-					printf("resources:%s\n",(*rit).first.c_str());
-				}
+				m_vManager->fetchVCard((*it).second->jid(), this);
 			}
-			printf(".................................................\n");
+			printf("....................KONEC.............................\n");
+				
+		//	delete(m_vManager);
 		}
 
 		void Bot::handleRosterError( const IQ& ) {
@@ -144,9 +145,18 @@
 
 		
 	
-		void Bot::handleMessage( const Message& message, MessageSession * /*session=0*/ )	{
-		 message.subject();
-			/*if( msg.body() == "quit" )quiPt*/
+		void Bot::handleMessage( const Message& msg, MessageSession * /*session=0*/ )	{
+//		 message.subject();
+			if( msg.body() == QUIT )
+				j->disconnect();
+			else if( msg.body() == HALLO )
+				m_session->send( "", "AHOJ");
+			else if( msg.body() == "remove")
+				j->rosterManager()->remove( msg.from() );
+
+//			else if( msg.body() == )
+
+
 		}
 
 
@@ -160,4 +170,26 @@
       }
 
 
+		void Bot::handleVCard( const JID& jid, const VCard* v) {
+			printf("\n\n........tadyyyyyyyyyyyyyyyyyyyy...........................     %s\n\n", jid.bare().c_str());
 
+			++m_count;
+// podivat jestli je dobre to V, jestli vubec nekdy nastane ze je prazdne
+			if( !v )	//vcard je prazdny
+			{	//return;
+				//database->insertTableVCard(jid.bare());
+			}
+			else
+			{
+//				insertTableVCard();
+				database->insertTableVCard(jid.bare(), 
+				v->nickname(), v->url(), v->bday(), v->jabberid(), v->title(), v->role(), v->note(), v->mailer(), v->rev(), 
+				v->uid(), v->tz(), v->prodid(), v->sortstring(), v->name().family, v->name().given, v->name().middle, 
+				v->name().prefix, v->name().suffix);
+			}
+
+		}
+
+		void Bot::handleVCardResult( VCardContext context, const JID& jid, StanzaError se = StanzaErrorUndefined) {
+
+		}

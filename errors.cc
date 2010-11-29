@@ -20,6 +20,8 @@ const char *ERRORS[] = {
 	"Chybna kompilace regularniho vyrazu na detekci korektnosti JID.\n",
 //		EREGNOTFOUND
 	"Chyben zadane JID, kontrolovano pomoci regularniho vyrazu\nJID musi byt zadano ve tvaru login@server/resource.\n",
+//		ENOCONNECT
+	"Nespravne heslo nebo prihlasovaci jmeno\n",
 //		END
 	"KONEC.\n"
 //		UNKNOWN
@@ -76,6 +78,6 @@ void printErrors( enum errors N, enum errors IN ) {
 }
 
 void printErrors( enum errors N, enum errors IN, FILE *outstream) {
-	fprintf(outstream, "%s%s", ERRORS[IN], ERRORS[N]);
-	exit(3);
+	fprintf(outstream, "\n%s%s\n", ERRORS[IN], ERRORS[N]);
+	exit(-1);
 }

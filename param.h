@@ -20,7 +20,7 @@
 #define REG_DOMAIN "REG_HNAME[\".\"REG_HNAME]*"
 #define REG_NODE "REG_CONFORMING_CHAR[REG_CONFORMING_CHAR]*"
 //#define REG_EXP "[REG_NODE\"@\"]REG_DOMAIN[\"/\"REG_RESOURCE]"
-#define REG_EXP "^([a-zA-Z0-9]){1,127}+@([a-zA-Z0-9]){1,127}+/([a-zA-Z]){0,127}$"
+#define REG_EXP "^([a-zA-Z0-9]{1,127})@([a-zA-Z0-9]{1,127})/([a-zA-Z]{0,127})$"
 
 #define VEC_SIZE 100
 
@@ -62,6 +62,29 @@ class Param
 		~Param(){};
 
 		/**
+		 *
+		 */
+		void setTJidsPass( string pass );
+
+		/**
+		 *
+		 * @return <TJids>
+		 */
+		TJids getTJids();
+
+		/**
+		 *
+		 * @return <int>
+		 */
+		int getPArgc();
+
+		/**
+		 *
+		 * @return <char**>
+		 */
+		char** getPArgv();
+
+		/**
 		 * Zpracovani JID pomoci regularnich vyrazu.
 		 * @param[in] <char*> argvJid cele JID
 		 * @return<int> vysledek zpracovani, konecny stav, chyby...
@@ -78,6 +101,17 @@ class Param
 		 * Inicializace struktury (vymazani).
 		 * @param[out] <TJids> &resultJids struktura bude vymazana
 		 */
-		void initTJids( TJids &resultJids );
+		void initTJids();
+
+		/**
+		 * 
+		 * @return <string> 
+		 */
+		string cpString( int start, int end );
+
+		/**
+		 * Vytiskne obsah struktury.
+		 */
+		void printStructJids();
 };
 #endif //PARAM_H__

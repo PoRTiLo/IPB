@@ -18,6 +18,7 @@ enum errors {
 	ERROR,
 	EREGCOMP,
 	EREGNOTFOUND,
+	ENOCONNECT,
 	END,
 	UNKNOWN,
 };
