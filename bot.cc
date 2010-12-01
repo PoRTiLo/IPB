@@ -55,17 +55,17 @@
 		delete(j);
 	}
 
-	void Bot::onDisconnect( ConnectionError  ) {
+	void Bot::onDisconnect( ConnectionError ) {
 		printf("onDisconecct \n"); 
 	}
 
-      void Bot::onConnect() {
-      }
+	void Bot::onConnect() {
+	}
 
-      bool Bot::onTLSConnect( const CertInfo& info ) {
-         printf( "info %d:\n ",info.status);
-         return true;
-      }
+ 	bool Bot::onTLSConnect( const CertInfo& info ) {
+		printf( "info %d:\n ",info.status);
+		return true;
+	}
 
 	
 
@@ -82,7 +82,6 @@
 			printf("handled subscribed:%s\n", jid.bare().c_str());
 
 			m_vManager->fetchVCard(jid,this);
-			//handleVCard(jid(), this);
 		}
 
 		void Bot::handleItemAdded( const JID& jid ) {
@@ -103,19 +102,17 @@
 		}
 
 		void Bot::handleRoster( const Roster& roster ) {
-			printf("-----------------------------------------------------------\n");
 			Roster::const_iterator it = roster.begin();
 			for( ; it != roster.end(); ++it )
 			{
 				m_vManager->fetchVCard((*it).second->jid(), this);
+				database->insertTableUser((*it).second->jid());
 			}
-			printf("....................KONEC.............................\n");
 				
 		//	delete(m_vManager);
 		}
 
 		void Bot::handleRosterError( const IQ& ) {
-			printf("");
 		}
 		
 		void Bot::handleRosterPresence( const RosterItem& item, const std::string& resource, Presence::PresenceType presence, const std::string& ) {
@@ -150,7 +147,8 @@
 			if( msg.body() == QUIT )
 				j->disconnect();
 			else if( msg.body() == HALLO )
-				m_session->send( "", "AHOJ");
+//				m_session->send( "", "AHOJ");
+;
 			else if( msg.body() == "remove")
 				j->rosterManager()->remove( msg.from() );
 
@@ -164,14 +162,22 @@
 
 
 
-// debugovaci fce
-      void Bot::handleLog( LogLevel level, LogArea area, const std::string& message ) {
-         printf( "log level :%d, area :%d, %s\n", level, area, message.c_str() );
-      }
+	void Bot::handleLog( LogLevel level, LogArea area, const std::string& message ) {
+
+//		  printf( "log level :%d, area :%d, %s\n", level, area, message.c_str() )  ;
+		if( area == LogAreaXmlIncoming || area == LogAreaXmlOutgoing )
+		{
+			database->insertTableXML( level, area, message );
+		}
+		else// if( area == LogAreaClassDns )      	//Debagovaci zprava
+		{
+			printf("1,");
+			database->insertTableDebug( level, area, message );
+		}
+	}
 
 
 		void Bot::handleVCard( const JID& jid, const VCard* v) {
-			printf("\n\n........tadyyyyyyyyyyyyyyyyyyyy...........................     %s\n\n", jid.bare().c_str());
 
 			++m_count;
 // podivat jestli je dobre to V, jestli vubec nekdy nastane ze je prazdne
@@ -181,11 +187,11 @@
 			}
 			else
 			{
-//				insertTableVCard();
 				database->insertTableVCard(jid.bare(), 
 				v->nickname(), v->url(), v->bday(), v->jabberid(), v->title(), v->role(), v->note(), v->mailer(), v->rev(), 
 				v->uid(), v->tz(), v->prodid(), v->sortstring(), v->name().family, v->name().given, v->name().middle, 
 				v->name().prefix, v->name().suffix);
+				database->insertTableUser(jid.bare());
 			}
 
 		}

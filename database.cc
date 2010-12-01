@@ -39,12 +39,28 @@ void Database::makeStringConnect() {
 void Database::start() {
 	
 	Database::connect();
+
+//	Database::dropAll();
+
 	Database::initDb();
 }
 
 void Database::initDb() {
 
-	Database::createTable( "vcard", DB_VCARD );
+	if( Database::createTable( "logarea", DB_TABLE_LOGAREA ) )
+	{
+		Database::insertTableConst( DB_DATA_LOGAREA );
+	}
+
+	if( Database::createTable( "level", DB_TABLE_LOGAREA ) )
+	{
+		Database::insertTableConst( DB_DATA_LEVEL );
+	}
+
+	Database::createTable( "debug", DB_TABLE_DEBUG );
+
+	Database::createTable( "vcard", DB_TABLE_VCARD );
+	Database::createTable( "userjid", DB_TABLE_USER );
 }
 
 
@@ -79,13 +95,14 @@ void Database::dropTable( const string nameTable ) {
 	PQclear(presult);
 }
 
-void Database::createTable( const string nameTable, const string structTable ) {
+bool Database::createTable( const string nameTable, const string structTable ) {
 
-	string query = DB_S_ALL + nameTable + ";"; 
+	string query = DB_SELECT_ALL + nameTable + ";"; 
 	presult = PQexec(psql, query.c_str());
 	if(PQresultStatus(presult) == PGRES_TUPLES_OK)
 	{
-		printf("exec VCARD existuje");
+		printf("exec %s existuje", nameTable.c_str());
+		return false;
 	}
 	else
 	{
@@ -96,15 +113,17 @@ void Database::createTable( const string nameTable, const string structTable ) {
 			fprintf(stderr, "CHYNA dotazu\n");
 			PQclear(presult);
 			Database::exitError(psql);
+			return false;
 		}
 	}
 	PQclear(presult);
+	return true;
 }
 
 
 void Database::insertTableVCard( const string sJid, const string name ) {
 
-	string query = DB_I_VCARD;
+	string query = DB_INSERT;
 	query += "vcard (id, jid, family) VALUES (12, '" + sJid + "', '" + name + "');";
 	presult = PQexec( psql, query.c_str() );
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
@@ -118,9 +137,9 @@ void Database::insertTableVCard( const string sJid, const string name ) {
 
 void Database::insertTableVCard( string jidBare, string nickname, string url, string bday, string jabberid, string title, string role, string note, string mailer, string rev, string uid, string tz, string prodid, string sortstring, string nFamily, string nGiven, string nMiddle, string nPrefix, string nSuffix ) {
 
-	string query = DB_I_VCARD;
-	query += "vcard (id, jid, family, given, middle, prefix, suffix, nickname, url, bday, jabberid, title, role, note, mailer, rev, uid, tz, prodid, sortstring) VALUES (12, '" + jidBare + "', '" + nFamily + "', '" + nFamily + "', '" + nGiven + "', '" + nMiddle + "', '" + nPrefix + "', '" + nSuffix + "', '" + url + "', '" + bday + "', '" + jabberid + "', '" + title + "', '" + role + "', '" + note + "', '" + mailer + "', '" + rev + "', '" + uid + "', '" + tz + "', '" + prodid + "', '" + sortstring + "');";
-	printf("////////////////// %s\n", query.c_str());
+	Database::getTime();
+	string query = DB_INSERT;
+	query += "vcard ( jid, dateAdd, family, given, middle, prefix, suffix, nickname, url, bday, jabberid, title, role, note, mailer, rev, uid, tz, prodid, sortstring) VALUES ( '" + jidBare + "', timestamp '" + sTime + "', '" + nFamily + "', '" + nFamily + "', '" + nGiven + "', '" + nMiddle + "', '" + nPrefix + "', '" + nSuffix + "', '" + url + "', '" + bday + "', '" + jabberid + "', '" + title + "', '" + role + "', '" + note + "', '" + mailer + "', '" + rev + "', '" + uid + "', '" + tz + "', '" + prodid + "', '" + sortstring + "');";
 	presult = PQexec( psql, query.c_str() );
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
@@ -130,7 +149,77 @@ void Database::insertTableVCard( string jidBare, string nickname, string url, st
 	PQclear(presult);
 }
 
+void Database::insertTableConst( const string query ) {
+	
+	presult = PQexec( psql, query.c_str() );
+	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
+	{
+		PQclear(presult);
+		Database::exitError(psql);
+	}
+	PQclear(presult);
+}
 
+void Database::insertTableUser( string jidBare) {
+
+	if( !existUser(jidBare) )
+	{
+		//vlozeni noveho uzivatele
+
+		Database::getTime();
+		string query = DB_INSERT;
+		query += "userjid (jidbare, date) VALUES ('"+ jidBare + "', timestamp '" + sTime + "');";
+		presult = PQexec( psql, query.c_str() );
+		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
+		{
+			PQclear(presult);
+			Database::exitError(psql);
+		}
+	}
+	PQclear(presult);
+}
+
+bool Database::existUser( const string user ) {
+
+	string query = "Select jidbare from userjid where jidbare = '";
+	query += user + "';";
+
+	presult = PQexec(psql, query.c_str());
+	if(PQresultStatus(presult) == PGRES_TUPLES_OK)
+	{
+
+		if( PQntuples(presult) == 0 )
+			return false;
+		else
+			return true;
+	}
+	else
+		return false;
+}
+
+void Database::insertTableDebug( int level, int area, const string message ) {
+
+	Database::getTime();
+	string query = DB_INSERT;
+	query += "debug ( area, dateAdd, level, message) VALUES ("+ Database::convertInt(area) + ", timestamp '" + sTime + "', ";
+	query += Database::convertInt( level ) + ", '" + message + "');";
+	presult = PQexec( psql, query.c_str() );
+	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
+	{
+		PQclear(presult);
+		Database::exitError(psql);
+	}
+	else
+	{
+
+		PQclear(presult);
+	}
+}
+
+void Database::insertTableXML( int level, int area, const string message ) {
+
+
+}
 /**
  *
  *
@@ -141,3 +230,28 @@ void Database::exitError(PGconn *psql) {
 }
 
 
+void Database::getTime() {
+
+	time_t times;
+	times = time(NULL);
+	struct tm *ltmtime = localtime(&times);
+  	strftime(sTime, 80 - 1, "%Y-%m-%d %H:%M:%S ", ltmtime);
+}
+
+string Database::convertInt( int number ) {
+
+	stringstream ss;
+	ss << number;;
+	return ss.str();
+}
+
+
+void Database::dropAll() {
+
+	Database::dropTable( "debug");
+	Database::dropTable( "level");
+	Database::dropTable( "logarea");
+	Database::dropTable( "userjid");
+	Database::dropTable( "vcard");
+
+}

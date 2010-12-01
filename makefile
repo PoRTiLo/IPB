@@ -14,10 +14,11 @@ SRC=main.cc bot.cc param.cc errors.cc database.cc
 HEAD=bot.h param.h errors.h database.h
 
 CCM=g++
-CCMFLAGS=-std=c++98 -Wall -pedantic -lncurses -lgloox -lpthread -lpcre -L/usr/lib/postgresql/8.4/lib/ -lpq#-dumpspecs
+CCMFLAGS=-std=c++98 -Wall -pedantic -lncurses -lgloox -lpthread -lpcre -L/usr/lib/postgresql/8.4/lib/ -lpq  -Wextra#-dumpspecs
 CPPFLAGS = -I/usr/include/postgresql/
 
-all:  ${PROGRAM} clean
+
+all:  ${PROGRAM}
 
 run:
 	./${PROGRAM} 
@@ -28,7 +29,7 @@ ${PROGRAM}: ${OBJ}
 ${OBJ}:${HEAD}
 
 clean: 
-	rm -f *.o
+	rm -f *.o ${PROGRAM}
 
 delete:
 	rm -f *.o ${PROGRAM} ${PROGRAM}.tar.gz ${PROGRAM}.zip
@@ -36,3 +37,6 @@ delete:
 tar:
 	tar -c ${SRC} ${HEAD} makefile dokumentace.pdf > ${PROJECT}.tar; \
 	gzip ${PROJECT}.tar
+
+help:
+	@echo "dodelat"

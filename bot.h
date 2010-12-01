@@ -21,22 +21,15 @@
 
 
 
-#include "gloox/messagesessionhandler.h"
 #include "gloox/messageeventhandler.h"
 #include "gloox/messageeventfilter.h"
 #include "gloox/chatstatehandler.h"
 #include "gloox/chatstatefilter.h"
-#include "gloox/connectionlistener.h"
-#include "gloox/disco.h"
-#include "gloox/message.h"
 #include "gloox/gloox.h"
 #include "gloox/lastactivity.h"
-#include "gloox/loghandler.h"
-#include "gloox/logsink.h"
 #include "gloox/connectiontcpclient.h"
 #include "gloox/connectionsocks5proxy.h"
 #include "gloox/connectionhttpproxy.h"
-#include "gloox/messagehandler.h"
 
 #include <gloox/vcard.h>
 #include <gloox/vcardhandler.h>
@@ -118,21 +111,27 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 		string getPass();
 
 		/**
-		 *
+		 * Vytvoreni klienta, pripojeni se k servu, prihlasi se k odberu logu. Inicializace a pripojeni k databazi.
 		 */
 		bool run();
+
 		/**
-		 * 
+		 * Odpojeni klienta bota od servu.
+		 * @param <ConnectionError>
 		 */
 		virtual void onDisconnect( ConnectionError );
+
 		/**
-		 * 
+		 * Pripojeno.
 		 */
 		virtual void onConnect();
+
 		/**
-		 * 
+		 * Bezpecne pripojeni.
+		 * @param[in] <CertInfo> &info Informace o certifikatu.
 		 */
 		virtual bool onTLSConnect( const CertInfo& info );
+
 		/**
 		 * 
 		 */
