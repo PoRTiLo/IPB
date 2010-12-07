@@ -11,14 +11,14 @@ PROJECT=IPB
 
 OBJ=main.o bot.o param.o errors.o database.o 
 SRC=main.cc bot.cc param.cc errors.cc database.cc
-HEAD=bot.h param.h errors.h database.h
+HEAD=bot.h param.h errors.h database.h const.h
 
 CCM=g++
 CCMFLAGS=-std=c++98 -Wall -pedantic -lncurses -lgloox -lpthread -lpcre -L/usr/lib/postgresql/8.4/lib/ -lpq  -Wextra#-dumpspecs
 CPPFLAGS = -I/usr/include/postgresql/
 
 
-all:  ${PROGRAM}
+all:  ${PROGRAM} clean
 
 run:
 	./${PROGRAM} 
@@ -28,7 +28,10 @@ ${PROGRAM}: ${OBJ}
 
 ${OBJ}:${HEAD}
 
-clean: 
+clean:
+	rm -f *.o
+
+clean-all:
 	rm -f *.o ${PROGRAM}
 
 delete:
@@ -37,6 +40,8 @@ delete:
 tar:
 	tar -c ${SRC} ${HEAD} makefile dokumentace.pdf > ${PROJECT}.tar; \
 	gzip ${PROJECT}.tar
+zip:
+	zip ${PROJECT} ${SRC} ${HEAD} makefile
 
 help:
 	@echo "dodelat"

@@ -3,24 +3,24 @@
 
 Database::Database()
 {
-	hostaddr = DB_ADDR;
-	dbname = DB_NAME;
-	user = DB_USER;
-	password = DB_PASS;
-	connectTimeout = DB_TIME;
-	port = DB_PORT;
-	connInfo = "";
+	this->hostaddr = DB_ADDR;
+	this->dbname = DB_NAME;
+	this->user = DB_USER;
+	this->password = DB_PASS;
+	this->connectTimeout = DB_TIME;
+	this->port = DB_PORT;
+	this->connInfo = "";
 }
 
 Database::Database( string shostaddr, string sdbname, string suser, string spassword, string sconnectTimeout,  string sport )
 {
-	hostaddr = shostaddr;
-	dbname = sdbname;
-	user = suser;
-	password = spassword;
-	connectTimeout = sconnectTimeout;
-	port = sport;
-	connInfo = "";
+	this->hostaddr = shostaddr;
+	this->dbname = sdbname;
+	this->user = suser;
+	this->password = spassword;
+	this->connectTimeout = sconnectTimeout;
+	this->port = sport;
+	this->connInfo = "";
 }
 
 void Database::makeStringConnect() {
@@ -32,7 +32,7 @@ void Database::makeStringConnect() {
 	string spassword = "' password = '";
 	string sconnect_timeout = "' connect_timeout = '";
 	string sconnInfo = "";
-	connInfo += shostaddr + hostaddr + sport + port + sdbname + dbname + suser + user + spassword + password + sconnect_timeout + connectTimeout +"'";
+	this->connInfo += shostaddr + hostaddr + sport + port + sdbname + dbname + suser + user + spassword + password + sconnect_timeout + connectTimeout +"'";
 }
 
 
@@ -40,7 +40,7 @@ void Database::start() {
 	
 	Database::connect();
 
-//	Database::dropAll();
+	Database::dropAll();
 
 	Database::initDb();
 }
@@ -57,6 +57,8 @@ void Database::initDb() {
 		Database::insertTableConst( DB_DATA_LEVEL );
 	}
 
+	Database::createTable( "xml", DB_TABLE_XML );
+
 	Database::createTable( "debug", DB_TABLE_DEBUG );
 
 	Database::createTable( "vcard", DB_TABLE_VCARD );
@@ -67,30 +69,30 @@ void Database::initDb() {
 void Database::connect() {
 	
 	Database::makeStringConnect();
-	psql = PQconnectdb(connInfo.c_str());
-	if( !psql )
+	this->psql = PQconnectdb(connInfo.c_str());
+	if( !this->psql )
 	{
 		fprintf(stderr, "Error\n");
-		Database::exitError(psql);
+		Database::exitError();
 	}
 
 	//connect
-	if( PQstatus(psql) != CONNECTION_OK )
+	if( PQstatus(this->psql) != CONNECTION_OK )
 	{
 		fprintf(stderr, "chyba\n");
-		Database::exitError(psql);
+		Database::exitError();
 	}
 }
 
 void Database::dropTable( const string nameTable ) {
 
-	string query = DB_D_T_I_E + nameTable + ";";
-	presult = PQexec(psql, query.c_str());
+	string query = DB_D_T_I_E + nameTable + "CASCADE;";
+	presult = PQexec(this->psql, query.c_str());
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK)
 	{
 		fprintf(stderr, "CHYBA MAZANI TABLKY\n");	
 		PQclear(presult);
-		Database::exitError(psql);
+		Database::exitError();
 	}
 	PQclear(presult);
 }
@@ -98,7 +100,7 @@ void Database::dropTable( const string nameTable ) {
 bool Database::createTable( const string nameTable, const string structTable ) {
 
 	string query = DB_SELECT_ALL + nameTable + ";"; 
-	presult = PQexec(psql, query.c_str());
+	presult = PQexec(this->psql, query.c_str());
 	if(PQresultStatus(presult) == PGRES_TUPLES_OK)
 	{
 		printf("exec %s existuje", nameTable.c_str());
@@ -107,12 +109,12 @@ bool Database::createTable( const string nameTable, const string structTable ) {
 	else
 	{
 		query = DB_C_T + nameTable + " (" + structTable + ");";
-		presult = PQexec( psql, query.c_str() );
+		presult = PQexec( this->psql, query.c_str() );
 		if(PQresultStatus(presult) != PGRES_COMMAND_OK)
 		{
 			fprintf(stderr, "CHYNA dotazu\n");
 			PQclear(presult);
-			Database::exitError(psql);
+			Database::exitError();
 			return false;
 		}
 	}
@@ -120,42 +122,42 @@ bool Database::createTable( const string nameTable, const string structTable ) {
 	return true;
 }
 
-
+/*
 void Database::insertTableVCard( const string sJid, const string name ) {
 
 	string query = DB_INSERT;
 	query += "vcard (id, jid, family) VALUES (12, '" + sJid + "', '" + name + "');";
-	presult = PQexec( psql, query.c_str() );
+	presult = PQexec( this->psql, query.c_str() );
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
 		PQclear(presult);
-		Database::exitError(psql);
+		Database::exitError();
 	}
 	PQclear(presult);
 }
-
+*/
 
 void Database::insertTableVCard( string jidBare, string nickname, string url, string bday, string jabberid, string title, string role, string note, string mailer, string rev, string uid, string tz, string prodid, string sortstring, string nFamily, string nGiven, string nMiddle, string nPrefix, string nSuffix ) {
 
 	Database::getTime();
 	string query = DB_INSERT;
 	query += "vcard ( jid, dateAdd, family, given, middle, prefix, suffix, nickname, url, bday, jabberid, title, role, note, mailer, rev, uid, tz, prodid, sortstring) VALUES ( '" + jidBare + "', timestamp '" + sTime + "', '" + nFamily + "', '" + nFamily + "', '" + nGiven + "', '" + nMiddle + "', '" + nPrefix + "', '" + nSuffix + "', '" + url + "', '" + bday + "', '" + jabberid + "', '" + title + "', '" + role + "', '" + note + "', '" + mailer + "', '" + rev + "', '" + uid + "', '" + tz + "', '" + prodid + "', '" + sortstring + "');";
-	presult = PQexec( psql, query.c_str() );
+	presult = PQexec( this->psql, query.c_str() );
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
 		PQclear(presult);
-		Database::exitError(psql);
+		Database::exitError();
 	}
 	PQclear(presult);
 }
 
 void Database::insertTableConst( const string query ) {
 	
-	presult = PQexec( psql, query.c_str() );
+	presult = PQexec( this->psql, query.c_str() );
 	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
 		PQclear(presult);
-		Database::exitError(psql);
+		Database::exitError();
 	}
 	PQclear(presult);
 }
@@ -168,12 +170,12 @@ void Database::insertTableUser( string jidBare) {
 
 		Database::getTime();
 		string query = DB_INSERT;
-		query += "userjid (jidbare, date) VALUES ('"+ jidBare + "', timestamp '" + sTime + "');";
-		presult = PQexec( psql, query.c_str() );
+		query += "userjid (jidbare, date) VALUES ('"+ jidBare + "', timestamp '" + this->sTime + "');";
+		presult = PQexec( this->psql, query.c_str() );
 		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 		{
 			PQclear(presult);
-			Database::exitError(psql);
+			Database::exitError();
 		}
 	}
 	PQclear(presult);
@@ -184,7 +186,7 @@ bool Database::existUser( const string user ) {
 	string query = "Select jidbare from userjid where jidbare = '";
 	query += user + "';";
 
-	presult = PQexec(psql, query.c_str());
+	presult = PQexec(this->psql, query.c_str());
 	if(PQresultStatus(presult) == PGRES_TUPLES_OK)
 	{
 
@@ -201,13 +203,13 @@ void Database::insertTableDebug( int level, int area, const string message ) {
 
 	Database::getTime();
 	string query = DB_INSERT;
-	query += "debug ( area, dateAdd, level, message) VALUES ("+ Database::convertInt(area) + ", timestamp '" + sTime + "', ";
-	query += Database::convertInt( level ) + ", '" + message + "');";
-	presult = PQexec( psql, query.c_str() );
+	query += "debug ( area, dateAdd, level, message) VALUES ("+ Database::convertInt(area) + ", timestamp '" + this->sTime + "', ";
+	query += Database::convertInt( level ) + ", '" + Database::convertXML(message) + "');";
+	presult = PQexec( this->psql, query.c_str() );
 	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
 		PQclear(presult);
-		Database::exitError(psql);
+		Database::exitError();
 	}
 	else
 	{
@@ -217,15 +219,40 @@ void Database::insertTableDebug( int level, int area, const string message ) {
 }
 
 void Database::insertTableXML( int level, int area, const string message ) {
-
+//	string parserMes = message;
+//	parser->feed(parserMes);
+	Database::getTime();
+	string query = DB_INSERT;
+	query += "xml ( area, dateAdd, level, message) VALUES ("+ Database::convertInt(area) + ", timestamp '" + this->sTime + "', ";
+	query += Database::convertInt( level ) + ", '" + Database::convertXML(message) + "');";
+	presult = PQexec( this->psql, query.c_str() );
+	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
+	{
+		PQclear(presult);
+		Database::exitError();
+	}
+	else
+	{
+		PQclear(presult);
+	}
 
 }
+
+string Database::convertXML( string message ) {
+
+	int lenght = message.length();
+	char mess[lenght];
+	PQescapeString( mess, message.c_str(), lenght );
+	string back(mess);
+	return back;
+}
+
 /**
  *
  *
  */
-void Database::exitError(PGconn *psql) {
-	PQfinish(psql);
+void Database::exitError() {
+	PQfinish(this->psql);
 	//exit(EXIT_FAILURE);
 }
 
@@ -235,7 +262,7 @@ void Database::getTime() {
 	time_t times;
 	times = time(NULL);
 	struct tm *ltmtime = localtime(&times);
-  	strftime(sTime, 80 - 1, "%Y-%m-%d %H:%M:%S ", ltmtime);
+  	strftime(this->sTime, 80 - 1, "%Y-%m-%d %H:%M:%S ", ltmtime);
 }
 
 string Database::convertInt( int number ) {
@@ -253,5 +280,6 @@ void Database::dropAll() {
 	Database::dropTable( "logarea");
 	Database::dropTable( "userjid");
 	Database::dropTable( "vcard");
+	Database::dropTable( "xml");
 
 }

@@ -23,13 +23,20 @@
 #include <time.h>
 #include <sstream>
 
-using namespace std;
+#include <gloox/parser.h>
 
+using namespace std;
+using namespace gloox;
+
+/**
+ * Poskytuje rozhrani pro praci s databazi POSTGRESQL verze 8.4.
+ */
 class Database
 {
 	private:
 		PGconn *psql;
 		PGresult *presult;
+		Parser* parser;
 
 	protected:
 		string hostaddr;
@@ -50,12 +57,12 @@ class Database
 
 		/**
 		 * Konstruktor.
-		 * @param[in] <string> hostaddr
-		 * @param[in] <string> dbname
-		 * @param[in] <string> user
-		 * @param[in] <string> password
-		 * @param[in] <string> connectTimeout
-		 * @param[in] <string> port
+		 * @param[in] <string> hostaddr Adresa servru databaze.
+		 * @param[in] <string> dbname Jmeno databaze.
+		 * @param[in] <string> user Uzivatelsek jemno vlastnika databaze.
+		 * @param[in] <string> password Heslo pro pripojeni do databaze.
+		 * @param[in] <string> connectTimeout Cas pro ukonceni pripojeni pokud se to nepovede.
+		 * @param[in] <string> port Port pripojeni.
 		 */
 		Database( string hostaddr, string dbname, string user, string password, string connectTimeout, string  port );
 		
@@ -86,16 +93,16 @@ class Database
 
 		/**
 		 * Odstraneni tabulky z databaze.
-		 * @param[in] <const string> nameTale Jmeno tabulky odebirane z databaze.
+		 * @param[in] <const string> nameTable Jmeno tabulky odebirane z databaze.
 		 */
 		void dropTable( const string nameTable );
 
 		/**
-		 * Vytvoren itabulky.
+		 * Vytvoreni tabulky.
 		 * @param[in] <const string> nameTable Jmeno tabulky, ktera bude vytvorena.
 		 * @param[in] <const string> dataTable Data pro vytvoreni tabulky, jmena a typy sloupcu.
 		 * @return <bool> true Tabulka vytvorena.
-		 *                false Tabulka neni vutvorena, mozna jiz ezistuje.
+		 *                false Tabulka neni vutvorena, mozna jiz existuje.
 		 */
 		bool createTable( const string nameTable, const string dataTable );
 
@@ -103,15 +110,35 @@ class Database
 		 * Vlozeni dat do tabulky vcard.
 		 * @param[in] <const string> sJid 
 		 */
-		void insertTableVCard( const string sJid, const string name );
+//		void insertTableVCard( const string sJid, const string name );
 		
 		/**
-		 *
+		 * Vlozeni dat do tabulky VCARD.
+		 * @param[in] <string> jidBare
+		 * @param[in] <string> nickname
+		 * @param[in] <string> url
+		 * @param[in] <string> bday
+		 * @param[in] <string> jabberid
+		 * @param[in] <string> title
+		 * @param[in] <string> role
+		 * @param[in] <string> note
+		 * @param[in] <string> mailer
+		 * @param[in] <string> rev
+		 * @prama[in] <string> uid
+		 * @param[in] <string> tz
+		 * @param[in] <string> proid
+		 * @param[in] <string> sortstring
+		 * @param[in] <string> nFamily
+		 * @param[in] <string> nGiven
+		 * @param[in] <string> nMiddle
+		 * @param[in] <string> nPrefix
+		 * @param[in] <string> nSuffix
 		 */
 		void insertTableVCard( string jidBare, string nickname, string url, string bday, string jabberid, string title, string role, string note, string mailer, string rev, string uid, string tz, string proid, string sortstring, string nFamily, string nGiven, string nMiddle, string nPrefix, string nSuffix );
 
 		/**
 		 * Vlozeni logovych informaci. Id cilso = informace slovy.
+		 * @param[in] <string> query Data vlozena do tabulky.
 		 */
 		void insertTableConst( const string query );
 
@@ -135,7 +162,7 @@ class Database
 		/**
 		 *
 		 */
-		void exitError(PGconn *psql);
+		void exitError();
 
 		/**
 		 * Nastaveni promenne sTime aktualnim casem. Format YYYY-MM-DD HH:MM:SS.
@@ -153,7 +180,7 @@ class Database
 		 *
 		 *
 		 */
-		void insertTableXML( int level, int area, const string message );
+		void insertTableXML( int level, int area, string message );
 
 		/**
 		 *
@@ -167,6 +194,13 @@ class Database
 		 *
 		 */
 		void dropAll();
+
+		/**
+		 *
+		 *
+		 *
+		 */
+		string convertXML( string message );
 
 };
 

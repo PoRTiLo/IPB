@@ -39,7 +39,6 @@
 		//PresenceType pesenece;// = Chat;
 		//j->setPresence( Chat, 5 );   //Nastaveni statusuvailable
 		j->logInstance().registerLogHandler(LogLevelDebug, LogAreaAll, this);
-		
 		StringList ca;
 		ca.push_back( "/pathto/cacert.crt" );
 		j->setCACerts(ca);
@@ -164,14 +163,13 @@
 
 	void Bot::handleLog( LogLevel level, LogArea area, const std::string& message ) {
 
-//		  printf( "log level :%d, area :%d, %s\n", level, area, message.c_str() )  ;
+		//  printf( "log level :%d, area :%d, %s\n", level, area, message.c_str() );
 		if( area == LogAreaXmlIncoming || area == LogAreaXmlOutgoing )
 		{
 			database->insertTableXML( level, area, message );
 		}
 		else// if( area == LogAreaClassDns )      	//Debagovaci zprava
 		{
-			printf("1,");
 			database->insertTableDebug( level, area, message );
 		}
 	}

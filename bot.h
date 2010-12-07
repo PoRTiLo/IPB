@@ -44,8 +44,11 @@
 #include "const.h"
 #include "database.h"
 
-#define DEF_LOGIN "konsole@localhost"
-#define DEF_PASS "javier"
+//#define DEF_LOGIN "konsole@localhost"
+//#define DEF_PASS "javier"
+
+#define DEF_LOGIN "JabInfo@jabbim.com"
+#define DEF_PASS "xse20IPB10"
 
 
 using namespace gloox;
