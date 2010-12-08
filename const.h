@@ -85,3 +85,22 @@
 							 "(0, 'LogLevelDebug', 'Debug messages', ''),"\
 							 "(1, 'LogLevelWarning', 'Non-critical warning messages', ''),"\
 							 "(2, 'LogLevelError', 'Critical, unrecoverable errors', '')"
+#define DB_TABLE_PRESENCE " id serial PRIMARY KEY,"\
+							 " date timestamp,"\
+							 " fromJ text,"\
+							 " toJ text,"\
+							 " message text,"\
+							 " name text,"\
+							 " resource text,"\
+							 " presence text,"\
+							 " priority integer"
+#define DB_DEF_PRESENCE "INSERT INTO presence ( date, fromJ, toJ, message, name, resource, presence, priority) VALUES ("
+#define DB_TABLE_MESSAGE "id serial PRIMARY KEY,"\
+							 " date timestamp,"\
+							 " fromJ text,"\
+							 " toJ text,"\
+							 " message text,"\
+							 " subject text,"\
+							 " thread text,"\
+							 " subtype text"
+#define DB_DEF_MESSAGE "INSERT INTO message ( date, fromJ, toJ, message, subject, thread, subtype) VALUES ("

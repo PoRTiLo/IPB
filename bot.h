@@ -44,11 +44,11 @@
 #include "const.h"
 #include "database.h"
 
-//#define DEF_LOGIN "konsole@localhost"
-//#define DEF_PASS "javier"
+#define DEF_LOGIN "konsole@localhost"
+#define DEF_PASS "javier"
 
-#define DEF_LOGIN "JabInfo@jabbim.com"
-#define DEF_PASS "xse20IPB10"
+//#define DEF_LOGIN "JabInfo@jabbim.com"
+//#define DEF_PASS "xse20IPB10"
 
 
 using namespace gloox;
@@ -58,7 +58,7 @@ using namespace std;
  * 
  * 
  */
-class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListener, VCardHandler
+class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListener, VCardHandler, MessageSessionHandler//, MessageEventHandler, ChatStateHandler
 {
 	protected:
 		string login;										// JID
@@ -67,6 +67,9 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 		Client* j;
 		RosterManager* roster;
 		MessageSession* m_session;
+//		MessageEventFilter* m_messageEventFilter;
+//		MessageEventHandler* m_messageEventHandler;
+		ChatStateFilter* m_chatStateFilter;
 		VCardManager* m_vManager;
 		Database* database;
 		int m_count;
@@ -87,7 +90,7 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 		/**
 		 * Destruktor.
 		 */
-		~Bot(){}
+		~Bot();
 
 		/**
 		 * Nastaveni prihlasovaciho jmena JID.
@@ -174,11 +177,12 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 		/**
 		 * 
 		 */
-		virtual void handleRosterPresence( const RosterItem& item, const std::string& resource, Presence::PresenceType presence, const std::string& );
+		virtual void handleRosterPresence( const RosterItem& item, const std::string& resource, Presence::PresenceType presence, const std::string& msg);
+
 		/**
-		 * 
+		 * Odchytava presenci odesilanou od bota (od nas k nekomu).
 		 */
-		virtual void handleSelfPresence( const RosterItem& item, const std::string& resources, Presence::PresenceType presence, const std::string& );
+		virtual void handleSelfPresence( const RosterItem& item, const std::string& resources, Presence::PresenceType presence, const std::string& msg);
 		/**
 		 * 
 		 */
@@ -209,6 +213,25 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 		 *
 		 */
 		virtual void handleVCardResult( VCardContext context, const JID& jid, StanzaError se );
+
+		virtual void handleMessageSession( MessageSession* session );
+
+		/**
+		 * Prevod typu zpravy na text.
+		 * @param[in] <inst> subtype Typ zpravy.
+		 * @return <string> Textova reprezentace typu zpravy.
+		 */
+		string messageSubtype( const int subtype );
+
+		/**
+		 * Prevod typu presence na text.
+		 * @param[in] <int> presence Typ presence.
+		 * @return <string> Textove reprezentace typu presence.
+		 */
+		string presenceString( const int presence );
+
+//		virtual void handleMessageEvent( const JID& from, MessageEventType event );
+//		virtual void handleChatState( const JID& from, ChatStateType state);
 };	
 
 #endif //BOT_H__

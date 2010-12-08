@@ -36,7 +36,7 @@ class Database
 	private:
 		PGconn *psql;
 		PGresult *presult;
-		Parser* parser;
+//		Parser* parser;
 
 	protected:
 		string hostaddr;
@@ -201,6 +201,17 @@ class Database
 		 *
 		 */
 		string convertXML( string message );
+
+		/**
+		 *
+		 *
+		 *
+		 *
+		 *
+		 */
+		void insertTablePresence( const string jid, const string msg, const string name, const string resource, const string presence, const int priority );
+		void insertTablePresence( const string jid, const string msg, const string name, const string resource, const string presence );
+		void insertTableMessage( const string jid, const string msg, const string subject, const string thread, const string subtype ); 
 
 };
 
