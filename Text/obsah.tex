@@ -1,0 +1,202 @@
+%=========================================================================
+% (c) Michal Bidlo, Bohuslav Køena, 2008
+
+\chapter{Úvod}
+
+%\section{Musíme mít co øíci}
+
+%\section{Musíme vìdìt, komu to chceme øíci}
+
+%\section{Musíme si dokonale promyslet obsah}
+
+%\section{Musíme psát strukturovanì} 
+
+\chapter{XMPP}
+Pro usnadnìní a lep¹í pochopení budou v následující kapitole rozebrány základní stavební kameny protokolu Extensible Messaging and Presence Protocol (XMPP). 
+Samotný protokol je datován do roku 2004 (bøezen), kdy na nìj byl pøejmenován jabber. Pùvodní projekt jabber byl vytvoøen roku 1998 autorem Jeremie Miller, 
+je¾ ho zalo¾il na popud nesvobodných uzavøených IM slu¾eb. Mìl mít tøi základní vlastnosti -jednoduchost a srozumitelnost pro implementaci, jednodu¹e roz¹iøitelný 
+a otevøený. Základní vlastnosti a výhody klientù a serverù budou popsány ní¾e. Roku 1999, 4.ledna byl vytvoøen první server se jménem jabber. Komunita vývojáøù 
+se chopila iniciativy a napsala klienty pro rùzné platformy (Linux, Macintosh, Windows), kteøí dokázali se serverem komunikovat. Roku 2004 byl pøidán mezi RFC 
+(request of comments - ¾ádost o komentáøe) dokumenty. Základní normy jsou RFC 3920 (obecná specifikace protokolu) a RFC 3921 (samotný instant messaging a 
+zobrazení stavu). Dal¹í zdokumentovaná roz¹íøení jsou vydávána v podobì tzv. XEP (XMPP Extension Protocol) dokumentù, star¹ím jménem JEP (Jabber Enhancement 
+Proposal). Dne¹ní poèet tìchto norem se blí¾í k èíslu 300. Ka¾dý XEP obsahuje status, stav vývoje (schválení), ve kterém se zrovna nachází. Jako bezpeènostní prvky 
+jsou zde podporovány SASL, TLS a GPG. XMPP protokol je postaven na obecném znaèkovacím jazyce XML, proto vlastnosti popsané v kapitole \ref{Xml} na stranì 
+\pageref{Xml} platí i pro tento protokol.
+%\begin{enumerate}
+%\item ==znaková sada
+%\end{enumerate}
+
+\subsection*{Jabber}\label{Jabber}
+Dnes známý jako komunikaèní platforma zalo¾ená na protokolu XMPP. Vzdálenì jej lze pøirovnat k dnes ji¾ na slávì upadajícímu software ICQ (I Seek You) vyu¾ívající protokol 
+OSCAR (Open System CommunicAtion in Realtime - otevøený systém pro komunikaci v reálném èase).
+\section{Architektura}
+Dobøe navr¾ená architektura tvoøí základ pro správnì fungující internetovou technologii. XMPP protokol vyu¾ívá decentralizované klient-server slo¾ení. Tato struktura 
+se nejvíce podobá struktuøe posílání e-mailù. V tomto pøípadu je decentralizace sítì chápána jako inteligentní nezávislost mezi vývojáøi klientù a serverù. Ka¾dý z nich se 
+mù¾e zamìøit na dùle¾ité èásti svého vývoje. Server na spolehlivost a roz¹iøitelnost, klient na u¾ivatele. Ka¾dý server pracuje samostatnì, chod ani výpadek jiné datové 
+stanice nijak neovlivní jeho bìh, pouze bude nedostupný seznam kontaktù a slu¾by, kterými server disponuje. 
+
+V tabulce è.\ref{tab2} jsou shrnuty rozdíly v architektuøe Jabber, WWW\footnote{World wide web} a e-mail\footnote{internetový systém elektronické po¹ty}. S ka¾dou 
+zde jmenovanou slu¾bou má Jabber nìco spoleèného. Co se týèe charakteristiky se vydal støední cestou. Na rozdíl od e-mailu, nepou¾ívá vícenásobný hops a v porovnáním
+s WWW vyu¾ívá mezi-doménové pøipojení.
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{ l  c  c  c } 
+\rowcolor[gray]{0.9}\textbf{Charakteristika} & \textbf{WWW}  & \textbf{Email} & \textbf{Jabber}\\
+mezi-doménové pøipojení & Ne            & Ano            & Ano\\
+vícenásobný hops       & N/A           & Ano            & Ne \\ \hline
+\end{tabular}
+\caption{Srovnání slu¾eb WWW, Email a Jabber}
+\label{tab2}
+\end{center} 
+\end{table}
+
+Tyto vlastnosti jsou zárukou pro bezpeèný pøenos zpráv, znemo¾òují "kráde¾e" JID\footnote{u¾ivatelské jméno} viz. \ref{jid} a spamování. 
+Obrázek \ref{pic2} zobrazuje pøenos zprávy mezi klientem jeho¾ úèet vlastní server1 a klientem2 s úètem na serveru2.
+
+\begin{figure}[hb]
+\begin{center}
+\input{message}
+\caption{Pøenos zprávy}
+ \label{pic2}
+\end{center}
+\end{figure}
+
+\subsection*{Klient}
+Klient je pøedev¹ím plnì ovládatelný grafický program podporující jednoduché odesíláni zpráv. XMPP svou architekturou vnucuje, aby byl co nejjednodu¹¹í. Vlastnosti, 
+které by mìl mít jsou shrnuty do tøí bodù:
+\begin{enumerate}
+ \item komunikace se serverem pomocí TCP soketu
+ \item rozpársrování a následná interpretace pøíchozí XML zprávy \uv{stanza}(viz \ref{Stanza})
+ \item porozumìní sadì zpráv z Jabber jádra
+\end{enumerate}
+
+V následující tabulce jsou zobrazeni nejpou¾ívanìj¹í Jabber klienti a jejich funkènost na operaèním systému.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ l  c  c  c c } 
+\rowcolor[gray]{0.9}\textbf{Klient} & \textbf{Windows}  & \textbf{Linux} & \textbf{Mac OS} & \textbf{mobilní zaøízení}\\
+Pidgin				    & Ano               & Ano            & Ano             & Ne \\
+Empathy	 & Telephaty\footnote{podpùrná vrstva Empathy}  & Ano            & Ne              & Ne \\
+Gajim				    & Ano               & Ano            & Ne              & Ne \\
+Jabbim				    & Ano               & Ano            & Ne              & Ne \\
+Meebo\footnote{webový klient}	    & Ano               & Ano            & Ano             & Ano \\
+Miranda				    & Ano               & Ano            & Ne              & Ne \\
+Psi				    & Ano               & Ano            & Ano             & Ne \\
+QIP				    & Ano               & Ne             & Ne              & Ano \\
+Trilian				    & Ano               & Ne             & Ne              & Ne \\
+kopete				    & Ne                & Ano            & Ne              & Ne \\ \hline
+
+\end{tabular}
+\caption{Jabber klienti v závislosti na operaèním sytému}
+\label{tab3}
+\end{center} 
+\end{table}
+
+\subsection*{Server}
+Hlavní vlastnost ji¾ není jako u klienta jednoduchost, ale stabilita a bezpeènost. Standardnì bì¾í na TCP portu 5222. Komunikace mezi servery je realizována pøe port 5269. Ka¾dý server uchovává seznam zaregistrovaných u¾ivatelù, kteøí se do sítì 
+mohou pøipojovat pouze pøes nìj. Tento seznam nemá ¾ádný jiný server. To zaji¹»uje nemo¾nost \uv{kráde¾e} úètu. Proto¾e XMPP komunikace probíhá pøes sí», musí mít ka¾dá entita adresu, tady nazvána JabberID. XMPP spoléhá na 
+DNS\footnote{Domain Name System} tudí¾ pou¾ívá jména na rozdíl od IP protokolu\footnote{Internet Protocol}.
+\subsubsection*{Jabber ID}\label{jid}
+Jabber ID (JID), je jednoznaèný identifikátor u¾ivatele. Na první pohled pøipomíná e-mailovou adresu \textit{user@server}. Je slo¾en z nìkolika èástí, takzvané \textit{Jabber bare} neboli èisté ID, je èást slo¾ena z místa pøed zavináèem a místa za.
+
+\begin{figure}[h]
+\begin{center}
+\input{struktura}
+\caption{Distribuovaná architektura Jabberu}
+ \label{pic4}
+\end{center}
+\end{figure}
+
+\subsubsection*{ejabberd}
+%written in Erlang/OTP GPLv2 (Free and Open Source) ejabberd 2.1.6 - Tue, 2010-12-14 11:56 Linux 32/64bit windoes, mac os, source http://www.ejabberd.im/ - http://www.process-one.net/en/ejabberd/ vyvijen
+\subsubsection*{Openfire}
+%java,  Open Source GPL,Aug 26, 2010 2:05:39 PM - Openfire 3.7.0 beta has been released, Openfire 3.6.4 Latest release: May 1, 2009, Windows, Linux,Unix, Mac OS X, http://www.igniterealtime.org/projects/openfire/index.jsp, vyvijen - predtim Wildfire
+\subsubsection*{jabberd2}
+%C, General Public License (GPL), jabberd-2.2.11 - 2010-08-08, Runs on Linux, *BSD, Solaris and Windows 32, http://codex.xiaoka.com/wiki/jabberd2:start, vyvijen
+\subsubsection*{jabberd14}
+%c, c++,  GPL, 22-Jul-2007 00:44 	815K	Server version 1.6.1.1, AIX FreeBSD HP-UX IRIX Linux Mac OS XNetBSD OpenBSD, Solaris 2.6, 7, 8, http://jabberd.org/, asi stop
+\subsubsection*{Prosody}
+%lua, MIT/X11 license, version 0.7.0 14.06.2010, Debian/Ubuntu,MS Windows,Mac OSX,Arch Linux,Source, http://prosody.im/,vyvijen
+\subsubsection*{Tigase}
+%java;GNU General Public License - GNU Project - Free Software,2010-06-30 21:00 tigase-server-5.0.0-b2135.zip, linux, windows, mac os - 1024 means open files per process, http://www.tigase.org/vyvijen
+
+
+V tabulce \ref{tab4} jsou shrnuty informace o serverech Jabbru. První sloupec tvoøí jméno, následuje programovací jazyk v nìm¾ je napsán. Vìt¹ina je vydávána pod licencí 
+GPL\footnote{General Public License-v¹eobecná veøejná licence GNU}, kromì ejabbred a Prosody. Ejabbred pou¾ívá GPLv2, co¾ je GPL licence druhé verze a Prosody licenci MIT/X11.
+Pátý sloupeèek \textit{Platforma} obsahuje zkratky platforem pro které je software vyvíjen (L - linux, W - Microsoft windows, M - Mac Os, S - zdrojový kód, So - Solaris, B - BSD). 
+Nakonec je z tabulky viditelné v jakém stavu je vývoj (v - vývoj probíhá, s - vývoj ukonèen).
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ l  p{1cm}  c  c  p{2cm} p{3cm} c } 
+\rowcolor[gray]{0.9}
+\textbf{Server} & \textbf{Jazyk}  & \textbf{Licence} & \textbf{Verze} & \textbf{Platforma}       & \textbf{Domovská stránka}             & \textbf{stav}\\
+ejabberd	& Erlang/ Top     & GPLv2            & 2.1.6          & L,W,M,S                  & ejabberd.im                           & v\\
+Openfire	& java            & GPL              & 3.6.4          & L,W,M,U                  & igniterealtime.org/ projects/openfire & v\\
+jabbred2    	& c               & GPL              & 2.2.11         & L,W,B,So                 & codex.xiaoka.com/ wiki/jabberd2:start & v\\
+jabbred14	& c, c++          & GPL              & 1.6.1.1        & AIX,B,HP-UX,IRIX, L,M,So & jabberd.org                           & s \\
+Prosody	    	& lua             & MIT/X11          & 0.7.0          & L,W,M,So                 & prosody.im                            & v\\
+Tigase		& java            & GPL              & 5.0.0          & L,W,M                    & tigase.org                            & v \\ \hline
+\end{tabular}
+\caption{Pøehled Jabber serverù}
+\label{tab4}
+\end{center} 
+\end{table}
+
+
+
+
+
+
+\section{XML}\label{Xml}
+Jazyk XML (eXtensible Markup Language), metajazyk pro deklaraci strukturovaných dat, je jádrem protokolu XMPP. Samotný jazyk vznikl roz¹íøením metajazyka SGML, je¾ slou¾í pro deklaraci rùzných 
+typù dokumentù. Základní vlastností je jednoduchá definice vlastních znaèek (tagù). Dokument XML se skládá z elementù, je¾ mù¾eme navzájem zanoøovat. Vyznaèujeme je pomocí znaèek - poèáteèní a 
+ukonèovací.
+%\begin{enumerate}
+% \item obrazek struktura XML stream...
+%\end{enumerate}
+
+Základní jednotkou komunikace je stanza. Obsahuje 3 elementy \textit{message}, \textit{presence} a \textit{iq}, je¾ ka¾dý má svùj jednoznaèný význam.
+\section{Stanza}\label{Stanza}
+\subsection*{Message}
+
+\subsection*{IQ}
+\subsection*{Presence}
+\section{Knihovny}
+Jabber je realizován jako otevøený XML standart pro instant messaging formát, proto existuje mnoho programovacích jazykù. Vìt¹ina z nich disponuje nìkolika knihovnami, usnadòující
+práci s protokolem XMPP. Mezi nejznámìj¹í patøí C (iksemel, libstrophe, Loudmoutn), C++ (gloox, Iris), JAVA (JabberBeans, Smack, JSO, Feridian, Emite, minijingle), 
+.NET (Jabber-Net, agsXMPP SDK), Python (JabberPy, PyXMPP, SleekXMPP, Twisted Words), Ruby (XMPP4R, Jabber4R, Jabber::Simple, Jabber::Bot), 
+Perl (Net-Jabber). Ní¾e budou nìkteré rozebrány a vyzdvi¾eny jejich hlavní pøednosti.
+\subsection*{iksemel}
+\subsection*{JabberBeans}
+\subsection*{Jabber-Net}
+\subsection*{JabberPy}
+
+\chapter{Dataming}
+\begin{figure}[hb]
+\begin{center}
+\input{database}
+\caption{Struktura databáze}
+ \label{pic1}
+\end{center}
+\end{figure}
+
+
+\section{Metody dolovaní dat}
+\section{Dolovaní znalosti z databází}
+\section{Programy}
+\chapter{Developer}
+\section{Slepá ulièka}
+\section{Knihovny, jazyk}
+\section{Jiné produkty}
+Pravidla pro psaní zkratek jsou uvedena v~Pravidlech èeského pravopisu \cite{Pravidla}. I~z~jiných dùvodù je vhodné, abyste tuto knihu mìli po ruce. 
+
+
+%\section{Co to je normovaná stránka?}
+
+
+\chapter{Závìr}
+
+%=========================================================================
