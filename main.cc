@@ -15,9 +15,6 @@
 
 #define LENGTH_PASS 100
 
-#define JABBER "JabInfo@jabbim.com"
-#define PASSWORD "xse20IPB10"
-
 /**
  *
  */
@@ -47,11 +44,15 @@ int main( int argc, char* argv[] ) {
 		param.setTJidsPass(getPassTerminal());
 		param.getParams();
 		Bot bot(param.getTJids().jids, param.getTJids().pass);
+		//if( signalTerm() )
+		//	bot.end();
 		bot.run();
 	}
 	else
 	{
 		Bot bot(DEF_LOGIN, DEF_PASS);
+		if( signalTerm() )
+			bot.end();
 		bot.run();
 	}
 	return 0;

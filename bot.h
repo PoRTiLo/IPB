@@ -39,10 +39,11 @@
 
 #include <string>
 #include <fstream>
-
 #include "errors.h"
 #include "const.h"
 #include "database.h"
+#include "func.h"
+#include <boost/thread.hpp> 
 
 #define DEF_LOGIN "konsole@localhost"
 #define DEF_PASS "javier"
@@ -54,6 +55,7 @@
 using namespace gloox;
 using namespace std;
 
+extern bool g_global;
 /**
  * 
  * 
@@ -230,8 +232,8 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 		 */
 		string presenceString( const int presence );
 
-//		virtual void handleMessageEvent( const JID& from, MessageEventType event );
-//		virtual void handleChatState( const JID& from, ChatStateType state);
-};	
+void end();
 
+void thread1();
+};
 #endif //BOT_H__

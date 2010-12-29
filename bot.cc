@@ -12,39 +12,64 @@ VLASTNI - poznamky do databaze
 
 	Bot::Bot()
 	{
-		login = DEF_LOGIN;
-		pass = DEF_PASS;
+		this->login = DEF_LOGIN;
+		this->pass = DEF_PASS;
 	}
 
 	Bot::Bot(string log, string password)
 	{
-		login = log;
-		pass = password;
+		this->login = log;
+		this->pass = password;
 	}
 
 	Bot::~Bot()
 	{
-
+		cout<<"ooooooooooooooooooooooooooooooooooo"<<endl;
+end();
 		delete(m_vManager);
+		delete(j);
+		delete(database);
 	}
 	void Bot::setLogin( string log ) {
-		login = log;
+		this->login = log;
 	}
 
 	void Bot::setPass( string password ) {
-		pass = password;
+		this->pass = password;
 	}
 
 	string Bot::getLogin() {
-		return login;
+		return this->login;
 	}
 
 	string Bot::getPass() {
-		return pass;
+		return this->pass;
 	}
-
+bool thread() 
+{ 
+	 // for (int i = 0; i < 5; ++i) 
+	//	    { 
+			//	     wait(1); 
+	//				      std::cout << i << std::endl; 
+		while(true)
+		{
+			if(f_global == true)
+			{
+				break;
+			}
+			cout << "pepa"<<endl;
+							sleep(10);
+							  } 
+							  return true;
+						
+} 
 	bool Bot::run() {
-		JID jid(login);
+		initSignal();
+ boost::thread t(thread); 
+// t.join();
+//if( thread == true )
+//cout <<"pepa"<<endl;
+		JID jid(this->login);
 		j = new Client(jid, pass);
 		j->registerConnectionListener(this);
 		//j->registerMessageHandler(this);
@@ -66,11 +91,22 @@ VLASTNI - poznamky do databaze
 		database = new Database();
 		database->start();
 
-		if( !j->connect() )  //kontrola spojeni se servrem
+		if( j->connect(false) )  //kontrola spojeni se servrem
 		{
-			getErrors( ENOCONNECT );
+			cout << "oooooooooooooooooooooooooooo"<<endl;
+/        ConnectionError ce = ConnNoError;
+        while( ce == ConnNoError )
+		    {
+          if( m_quit )
+              j->disconnect();
+			  ce = j->recv( 100 );
+	          std::list<Bytestream*>::iterator it = m_bs.begin();
+           for( ; it != m_bs.end(); ++it )
+              (*it)->recv( 100 );
+          }
+																																	 /			getErrors( ENOCONNECT );
 		}
-		delete(j);
+		//delete(j);
 	}
 
 	void Bot::onDisconnect( ConnectionError ) {
@@ -99,6 +135,7 @@ VLASTNI - poznamky do databaze
 	void Bot::handleItemSubscribed( const JID& jid ) {
 		printf("handled subscribed:%s\n", jid.bare().c_str());
 		m_vManager->fetchVCard(jid,this);
+		database->insertTableUser(jid.bare());
 	}
 
 		void Bot::handleItemAdded( const JID& jid ) {
@@ -258,6 +295,11 @@ VLASTNI - poznamky do databaze
 
 		}
 
+	void Bot::end() {
+cout<<"ukoncuji"<<endl;
+		j->disconnect();
+		exit(8);
+	}
 /*	void Bot::handleMessageEvent( const JID& from, MessageEventType event ) {
 		printf("\n\n\n...event.......%d\n\n\n", event);
 	}

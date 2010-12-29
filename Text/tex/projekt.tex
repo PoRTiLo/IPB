@@ -7,7 +7,7 @@
 % kodovaní: iso-8859-2 (zmena prikazem iconv, recode nebo cstocs)
 %----------------------------------------------------------------------------
 % zpracování: make, make pdf, make desky, make clean
-% pøipomínky posílejte na e-mail: bidlom AT fit.vutbr.cz
+% p?ipomínky posílejte na e-mail: bidlom AT fit.vutbr.cz
 % vim: set syntax=tex encoding=latin2:
 %============================================================================
 \documentclass[cover]{fitthesis} % odevzdani do wisu - odkazy, na ktere se da klikat
@@ -35,11 +35,19 @@
 %\usepackage{latexsym}
 
 \usepackage{amsthm}
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,petri}
+
+\usepackage{pnets}
+\usepackage{pstricks}
+
+
+
 
 % =======================================================================
-% balíèek "hyperref" vytváøí klikací odkazy v pdf, pokud tedy pou¾ijeme pdflatex
-% problém je, ¾e balíèek hyperref musí být uveden jako poslední, tak¾e nemù¾e
-% být v ¹ablonì
+% balí?ek "hyperref" vytvá?í klikací odkazy v pdf, pokud tedy pou?ijeme pdflatex
+% problém je, ?e balí?ek hyperref musí být uveden jako poslední, tak?e nem??e
+% být v ?ablon?
 \ifWis
 \ifx\pdfoutput\undefined % nejedeme pod pdflatexem
 \else
@@ -49,11 +57,15 @@
   \definecolor{anchors}{rgb}{1,0,0}
   \def\AnchorColor{anchors}
   \def\LinkColor{links}
-  \def\pdfBorderAttrs{/Border [0 0 0] }  % bez okrajù kolem odkazù
+  \def\pdfBorderAttrs{/Border [0 0 0] }  % bez okraj? kolem odkaz?
   \pdfcompresslevel=9
 \fi
 \fi
 
+% \ifx\du\undefined
+%   \newlength{\du}
+% \fi
+% \setlength{\du}{15\unitlength}
 %Informace o praci/projektu
 %---------------------------------------------------------------------------
 \projectinfo{
@@ -78,32 +90,32 @@
   %bud pomoci nasledujicich parametru nebo pomoci vyhrazenych maker (viz dale)
   %===========================================================================
   %Klicova slova
-  keywords.cs={Klíèová slova v èeském jazyce.}, %klicova slova v ceskem jazyce
-  keywords.en={Klíèová slova v anglickém jazyce.}, %klicova slova v anglickem jazyce
+  keywords.cs={Klí?ová slova v ?eském jazyce.}, %klicova slova v ceskem jazyce
+  keywords.en={Klí?ová slova v anglickém jazyce.}, %klicova slova v anglickem jazyce
   %Abstract
-  abstract.cs={Výtah (abstrakt) práce v èeském jazyce.}, % abstrakt v ceskem jazyce
+  abstract.cs={Výtah (abstrakt) práce v ?eském jazyce.}, % abstrakt v ceskem jazyce
   abstract.en={Výtah (abstrakt) práce v anglickém jazyce.}, % abstrakt v anglickem jazyce
   %Prohlaseni
-  declaration={Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana ...},
+  declaration={Prohla?uji, ?e jsem tuto bakalá?skou práci vypracoval samostatn? pod vedením pana ...},
   %Podekovani (nepovinne)
-  acknowledgment={Zde je mo¾né uvést podìkování vedoucímu práce a tìm, kteøí poskytli odbornou pomoc.} % nepovinne
+  acknowledgment={Zde je mo?né uvést pod?kování vedoucímu práce a t?m, kte?í poskytli odbornou pomoc.} % nepovinne
 }
 
 %Abstrakt (cesky, anglicky)
-%\abstract[cs]{Do tohoto odstavce bude zapsán výtah (abstrakt) práce v èeském jazyce.}
+%\abstract[cs]{Do tohoto odstavce bude zapsán výtah (abstrakt) práce v ?eském jazyce.}
 %\abstract[en]{Do tohoto odstavce bude zapsán výtah (abstrakt) práce v anglickém jazyce.}
 
 %Klicova slova (cesky, anglicky)
-%\keywords[cs]{Sem budou zapsána jednotlivá klíèová slova v èeském jazyce, oddìlená èárkami.}
-%\keywords[en]{Sem budou zapsána jednotlivá klíèová slova v anglickém jazyce, oddìlená èárkami.}
+%\keywords[cs]{Sem budou zapsána jednotlivá klí?ová slova v ?eském jazyce, odd?lená ?árkami.}
+%\keywords[en]{Sem budou zapsána jednotlivá klí?ová slova v anglickém jazyce, odd?lená ?árkami.}
 
 %Prohlaseni
-%\declaration{Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana X...
-%Dal¹í informace mi poskytli...
-%Uvedl jsem v¹echny literární prameny a publikace, ze kterých jsem èerpal.}
+%\declaration{Prohla?uji, ?e jsem tuto bakalá?skou práci vypracoval samostatn? pod vedením pana X...
+%Dal?í informace mi poskytli...
+%Uvedl jsem v?echny literární prameny a publikace, ze kterých jsem ?erpal.}
 
 %Podekovani (nepovinne)
-%\acknowledgment{V této sekci je mo¾no uvést podìkování vedoucímu práce a tìm, kteøí poskytli odbornou pomoc
+%\acknowledgment{V této sekci je mo?no uvést pod?kování vedoucímu práce a t?m, kte?í poskytli odbornou pomoc
 %(externí zadavatel, konzultant, apod.).}
 
 \begin{document}

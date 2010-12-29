@@ -3,6 +3,9 @@
 #define QUIT "quit"
 #define HALLO "caok"
 
+//jabber
+#define JABBER "JabInfo@jabbim.com"
+#define PASSWORD "xse20IPB10"
 
 
 //database.H
