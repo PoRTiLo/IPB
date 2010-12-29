@@ -232,8 +232,7 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 		 */
 		string presenceString( const int presence );
 
-void end();
+		void end();
 
-void thread1();
 };
 #endif //BOT_H__

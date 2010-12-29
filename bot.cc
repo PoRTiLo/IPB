@@ -24,11 +24,6 @@ VLASTNI - poznamky do databaze
 
 	Bot::~Bot()
 	{
-		cout<<"ooooooooooooooooooooooooooooooooooo"<<endl;
-end();
-		delete(m_vManager);
-		delete(j);
-		delete(database);
 	}
 	void Bot::setLogin( string log ) {
 		this->login = log;
@@ -45,30 +40,11 @@ end();
 	string Bot::getPass() {
 		return this->pass;
 	}
-bool thread() 
-{ 
-	 // for (int i = 0; i < 5; ++i) 
-	//	    { 
-			//	     wait(1); 
-	//				      std::cout << i << std::endl; 
-		while(true)
-		{
-			if(f_global == true)
-			{
-				break;
-			}
-			cout << "pepa"<<endl;
-							sleep(10);
-							  } 
-							  return true;
-						
-} 
+
 	bool Bot::run() {
-		initSignal();
- boost::thread t(thread); 
-// t.join();
-//if( thread == true )
-//cout <<"pepa"<<endl;
+
+		signalTerm();
+
 		JID jid(this->login);
 		j = new Client(jid, pass);
 		j->registerConnectionListener(this);
@@ -91,22 +67,21 @@ bool thread()
 		database = new Database();
 		database->start();
 
-		if( j->connect(false) )  //kontrola spojeni se servrem
+		j->connect(false);  //kontrola spojeni se servrem
+		while(true)
 		{
-			cout << "oooooooooooooooooooooooooooo"<<endl;
-/        ConnectionError ce = ConnNoError;
-        while( ce == ConnNoError )
-		    {
-          if( m_quit )
-              j->disconnect();
-			  ce = j->recv( 100 );
-	          std::list<Bytestream*>::iterator it = m_bs.begin();
-           for( ; it != m_bs.end(); ++it )
-              (*it)->recv( 100 );
-          }
-																																	 /			getErrors( ENOCONNECT );
+			j->recv();
+			if( f_global == true )
+			{
+				end();
+				break;
+			}
+
 		}
-		//delete(j);
+	
+		delete(m_vManager);
+		delete(j);
+		delete(database);
 	}
 
 	void Bot::onDisconnect( ConnectionError ) {
@@ -296,15 +271,7 @@ bool thread()
 		}
 
 	void Bot::end() {
-cout<<"ukoncuji"<<endl;
-		j->disconnect();
-		exit(8);
-	}
-/*	void Bot::handleMessageEvent( const JID& from, MessageEventType event ) {
-		printf("\n\n\n...event.......%d\n\n\n", event);
-	}
 
-	void Bot::handleChatState( const JID& from, ChatStateType state) {
-		printf("\n\n\n.....state.....%d\n\n\n", state);
+		j->disconnect();
+		database->exitError();
 	}
-	*/

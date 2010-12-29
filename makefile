@@ -9,9 +9,9 @@
 PROGRAM=ipb
 PROJECT=IPB
 
-OBJ=main.o bot.o param.o errors.o database.o func.o thread.o
-SRC=main.cc bot.cc param.cc errors.cc database.cc func.cc thread.cc
-HEAD=bot.h param.h errors.h database.h const.h func.h thread.h
+OBJ=main.o bot.o param.o errors.o database.o func.o 
+SRC=main.cc bot.cc param.cc errors.cc database.cc func.cc
+HEAD=bot.h param.h errors.h database.h const.h func.h
 
 CCM=g++
 CCMFLAGS=-std=c++98 -Wall -Wextra -pedantic -D_REENTRANT -lpthread -lboost_thread -lncurses -lgloox -lpthread -lpcre -L/usr/lib/postgresql/8.4/lib/ -lpq  -Wextra#-dumpspecs
