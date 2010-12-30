@@ -14,7 +14,7 @@ SRC=main.cc bot.cc param.cc errors.cc database.cc func.cc
 HEAD=bot.h param.h errors.h database.h const.h func.h
 
 CCM=g++
-CCMFLAGS=-std=c++98 -Wall -Wextra -pedantic -D_REENTRANT -lpthread -lboost_thread -lncurses -lgloox -lpthread -lpcre -L/usr/lib/postgresql/8.4/lib/ -lpq  -Wextra#-dumpspecs
+CCMFLAGS=-std=c++98 -Wall -Wextra -pedantic -D_REENTRANT -lncurses -lgloox -lpthread -lpcre -L/usr/lib/postgresql/8.4/lib/ -lpq#-dumpspecs
 CPPFLAGS = -I/usr/include/postgresql/
 
 

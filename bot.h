@@ -43,14 +43,6 @@
 #include "const.h"
 #include "database.h"
 #include "func.h"
-#include <boost/thread.hpp> 
-
-#define DEF_LOGIN "konsole@localhost"
-#define DEF_PASS "javier"
-
-//#define DEF_LOGIN "JabInfo@jabbim.com"
-//#define DEF_PASS "xse20IPB10"
-
 
 using namespace gloox;
 using namespace std;

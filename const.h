@@ -4,9 +4,10 @@
 #define HALLO "caok"
 
 //jabber
-#define JABBER "JabInfo@jabbim.com"
-#define PASSWORD "xse20IPB10"
-
+#define DEF_LOGIN "konsole@localhost"
+#define DEF_PASS "javier"
+//#define DEF_LOGIN "JabInfo@jabbim.com"
+//#define DEF_PASS "xse20IPB10"
 
 //database.H
 #define DB_SERV "localhost"
