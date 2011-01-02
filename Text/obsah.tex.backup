@@ -27,15 +27,14 @@ jsou zde podporovány SASL, TLS a GPG. XMPP protokol je postaven na obecném znaèk
 %\end{enumerate}
 
 \subsection*{Jabber}\label{Jabber}
-Dnes známý jako komunikaèní platforma zalo¾ená na protokolu XMPP. Vzdálenì jej lze pøirovnat k dnes ji¾ na slávì upadajícímu software ICQ (I Seek You) vyu¾ívající protokol 
-OSCAR (Open System CommunicAtion in Realtime - otevøený systém pro komunikaci v reálném èase).
+
 \section{Architektura}
 Dobøe navr¾ená architektura tvoøí základ pro správnì fungující internetovou technologii. XMPP protokol vyu¾ívá decentralizované klient-server slo¾ení. Tato struktura 
 se nejvíce podobá struktuøe posílání e-mailù. V tomto pøípadu je decentralizace sítì chápána jako inteligentní nezávislost mezi vývojáøi klientù a serverù. Ka¾dý z nich se 
 mù¾e zamìøit na dùle¾ité èásti svého vývoje. Server na spolehlivost a roz¹iøitelnost, klient na u¾ivatele. Ka¾dý server pracuje samostatnì, chod ani výpadek jiné datové 
 stanice nijak neovlivní jeho bìh, pouze bude nedostupný seznam kontaktù a slu¾by, kterými server disponuje. 
 
-V tabulce è.\ref{tab2} jsou shrnuty rozdíly v architektuøe Jabber, WWW\footnote{World wide web} a e-mail\footnote{internetový systém elektronické po¹ty}. S ka¾dou 
+V tabulce è.\ref{tab2} jsou shrnuty rozdíly v architektuøe Jabber, WWW a e-mail\footnote{internetový systém elektronické po¹ty}. S ka¾dou 
 zde jmenovanou slu¾bou má Jabber nìco spoleèného. Co se týèe charakteristiky se vydal støední cestou. Na rozdíl od e-mailu, nepou¾ívá vícenásobný hops a v porovnáním
 s WWW vyu¾ívá mezi-doménové pøipojení.
 
@@ -63,11 +62,11 @@ Obrázek \ref{pic2} zobrazuje pøenos zprávy mezi klientem jeho¾ úèet vlastní serv
 \end{figure}
 
 \subsection*{Klient}
-Klient je pøedev¹ím plnì ovládatelný grafický program podporující jednoduché odesíláni zpráv. XMPP svou architekturou vnucuje, aby byl co nejednodu¹¹í. Vlastnosti, 
-které by mìl mít se dají shrnout do tøí bodù:
+Klient je pøedev¹ím plnì ovládatelný grafický program podporující jednoduché odesíláni zpráv. XMPP svou architekturou vnucuje, aby byl co nejjednodu¹¹í. Vlastnosti, 
+které by mìl mít jsou shrnuty do tøí bodù:
 \begin{enumerate}
  \item komunikace se serverem pomocí TCP soketu
- \item rozpársrování a následná interpretace pøíchozí XML zprávy \uv{stanza}(viz \ref{Stanza})
+ \item rozpársrování a následná interpretace pøíchozí XML zprávy \uv{stanza}(kapitola \ref{Stanza})
  \item porozumìní sadì zpráv z Jabber jádra
 \end{enumerate}
 
@@ -97,7 +96,7 @@ kopete				    & Ne                & Ano            & Ne              & Ne \\ \hl
 \subsection*{Server}
 Hlavní vlastnost ji¾ není jako u klienta jednoduchost, ale stabilita a bezpeènost. Standardnì bì¾í na TCP portu 5222. Komunikace mezi servery je realizována pøe port 5269. Ka¾dý server uchovává seznam zaregistrovaných u¾ivatelù, kteøí se do sítì 
 mohou pøipojovat pouze pøes nìj. Tento seznam nemá ¾ádný jiný server. To zaji¹»uje nemo¾nost \uv{kráde¾e} úètu. Proto¾e XMPP komunikace probíhá pøes sí», musí mít ka¾dá entita adresu, tady nazvána JabberID. XMPP spoléhá na 
-DNS\footnote{Domain Name System}
+DNS\footnote{Domain Name System} tudí¾ pou¾ívá jména na rozdíl od IP protokolu\footnote{Internet Protocol}.
 \subsubsection*{Jabber ID}\label{jid}
 Jabber ID (JID), je jednoznaèný identifikátor u¾ivatele. Na první pohled pøipomíná e-mailovou adresu \textit{user@server}. Je slo¾en z nìkolika èástí, takzvané \textit{Jabber bare} neboli èisté ID, je èást slo¾ena z místa pøed zavináèem a místa za.
 

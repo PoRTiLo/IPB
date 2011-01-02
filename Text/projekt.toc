@@ -14,3 +14,4 @@
 \contentsline {section}{\numberline {4.2}Knihovny, jazyk}{10}{section.4.2}
 \contentsline {section}{\numberline {4.3}Jin\'e produkty}{10}{section.4.3}
 \contentsline {chapter}{\numberline {5}Z\'av\v er}{11}{chapter.5}
+\contentsline {chapter}{\numberline {A}Slovn\IeC {\'\i }k v\'yraz\r u}{14}{appendix.A}
