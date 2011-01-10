@@ -4,10 +4,11 @@
 #define HALLO "caok"
 
 //jabber
-#define DEF_LOGIN "konsole@localhost"
-#define DEF_PASS "javier"
 //#define DEF_LOGIN "JabInfo@jabbim.com"
 //#define DEF_PASS "xse20IPB10"
+
+#define DEF_LOGIN "konsole@localhost"
+#define DEF_PASS "javier"
 
 //database.H
 #define DB_SERV "localhost"
@@ -17,6 +18,15 @@
 #define DB_PASS "trewq"
 #define DB_NAME "portilo"
 #define DB_TIME "10"
+
+//dotazy
+//#define DB_SERV "localhost"
+//#define DB_ADDR "147.229.12.139"
+//#define DB_PORT "" 
+//#define DB_USER "xsendl00"
+//#define DB_PASS "e5bd224e6d"
+//#define DB_NAME "xsendl00"
+//#define DB_TIME "10"
 
 //dotazy
 #define DB_C_T "Create table "
@@ -44,6 +54,9 @@
 							" prodid text,"\
 							" sortstring text"
 #define DB_INSERT "Insert into "
+#define DB_UPDATE "UPDATE "
+#define DB_SET "SET "
+#define DB_WHERE "WHERE "
 #define DB_TABLE_USER " jidBare text PRIMARY KEY,"\
 					 		 " date timestamp"
 #define DB_SELECT_USER "Select jid from user where jid = '"
@@ -51,6 +64,11 @@
 								 " name text,"\
 								 " description text,"\
 								 " descriptionCz text"
+#define DB_TABLE_STATUS " jidBare text PRIMARY KEY,"\
+								 "presence text,"\
+								 "status text,"\
+					 		   " date timestamp"
+#define DB_SELECT_STATUS "Select * from status"
 #define DB_DATA_LOGAREA "Insert into logarea ( num, name, description, descriptionCz ) VALUES "\
 								 "( 1, 'LogAreaClassParser', 'Log message from Parser', 'Zprava z parsru'),"\
 								 "( 2, 'LogAreaClassConnectionTCBase', 'Log message from ConnectionTCPBase', ''),"\

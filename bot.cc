@@ -170,6 +170,7 @@ VLASTNI - poznamky do databaze
 
 	void Bot::handleRosterPresence( const RosterItem& item, const std::string& resource, Presence::PresenceType presence, const std::string& msg ) {
 
+		database->updateTableStatus( item.jid(), Bot::presenceString(presence), msg);
 		if( presence != 5 )
 			database->insertTablePresence( item.jid(), msg, item.name(), resource, Bot::presenceString(presence), item.resource(resource)->priority() );
 		else
@@ -222,6 +223,8 @@ VLASTNI - poznamky do databaze
 		database->insertTableMessage( m_session->target().bare().c_str(),  msg.body().c_str(),  msg.subject().c_str(), msg.thread().c_str(), Bot::messageSubtype(msg.subtype()).c_str() );
 		if( msg.body() == QUIT && (m_session->target().bare() == "pidgin@localhost" || m_session->target().bare() == "portilo@jabbim.cz") )
 			j->disconnect();
+		else if( msg.body() == "USER" && (m_session->target().bare() == "pidgin@localhost" || m_session->target().bare() == "portilo@jabbim.cz") )
+			m_session->send(database->printUser());
 		else if( msg.body() == HALLO )
 			m_session->send( "AHOJ");
 		else if( msg.body() == "remove")

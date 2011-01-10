@@ -62,6 +62,7 @@ void Database::initDb() {
 	Database::createTable( "vcard", DB_TABLE_VCARD );
 	Database::createTable( "userjid", DB_TABLE_USER );
 	Database::createTable( "message", DB_TABLE_MESSAGE );
+	Database::createTable( "status", DB_TABLE_STATUS );
 
 }
 
@@ -130,9 +131,8 @@ void Database::insertTablePresence( const string jid, const string msg, const st
 	Database::getTime();
 	query += "timestamp '";
 	query += this->sTime;
-	query += "', '" + jid + "', 'JabInfo@jabbim.cz', '"; 
-	query += Database::convertXML(msg) + "', '" +  name + "', '" + resource + "', '" + presence + "', " + Database::convertInt( priority )+ ");";
-//	printf("\n\n............%s.......\n\n", query.c_str());
+	query += "', '" + jid + "', 'JabInfo@jabbim.cz', '";
+	query += Database::convertXML(msg) + "', '" +  name + "', '" + resource + "', '" + Database::convertXML(presence) + "', " + Database::convertInt( priority )+ ");";
 	presult = PQexec( this->psql, query.c_str() );
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
@@ -150,7 +150,6 @@ void Database::insertTablePresence( const string jid, const string msg, const st
 	query += this->sTime;
 	query += "', '" + jid + "', 'JabInfo@jabbim.cz', '"; 
 	query += Database::convertXML(msg) + "', '" +  name + "', '" + resource + "', '" + presence + "', 0 );";
-//	printf("\n\n............%s.......\n\n", query.c_str());
 	presult = PQexec( this->psql, query.c_str() );
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
@@ -217,7 +216,34 @@ void Database::insertTableUser( string jidBare) {
 			PQclear(presult);
 			Database::exitError();
 		}
+		//status insert user
+		query = DB_INSERT;
+		query += "status (jidbare) VALUES ('"+ jidBare + "');";
+		presult = PQexec( this->psql, query.c_str() );
+		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
+		{
+			PQclear(presult);
+			Database::exitError();
+		}
 	}
+	PQclear(presult);
+}
+
+void Database::updateTableStatus( string jidBare, string presence, string status) {
+
+		Database::getTime();
+		string query = DB_UPDATE;
+		query += "status ";
+		query += DB_SET;
+		query += "presence = '"+presence+"', status = '"+Database::convertXML(status)+"', date = timestamp '" + this->sTime + "' " + DB_WHERE + "jidbare = '" +jidBare+"';";
+		cout<<"s[adne"<<query<<endl;
+		presult = PQexec( this->psql, query.c_str() );
+		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
+		{
+			cout<<"tadyyyyyyyy..."<<endl;
+			PQclear(presult);
+			Database::exitError();
+		}
 	PQclear(presult);
 }
 
@@ -280,9 +306,10 @@ void Database::insertTableXML( int level, int area, const string message ) {
 
 string Database::convertXML( string message ) {
 
-	int lenght = message.length();
-	char mess[lenght];
-	PQescapeString( mess, message.c_str(), lenght );
+	size_t lenght = message.length();
+	char mess[2*lenght+1];
+	const char* pepa= message.c_str();
+	PQescapeString( mess, pepa, lenght );
 	string back(mess);
 	return back;
 }
@@ -324,4 +351,27 @@ void Database::dropAll() {
 	Database::dropTable( "presence" );
 	Database::dropTable( "message" );
 
+}
+
+string Database::printUser() const {
+
+	PGresult* presult;
+	presult = PQexec(this->psql, "SELECT jidbare FROM userjid;");
+	
+
+	int nFields = PQnfields(presult);
+	int nTuples = PQntuples(presult);
+
+	string result;
+	stringstream ss;
+	string back;
+	for( int i = 0; i < nTuples; i++ )
+	{
+		ss << PQgetvalue(presult,i , 0);
+
+		cout << PQgetvalue(presult,i , 0)<<endl;
+		ss >> back;
+		result += " - " + string( PQgetvalue(presult,i , 0)) + "\n";
+	}
+	return result;
 }

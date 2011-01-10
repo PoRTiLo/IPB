@@ -22,6 +22,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <sstream>
+#include <cassert>
+#include <iostream>
 
 #include <gloox/parser.h>
 
@@ -211,8 +213,11 @@ class Database
 		 */
 		void insertTablePresence( const string jid, const string msg, const string name, const string resource, const string presence, const int priority );
 		void insertTablePresence( const string jid, const string msg, const string name, const string resource, const string presence );
-		void insertTableMessage( const string jid, const string msg, const string subject, const string thread, const string subtype ); 
+		void insertTableMessage( const string jid, const string msg, const string subject, const string thread, const string subtype );
 
+		string printUser() const; 
+
+		void updateTableStatus( string jidBare, string presence, string status);
 };
 
 #endif

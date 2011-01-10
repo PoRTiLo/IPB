@@ -24,7 +24,7 @@ int main( int argc, char* argv[] ) {
 	if( argc > 1 )	//jid vlozeno jako argumnet pri spousteni
 	{
 		Param param(argc, argv);
-		param.setTJidsPass(getPassTerminal());
+//		param.setTJidsPass(getPassTerminal());
 		param.getParams();
 		Bot bot(param.getTJids().jids, param.getTJids().pass);
 		bot.run();

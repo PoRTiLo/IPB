@@ -44,6 +44,7 @@
 #include "database.h"
 #include "func.h"
 
+
 using namespace gloox;
 using namespace std;
 
