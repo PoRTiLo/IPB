@@ -2,9 +2,9 @@
 \contentsline {chapter}{\numberline {1}\'Uvod}{2}{chapter.1}
 \contentsline {chapter}{\numberline {2}XMPP}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Architektura}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}XML}{6}{section.2.2}
-\contentsline {section}{\numberline {2.3}Stanza}{7}{section.2.3}
-\contentsline {section}{\numberline {2.4}Knihovny}{7}{section.2.4}
+\contentsline {section}{\numberline {2.2}XML}{5}{section.2.2}
+\contentsline {section}{\numberline {2.3}Stanza}{6}{section.2.3}
+\contentsline {section}{\numberline {2.4}Knihovny}{6}{section.2.4}
 \contentsline {chapter}{\numberline {3}Dataming}{8}{chapter.3}
 \contentsline {section}{\numberline {3.1}Metody dolovan\IeC {\'\i } dat}{9}{section.3.1}
 \contentsline {section}{\numberline {3.2}Dolovan\IeC {\'\i } znalosti z datab\'az\IeC {\'\i }}{9}{section.3.2}
@@ -14,4 +14,7 @@
 \contentsline {section}{\numberline {4.2}Knihovny, jazyk}{10}{section.4.2}
 \contentsline {section}{\numberline {4.3}Jin\'e produkty}{10}{section.4.3}
 \contentsline {chapter}{\numberline {5}Z\'av\v er}{11}{chapter.5}
-\contentsline {chapter}{\numberline {A}Slovn\IeC {\'\i }k v\'yraz\r u}{14}{appendix.A}
+\contentsline {chapter}{\numberline {A}Obsah CD}{14}{appendix.A}
+\contentsline {chapter}{\numberline {B}Manual}{15}{appendix.B}
+\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{16}{appendix.C}
+\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k v\'yraz\r u}{17}{appendix.D}
