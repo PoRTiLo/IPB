@@ -4,7 +4,7 @@
 \chapter{Úvod}
 
 %\section{Musíme mít co øíci}
-
+Dnes mezi velmi se roz¹iøující technologie na poli sí»o
 %\section{Musíme vìdìt, komu to chceme øíci}
 
 %\section{Musíme si dokonale promyslet obsah}
@@ -101,7 +101,7 @@ architekturou vnucuje, aby byl co nejjednodu¹¹í. Vlastnosti, které by mìl mít js
 Hlavní vlastnost ji¾ není jako u klienta jednoduchost, ale stabilita a bezpeènost. Standardnì bì¾í na TCP portu 5222. Komunikace mezi servery je 
 realizována pøe port 5269. Ka¾dý server uchovává seznam zaregistrovaných u¾ivatelù, kteøí se do sítì mohou pøipojovat pouze pøes nìj. Tento seznam 
 nemá ¾ádný jiný server. To zaji¹»uje nemo¾nost \uv{kráde¾e} úètu. Proto¾e XMPP komunikace probíhá pøes sí», musí mít ka¾dá entita adresu, tady nazvána 
-JabberID. XMPP spoléhá na DNS\footnote{Domain Name System} tudí¾ pou¾ívá jména na rozdíl od IP protokolu\footnote{Internet Protocol}.
+JabberID. XMPP spoléhá na DNS tudí¾ pou¾ívá jména na rozdíl od IP protokolu.
 
 Obrázek \ref{pic4} znázoròující distribuovanou architekturu Jabberu byl pøevzat z \cite{Moore}.
 \begin{figure}[h]
@@ -125,11 +125,11 @@ Obrázek \ref{pic4} znázoròující distribuovanou architekturu Jabberu byl pøevzat 
 \subsubsection*{Tigase}
 %java;GNU General Public License - GNU Project - Free Software,2010-06-30 21:00 tigase-server-5.0.0-b2135.zip, linux, windows, mac os - 1024 means open files per process, http://www.tigase.org/vyvijen
 
-XMPP protokol je mo¾né roz¹íøit o dal¹í vlastnosti. Pro jejich popis slou¾í XEP. Pro tuto práci jsou dùle¾ité roz¹íøené statusy, které popisují standardy XEP-0060 a XEP-0163. Obì tato roz¹íøení 
+XMPP protokol je mo¾né roz¹íøit o dal¹í vlastnosti. Pro jejich popis slou¾í XEP. Pro tuto práci jsou dùle¾ité roz¹íøené statusy, které popisují standardy XEP-0060 a XEP-0163. Obì tato roz¹íøení jsou dùle¾itá
 
 V tabulce \ref{tab4} jsou shrnuty informace o serverech Jabbru. První sloupec tvoøí jméno, následuje programovací jazyk v nìm¾ je napsán. Vìt¹ina je vydávána pod licencí 
 GPL\footnote{General Public License-v¹eobecná veøejná licence GNU}, kromì ejabbred a Prosody. Ejabbred pou¾ívá GPLv2, co¾ je GPL licence druhé verze a Prosody licenci MIT/X11. 
-U v¹ech software byla zkoumána nejaktuálnìj¹í verze. Její èíslo naleznete ve tøetím sloupci. V¹echny servery lze provozovat na operaèním systému Linux a Windows. Na platformì Mac OS mohou být pou¾ity v¹echny zde jmenované vyjma jabberd2. Pìt z ¹esti zde pøedstavených software pro server Jabber jsou ve stavu vývoje, tedy kromì jabberd14. Tabulka takté¾ shrnuje vlastnosti serverù v oblasti podpory roz¹íøených statusù o standardy XEP-0060 a XEP-0163.
+U v¹ech software byla zkoumána nejaktuálnìj¹í verze. Její èíslo naleznete ve tøetím sloupci. V¹echny servery lze provozovat na operaèním systému Linux a Windows. Na platformì Mac OS mohou být pou¾ity v¹echny zde jmenované vyjma jabberd2. Pìt z ¹esti zde pøedstavených software pro server Jabber jsou ve stále vyvíjeny, tedy kromì jabberd14. Tabulka takté¾ shrnuje dùle¾ité vlastnosti serverù v oblasti podpory roz¹íøených statusù o standardy XEP-0060 a XEP-0163.
 
 
 
@@ -162,16 +162,14 @@ Tigase		& java            & 5.0.0          & ANO					& ANO\\ \hline
 
 
 \section{XML}\label{Xml}
-Jazyk XML (eXtensible Markup Language), metajazyk pro deklaraci strukturovaných dat, je jádrem protokolu XMPP. Samotný jazyk vznikl roz¹íøením metajazyka SGML, je¾ slou¾í pro deklaraci rùzných 
-typù dokumentù. Základní vlastností je jednoduchá definice vlastních znaèek (tagù). Dokument XML se skládá z elementù, je¾ mù¾eme navzájem zanoøovat. Vyznaèujeme je pomocí znaèek - poèáteèní a 
-ukonèovací.
+Jazyk XML (eXtensible Markup Language), metajazyk pro deklaraci strukturovaných dat, je jádrem protokolu XMPP. Samotný jazyk vznikl roz¹íøením metajazyka SGML, je¾ slou¾í pro deklaraci rùzných typù dokumentù. Základní vlastností je jednoduchá definice vlastních znaèek (tagù). Dokument XML se skládá z elementù, je¾ mù¾eme navzájem zanoøovat. Vyznaèujeme je pomocí znaèek - poèáteèní a ukonèovací. Pomocí tohoto jazyka je tvoøena Stanza. 
 %\begin{enumerate}
 % \item obrazek struktura XML stream...
 %\end{enumerate}
 
-Základní jednotkou komunikace je stanza. Obsahuje 3 elementy \textit{message}, \textit{presence} a \textit{iq}, je¾ ka¾dý má svùj jednoznaèný význam.
-\section{Stanza}\label{Stanza}
 
+\section{Stanza}\label{Stanza}
+Základní jednotkou pro komunikaci zalo¾enou na XML je stanza. Skládá se tøí elementù \textit{message}, \textit{presence} a \textit{iq}, je¾ ka¾dý má svùj jednoznaèný význam.
 
 \subsubsection*{Jabber ID}\label{jid}
 Jabber ID (JID) je jednoznaèný virtuální identifikátor u¾ivatele na síti. Není case-sensitive a je slo¾en ze dvou èástí. 
@@ -179,10 +177,11 @@ Takzvané \textit{Jabber bare} neboli èisté ID a \textit{resource}. První je èást
 Druhá èást slou¾í k pøesné identifikaci jednotlivých spojení. Je pou¾it ke smìrování trafiku s u¾ivateli v pøípadì otevøení vícero spojení pod jedním u¾ivatelem. 
 Spoleènì Jabber bare a resource tvoøí tzv. \textit{full JID} --- \textit{user@server/resource}.
 
-
-
-
 \subsection*{Message}
+XML element prvního zanoøení slou¾ící k posílání zpráv v¹echo druhu. Je to základní metoda pro rychlý pøenos informací z místa na místo. Zprávy jsou typu \uv{push}, tedy jsou odeslány a neoèekává se ¾ádná aktivita od pøíjemce, která by pøijetí potvrdila. Zprávy jsou pou¾ívány pro IM, skupinový chat a pro oznámení nebo upozornìní. Podelementy a atributy tvoøící nutné minimum zprávy jsou \textit{to} (pøíjemnce zprávy), \textit{from} (odesílatel zprávy) a \textit{body} (obsah zprávy). Základní pou¾ívané typy zpráv jsou \textit{normální} (zpráva bez kontextu, vy¾aduje odpovìï ), \textit{chat} (komunikace mezi dvìma entitami), \textit {groupchat}(skupinový chat) \textit{headline} (upozornìní) \textit{error} (chybová zpráva). Celá struktura elementu \textit{<message/>} je zobrazena v priloze XXX strana XXX.
+
+Základní pou¾ití elementu \textit{<message/>} je ukázáno na obrázku XXX. Zobrazuje strukturu zprávy. Na prvním øádku je element \textit{to} -- pøíjemece zprávy, druhý \textit{from} -- odesílatel, následuje \textit{type} -- typ zprávy a nakonec samotný obsah.
+
 
 \subsection*{IQ}
 \subsection*{Presence}

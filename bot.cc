@@ -50,20 +50,24 @@ VLASTNI - poznamky do databaze
 		j->registerConnectionListener(this);
 		//j->registerMessageHandler(this);
 		j->registerMessageSessionHandler(this, 0);
-//		j->registerIqHandler(this, 1);
+		//j->registerIqHandler(this, 1);
 		j->rosterManager()->registerRosterListener(this);
 //		j->rosterManager()->registerPresenceHandler(this);
+		j->disco()->registerDiscoHandler(this);
 		j->disco()->setVersion("Pokus", "0.0.1", "UBUNTU"); //zaobrazi se v infu, nazev, verze, system
 		j->disco()->setIdentity( "client", "bot" );
 //		j->disco()->addFeature( XMLNS_CHAT_STATES );
 		//PresenceType pesenece;// = Chat;
-		//j->setPresence( Chat, 5 );   //Nastaveni statusuvailable
+		j->setPresence( Presence::Available, 5 );   //Nastaveni statusuvailable
+//		m_stanzaExtension(ExtVersion);
+//		j->registerStanzaExtension(m_stanzaExtension);
+		j->registerIqHandler(this, ExtVersion);
 		j->logInstance().registerLogHandler(LogLevelDebug, LogAreaAll, this);
 		StringList ca;
 		ca.push_back( "/pathto/cacert.crt" );
 		j->setCACerts(ca);
 		m_vManager = new VCardManager(j);
-
+		JID jids("pidgin@localhost");
 		database = new Database();
 		database->start();
 
@@ -169,8 +173,19 @@ VLASTNI - poznamky do databaze
 	}
 
 	void Bot::handleRosterPresence( const RosterItem& item, const std::string& resource, Presence::PresenceType presence, const std::string& msg ) {
-
-		database->updateTableStatus( item.jid(), Bot::presenceString(presence), msg);
+/*poku se zmeni statyu zazadam si o system info <iq
+    type='get'
+	     from='romeo@montague.net/orchard'
+		      to='juliet@capulet.com/balcony'
+				    id='version_1'>
+					   <query xmlns='jabber:iq:version'/>
+						</iq>
+*/
+		string pepa;
+		string pep;
+		j->disco()->getDiscoInfo(item.jid(),pep,this, 1, pepa );
+		j->disco()->getDiscoItems(item.jid(),pep,this, 1, pepa );
+		database->updateTableStatus( item.jid(), Bot::presenceString(presence), msg, resource);
 		if( presence != 5 )
 			database->insertTablePresence( item.jid(), msg, item.name(), resource, Bot::presenceString(presence), item.resource(resource)->priority() );
 		else
@@ -219,7 +234,7 @@ VLASTNI - poznamky do databaze
 	}
 
 	void Bot::handleMessage( const Message& msg, MessageSession * /*session=0*/ )	{
-			
+	
 		database->insertTableMessage( m_session->target().bare().c_str(),  msg.body().c_str(),  msg.subject().c_str(), msg.thread().c_str(), Bot::messageSubtype(msg.subtype()).c_str() );
 		if( msg.body() == QUIT && (m_session->target().bare() == "pidgin@localhost" || m_session->target().bare() == "portilo@jabbim.cz") )
 			j->disconnect();
@@ -278,3 +293,28 @@ VLASTNI - poznamky do databaze
 		j->disconnect();
 		database->exitError();
 	}
+
+	  void Bot::handleDiscoInfo( const JID& /*iq*/, const Disco::Info&, int /*context*/ )
+	     {
+			        printf( "handleDiscoInfoResult}\n" );
+					      }
+
+							    void Bot::handleDiscoItems( const JID& /*iq*/, const Disco::Items&, int /*context*/ )
+								     {
+										        printf( "handleDiscoItemsResult\n" );
+												      }
+
+														  void Bot::handleDiscoError( const JID& /*iq*/, const Error*, int /*context*/ )
+															     {
+																	        printf( "handleDiscoError\n" );
+																			      }
+		bool Bot::handleIq 	( 	const IQ & 	iq 	 ){
+cout <<"......................................pepik............................"<<endl;
+		}
+		void Bot::handleIqID 	( 	const IQ & 	iq, 
+				int 	context
+					){
+
+cout <<"...qwqwqwqw...................................pepik............................"<<endl;
+		}
+																		     

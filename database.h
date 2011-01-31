@@ -217,7 +217,7 @@ class Database
 
 		string printUser() const; 
 
-		void updateTableStatus( string jidBare, string presence, string status);
+		void updateTableStatus( string jidBare, string presence, string status, string resource);
 };
 
 #endif

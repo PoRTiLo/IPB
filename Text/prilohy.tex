@@ -6,25 +6,106 @@
 
 \chapter{Slovník výrazù}
 \begin{description}
-   \item [XMPP] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [IM slu¾by] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [XEP] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [JEP] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [SASL] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [TLS] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [GPG] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [XML] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [WWW] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [jabber] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [JID] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [presence] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [stanza] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [klient] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [server] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [e-mail] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [DNS] --- Domain Name System
-   \item [TCP] --- dkshckdsjvlsdjvodsvjdfokj
-   \item [IP] --- Internet Protocol
-   \item [vCard] --- dkshckdsjvlsdjvodsvjdfokj
+\item [DNS] --- Domain Name System
+\item [GPG] --- dkshckdsjvlsdjvodsvjdfokj
+\item [IM slu¾by] --- dkshckdsjvlsdjvodsvjdfokj
+\item [IP] --- Internet Protocol
+\item [JEP] --- dkshckdsjvlsdjvodsvjdfokj
+\item [JID] --- dkshckdsjvlsdjvodsvjdfokj
+\item [SASL] --- dkshckdsjvlsdjvodsvjdfokj
+\item [TCP] --- dkshckdsjvlsdjvodsvjdfokj
+\item [TLS] --- dkshckdsjvlsdjvodsvjdfokj
+\item [WWW] --- dkshckdsjvlsdjvodsvjdfokj
+\item [XEP] --- dkshckdsjvlsdjvodsvjdfokj
+\item [XML] --- dkshckdsjvlsdjvodsvjdfokj
+\item [XMPP] --- dkshckdsjvlsdjvodsvjdfokj
+\item [e-mail] --- dkshckdsjvlsdjvodsvjdfokj
+\item [jabber] --- dkshckdsjvlsdjvodsvjdfokj
+\item [klient] --- dkshckdsjvlsdjvodsvjdfokj
+\item [presence] --- dkshckdsjvlsdjvodsvjdfokj
+\item [server] --- dkshckdsjvlsdjvodsvjdfokj
+\item [stanza] --- dkshckdsjvlsdjvodsvjdfokj
+\item [vCard] --- dkshckdsjvlsdjvodsvjdfokj
+
 
 \end{description}
+
+\chapter{Stanza - základní schéma}
+
+
+\section{iq}
+
+\begin{figure}[h]
+\begin{verbatim}
+<iq from=""
+    to=""
+    type="[get,set,result,error]"
+    id=""
+  Namespace*
+</ig>
+\end{verbatim} 
+\caption{Popis elementu \textit{\textless iq/\textgreater}.}
+ \label{picIqE}
+\end{figure}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{ l  l  l  l } 
+jabber:client & jabber:server& jabber:iq:auth& jabber:iq:register\\ 
+jabber:iq:roster& jabber:x:offline& jabber:iq:agent& jabber:iq:agents\\ 
+ jabber:x:delay& jabber:iq:version& jabber:iq:time& vcard-temp\\ 
+ jabber:iq:private& jabber:iq:search& jabber:iq:oob& jabber:x:oob\\ 
+ jabber:iq:admin& jabber:iq:filter& jabber:iq:auth:0k& jabber:iq:browse\\ 
+jabber:x:event& jabber:iq:conference& jabber:x:signed& jabber:x:encrypted\\ 
+ jabber:iq:gateway& jabber:iq:last& jabber:x:envelope& jabber:x:expire\\ 	
+  jabber:xdb:ginsert& jabber:xdb:nslist&\multicolumn{2}{l}{texthttp://www.w3.org/1999/xhtml}
+\end{tabular}
+\caption{Pøehled Namespace elementu \textit{\textless iq/\textgreater}.}
+\label{tabNamespaceIqE}
+\end{center} 
+\end{table}
+
+\newpage
+\section{Message}\label{message}
+
+\begin{figure}[h]
+\begin{verbatim}
+<message from=""
+         to=""
+         type="[normal,chat,groupchat, headline, error]"
+         id=""
+  <body>  </body>
+  <x xmlns='jabber:x:event'>
+     <[Offline, Delivered, Displayed, Composing]/>
+  <subject>  </subject>
+  <thread>  </thread>
+  <error>   </error>
+  <x>   </x>
+</message>
+\end{verbatim}  
+\caption{Popis elementu \textit{\textless message/\textgreater}.}
+ \label{picMessageE}
+\end{figure}
+
+\section{Presence}
+\begin{figure}[h]
+\begin{verbatim}
+<presence from=""
+          to=""
+          type="[available, unavailable, probe, subscribe,
+                 unsubscribe, subscribed, unsubscribed, error]"
+          id=""
+  <show>
+    [away, chat, dnd, normal, xa]
+  </show>
+  <status>   </status>
+  <priority>   </priority>
+  <error>   </error>
+</presence>
+\end{verbatim} 
+\caption{Popis elementu \textit{\textless presence/\textgreater}.}
+ \label{picPresenceE}
+\end{figure}
+
+
+

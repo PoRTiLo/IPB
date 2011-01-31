@@ -67,7 +67,8 @@
 #define DB_TABLE_STATUS " jidBare text PRIMARY KEY,"\
 								 "presence text,"\
 								 "status text,"\
-					 		   " date timestamp"
+					 		   " date timestamp,"\
+								" resource text" 
 #define DB_SELECT_STATUS "Select * from status"
 #define DB_DATA_LOGAREA "Insert into logarea ( num, name, description, descriptionCz ) VALUES "\
 								 "( 1, 'LogAreaClassParser', 'Log message from Parser', 'Zprava z parsru'),"\

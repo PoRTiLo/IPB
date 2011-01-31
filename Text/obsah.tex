@@ -162,16 +162,14 @@ Tigase		& java            & 5.0.0          & ANO					& ANO\\ \hline
 
 
 \section{XML}\label{Xml}
-Jazyk XML (eXtensible Markup Language), metajazyk pro deklaraci strukturovaných dat, je jádrem protokolu XMPP. Samotný jazyk vznikl roz¹íøením metajazyka SGML, je¾ slou¾í pro deklaraci rùzných 
-typù dokumentù. Základní vlastností je jednoduchá definice vlastních znaèek (tagù). Dokument XML se skládá z elementù, je¾ mù¾eme navzájem zanoøovat. Vyznaèujeme je pomocí znaèek - poèáteèní a 
-ukonèovací.
+Jazyk XML (eXtensible Markup Language), metajazyk pro deklaraci strukturovaných dat, je jádrem protokolu XMPP. Samotný jazyk vznikl roz¹íøením metajazyka SGML, je¾ slou¾í pro deklaraci rùzných typù dokumentù. Základní vlastností je jednoduchá definice vlastních znaèek (tagù). Dokument XML se skládá z elementù, je¾ mù¾eme navzájem zanoøovat. Vyznaèujeme je pomocí znaèek - poèáteèní a ukonèovací. Pomocí tohoto jazyka je tvoøena Stanza. 
 %\begin{enumerate}
 % \item obrazek struktura XML stream...
 %\end{enumerate}
 
-Základní jednotkou komunikace je stanza. Obsahuje 3 elementy \textit{message}, \textit{presence} a \textit{iq}, je¾ ka¾dý má svùj jednoznaèný význam.
-\section{Stanza}\label{Stanza}
 
+\section{Stanza}\label{Stanza}
+Základní jednotkou pro komunikaci zalo¾enou na XML je stanza. Skládá se tøí elementù \textit{message}, \textit{presence} a \textit{iq}, je¾ ka¾dý má svùj jednoznaèný význam.
 
 \subsubsection*{Jabber ID}\label{jid}
 Jabber ID (JID) je jednoznaèný virtuální identifikátor u¾ivatele na síti. Není case-sensitive a je slo¾en ze dvou èástí. 
@@ -179,10 +177,26 @@ Takzvané \textit{Jabber bare} neboli èisté ID a \textit{resource}. První je èást
 Druhá èást slou¾í k pøesné identifikaci jednotlivých spojení. Je pou¾it ke smìrování trafiku s u¾ivateli v pøípadì otevøení vícero spojení pod jedním u¾ivatelem. 
 Spoleènì Jabber bare a resource tvoøí tzv. \textit{full JID} --- \textit{user@server/resource}.
 
-
-
-
 \subsection*{Message}
+XML element prvního zanoøení slou¾ící k posílání zpráv v¹echo druhu. Je to základní metoda pro rychlý pøenos informací z místa na místo. Zprávy jsou typu \uv{push}, tedy jsou odeslány a neoèekává se ¾ádná aktivita od pøíjemce, která by pøijetí potvrdila. Zprávy jsou pou¾ívány pro IM, skupinový chat a pro oznámení nebo upozornìní. Podelementy a atributy tvoøící nutné minimum zprávy jsou \textit{to} (pøíjemnce zprávy), \textit{from} (odesílatel zprávy) a \textit{body} (obsah zprávy). Základní pou¾ívané typy zpráv jsou \textit{normální} (zpráva bez kontextu, vy¾aduje odpovìï ), \textit{chat} (komunikace mezi dvìma entitami), \textit {groupchat}(skupinový chat) \textit{headline} (upozornìní) \textit{error} (chybová zpráva). Celá struktura elementu \textit{\textless message/\textgreater} je zobrazena v priloze \ref{message} strana \pageref{message}.
+
+Základní pou¾ití elementu \textit{\textless message/\textgreater} je ukázáno na obrázku \ref{picMessage}. Zobrazuje strukturu zprávy. Na prvním øádku je element \textit{to} -- pøíjemece zprávy, druhý \textit{from} -- odesílatel, následuje \textit{type} -- typ zprávy a nakonec samotný obsah.
+
+
+\begin{figure}
+\begin{verbatim}
+                <message from="madhatter@wonderland.lit/foo"
+                         to="alice@wonderland.lit"
+                         type="chat"\textgreater
+                   <body> Who are you? </body>
+                   <subject> Query </subject>
+                </message>
+\end{verbatim}  
+\caption{Pøíklad pou¾ití elementu \textit{\textless message/\textgreater}.}
+ \label{picMessage}
+\end{figure} 
+
+
 
 \subsection*{IQ}
 \subsection*{Presence}

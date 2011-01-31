@@ -35,7 +35,8 @@
 #include <gloox/vcardhandler.h>
 #include <gloox/vcardmanager.h>
 
-
+#include <gloox/stanzaextension.h>
+#include <gloox/iqhandler.h>
 
 #include <string>
 #include <fstream>
@@ -53,7 +54,7 @@ extern bool g_global;
  * 
  * 
  */
-class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListener, VCardHandler, MessageSessionHandler//, MessageEventHandler, ChatStateHandler
+class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListener, VCardHandler, MessageSessionHandler, DiscoHandler, IqHandler//, MessageEventHandler, ChatStateHandler
 {
 	protected:
 		string login;										// JID
@@ -67,6 +68,7 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 		ChatStateFilter* m_chatStateFilter;
 		VCardManager* m_vManager;
 		Database* database;
+		//StanzaExtension* m_stanzaExtension;
 		int m_count;
 	public:
 		/**
@@ -226,6 +228,13 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 		string presenceString( const int presence );
 
 		void end();
-
+	 	virtual void handleDiscoInfo( const JID& /*iq*/, const Disco::Info&, int /*context*/ );
+	   virtual void handleDiscoItems( const JID& /*iq*/, const Disco::Items&, int /*context*/ );
+		virtual void handleDiscoError( const JID& /*iq*/, const Error*, int /*context*/ );
+		virtual bool handleIq 	( 	const IQ & 	iq 	 );
+		virtual void handleIqID 	( 	const IQ & 	iq, 
+				int 	context
+					);
+																		     
 };
 #endif //BOT_H__

@@ -229,18 +229,16 @@ void Database::insertTableUser( string jidBare) {
 	PQclear(presult);
 }
 
-void Database::updateTableStatus( string jidBare, string presence, string status) {
+void Database::updateTableStatus( string jidBare, string presence, string status, string resource) {
 
 		Database::getTime();
 		string query = DB_UPDATE;
 		query += "status ";
 		query += DB_SET;
-		query += "presence = '"+presence+"', status = '"+Database::convertXML(status)+"', date = timestamp '" + this->sTime + "' " + DB_WHERE + "jidbare = '" +jidBare+"';";
-		cout<<"s[adne"<<query<<endl;
+		query += "presence = '"+presence+"', status = '"+Database::convertXML(status)+"', date = timestamp '" + this->sTime + "', resource='" + resource + "' " + DB_WHERE + "jidbare = '" +jidBare+"';";
 		presult = PQexec( this->psql, query.c_str() );
 		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 		{
-			cout<<"tadyyyyyyyy..."<<endl;
 			PQclear(presult);
 			Database::exitError();
 		}

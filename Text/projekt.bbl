@@ -70,30 +70,30 @@ Stevens, W.; Fenner, B.; M.Rudoff, A.: \emph{UNIX Network Programming}. Boston:
 
 \bibitem{Ejabberd}
 {WWW Stránky}: Ejabberd the Erlang Jabber/XMPP deamon community site. [online],
-  2010 , [cit. \today].
+  2010, [cit. \today].
 \newline\urlprefix\url{{http://www.ejabberd.im/}}
 
 \bibitem{Jabberd14}
 {WWW Stránky}: Jabberd14 the original Jabber server implementation. [online],
-  2010 , [cit. \today].
+  2010, [cit. \today].
 \newline\urlprefix\url{{http://jabberd.org/}}
 
 \bibitem{Openfire}
-{WWW Stránky}: Openfire is a real time collaboration server. [online], 2010 ,
+{WWW Stránky}: Openfire is a real time collaboration server. [online], 2010,
   [cit. \today].
 \newline\urlprefix\url{{http://www.igniterealtime.org/projects/openfire/}}
 
 \bibitem{Prosody}
-{WWW Stránky}: Prosody a study in simplicity. [online], 2010 , [cit. \today].
+{WWW Stránky}: Prosody a study in simplicity. [online], 2010, [cit. \today].
 \newline\urlprefix\url{{http://prosody.im/}}
 
 \bibitem{Tigase}
 {WWW Stránky}: Tigase is the website of the Tigase XMPP/Jabber Server.
-  [online], 2010 , [cit. \today].
+  [online], 2010, [cit. \today].
 \newline\urlprefix\url{{http://www.tigase.org/}}
 
 \bibitem{Jabberd2}
-{WWW Stránky - Matthias Wimmer}: Jabberd2 - XMPP Server. [online], 2010 , [cit.
+{WWW Stránky - Matthias Wimmer}: Jabberd2 - XMPP Server. [online], 2010, [cit.
   \today].
 \newline\urlprefix\url{{http://codex.xiaoka.com/wiki/jabberd2:start}}
 
