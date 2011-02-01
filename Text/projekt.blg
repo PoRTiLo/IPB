@@ -2,10 +2,11 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: projekt.aux
 The style file: czechiso.bst
 Database file #1: literatura.bib
+Warning--I didn't find a database entry for "XXX"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 140733193391032.
 You've used 19 entries,
             3151 wiz_defined-function locations,
-            767 strings with 7543 characters,
+            769 strings with 7549 characters,
 and the built_in function-call counts, 7123 in all, are:
 = -- 477
 > -- 203
@@ -44,3 +45,4 @@ warning$ -- 0
 while$ -- 45
 width$ -- 21
 write$ -- 194
+(There was 1 warning)
