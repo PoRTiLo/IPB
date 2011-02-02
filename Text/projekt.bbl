@@ -30,19 +30,9 @@ Kurose, J.~F.; Ross, K.~W.: \emph{Computer networking : top-down approach
   featuring the internet}. Boston: Addison-Wesley Publishing Company, druhé
   vydání, 2003, 752 s., iSBN~03-211-7644-8.
 
-\bibitem{Xep0060}
-Millard, P.; Saint-Andre, P.; Meijer, R.: XEP-0060: Publish-Subscribe.
-  [online], {12-07-2010, [cit. \today]}.
-\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0060.html}}
-
 \bibitem{Moore}
 Moore, D.; Wright, W.: \emph{Jabber developer's handbook}. Indianapolis: Sams
   Publishing, první vydání, 2004, 487 s., iSBN~06-723-2536-5.
-
-\bibitem{Xep0163}
-Saint-Andre, P.; Smith, K.: XEP-0163: Personal Eventing Protocol. [online],
-  {12-07-2010, [cit. \today]}.
-\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0163.html}}
 
 \bibitem{Rfc3920}
 Saint-André, P.: Extensible Messaging and Presence Protocol (XMPP): Core.
@@ -59,42 +49,9 @@ Saint-André, P.; Smith, K.; Troncon, R.: \emph{XMPP : the definitive guide :
   building real-time applications with jabber technologies}. Sebastopol:
   O'Reilly, první vydání, 2009, 287 s., iSBN~978-059-6521-264.
 
-\bibitem{Schroter}
-Schröter, J.: Gloox API Dokumentace. [online], 31-11-2009 , [cit. \today].
-\newline\urlprefix\url{{http://camaya.net/api/gloox-1.0/index.html}}
-
 \bibitem{UNIX}
 Stevens, W.; Fenner, B.; M.Rudoff, A.: \emph{UNIX Network Programming}. Boston:
   Addison-Wesley Publishing Company, tøetí vydání, 2004, 991 s.,
   iSBN~01-314-1155-1.
-
-\bibitem{Ejabberd}
-{WWW Stránky}: Ejabberd the Erlang Jabber/XMPP deamon community site. [online],
-  2010, [cit. \today].
-\newline\urlprefix\url{{http://www.ejabberd.im/}}
-
-\bibitem{Jabberd14}
-{WWW Stránky}: Jabberd14 the original Jabber server implementation. [online],
-  2010, [cit. \today].
-\newline\urlprefix\url{{http://jabberd.org/}}
-
-\bibitem{Openfire}
-{WWW Stránky}: Openfire is a real time collaboration server. [online], 2010,
-  [cit. \today].
-\newline\urlprefix\url{{http://www.igniterealtime.org/projects/openfire/}}
-
-\bibitem{Prosody}
-{WWW Stránky}: Prosody a study in simplicity. [online], 2010, [cit. \today].
-\newline\urlprefix\url{{http://prosody.im/}}
-
-\bibitem{Tigase}
-{WWW Stránky}: Tigase is the website of the Tigase XMPP/Jabber Server.
-  [online], 2010, [cit. \today].
-\newline\urlprefix\url{{http://www.tigase.org/}}
-
-\bibitem{Jabberd2}
-{WWW Stránky - Matthias Wimmer}: Jabberd2 - XMPP Server. [online], 2010, [cit.
-  \today].
-\newline\urlprefix\url{{http://codex.xiaoka.com/wiki/jabberd2:start}}
 
 \end{thebibliography}

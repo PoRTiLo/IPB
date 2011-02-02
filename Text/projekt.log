@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.10.12)  2 FEB 2011 00:16
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.10.12)  2 FEB 2011 19:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -683,14 +683,14 @@ Non-PDF special ignored!
 \@vyskartext=\skip51
 \@vyskaobr=\skip52
 
-<fig/vut-zp2.pdf, id=104, 109.40875pt x 109.40875pt>
+<fig/vut-zp2.pdf, id=108, 109.40875pt x 109.40875pt>
 File: fig/vut-zp2.pdf Graphic file (type pdf)
  <use fig/vut-zp2.pdf>
 Overfull \hbox (109.58464pt too wide) in paragraph at lines 121--121
 [][] 
  []
 
-<fig/fit-zp2.pdf, id=105, 120.45pt x 120.45pt>
+<fig/fit-zp2.pdf, id=109, 120.45pt x 120.45pt>
 File: fig/fit-zp2.pdf Graphic file (type pdf)
  <use fig/fit-zp2.pdf>
 Overfull \hbox (109.58464pt too wide) in paragraph at lines 121--121
@@ -759,7 +759,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.55 \end{table}
+l.54 \end{table}
                  [3
 
 ] (./message.tex) (./struktura.tex)
@@ -770,47 +770,58 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.129 
+l.128 
        [4]
-Overfull \hbox (3.06631pt too wide) in paragraph at lines 140--140
+Overfull \hbox (3.06631pt too wide) in paragraph at lines 139--139
 []|\IL2/cmr/bx/n/10.95 Jazyk| 
  []
 
 
-Overfull \hbox (8.83813pt too wide) in paragraph at lines 141--141
+Overfull \hbox (8.83813pt too wide) in paragraph at lines 140--140
 []|\IL2/cmr/m/n/10.95 Erlang/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 []|\IL2/cmr/m/n/10.95 c,
  []
+
+[5]
+LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 171
+.
+ (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
+File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
+)
+Overfull \hbox (15.91585pt too wide) in paragraph at lines 182--182
+[]\IL2/cmtt/m/n/10.95 1. <?xml version="1.0" encoding="utf-8"?>           // XM
+L deklarace, kódování[] 
+ []
+
+
+Overfull \hbox (21.66454pt too wide) in paragraph at lines 182--182
+[]\IL2/cmtt/m/n/10.95 6.   <bakaláøské titul="Bc."></bakaláøské>          // ná
+zev a hodnota atributu[] 
+ []
+
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 192.
+
+(/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 192.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 176.
 
- (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 176.
-LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 182
-.
-
-(/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
-File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
-)
-
-LaTeX Warning: Citation `XXX' on page 6 undefined on input line 194.
+LaTeX Warning: Citation `XXX' on page 6 undefined on input line 210.
 
 [6]
-Overfull \hbox (21.20468pt too wide) in paragraph at lines 214--225
+Overfull \hbox (21.20468pt too wide) in paragraph at lines 230--241
 []\IL2/cmr/m/n/10.95 Základní pou-¾ití \OML/cmm/m/it/10.95 <\IL2/cmr/m/it/10.95
  pre-sence/\OML/cmm/m/it/10.95 > \IL2/cmr/m/n/10.95 je zob-ra-zeno na ob-rázku 
-[][]2.5[][]. Kon-takt \IL2/cmr/m/it/10.95 jabinfo@jabbim.com/bot
+[][]2.6[][]. Kon-takt \IL2/cmr/m/it/10.95 jabinfo@jabbim.com/bot
  []
 
 [7] [8]
@@ -825,29 +836,29 @@ Kapitola 4.
 Kapitola 5.
 ) (./projekt.bbl [12
 
-] [13
+]) (./prilohy.tex [13
 
-]) (./prilohy.tex [14]
+]
 P\v {r}\'{\i }loha A.
-[15
+[14
 
 ]
 P\v {r}\'{\i }loha B.
-[16
+[15
 
 ]
 P\v {r}\'{\i }loha C.
-[17
+[16
 
 ]
 P\v {r}\'{\i }loha D.
-[18
+[17
 
 ]
 P\v {r}\'{\i }loha E.
-[19
+[18
 
-]) [20] (./projekt.aux)
+]) [19] (./projekt.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -857,13 +868,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 15504 strings out of 495027
- 248398 string characters out of 1181418
- 381126 words of memory out of 3000000
- 18199 multiletter control sequences out of 15000+50000
+ 15480 strings out of 495027
+ 248135 string characters out of 1181418
+ 379909 words of memory out of 3000000
+ 18192 multiletter control sequences out of 15000+50000
  24480 words of font info for 69 fonts, out of 3000000 for 9000
  38 hyphenation exceptions out of 8191
- 47i,17n,57p,989b,986s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,17n,57p,988b,986s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -880,9 +891,9 @@ lic/cs/csr6.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csr8.pfb></usr/
 share/texmf-texlive/fonts/type1/public/cs/csr9.pfb></usr/share/texmf-texlive/fo
 nts/type1/public/cs/csti10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/
 cstt10.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on projekt.pdf (24 pages, 207147 bytes).
+Output written on projekt.pdf (23 pages, 206448 bytes).
 PDF statistics:
- 413 PDF objects out of 1000 (max. 8388607)
- 104 named destinations out of 1000 (max. 500000)
- 207 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 380 PDF objects out of 1000 (max. 8388607)
+ 87 named destinations out of 1000 (max. 500000)
+ 215 words of extra memory for PDF output out of 10000 (max. 10000000)
 

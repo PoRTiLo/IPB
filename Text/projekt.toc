@@ -2,9 +2,10 @@
 \contentsline {chapter}{\numberline {1}\'Uvod}{2}{chapter.1}
 \contentsline {chapter}{\numberline {2}XMPP}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Architektura}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}XML}{5}{section.2.2}
-\contentsline {section}{\numberline {2.3}Stanza}{6}{section.2.3}
-\contentsline {section}{\numberline {2.4}Knihovny}{7}{section.2.4}
+\contentsline {section}{\numberline {2.2}Roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{5}{section.2.2}
+\contentsline {section}{\numberline {2.3}XML}{6}{section.2.3}
+\contentsline {section}{\numberline {2.4}Stanza}{6}{section.2.4}
+\contentsline {section}{\numberline {2.5}Knihovny}{8}{section.2.5}
 \contentsline {chapter}{\numberline {3}Dataming}{9}{chapter.3}
 \contentsline {section}{\numberline {3.1}Metody dolovan\IeC {\'\i } dat}{10}{section.3.1}
 \contentsline {section}{\numberline {3.2}Dolovan\IeC {\'\i } znalosti z datab\'az\IeC {\'\i }}{10}{section.3.2}
@@ -14,11 +15,11 @@
 \contentsline {section}{\numberline {4.2}Knihovny, jazyk}{11}{section.4.2}
 \contentsline {section}{\numberline {4.3}Jin\'e produkty}{11}{section.4.3}
 \contentsline {chapter}{\numberline {5}Z\'av\v er}{12}{chapter.5}
-\contentsline {chapter}{\numberline {A}Obsah CD}{15}{appendix.A}
-\contentsline {chapter}{\numberline {B}Manual}{16}{appendix.B}
-\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{17}{appendix.C}
-\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k v\'yraz\r u}{18}{appendix.D}
-\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{19}{appendix.E}
-\contentsline {section}{\numberline {E.1}iq}{19}{section.E.1}
-\contentsline {section}{\numberline {E.2}Message}{20}{section.E.2}
-\contentsline {section}{\numberline {E.3}Presence}{20}{section.E.3}
+\contentsline {chapter}{\numberline {A}Obsah CD}{14}{appendix.A}
+\contentsline {chapter}{\numberline {B}Manual}{15}{appendix.B}
+\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{16}{appendix.C}
+\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k v\'yraz\r u}{17}{appendix.D}
+\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{18}{appendix.E}
+\contentsline {section}{\numberline {E.1}iq}{18}{section.E.1}
+\contentsline {section}{\numberline {E.2}Message}{19}{section.E.2}
+\contentsline {section}{\numberline {E.3}Presence}{19}{section.E.3}
