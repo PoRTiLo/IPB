@@ -70,9 +70,17 @@
 					 		   " date timestamp,"\
 								" resource text" 
 #define DB_SELECT_STATUS "Select * from status"
+#define DB_TABLE_RESOURCE " id serial PRIMARY KEY,"\
+								" jidBare text,"\
+								" presence text,"\
+								" status text,"\
+					 		   " date timestamp,"\
+								" priority integer,"\
+								" resource text" 
+#define DB_SELECT_RESOURCE "Select * from status"
 #define DB_DATA_LOGAREA "Insert into logarea ( num, name, description, descriptionCz ) VALUES "\
 								 "( 1, 'LogAreaClassParser', 'Log message from Parser', 'Zprava z parsru'),"\
-								 "( 2, 'LogAreaClassConnectionTCBase', 'Log message from ConnectionTCPBase', ''),"\
+								  "( 2, 'LogAreaClassConnectionTCBase', 'Log message from ConnectionTCPBase', ''),"\
 								 "( 4, 'LogAreaClassClient', 'Log messages from Client', ''),"\
 								 "( 8, 'LogAreaClassClientbase', 'Log messages from ClientBase', ''),"\
 								 "( 16, 'LogAreaClassComponent', 'Log messages from Component', ''),"\

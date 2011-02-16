@@ -63,6 +63,7 @@ void Database::initDb() {
 	Database::createTable( "userjid", DB_TABLE_USER );
 	Database::createTable( "message", DB_TABLE_MESSAGE );
 	Database::createTable( "status", DB_TABLE_STATUS );
+	Database::createTable( "resource", DB_TABLE_RESOURCE );
 
 }
 
@@ -229,6 +230,36 @@ void Database::insertTableUser( string jidBare) {
 	PQclear(presult);
 }
 
+void Database::updateTableStatus( string user ) {
+
+	string query = "Select * from resource where jidbare = '";
+	query += user + "';";
+	presult = PQexec(this->psql, query.c_str());
+	if(PQresultStatus(presult) == PGRES_TUPLES_OK)
+	{
+		int nFields = PQnfields(presult);	//sloupec
+		int nTuples = PQntuples(presult);	//radek
+		int priority = -127;
+		string pom, pomS;
+		int pomInt = 0;
+		int culomn = 0;
+		for( int i = 0; i < nTuples; i++ )
+		{
+				pom = PQgetvalue(presult,i,5);
+				pomS = PQgetvalue(presult,i,2);
+				string some_string;
+				istringstream buffer(pom);
+				buffer >> pomInt;
+				if( priority <= pomInt && pomS != "Unavaliable" )
+				{
+					priority = pomInt;
+					culomn = i;
+				}
+		}
+		updateTableStatus( PQgetvalue(presult,culomn,1), PQgetvalue(presult,culomn,2), PQgetvalue(presult,culomn,3), PQgetvalue(presult,culomn,6));
+	}
+}
+
 void Database::updateTableStatus( string jidBare, string presence, string status, string resource) {
 
 		Database::getTime();
@@ -243,6 +274,71 @@ void Database::updateTableStatus( string jidBare, string presence, string status
 			Database::exitError();
 		}
 	PQclear(presult);
+}
+
+//
+void Database::updateTableResource( string jidBare, string presence, string status, string resource, int priority) {
+
+	string query = DB_UPDATE;
+	if( existResource(jidBare, resource) ) //uzivatelsky ucet s mistem existuje, aktualizuji
+	{
+		Database::getTime();
+		query += "resource ";
+		query += DB_SET;
+		query += "presence = '"+presence+"', status = '"+Database::convertXML(status)+"', date = timestamp '" + this->sTime + "', priority=" + Database::convertInt(priority) + " " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
+		presult = PQexec( this->psql, query.c_str() );
+		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
+		{
+			PQclear(presult);
+			Database::exitError();
+		}
+	}
+	else					// uzivatel s uctem neexistuje, vytvorim
+	{
+		query = DB_INSERT;
+		query += "resource (jidbare, presence, status, date, priority, resource) VALUES ('"+ jidBare + "', '"+ presence +"', '"+Database::convertXML(status)+"', timestamp '" +this->sTime + "', "+ Database::convertInt(priority)+", '"+resource+"');";
+		presult = PQexec( this->psql, query.c_str() );
+		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
+		{
+			PQclear(presult);
+			Database::exitError();
+		}
+	}
+	PQclear(presult);
+}
+
+void Database::updateTableResource( string jidBare, string presence, string status, string resource) {
+
+	string query = DB_UPDATE;
+		Database::getTime();
+		query += "resource ";
+		query += DB_SET;
+		query += "presence = '"+presence+"', status = '"+Database::convertXML(status)+"', date = timestamp '" + this->sTime + "' " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
+		presult = PQexec( this->psql, query.c_str() );
+		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
+		{
+			PQclear(presult);
+			Database::exitError();
+		}
+	PQclear(presult);
+}
+//
+bool Database::existResource( const string user, const string resource ) {
+
+	string query = "Select jidbare from resource where jidbare = '";
+	query += user + "' and resource = '";
+	query += resource + "';";
+	presult = PQexec(this->psql, query.c_str());
+	if(PQresultStatus(presult) == PGRES_TUPLES_OK)
+	{
+
+		if( PQntuples(presult) == 0 )
+			return false;
+		else
+			return true;
+	}
+	else
+		return false;
 }
 
 bool Database::existUser( const string user ) {

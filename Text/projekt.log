@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.10.12)  2 FEB 2011 19:10
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.10.12)  6 FEB 2011 15:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -683,14 +683,14 @@ Non-PDF special ignored!
 \@vyskartext=\skip51
 \@vyskaobr=\skip52
 
-<fig/vut-zp2.pdf, id=108, 109.40875pt x 109.40875pt>
+<fig/vut-zp2.pdf, id=112, 109.40875pt x 109.40875pt>
 File: fig/vut-zp2.pdf Graphic file (type pdf)
  <use fig/vut-zp2.pdf>
 Overfull \hbox (109.58464pt too wide) in paragraph at lines 121--121
 [][] 
  []
 
-<fig/fit-zp2.pdf, id=109, 120.45pt x 120.45pt>
+<fig/fit-zp2.pdf, id=113, 120.45pt x 120.45pt>
 File: fig/fit-zp2.pdf Graphic file (type pdf)
  <use fig/fit-zp2.pdf>
 Overfull \hbox (109.58464pt too wide) in paragraph at lines 121--121
@@ -759,8 +759,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.54 \end{table}
-                 [3
+l.30 
+      [3
 
 ] (./message.tex) (./struktura.tex)
 
@@ -770,55 +770,55 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.128 
+l.115 
        [4]
-Overfull \hbox (3.06631pt too wide) in paragraph at lines 139--139
+Overfull \hbox (3.06631pt too wide) in paragraph at lines 124--124
 []|\IL2/cmr/bx/n/10.95 Jazyk| 
  []
 
 
-Overfull \hbox (8.83813pt too wide) in paragraph at lines 140--140
+Overfull \hbox (8.83813pt too wide) in paragraph at lines 125--125
 []|\IL2/cmr/m/n/10.95 Erlang/
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+Underfull \hbox (badness 10000) in paragraph at lines 128--128
 []|\IL2/cmr/m/n/10.95 c,
  []
 
 [5]
-LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 171
+LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 156
 .
  (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
 File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
 )
-Overfull \hbox (15.91585pt too wide) in paragraph at lines 182--182
+Overfull \hbox (15.91585pt too wide) in paragraph at lines 167--167
 []\IL2/cmtt/m/n/10.95 1. <?xml version="1.0" encoding="utf-8"?>           // XM
 L deklarace, kódování[] 
  []
 
 
-Overfull \hbox (21.66454pt too wide) in paragraph at lines 182--182
+Overfull \hbox (21.66454pt too wide) in paragraph at lines 167--167
 []\IL2/cmtt/m/n/10.95 6.   <bakaláøské titul="Bc."></bakaláøské>          // ná
 zev a hodnota atributu[] 
  []
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 192.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 177.
 
 (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 192.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 177.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Citation `XXX' on page 6 undefined on input line 210.
+LaTeX Warning: Citation `XXX' on page 6 undefined on input line 195.
 
 [6]
-Overfull \hbox (21.20468pt too wide) in paragraph at lines 230--241
+Overfull \hbox (21.20468pt too wide) in paragraph at lines 215--226
 []\IL2/cmr/m/n/10.95 Základní pou-¾ití \OML/cmm/m/it/10.95 <\IL2/cmr/m/it/10.95
  pre-sence/\OML/cmm/m/it/10.95 > \IL2/cmr/m/n/10.95 je zob-ra-zeno na ob-rázku 
 [][]2.6[][]. Kon-takt \IL2/cmr/m/it/10.95 jabinfo@jabbim.com/bot
@@ -826,13 +826,13 @@ Overfull \hbox (21.20468pt too wide) in paragraph at lines 230--241
 
 [7] [8]
 Kapitola 3.
-(./database.tex) [9
-
-] [10]
-Kapitola 4.
-[11
+[9
 
 ]
+Kapitola 4.
+(./database.tex) [10
+
+] [11]
 Kapitola 5.
 ) (./projekt.bbl [12
 
@@ -868,13 +868,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 15480 strings out of 495027
- 248135 string characters out of 1181418
- 379909 words of memory out of 3000000
- 18192 multiletter control sequences out of 15000+50000
+ 15487 strings out of 495027
+ 248222 string characters out of 1181418
+ 379968 words of memory out of 3000000
+ 18195 multiletter control sequences out of 15000+50000
  24480 words of font info for 69 fonts, out of 3000000 for 9000
  38 hyphenation exceptions out of 8191
- 47i,17n,57p,988b,986s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,17n,57p,1371b,986s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -891,9 +891,9 @@ lic/cs/csr6.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csr8.pfb></usr/
 share/texmf-texlive/fonts/type1/public/cs/csr9.pfb></usr/share/texmf-texlive/fo
 nts/type1/public/cs/csti10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/
 cstt10.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on projekt.pdf (23 pages, 206448 bytes).
+Output written on projekt.pdf (23 pages, 207765 bytes).
 PDF statistics:
- 380 PDF objects out of 1000 (max. 8388607)
- 87 named destinations out of 1000 (max. 500000)
- 215 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 393 PDF objects out of 1000 (max. 8388607)
+ 91 named destinations out of 1000 (max. 500000)
+ 223 words of extra memory for PDF output out of 10000 (max. 10000000)
 

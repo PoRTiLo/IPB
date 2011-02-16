@@ -218,6 +218,12 @@ class Database
 		string printUser() const; 
 
 		void updateTableStatus( string jidBare, string presence, string status, string resource);
+		void updateTableStatus( string jidBare);
+
+		void updateTableResource( string jidBare, string presence, string status, string resource, int priority);
+		void updateTableResource( string jidBare, string presence, string status, string resource);
+
+		bool existResource( const string user, const string resource );
 };
 
 #endif

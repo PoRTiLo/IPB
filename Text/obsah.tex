@@ -13,29 +13,16 @@ Dnes mezi velmi se roz¹iøující technologie na poli sí»o
 
 \chapter{XMPP}
 
-Pro usnadnìní a lep¹í pochopení budou v následující kapitole rozebrány základní stavební kameny protokolu Extensible Messaging and Presence Protocol (XMPP). Konkrétnì 
-jsou zde popsány stávající vlastnosti implementace [odkud se èerpalo], architektura protokolu XMPP obecnì \cite{Rfc3920, Rfc3921} a dal¹í detaily protokolu 
-\cite{Adams, Saint, Moore}, které se vztahují k po¾adavkùm na data mining popisovaný v této práci. Dal¹í informace byly èerpány z \cite{UNIX,Kurose,Fred,Kosek,Xml5th}.
+Pro usnadnìní pochopení budou v následující kapitole rozebrány základní stavební kameny protokolu Extensible Messaging and Presence Protocol (XMPP). Konkrétnì jsou zde popsány stávající vlastnosti implementace [odkud se èerpalo], architektura protokolu XMPP obecnì \cite{Rfc3920, Rfc3921} a dal¹í detaily protokolu \cite{Adams, Saint, Moore}, které se vztahují k po¾adavkùm na data mining popisovaný v této práci \cite{Xep0163,Xep0060}. Dal¹í informace byly èerpány z \cite{UNIX,Kurose,Fred,Kosek,Xml5th}.
 
-Samotný protokol je datován do roku 2004 (bøezen), kdy na nìj byl pøejmenován Jabber. Pùvodní projekt Jabber byl vytvoøen roku 1998 autorem Jeremie Miller, 
-je¾ ho zalo¾il na popud nesvobodných uzavøených IM slu¾eb. Mìl mít tøi základní vlastnosti -jednoduchost a srozumitelnost pro implementaci, jednodu¹e roz¹iøitelný 
-a otevøený. Základní vlastnosti a výhody klientù a serverù budou popsány ní¾e. Roku 1999, 4.ledna byl vytvoøen první server se jménem jabber. Komunita vývojáøù 
-se chopila iniciativy a napsala klienty pro rùzné platformy (Linux, Macintosh, Windows), kteøí dokázali se serverem komunikovat. Roku 2004 byl pøidán mezi RFC 
-(request of comments - ¾ádost o komentáøe) dokumenty. Základní normy jsou RFC 3920 (obecná specifikace protokolu) a RFC 3921 (samotný instant messaging a 
-zobrazení stavu). Dal¹í zdokumentovaná roz¹íøení jsou vydávána v podobì tzv. XEP (XMPP Extension Protocol) dokumentù, star¹ím jménem JEP (Jabber Enhancement 
-Proposal). Dne¹ní poèet tìchto norem se blí¾í k èíslu 300. Ka¾dý XEP obsahuje status, stav vývoje (schválení), ve kterém se zrovna nachází. Jako bezpeènostní prvky 
-jsou zde podporovány SASL, TLS a GPG. XMPP protokol je postaven na obecném znaèkovacím jazyce XML, proto vlastnosti popsané v kapitole \ref{Xml} na stranì 
-\pageref{Xml} platí i pro tento protokol.
+Samotný protokol je datován do roku 2004 (bøezen), kdy na nìj byl pøejmenován Jabber. Pùvodní projekt Jabber byl vytvoøen roku 1998 autorem Jeremie Miller, je¾ ho zalo¾il na popud nesvobodných uzavøených IM slu¾eb. Mìl mít tøi základní vlastnosti -jednoduchost a srozumitelnost pro implementaci, jednodu¹e roz¹iøitelný a otevøený. Základní vlastnosti a výhody klientù a serverù budou popsány ní¾e. Roku 1999, 4.ledna byl vytvoøen první server se jménem Jabber. Komunita vývojáøù se chopila iniciativy a napsala klienty pro rùzné platformy (Linux, Macintosh, Windows), kteøí dokázali se serverem komunikovat. Roku 2004 byl pøidán mezi RFC (request of comments - ¾ádost o komentáøe) dokumenty. Základní normy jsou RFC 3920 (obecná specifikace protokolu) a RFC 3921 (samotný instant messaging a zobrazení stavu). Dal¹í zdokumentovaná roz¹íøení jsou vydávána v podobì tzv. XEP (XMPP Extension Protocol) dokumentù, star¹ím jménem JEP (Jabber Enhancement Proposal). Dne¹ní poèet tìchto norem se blí¾í k èíslu 300. Ka¾dý XEP obsahuje status, stav vývoje (schválení), ve kterém se zrovna nachází. Jako bezpeènostní prvky jsou zde podporovány SASL, TLS a GPG. XMPP protokol je postaven na obecném znaèkovacím jazyce XML, proto vlastnosti popsané v kapitole \ref{Xml} na stranì \pageref{Xml} platí i pro tento protokol.
 %\begin{enumerate}
 %\item ==znaková sada
 %\end{enumerate}
 
 
 \section{Architektura}
-Dobøe navr¾ená architektura tvoøí základ pro správnì fungující internetovou technologii. XMPP protokol vyu¾ívá decentralizované klient-server slo¾ení. Tato struktura 
-se nejvíce podobá struktuøe posílání e-mailù. V tomto pøípadu je decentralizace sítì chápána jako inteligentní nezávislost mezi vývojáøi klientù a serverù. Ka¾dý z nich se 
-mù¾e zamìøit na dùle¾ité èásti svého vývoje. Server na spolehlivost a roz¹iøitelnost, klient na u¾ivatele. Ka¾dý server pracuje samostatnì, chod ani výpadek jiné datové 
-stanice nijak neovlivní jeho bìh, pouze bude nedostupný seznam kontaktù a slu¾by, kterými server disponuje. 
+Dobøe navr¾ená architektura tvoøí základ pro správnì fungující internetovou technologii. XMPP protokol vyu¾ívá decentralizované klient-server slo¾ení. Tato struktura se nejvíce podobá struktuøe posílání e-mailù. V tomto pøípadì je decentralizace sítì chápána jako inteligentní nezávislost mezi vývojáøi klientù a serverù. Ka¾dý z nich se mù¾e zamìøit na dùle¾ité èásti svého vývoje. Server na spolehlivost a roz¹iøitelnost, klient na u¾ivatele. Ka¾dý server pracuje samostatnì, chod ani výpadek jiné datové stanice ¾ádným zpùsobem neovlivní jeho bìh, pouze bude nedostupný seznam kontaktù a slu¾by, kterými server disponuje. 
 
 V tabulce è.\ref{tab2} jsou shrnuty rozdíly v architektuøe Jabber, WWW a e-mail\footnote{internetový systém elektronické po¹ty}. S ka¾dou 
 zde jmenovanou slu¾bou má Jabber nìco spoleèného. Co se týèe charakteristiky se vydal støední cestou. Na rozdíl od e-mailu, nepou¾ívá vícenásobný hops a v porovnáním
@@ -69,7 +56,7 @@ Klient je pøedev¹ím plnì ovládatelný grafický program podporující jednoduché ode
 architekturou vnucuje, aby byl co nejjednodu¹¹í. Vlastnosti, které by mìl mít jsou shrnuty do tøí bodù:
 \begin{enumerate}
  \item komunikace se serverem pomocí TCP soketu
- \item rozparsrování a následná interpretace pøíchozí XML zprávy \uv{stanza}(kapitola \ref{Stanza})
+ \item rozparsování a následná interpretace pøíchozí XML zprávy \uv{stanza}(kapitola \ref{Stanza})
  \item porozumìní sadì zpráv z Jabber jádra
 \end{enumerate}
 
@@ -98,7 +85,7 @@ architekturou vnucuje, aby byl co nejjednodu¹¹í. Vlastnosti, které by mìl mít js
 
 \subsection*{Server}
 Hlavní vlastnost ji¾ není jako u klienta jednoduchost, ale stabilita a bezpeènost. Standardnì bì¾í na TCP portu 5222. Komunikace mezi servery je 
-realizována pøe port 5269. Ka¾dý server uchovává seznam zaregistrovaných u¾ivatelù, kteøí se do sítì mohou pøipojovat pouze pøes nìj. Tento seznam 
+realizována pøes port 5269. Ka¾dý server uchovává seznam zaregistrovaných u¾ivatelù, kteøí se do sítì mohou pøipojovat pouze pøes nìj. Tento seznam 
 nemá ¾ádný jiný server. To zaji¹»uje nemo¾nost \uv{kráde¾e} úètu. Proto¾e XMPP komunikace probíhá pøes sí», musí mít ka¾dá entita adresu, tady nazvána 
 JabberID. XMPP spoléhá na DNS tudí¾ pou¾ívá jména na rozdíl od IP protokolu.
 
@@ -126,9 +113,7 @@ Obrázek \ref{pic4} znázoròující distribuovanou architekturu Jabberu byl pøevzat 
 \section{Roz¹íøení}
 XMPP protokol je mo¾né roz¹íøit o dal¹í vlastnosti. Pro jejich popis slou¾í XEP. Pro tuto práci jsou nepostradatelné roz¹íøené statusy, které popisují standardy XEP-0060 a XEP-0163. Obì tato roz¹íøení jsou dùle¾itá..........
 
-V tabulce \ref{tab4} jsou shrnuty informace o serverech Jabberu. První sloupec tvoøí jméno, následuje programovací jazyk v nìm¾ je napsán. Vìt¹ina je vydávána pod licencí 
-GPL\footnote{General Public License-v¹eobecná veøejná licence GNU}, kromì ejabbred a Prosody. Ejabbred pou¾ívá GPLv2, co¾ je GPL licence druhé verze a Prosody licenci MIT/X11. 
-U v¹ech software byla zkoumána nejaktuálnìj¹í verze. Její èíslo naleznete ve tøetím sloupci. V¹echny servery lze provozovat na operaèním systému Linux a Windows. Na platformì Mac OS mohou být pou¾ity v¹echny zde jmenované vyjma jabberd2. Pìt z ¹esti zde pøedstavených software pro server Jabber jsou ve stále vyvíjeny, tedy kromì jabberd14. Tabulka takté¾ shrnuje dùle¾ité vlastnosti serverù v oblasti podpory roz¹íøených statusù o standardy XEP-0060 a XEP-0163.
+V tabulce \ref{tab4} jsou shrnuty informace o serverech Jabberu. První sloupec tvoøí jméno, následuje programovací jazyk v nìm¾ je napsán. Vìt¹ina je vydávána pod licencí GPL\footnote{General Public License-v¹eobecná veøejná licence GNU}, kromì ejabbred a Prosody. Ejabbred pou¾ívá GPLv2, co¾ je GPL licence druhé verze a Prosody licenci MIT/X11. U v¹ech software byla zkoumána nejaktuálnìj¹í verze. Její èíslo naleznete ve tøetím sloupci. V¹echny servery lze provozovat na operaèním systému Linux a Windows. Na platformì Mac OS mohou být pou¾ity v¹echny zde jmenované vyjma jabberd2. Pìt z ¹esti zde pøedstavených software pro server Jabber jsou ve stále vyvíjeny, tedy kromì jabberd14. Tabulka takté¾ shrnuje dùle¾ité vlastnosti serverù v oblasti podpory roz¹íøených statusù o standardy XEP-0060 a XEP-0163.
 
 
 
@@ -141,7 +126,7 @@ ejabberd	& Erlang/ Top     & 2.1.6          & ANO					& ANO\\
 Openfire	& java            & 3.6.4          & ANO					& ANO\\
 jabbred2    	& c               & 2.2.11         & NE						& NE\\
 jabbred14	& c, c++          & 1.6.1.1        & ANO\footnote{by add on Idavoll(Python)}	& NE\\
-Prosody	    	& lua             & 0.7.0          & NE \footnote{ocekava se az od verze 0.9}	& ANO\\
+Prosody	    	& lua             & 0.7.0          & NE \footnote{oèekává se a¾ od verze 0.9}	& ANO\\
 Tigase		& java            & 5.0.0          & ANO					& ANO\\ \hline
 \end{tabular}
 \caption{Pøehled Jabber serverù}
@@ -161,9 +146,9 @@ Tigase		& java            & 5.0.0          & ANO					& ANO\\ \hline
 
 
 \section{XML}\label{Xml}
-Jazyk XML (eXtensible Markup Language), metajazyk pro deklaraci strukturovaných dat, je jádrem protokolu XMPP. Samotný jazyk vznikl roz¹íøením metajazyka SGML, je¾ slou¾í pro deklaraci rùzných typù dokumentù. Základní vlastností je jednoduchá definice vlastních znaèek (tagù). Dokument XML se skládá z elementù, je¾ mù¾eme navzájem zanoøovat. Vyznaèujeme je pomocí znaèek - poèáteèní a ukonèovací. Pomocí tohoto jazyka je tvoøena Stanza popsaná v kapitole \ref{Stanza}.
+Jazyk XML (eXtensible Markup Language), metajazyk pro deklaraci strukturovaných dat, je jádrem protokolu XMPP. Samotný jazyk vznikl roz¹íøením metajazyka SGML, je¾ slou¾í pro deklaraci rùzných typù dokumentù. Základní vlastností je jednoduchá definice vlastních znaèek (tagù). Dokument XML se skládá z elementù, je¾ mù¾eme navzájem zanoøovat. Vyznaèujeme je pomocí znaèek - poèáteèní a ukonèovací. Pomocí tohoto jazyka je tvoøena stanza popsaná v kapitole \ref{Stanza}.
 
-Základní struktura dokumentu psaného jazykem XML je ukázána na obrázku \ref{picXML}. Ka¾dý dokument zaèíná XMl deklarací a informací o kódovaní, ve kterém je dokument psán (1.øádek obrázku). Následuje koøenový element, je¾ je uzavøen na samotném konci dokumentu. 4.øádek ukazuje mo¾nost pou¾ití prázdného elementu, který obsahuje jeden jeden atribut s názvem zkratky fakulty.
+Základní struktura dokumentu psaného jazykem XML je ukázána na obrázku \ref{picXML}. Ka¾dý dokument zaèíná XML deklarací a informací o kódovaní, ve kterém je dokument psán (1.øádek obrázku). Následuje koøenový element, je¾ je uzavøen na samotném konci dokumentu. 4. øádek ukazuje mo¾nost pou¾ití prázdného elementu, který obsahuje jeden atribut s názvem zkratky fakulty.
 %\begin{enumerate}
 % \item obrazek struktura XML stream...
 %\end{enumerate}
@@ -185,7 +170,7 @@ Základní struktura dokumentu psaného jazykem XML je ukázána na obrázku \ref{picX
 \end{figure} 
 
 \section{Stanza}\label{Stanza}
-Základní jednotkou pro komunikaci zalo¾enou na XML je stanza. Skládá se tøí elementù \textit{message}, \textit{presence} a \textit{iq}, je¾ ka¾dý má svùj jednoznaèný význam.
+Základní jednotkou pro komunikaci zalo¾enou na XML je stanza. Skládá se ze tøí elementù \textit{message}, \textit{presence} a \textit{iq}, je¾ ka¾dý má svùj jednoznaèný význam.
 
 
 \subsection*{Message}
@@ -242,13 +227,11 @@ Základní pou¾ití \textit{\textless presence/\textgreater} je zobrazeno na obrázk
 \subsubsection*{Jabber ID}\label{jid}
 Jabber ID (JID) je jednoznaèný virtuální identifikátor u¾ivatele na síti. Není case-sensitive a je slo¾en ze dvou èástí. 
 Takzvané \textit{Jabber bare} neboli èisté ID a \textit{resource}. První je èást na první pohled pøipomíná e-mailovou adresu \textit{user@server}.
-Druhá èást slou¾í k pøesné identifikaci jednotlivých spojení. Je pou¾it ke smìrování trafiku s u¾ivateli v pøípadì otevøení vícero spojení pod jedním u¾ivatelem. 
-Spoleènì Jabber bare a resource tvoøí tzv. \textit{full JID} --- \textit{user@server/resource}.
+Druhá èást slou¾í k pøesné identifikaci jednotlivých spojení. Je pou¾it ke smìrování trafiku s u¾ivateli v pøípadì otevøení vícero spojení pod jedním u¾ivatelem. Spoleènì Jabber bare a resource tvoøí tzv. \textit{full JID} --- \textit{user@server/resource}.
 
 \section{Knihovny}
 Jabber je realizován jako otevøený XML standart pro instant messaging formát, proto existuje mnoho programovacích jazykù. Vìt¹ina z nich 
-disponuje nìkolika knihovnami, usnadòující práci s protokolem XMPP. V tabulka \ref{tab5} jsou pro nejznámìj¹í programovací jazyky zobrazeny dostupné knihovny. 
-Ní¾e budou nìkteré rozebrány a vyzdvi¾eny jejich hlavní pøednosti.
+disponuje nìkolika knihovnami, usnadòující práci s protokolem XMPP. V tabulce \ref{tab5} jsou pro nejznámìj¹í programovací jazyky zobrazeny dostupné knihovny.
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{ l  l} 
@@ -277,6 +260,24 @@ Pomocí knihovny gloox je psán bot v této práci. Byla vybrána na základì po¾adavk
 %\subsection*{JabberPy}
 
 \chapter{Dataming}
+
+
+
+\section{Metody dolovaní dat}
+\section{Dolovaní znalosti z databází}
+\section{Programy}
+\chapter{Developer}
+%\section{Slepá ulièka}
+%Pùvodní návrh práce od stávajícího se odli¹uje v tìchto bodech:
+%\begin{enumerate}
+%   \item neustále pøipojen ve stavu invisible
+%   \item pøijímat zprávy.
+%\end{enumerate}
+%První bod nemohl být splnìn kvùli nepodporovanému stavu invisible. Neexistuje ¾ádná schválená ani rozpracovaná verze XEPu, která by ukazovala jak stavu neviditelnosti dosáhnout.
+%Druhý bod pùvodního návrh ztroskotal na neschopnosti Jabber klientù a serverù pracovat korektnì s prioritou. V XEP-XXXX se pouze doporuèuje nastavení stejné hodnoty priority do v¹ech resource. Tato vlastnost by mìla poskytnout mo¾nost rozesílat zpráva v¹em zdrojùm daného úètu se stejnou prioritou. Samozøejmì by nesmìl mít ¾ádný jiný zdroj priority vy¹¹í.
+\section{Databáze}
+\subsection*{PostgreSQL}
+\subsection*{Návrh databáze}
 \begin{figure}[hb]
 \begin{center}
 \input{database}
@@ -284,20 +285,8 @@ Pomocí knihovny gloox je psán bot v této práci. Byla vybrána na základì po¾adavk
  \label{pic1}
 \end{center}
 \end{figure}
-
-
-\section{Metody dolovaní dat}
-\section{Dolovaní znalosti z databází}
-\section{Programy}
-\chapter{Developer}
-\section{Slepá ulièka}
-Pùvodní návrh práce od stávajícího se odli¹uje v tìchto bodech:
-\begin{enumerate}
-   \item neustále pøipojen ve stavu invisible
-   \item pøijímat zprávy.
-\end{enumerate}
-První bod nemohl být splnìn kvùli nepodporovanému stavu invisible. Neexistuje ¾ádná schválená ani rozpracovaná verze XEPu, která by ukazovala jak stavu neviditelnosti dosáhnout.
-Druhý bod pùvodního návrh ztroskotal na neschopnosti Jabber klientù a serverù pracovat korektnì s prioritou. V XEP-XXXX se pouze doporuèuje nastavení stejné hodnoty priority do v¹ech resource. Tato vlastnost by mìla poskytnout mo¾nost rozesílat zpráva v¹em zdrojùm daného úètu se stejnou prioritou. Samozøejmì by nesmìl mít ¾ádný jiný zdroj priority vy¹¹í.
+\section{Bot}
+\subsection*{Návrh bota}
 \section{Knihovny, jazyk}
 \section{Jiné produkty}
 

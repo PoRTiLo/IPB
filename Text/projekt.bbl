@@ -30,9 +30,19 @@ Kurose, J.~F.; Ross, K.~W.: \emph{Computer networking : top-down approach
   featuring the internet}. Boston: Addison-Wesley Publishing Company, druhé
   vydání, 2003, 752 s., iSBN~03-211-7644-8.
 
+\bibitem{Xep0060}
+Millard, P.; Saint-Andre, P.; Meijer, R.: XEP-0060: Publish-Subscribe.
+  [online], {12-07-2010, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0060.html}}
+
 \bibitem{Moore}
 Moore, D.; Wright, W.: \emph{Jabber developer's handbook}. Indianapolis: Sams
   Publishing, první vydání, 2004, 487 s., iSBN~06-723-2536-5.
+
+\bibitem{Xep0163}
+Saint-Andre, P.; Smith, K.: XEP-0163: Personal Eventing Protocol. [online],
+  {12-07-2010, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0163.html}}
 
 \bibitem{Rfc3920}
 Saint-André, P.: Extensible Messaging and Presence Protocol (XMPP): Core.

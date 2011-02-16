@@ -62,6 +62,7 @@ VLASTNI - poznamky do databaze
 //		m_stanzaExtension(ExtVersion);
 //		j->registerStanzaExtension(m_stanzaExtension);
 		j->registerIqHandler(this, ExtVersion);
+//		j->registerStanzaExtension( new SoftwareVersion() );
 		j->logInstance().registerLogHandler(LogLevelDebug, LogAreaAll, this);
 		StringList ca;
 		ca.push_back( "/pathto/cacert.crt" );
@@ -181,15 +182,46 @@ VLASTNI - poznamky do databaze
 					   <query xmlns='jabber:iq:version'/>
 						</iq>
 */
-		string pepa;
-		string pep;
-		j->disco()->getDiscoInfo(item.jid(),pep,this, 1, pepa );
-		j->disco()->getDiscoItems(item.jid(),pep,this, 1, pepa );
-		database->updateTableStatus( item.jid(), Bot::presenceString(presence), msg, resource);
+//Tag *myTag("pep","pe");
+//Stanza st = new Stanza(myTag);// gloox::Stanza::createIqStanza(item.jid(), id, gloox::StanzaIqGet, "jabber:iq:version");
+/*
+IQ myIQ(gloox::IQ::Get,item.jid());
+
+Tag *myTagIq = new Tag("iq");
+myTagIq->addAttribute("type", "get");
+myTagIq->addAttribute("from", this->login);
+myTagIq->addAttribute("to", item.jid());
+myTagIq->addAttribute("id", "asdr534f3g3");
+Tag *myTag = new Tag("query");
+myTag->setXmlns("jabber:iq:version");
+//myTag->setXmlns("http://jabber.org/protocol/disco#info");
+myTagIq->addChildCopy(myTag);
+cout<<endl<<endl<<myTagIq->xml()<<endl;
+//j->send(myIQ);
+j->send(myTagIq);
+cout<<"......"<<endl;
+*/
+	//	string pepa="name";
+//		string pep = "name";
+//		j->disco()->getDiscoInfo(item.jid(),pep,this, 1, pepa );
+//		cout<<"pppppppppppppppppppp"<<pepa<<".."<<pep<<endl;
+		//cout<<jjj->disco()->version()<<endl;
+		//item.jid().disco().version();
+//		j->disco()->getDiscoItems(item.jid(),pep,this, 1, pepa );
+//		cout<<"pppppppppppppppppppp"<<pepa<<".."<<pep<<endl;
+//		database->updateTableStatus( item.jid(), Bot::presenceString(presence), msg, resource);
+//		database->updateTableResource( item.jid(), Bot::presenceString(presence), msg, resource, item.resource(resource)->priority());
 		if( presence != 5 )
+		{
 			database->insertTablePresence( item.jid(), msg, item.name(), resource, Bot::presenceString(presence), item.resource(resource)->priority() );
+			database->updateTableResource( item.jid(), Bot::presenceString(presence), msg, resource, item.resource(resource)->priority());
+		}
 		else
+		{
 			database->insertTablePresence( item.jid(), msg, item.name(), resource, Bot::presenceString(presence) );
+			database->updateTableResource( item.jid(), Bot::presenceString(presence), msg, resource);
+		}
+		database->updateTableStatus(item.jid());
 	}
 	
 		void Bot::handleSelfPresence( const RosterItem& item, const std::string& resources, Presence::PresenceType presence, const std::string& msg ) {
