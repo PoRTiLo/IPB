@@ -19,9 +19,6 @@
 
 
 
-
-
-#include "gloox/messageeventhandler.h"
 #include "gloox/messageeventfilter.h"
 #include "gloox/chatstatehandler.h"
 #include "gloox/chatstatefilter.h"
@@ -44,7 +41,7 @@
 #include "const.h"
 #include "database.h"
 #include "func.h"
-
+#include "version.h"
 
 using namespace gloox;
 using namespace std;

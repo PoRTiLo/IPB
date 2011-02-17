@@ -242,7 +242,7 @@ void Database::updateTableStatus( string user ) {
 		int priority = -127;
 		string pom, pomS;
 		int pomInt = 0;
-		int culomn = 0;
+		int culomn = -1;
 		for( int i = 0; i < nTuples; i++ )
 		{
 				pom = PQgetvalue(presult,i,5);
@@ -250,13 +250,32 @@ void Database::updateTableStatus( string user ) {
 				string some_string;
 				istringstream buffer(pom);
 				buffer >> pomInt;
-				if( priority <= pomInt && pomS != "Unavaliable" )
+				if( priority <= pomInt && pomS != "Unavaliable" && pomS != "unavaliable")
 				{
 					priority = pomInt;
 					culomn = i;
 				}
 		}
-		updateTableStatus( PQgetvalue(presult,culomn,1), PQgetvalue(presult,culomn,2), PQgetvalue(presult,culomn,3), PQgetvalue(presult,culomn,6));
+		if( culomn != -1 )
+			updateTableStatus( PQgetvalue(presult,culomn,1), PQgetvalue(presult,culomn,2), PQgetvalue(presult,culomn,3), PQgetvalue(presult,culomn,6));
+		else
+		{
+			for( int i = 0; i < nTuples; i++ )
+			{
+				pom = PQgetvalue(presult,i,5);
+				pomS = PQgetvalue(presult,i,2);
+				string some_string;
+				istringstream buffer(pom);
+				buffer >> pomInt;
+				if( priority <= pomInt )
+				{
+					priority = pomInt;
+					culomn = i;
+				}
+			}
+			if( culomn != -1 )
+				updateTableStatus( PQgetvalue(presult,culomn,1), PQgetvalue(presult,culomn,2), PQgetvalue(presult,culomn,3), PQgetvalue(presult,culomn,6));
+		}
 	}
 }
 

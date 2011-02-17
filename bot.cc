@@ -173,55 +173,23 @@ VLASTNI - poznamky do databaze
 			return "Unknown presence";
 	}
 
+	// Reakce na zmenu statusu uzivatele v kontakt listu
 	void Bot::handleRosterPresence( const RosterItem& item, const std::string& resource, Presence::PresenceType presence, const std::string& msg ) {
-/*poku se zmeni statyu zazadam si o system info <iq
-    type='get'
-	     from='romeo@montague.net/orchard'
-		      to='juliet@capulet.com/balcony'
-				    id='version_1'>
-					   <query xmlns='jabber:iq:version'/>
-						</iq>
-*/
-//Tag *myTag("pep","pe");
-//Stanza st = new Stanza(myTag);// gloox::Stanza::createIqStanza(item.jid(), id, gloox::StanzaIqGet, "jabber:iq:version");
-/*
-IQ myIQ(gloox::IQ::Get,item.jid());
+		
 
-Tag *myTagIq = new Tag("iq");
-myTagIq->addAttribute("type", "get");
-myTagIq->addAttribute("from", this->login);
-myTagIq->addAttribute("to", item.jid());
-myTagIq->addAttribute("id", "asdr534f3g3");
-Tag *myTag = new Tag("query");
-myTag->setXmlns("jabber:iq:version");
-//myTag->setXmlns("http://jabber.org/protocol/disco#info");
-myTagIq->addChildCopy(myTag);
-cout<<endl<<endl<<myTagIq->xml()<<endl;
-//j->send(myIQ);
-j->send(myTagIq);
-cout<<"......"<<endl;
-*/
-	//	string pepa="name";
-//		string pep = "name";
-//		j->disco()->getDiscoInfo(item.jid(),pep,this, 1, pepa );
-//		cout<<"pppppppppppppppppppp"<<pepa<<".."<<pep<<endl;
-		//cout<<jjj->disco()->version()<<endl;
-		//item.jid().disco().version();
-//		j->disco()->getDiscoItems(item.jid(),pep,this, 1, pepa );
-//		cout<<"pppppppppppppppppppp"<<pepa<<".."<<pep<<endl;
-//		database->updateTableStatus( item.jid(), Bot::presenceString(presence), msg, resource);
-//		database->updateTableResource( item.jid(), Bot::presenceString(presence), msg, resource, item.resource(resource)->priority());
 		if( presence != 5 )
 		{
 			database->insertTablePresence( item.jid(), msg, item.name(), resource, Bot::presenceString(presence), item.resource(resource)->priority() );
 			database->updateTableResource( item.jid(), Bot::presenceString(presence), msg, resource, item.resource(resource)->priority());
+			Version *vers = new Version(item.jid(), resource);		// vytvoreni dotazu	 <query xmlns='jabber:iq:version'/>
+			j->send( vers->createIqStanza(this->login) );			// poslani dotazi na software verzi XEP-0092
 		}
 		else
 		{
 			database->insertTablePresence( item.jid(), msg, item.name(), resource, Bot::presenceString(presence) );
 			database->updateTableResource( item.jid(), Bot::presenceString(presence), msg, resource);
 		}
-		database->updateTableStatus(item.jid());
+		database->updateTableStatus(item.jid());					// aktualizace tabulky Status na zakldade tabuly resource
 	}
 	
 		void Bot::handleSelfPresence( const RosterItem& item, const std::string& resources, Presence::PresenceType presence, const std::string& msg ) {
@@ -341,12 +309,12 @@ cout<<"......"<<endl;
 																	        printf( "handleDiscoError\n" );
 																			      }
 		bool Bot::handleIq 	( 	const IQ & 	iq 	 ){
-cout <<"......................................pepik............................"<<endl;
+//cout <<"......................................handleIQ............................"<<endl;
 		}
 		void Bot::handleIqID 	( 	const IQ & 	iq, 
 				int 	context
 					){
 
-cout <<"...qwqwqwqw...................................pepik............................"<<endl;
+//cout <<"...qwqwqwqw...................................handleIQID............................"<<endl;
 		}
 																		     

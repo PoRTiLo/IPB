@@ -77,7 +77,7 @@
 					 		   " date timestamp,"\
 								" priority integer,"\
 								" resource text" 
-#define DB_SELECT_RESOURCE "Select * from status"
+#define DB_SELECT_RESOURCE "Select * from resource"
 #define DB_DATA_LOGAREA "Insert into logarea ( num, name, description, descriptionCz ) VALUES "\
 								 "( 1, 'LogAreaClassParser', 'Log message from Parser', 'Zprava z parsru'),"\
 								  "( 2, 'LogAreaClassConnectionTCBase', 'Log message from ConnectionTCPBase', ''),"\
