@@ -7,7 +7,7 @@
 //		:automaticky pridat lidi co se zaregistruji do kontakt listu
 //		:pridali se nekdo znovu, zaregistrovat pod stejnyma udajema ale vyssi cislo
 //
-
+//		:predelat listVer na protected a ne public
 
 #pragma once
 
@@ -24,6 +24,7 @@
 #include <sstream>
 #include <cassert>
 #include <iostream>
+#include <map>
 
 #include <gloox/parser.h>
 
@@ -51,6 +52,13 @@ class Database
 		char sTime[80];
 
 	public:
+
+		map<string, string> listVer;
+
+		/**
+		 * Naplneni listu uzivateli
+		 */
+		void initListVer( void );
 
 		/**
 		 * Konstruktor.
@@ -211,17 +219,19 @@ class Database
 		 *
 		 *
 		 */
-		void insertTablePresence( const string jid, const string msg, const string name, const string resource, const string presence, const int priority );
+		void insertTablePresence( const string jid, const string msg, const string name, const string resource, const string presence, const int priority, const string nameSW, const string versionSW, const string osSW );
 		void insertTablePresence( const string jid, const string msg, const string name, const string resource, const string presence );
 		void insertTableMessage( const string jid, const string msg, const string subject, const string thread, const string subtype );
 
 		string printUser() const; 
 
-		void updateTableStatus( string jidBare, string presence, string status, string resource);
-		void updateTableStatus( string jidBare);
+		void updateTableStatus( const string jidBare, const string presence, const string status, const string resource, const string nameSW);
+		void updateTableStatus( const string jidBare);
 
-		void updateTableResource( string jidBare, string presence, string status, string resource, int priority);
-		void updateTableResource( string jidBare, string presence, string status, string resource);
+		bool updateTableResource( const string jidBare, const string presence, const string status, const string resource, const int priority );
+		bool updateTableResource( const string jidBare, const string presence, const string status, const string resource, const int priority, string ver );
+		void updateTableResource( const string jidBare, const string presence, const string status, const string resource);
+		void updateTableResource( string jidBare, string resource, string nameSW, string versionSW, string osSW);
 
 		bool existResource( const string user, const string resource );
 };

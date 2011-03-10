@@ -68,7 +68,8 @@
 								 "presence text,"\
 								 "status text,"\
 					 		   " date timestamp,"\
-								" resource text" 
+								" resource text," \
+								" nameSw text"
 #define DB_SELECT_STATUS "Select * from status"
 #define DB_TABLE_RESOURCE " id serial PRIMARY KEY,"\
 								" jidBare text,"\
@@ -76,7 +77,10 @@
 								" status text,"\
 					 		   " date timestamp,"\
 								" priority integer,"\
-								" resource text" 
+								" resource text,"\
+								" nameSW text," \
+								" versionSW text," \
+								" osSW text"
 #define DB_SELECT_RESOURCE "Select * from resource"
 #define DB_DATA_LOGAREA "Insert into logarea ( num, name, description, descriptionCz ) VALUES "\
 								 "( 1, 'LogAreaClassParser', 'Log message from Parser', 'Zprava z parsru'),"\
@@ -124,8 +128,12 @@
 							 " name text,"\
 							 " resource text,"\
 							 " presence text,"\
-							 " priority integer"
-#define DB_DEF_PRESENCE "INSERT INTO presence ( date, fromJ, toJ, message, name, resource, presence, priority) VALUES ("
+							 " priority integer,"\
+							 " nameSW text,"\
+							 " versionSW text,"\
+							 " osSW text"
+#define DB_DEF_PRESENCE "INSERT INTO presence ( date, fromJ, toJ, message, name, resource, presence, priority, nameSW, versionSW, osSW) VALUES ("
+#define DB_DEF_PRESENCE1 "INSERT INTO presence ( date, fromJ, toJ, message, name, resource, presence, priority) VALUES ("
 #define DB_TABLE_MESSAGE "id serial PRIMARY KEY,"\
 							 " date timestamp,"\
 							 " fromJ text,"\
@@ -135,3 +143,20 @@
 							 " thread text,"\
 							 " subtype text"
 #define DB_DEF_MESSAGE "INSERT INTO message ( date, fromJ, toJ, message, subject, thread, subtype) VALUES ("
+
+
+
+
+  /**
+   *
+   */
+  enum TuneType
+  {
+    TuneActive       =  1,     /**< User is actively participating in the chat session. */
+    TuneComposing    =  2,     /**< User is composing a message. */
+    TunePaused       =  4,     /**< User had been composing but now has stopped. */
+    TuneInactive     =  8,     /**< User has not been actively participating in the chat session. */
+    TuneGone         = 16,     /**< User has effectively ended their participation in the chat
+                                     * session. */
+    TuneInvalid      = 32      /**< Invalid type. */
+  };
