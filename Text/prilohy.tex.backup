@@ -1,0 +1,70 @@
+\chapter{Obsah CD}
+\chapter{Manual}
+\chapter{Konfigraèní soubor}
+%\chapter{RelaxNG Schéma konfiguraèního soboru}
+%\chapter{Plakat}
+
+\chapter{Slovník výrazù}
+\begin{description}
+\item [DNS] --- Domain Name System
+\item [GPG] --- dkshckdsjvlsdjvodsvjdfokj
+\item [IM slu¾by] --- dkshckdsjvlsdjvodsvjdfokj
+\item [IP] --- Internet Protocol
+\item [JEP] --- dkshckdsjvlsdjvodsvjdfokj
+\item [JID] --- dkshckdsjvlsdjvodsvjdfokj
+\item [SASL] --- dkshckdsjvlsdjvodsvjdfokj
+\item [TCP] --- dkshckdsjvlsdjvodsvjdfokj
+\item [TLS] --- dkshckdsjvlsdjvodsvjdfokj
+\item [WWW] --- dkshckdsjvlsdjvodsvjdfokj
+\item [XEP] --- dkshckdsjvlsdjvodsvjdfokj
+\item [XML] --- dkshckdsjvlsdjvodsvjdfokj
+\item [XMPP] --- dkshckdsjvlsdjvodsvjdfokj
+\item [e-mail] --- dkshckdsjvlsdjvodsvjdfokj
+\item [jabber] --- dkshckdsjvlsdjvodsvjdfokj
+\item [klient] --- dkshckdsjvlsdjvodsvjdfokj
+\item [presence] --- dkshckdsjvlsdjvodsvjdfokj
+\item [server] --- dkshckdsjvlsdjvodsvjdfokj
+\item [stanza] --- dkshckdsjvlsdjvodsvjdfokj
+\item [vCard] --- dkshckdsjvlsdjvodsvjdfokj
+
+
+\end{description}
+
+\chapter{Stanza - základní schéma}
+\section{Message}
+
+\begin{figure}[h]
+\begin{verbatim}
+<message from=""
+         to=""
+         type="[normal,chat,groupchat, headline, error]"
+         id=""
+  <body>  </body>
+  <x xmlns='jabber:x:event'>
+     <[Offline, Delivered, Displayed, Composing]/>
+  <subject>  </subject>
+  <thread>  </thread>
+  <error>   </error>
+  <x>   </x>
+</message>
+\end{verbatim}  
+\caption{Popis elementu \textit{\textless message/\textgreater}.}
+ \label{picMessage}
+\end{figure}
+
+\section{iq}
+
+\begin{figure}[h]
+\begin{verbatim}
+<iq from=""
+    to=""
+    type="[get,set,result,error]"
+    id=""
+  Namespace*
+</ig>
+\end{verbatim} 
+\caption{Popis elementu \textit{\textless iq/\textgreater}.}
+ \label{picMessage}
+\end{figure}
+Seznam Namespace:
+jabber:client, jabber:server, jabber:iq:auth, jabber:iq:register, jabber:iq:roster, jabber:x:offline, jabber:iq:agent, jabber:iq:agents, jabber:x:delay, jabber:iq:version, jabber:iq:time, vcard-temp, jabber:iq:private, jabber:iq:search, jabber:iq:oob, jabber:x:oob, jabber:iq:admin, jabber:iq:filter, jabber:iq:auth:0k, jabber:iq:browse, jabber:x:event, jabber:iq:conference, jabber:x:signed, jabber:x:encrypted, jabber:iq:gateway, jabber:iq:last, jabber:x:envelope, jabber:x:expire, http://www.w3.org/1999/xhtml, jabber:xdb:ginsert, jabber:xdb:nslist
