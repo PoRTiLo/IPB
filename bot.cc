@@ -7,6 +7,8 @@ PRESENCE - dodelat delayTime, neco o zpozdeni
 MESSAGE -
 IQ -
 VLASTNI - poznamky do databaze
+
+//kontolovat zda jsou lidi z kontakt listu, treb au messageHandler
 */
 #include "bot.h"
 
@@ -48,8 +50,8 @@ VLASTNI - poznamky do databaze
 		JID jid(this->login);
 		j = new Client(jid, pass);
 		j->registerConnectionListener(this);
-		j->registerMessageHandler(this);
 		//j->registerMessageSessionHandler(this, 0);
+		j->registerMessageHandler(this);
 		j->rosterManager()->registerRosterListener(this);
 //		j->rosterManager()->registerPresenceHandler(this);
 		j->disco()->registerDiscoHandler(this);
@@ -61,13 +63,12 @@ VLASTNI - poznamky do databaze
 		j->disco()->addFeature( "http://jabber.org/protocol/mood");
 		j->disco()->addFeature( "http://jabber.org/protocol/pubsub#event");
 		j->disco()->addFeature( "http://jabber.org/protocol/mood+notify");
-j->registerStanzaExtension( new ChatState(gloox::ChatStateActive));
+//j->registerStanzaExtension( new ChatState(gloox::ChatStateActive));
 j->registerStanzaExtension( new PubSub::Event(NULL) );
 		j->setPresence( Presence::Available, 5 );   //Nastaveni statusuvailable
 		j->registerPresenceHandler( this );
 		j->registerIqHandler(this, ExtVersion);
 		j->registerIqHandler(this, ExtDiscoInfo);
-	//	j->registerIqHandler(this, ExtCaps);
 		j->logInstance().registerLogHandler(LogLevelDebug, LogAreaAll, this);
 		TagHandler * tags;
 		j->registerTagHandler(tags, "pepe","pepe");
@@ -79,7 +80,6 @@ j->registerStanzaExtension( new PubSub::Event(NULL) );
 		database->start();
 
 		swVersion = new SwVersion();
-		m_pubsub = new PubSub::Manager( j );	
 		j->connect(false);  //kontrola spojeni se servrem
 		while(true)
 		{
@@ -222,18 +222,35 @@ j->registerStanzaExtension( new PubSub::Event(NULL) );
 		else
 			return "unknow";
 	}
-
-	void Bot::handleMessage( const Message& msg, MessageSession * /*session=0*/ )	{
+/*
+		 void Bot::handleMessageSession( MessageSession* session ) {
+			if( m_session )
+	     		j->disposeMessageSession( m_session );
+		   m_session = session;
+			m_session->registerMessageHandler( this );
+		 }
+		 */
+void Bot::handleMessage( const Message& msg, MessageSession * /*session=0*/ )	{
 	
-const PubSub::Event* pse = msg.findExtension<PubSub::Event>( ExtPubSubEvent );
-cout<<"ya888888888888888"<<endl;
-if(pse)
-{
+	const PubSub::Event* pse = msg.findExtension<PubSub::Event>( ExtPubSubEvent );
+	cout<<"ya888888888888888"<<endl;
+cout<<msg.body()<<endl;
+cout<<msg.tag()->xml()<<endl;
 
-cout<<"...........................ya888888888888888"<<endl;
-}
-else
-{
+	JID jid(msg.tag()->findAttribute("to"));
+	cout<<jid.bare()<<endl;
+
+	if(pse)
+	{
+		if(pse->type() == gloox::PubSub::EventItems)
+		{
+			cout<<"...........................ya888888888888888"<<endl;
+			cout<<pse->filterString() << endl;
+			cout<<pse->tag()->xml() <<endl;
+		}
+	}
+	else if( !msg.body().empty() )
+	{/*
 		database->insertTableMessage( m_session->target().bare().c_str(),  msg.body().c_str(),  msg.subject().c_str(), msg.thread().c_str(), Bot::messageSubtype(msg.subtype()).c_str() );
 		if( msg.body() == QUIT && (m_session->target().bare() == "pidgin@localhost" || m_session->target().bare() == "portilo@jabbim.cz") )
 			j->disconnect();
@@ -243,37 +260,14 @@ else
 			m_session->send( "AHOJ");
 		else if( msg.body() == "remove")
 			j->rosterManager()->remove( msg.from() );
-}			
+			*/
 	}
+	else
+	{
+
+	}
+}
 		
-	void Bot::handleMessageSession( MessageSession*  session ) {
-//ROzebrat kdyz prijde info o pozici, tune, ...........
-		if( m_session )
-			j->disposeMessageSession( m_session );
-		m_session = session;
-		m_session->registerMessageHandler( this );
-
-
-
-cout << m_session->types() << endl;
-m_event = new EventDispatcher();
-m_event->registerEventHandler( this, "http://jabber.org/protocol/pubsub#event" );
-cout<<"yaddddddddddddddddddddddddd888888888888888888888888888"<<endl;
-	m_messageEventFilter = new MessageEventFilter( m_session );
-   m_messageEventFilter->registerMessageEventHandler( this );
-//	m_session->registerMessageFilter(m_messageEventFilter);
-m_chatStateFilter = new ChatStateFilter( m_session );
-   m_chatStateFilter->registerChatStateHandler( this );
-	}
- void Bot::handleMessageEvent( const JID& from, MessageEventType event ){
-
-cout<<"1111111111111111111111111111111111111111111111111111111111111888888"<<endl;
-}
-void Bot::handleChatState( const JID& from, ChatStateType state ) {
-
-
-cout<<"1111111111111111111111111111111111111111111111111111111111111888888"<<endl;
-}
 	void Bot::handleLog( LogLevel level, LogArea area, const std::string& message ) {
 
 		printf( "log level :%d, area :%d, %s\n", level, area, message.c_str() );
@@ -475,143 +469,3 @@ void Bot::handlePresence( const Presence& presence) {
 
 
 		}
-		void Bot::handleEvent( const Event& event ) {
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-		}
-/*
-		 void Bot::handleNodeCreationResult( const JID& service,  const std::string& node, const Error& e )
-		    {
-				       printf( "created node '%s' on '%s'\n", node.c_str(), service.bare().c_str() );
-						     }
-
-	void Bot::handleNodeDeletationResult( const JID& service, const std::string& node,  const Error& e ) {
-		
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-		}
-
-	void Bot::handleNodePurgeResult( const JID& service, const std::string& node, const Error& e ) {
-		
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-		}
-
- void Bot::handleSubscriptionOptions( const JID& service, const JID& jid, const std::string& node, const DataForm& options ) {
-	 
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	 }
- void Bot::handleSubscriptionOptionsResult( const JID& service, //const JID& jid, 
- 	const std::string& node,const Error& e ) {
-	 
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	 }
-
-	void Bot::handleSubscriberList( const JID& service, const std::string& node, const PubSub::SubscriberList& list ) {
-		
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-		}
-
- void Bot::handleSubscriberListResult( const JID& service, const std::string& node, const Error& e ) {
-	 
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	 }
- void Bot::handleAffiliateList( const JID& service, const std::string& node, const PubSub::AffiliateList& list ) {
-	 
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	 }
-
-void Bot::handleAffiliateListResult( const JID& service, const std::string& node, const Error& e ) {
-	
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	}
-void Bot::handleNodeConfig( const JID& service, const std::string& node, const DataForm& config ) {
-	
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	}
- void Bot::handleNodeConfigResult( const JID& service, const std::string& node,const Error& e ) {
-	 
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	 }
-	 */
-
-	 void 	Bot::handleItem (const JID &service, const std::string &node, const Tag *entry) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	 }
-	  void 	Bot::handleItems (const std::string &id, const JID &service, const std::string &node, const PubSub::ItemList &itemList, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	 void 	Bot::handleItemPublication (const std::string &id, const JID &service, const std::string &node, const PubSub::ItemList &itemList, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	 }
-	  void 	Bot::handleItemDeletion (const std::string &id, const JID &service, const std::string &node, const PubSub::ItemList &itemList, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	  void 	Bot::handleSubscriptionResult (const std::string &id, const JID &service, const std::string &node, const std::string &sid, const JID &jid, const PubSub::SubscriptionType subType, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	  void 	Bot::handleUnsubscriptionResult (const std::string &id, const JID &service, const Error *error){
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	  void 	Bot::handleSubscriptionOptions (const std::string &id, const JID &service, const JID &jid, const std::string &node, const DataForm *options, const std::string &str, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	 void 	Bot::handleSubscriptionOptionsResult (const std::string &id, const JID &service, const JID &jid, const std::string &node, const std::string &st, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	 }
-	  void 	Bot::handleSubscribers (const std::string &id, const JID &service, const std::string &node, const PubSub::SubscriberList *list, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	 }
-	  void 	Bot::handleSubscribersResult (const std::string &id, const JID &service, const std::string &node, const PubSub::SubscriberList *list, const Error *error) {
-
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	  void 	Bot::handleAffiliates (const std::string &id, const JID &service, const std::string &node, const PubSub::AffiliateList *list, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	  void 	Bot::handleAffiliatesResult (const std::string &id, const JID &service, const std::string &node, const PubSub::AffiliateList *list, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	  void 	Bot::handleNodeConfig (const std::string &id, const JID &service, const std::string &node, const DataForm *config, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	  void 	Bot::handleNodeConfigResult (const std::string &id, const JID &service, const std::string &node, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-
-	  }
-	  void 	Bot::handleNodeCreation (const std::string &id, const JID &service, const std::string &node, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	  void 	Bot::handleNodeDeletion (const std::string &id, const JID &service, const std::string &node, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	  void 	Bot::handleNodePurge (const std::string &id, const JID &service, const std::string &node, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-
-	  }
-	  void 	Bot::handleSubscriptions (const std::string &id, const JID &service, const PubSub::SubscriptionMap &subMap, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	  void 	Bot::handleAffiliations (const std::string &id, const JID &service, const PubSub::AffiliationMap &affMap, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
-	  void Bot::handleDefaultNodeConfig (const std::string &id, const JID &service, const DataForm *config, const Error *error) {
-
-cout << "//////////////////////////////.................................je to tadyyyyyyyyy"<<endl;
-	  }
