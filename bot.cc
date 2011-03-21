@@ -9,6 +9,7 @@ IQ -
 VLASTNI - poznamky do databaze
 
 //kontolovat zda jsou lidi z kontakt listu, treb au messageHandler
+//podivat s ena konverzi cisel, zda a co se stane pokud to nini cislo, vytvorit soubor s funkcema
 */
 #include "bot.h"
 
@@ -50,28 +51,25 @@ VLASTNI - poznamky do databaze
 		JID jid(this->login);
 		j = new Client(jid, pass);
 		j->registerConnectionListener(this);
-		//j->registerMessageSessionHandler(this, 0);
 		j->registerMessageHandler(this);
 		j->rosterManager()->registerRosterListener(this);
-//		j->rosterManager()->registerPresenceHandler(this);
 		j->disco()->registerDiscoHandler(this);
-		j->disco()->setVersion("Pokus", "0.0.1", "UBUNTU"); //zaobrazi se v infu, nazev, verze, system
+		j->disco()->setVersion("Pokus", "0.0.2", "UBUNTU"); //zaobrazi se v infu, nazev, verze, system
 		j->disco()->setIdentity( "client", "bot" );
-		j->disco()->addFeature( "http://jabber.org/protocol/tune");
 		j->disco()->addFeature( "http://jabber.org/protocol/tune+notify");
 		j->disco()->addFeature( "http://jabber.org/protocol/pubsub");
-		j->disco()->addFeature( "http://jabber.org/protocol/mood");
 		j->disco()->addFeature( "http://jabber.org/protocol/pubsub#event");
 		j->disco()->addFeature( "http://jabber.org/protocol/mood+notify");
-//j->registerStanzaExtension( new ChatState(gloox::ChatStateActive));
-j->registerStanzaExtension( new PubSub::Event(NULL) );
+		j->disco()->addFeature( "http://jabber.org/protocol/geoloc+notify");
+		j->disco()->addFeature( "http://jabber.org/protocol/activity+notify");
+		j->registerStanzaExtension( new PubSub::Event(NULL) );
 		j->setPresence( Presence::Available, 5 );   //Nastaveni statusuvailable
 		j->registerPresenceHandler( this );
 		j->registerIqHandler(this, ExtVersion);
 		j->registerIqHandler(this, ExtDiscoInfo);
 		j->logInstance().registerLogHandler(LogLevelDebug, LogAreaAll, this);
-		TagHandler * tags;
-		j->registerTagHandler(tags, "pepe","pepe");
+	//	TagHandler * tags;
+	//	j->registerTagHandler(tags, "pepe","pepe");
 		StringList ca;
 		ca.push_back( "/pathto/cacert.crt" );
 		j->setCACerts(ca);
@@ -222,45 +220,65 @@ j->registerStanzaExtension( new PubSub::Event(NULL) );
 		else
 			return "unknow";
 	}
-/*
-		 void Bot::handleMessageSession( MessageSession* session ) {
-			if( m_session )
-	     		j->disposeMessageSession( m_session );
-		   m_session = session;
-			m_session->registerMessageHandler( this );
-		 }
-		 */
+
+
 void Bot::handleMessage( const Message& msg, MessageSession * /*session=0*/ )	{
 	
 	const PubSub::Event* pse = msg.findExtension<PubSub::Event>( ExtPubSubEvent );
-	cout<<"ya888888888888888"<<endl;
-cout<<msg.body()<<endl;
-cout<<msg.tag()->xml()<<endl;
 
-	JID jid(msg.tag()->findAttribute("to"));
-	cout<<jid.bare()<<endl;
+	JID jid(msg.from());
+	JID to_jid(msg.tag()->findAttribute("to"));
 
 	if(pse)
 	{
 		if(pse->type() == gloox::PubSub::EventItems)
 		{
-			cout<<"...........................ya888888888888888"<<endl;
-			cout<<pse->filterString() << endl;
-			cout<<pse->tag()->xml() <<endl;
+			Tag* p_tag = (pse->tag()->findChild("items"))->clone();
+			string p_str = p_tag->findAttribute( "node" );
+			if( p_str == "http://jabber.org/protocol/geoloc" )
+			{
+				Geoloc* geoloc = new Geoloc( p_tag );
+				geoloc->jid(jid.full());
+				database->insertTableGeoloc(geoloc);
+				cout<<"http://jabber.org/protocol/geoloc"<<endl;
+			}
+			else if( p_str == "http://jabber.org/protocol/tune" )
+			{
+				Tune* tune = new Tune( p_tag );
+				tune->jid(jid.full());
+				database->insertTableTune(tune);
+				cout<<"http://jabber.org/protocol/tune"<<endl;
+			}
+			else if( p_str == "http://jabber.org/protocol/mood" )
+			{
+				Mood* mood = new Mood( p_tag );
+				mood->jid(jid.full());
+				database->insertTableMood(mood);
+				cout<<"http://jabber.org/protocol/mood"<<endl;
+			}
+			else if( p_str == "http://jabber.org/protocol/activity" )
+			{
+				Activity* activity = new Activity( p_tag );
+				activity->jid(jid.full());
+				database->insertTableActivity(activity);
+				cout<<"http://jabber.org/protocol/activity"<<endl;
+			}
 		}
 	}
 	else if( !msg.body().empty() )
-	{/*
-		database->insertTableMessage( m_session->target().bare().c_str(),  msg.body().c_str(),  msg.subject().c_str(), msg.thread().c_str(), Bot::messageSubtype(msg.subtype()).c_str() );
-		if( msg.body() == QUIT && (m_session->target().bare() == "pidgin@localhost" || m_session->target().bare() == "portilo@jabbim.cz") )
+	{
+		database->insertTableMessage( jid.bare().c_str(),  msg.body().c_str(),  msg.subject().c_str(), msg.thread().c_str(), Bot::messageSubtype(msg.subtype()).c_str() );
+		if( msg.body() == QUIT && (jid.bare() == "pidgin@localhost" || jid.bare() == "portilo@jabbim.cz") )
 			j->disconnect();
-		else if( msg.body() == "USER" && (m_session->target().bare() == "pidgin@localhost" || m_session->target().bare() == "portilo@jabbim.cz") )
-			m_session->send(database->printUser());
+		else if( msg.body() == "USER" && (jid.bare() == "pidgin@localhost" || jid.bare() == "portilo@jabbim.cz") )
+;//			j->send(database->printUser());
 		else if( msg.body() == HALLO )
-			m_session->send( "AHOJ");
+		{
+			Message mess( gloox::Message::Chat, msg.from(), "ahoj");
+			j->send( mess);
+		}
 		else if( msg.body() == "remove")
 			j->rosterManager()->remove( msg.from() );
-			*/
 	}
 	else
 	{
@@ -401,9 +419,10 @@ void Bot::handlePresence( const Presence& presence) {
 
 			database->insertTablePresence( jidFull.bare(), presence.status(), jidFull.username(), jidFull.resource(), Bot::presenceString(presence.subtype()), presence.priority(),
 			                               swVersion->name(), swVersion->version(), swVersion->os() );
-
+			cout<< "vlozeno do DB - PRESENCE"<<endl;
 			if( (presence.findExtension( ExtCaps )) != 0 )
 			{
+				cout<<"stanza obsahuje rozsireni"<<endl;
 				bool newResource = true;
 				bool update = false;
 				Tag * capTag = (presence.findExtension( ExtCaps ))->tag()->clone();
@@ -412,8 +431,10 @@ void Bot::handlePresence( const Presence& presence) {
 				it = database->listVer.find(jidFull.full());
 				if( it != database->listVer.end() )
 				{
+					cout<<"uzivatel je v listu"<<endl;
 					if( ver == it->second )	// je vse aktualni
 					{
+						cout<<"uzivatel pouziva stejnou verzi programu co je v listu"<<endl;
 						update = database->updateTableResource( jidFull.bare(), Bot::presenceString(presence.subtype()), presence.status(), jidFull.resource(), presence.priority());
 						newResource = false;
 					}
@@ -464,8 +485,3 @@ void Bot::handlePresence( const Presence& presence) {
 		database->updateTableStatus(item.jid());					// aktualizace tabulky Status na zakldade tabuly resource
 		*/
 	}
-
-      void Bot::handleTune( const JID& from, TuneType state ) {
-
-
-		}

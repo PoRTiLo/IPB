@@ -48,8 +48,10 @@
 #include "database.h"
 #include "func.h"
 #include "swversion.h"
+#include "geoloc.h"
 #include "tune.h"
-#include "tunefilter.h"
+#include "mood.h"
+#include "activity.h"
 
 //#include "tunehandler.h"
 using namespace gloox;
@@ -68,7 +70,6 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 	private:
 		Client* j;
 		RosterManager* roster;
-		MessageSession* m_session;
 		VCardManager* m_vManager;
 		Database* database;
 		SwVersion* swVersion;
@@ -237,7 +238,6 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 					);
 
 		virtual void handlePresence( const Presence& presence );
-      virtual void handleTune( const JID& from, TuneType state );
 };
 #endif //BOT_H__
 

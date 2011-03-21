@@ -65,7 +65,12 @@ void Database::initDb() {
 	Database::createTable( "message", DB_TABLE_MESSAGE );
 	Database::createTable( "status", DB_TABLE_STATUS );
 	Database::createTable( "resource", DB_TABLE_RESOURCE );
+	Database::createTable( "geoloc", DB_TABLE_GEOLOC );
+	Database::createTable( "tune", DB_TABLE_TUNE );
+	Database::createTable( "mood", DB_TABLE_MOOD );
+	Database::createTable( "activity", DB_TABLE_ACTIVITY );
 
+	Database::clearResourceTable() ; 
 	Database::initListVer();
 }
 
@@ -103,7 +108,8 @@ void Database::dropTable( const string nameTable ) {
 
 bool Database::createTable( const string nameTable, const string structTable ) {
 
-	string query = DB_SELECT_ALL + nameTable + ";"; 
+	string query = DB_SELECT_ALL + nameTable + ";";
+	cout<<query<<endl;
 	presult = PQexec(this->psql, query.c_str());
 	if(PQresultStatus(presult) == PGRES_TUPLES_OK)
 	{
@@ -135,7 +141,7 @@ void Database::insertTablePresence( const string jid, const string msg, const st
 	query += "timestamp '";
 	query += this->sTime;
 	query += "', '" + jid + "', 'JabInfo@jabbim.cz', '";
-	query += Database::convertXML(msg) + "', '" +  name + "', '" + resource + "', '" + Database::convertXML(presence) + "', " + Database::convertInt( priority )+", '" + nameSW + "', '" + versionSW + "', '" + osSW + "');";
+	query += Database::convertXML(msg) + "', '" +  name + "', '" + resource + "', '" + Database::convertXML(presence) + "', " + numToStr( priority )+", '" + nameSW + "', '" + versionSW + "', '" + osSW + "');";
 		cout <<query<<endl;
 	presult = PQexec( this->psql, query.c_str() );
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
@@ -328,7 +334,7 @@ bool Database::updateTableResource( string jidBare, string presence, string stat
 		Database::getTime();
 		query += "resource ";
 		query += DB_SET;
-		query += "presence = '"+presence+"', status = '"+Database::convertXML(status)+"', date = timestamp '" + this->sTime + "', priority=" + Database::convertInt(priority) + ", ver = '" + ver + "' " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
+		query += "presence = '"+presence+"', status = '"+Database::convertXML(status)+"', date = timestamp '" + this->sTime + "', priority=" + numToStr(priority) + ", ver = '" + ver + "' " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
 		cout <<query<<endl;
 		presult = PQexec( this->psql, query.c_str() );
 		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
@@ -341,7 +347,7 @@ bool Database::updateTableResource( string jidBare, string presence, string stat
 	else					// uzivatel s uctem neexistuje, vytvorim
 	{
 		query = DB_INSERT;
-		query += "resource (jidbare, presence, status, date, priority, resource, ver) VALUES ('"+ jidBare + "', '"+ presence +"', '"+Database::convertXML(status)+"', timestamp '" +this->sTime + "', "+ Database::convertInt(priority)+", '"+resource+"', '"+ver+"');";
+		query += "resource (jidbare, presence, status, date, priority, resource, ver) VALUES ('"+ jidBare + "', '"+ presence +"', '"+Database::convertXML(status)+"', timestamp '" +this->sTime + "', "+ numToStr(priority)+", '"+resource+"', '"+ver+"');";
 		presult = PQexec( this->psql, query.c_str() );
 		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 		{
@@ -366,7 +372,7 @@ bool Database::updateTableResource( string jidBare, string presence, string stat
 		Database::getTime();
 		query += "resource ";
 		query += DB_SET;
-		query += "presence = '"+presence+"', status = '"+Database::convertXML(status)+"', date = timestamp '" + this->sTime + "', priority=" + Database::convertInt(priority) + " " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
+		query += "presence = '"+presence+"', status = '"+Database::convertXML(status)+"', date = timestamp '" + this->sTime + "', priority=" + numToStr(priority) + " " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
 		cout <<query<<endl;
 		presult = PQexec( this->psql, query.c_str() );
 		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
@@ -379,7 +385,7 @@ bool Database::updateTableResource( string jidBare, string presence, string stat
 	else					// uzivatel s uctem neexistuje, vytvorim
 	{
 		query = DB_INSERT;
-		query += "resource (jidbare, presence, status, date, priority, resource) VALUES ('"+ jidBare + "', '"+ presence +"', '"+Database::convertXML(status)+"', timestamp '" +this->sTime + "', "+ Database::convertInt(priority)+", '"+resource+"');";
+		query += "resource (jidbare, presence, status, date, priority, resource) VALUES ('"+ jidBare + "', '"+ presence +"', '"+Database::convertXML(status)+"', timestamp '" +this->sTime + "', "+ numToStr(priority)+", '"+resource+"');";
 		presult = PQexec( this->psql, query.c_str() );
 		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 		{
@@ -452,8 +458,8 @@ void Database::insertTableDebug( int level, int area, const string message ) {
 
 	Database::getTime();
 	string query = DB_INSERT;
-	query += "debug ( area, dateAdd, level, message) VALUES ("+ Database::convertInt(area) + ", timestamp '" + this->sTime + "', ";
-	query += Database::convertInt( level ) + ", '" + Database::convertXML(message) + "');";
+	query += "debug ( area, dateAdd, level, message) VALUES ("+ numToStr(area) + ", timestamp '" + this->sTime + "', ";
+	query += numToStr( level ) + ", '" + Database::convertXML(message) + "');";
 	presult = PQexec( this->psql, query.c_str() );
 	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
@@ -472,8 +478,8 @@ void Database::insertTableXML( int level, int area, const string message ) {
 //	parser->feed(parserMes);
 	Database::getTime();
 	string query = DB_INSERT;
-	query += "xml ( area, dateAdd, level, message) VALUES ("+ Database::convertInt(area) + ", timestamp '" + this->sTime + "', ";
-	query += Database::convertInt( level ) + ", '" + Database::convertXML(message) + "');";
+	query += "xml ( area, dateAdd, level, message) VALUES ("+ numToStr(area) + ", timestamp '" + this->sTime + "', ";
+	query += numToStr( level ) + ", '" + Database::convertXML(message) + "');";
 	presult = PQexec( this->psql, query.c_str() );
 	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
@@ -515,24 +521,18 @@ void Database::getTime() {
   	strftime(this->sTime, 80 - 1, "%Y-%m-%d %H:%M:%S ", ltmtime);
 }
 
-string Database::convertInt( int number ) {
-
-	stringstream ss;
-	ss << number;;
-	return ss.str();
-}
-
 
 void Database::dropAll() {
 
-	Database::dropTable( "debug" );
-	Database::dropTable( "level" );
-	Database::dropTable( "logarea" );
-	Database::dropTable( "userjid" );
-	Database::dropTable( "vcard" );
-	Database::dropTable( "xml" );
-	Database::dropTable( "presence" );
-	Database::dropTable( "message" );
+	//Database::dropTable( "debug" );
+	//Database::dropTable( "level" );
+	//Database::dropTable( "logarea" );
+	//Database::dropTable( "userjid" );
+	//Database::dropTable( "vcard" );
+	//Database::dropTable( "xml" );
+	//Database::dropTable( "presence" );
+	//Database::dropTable( "message" );
+	//Database::dropTable( "geoloc" );
 
 }
 
@@ -560,7 +560,40 @@ string Database::printUser() const {
 }
 		
 		
-		
+void Database::clearResourceTable( void ) {
+
+	presult = PQexec(this->psql, "SELECT jidbare, presence, id FROM resource;");
+	
+	int nFields = PQnfields(presult);
+	int nTuples = PQntuples(presult);
+
+				cout<<"ooo1"<<endl;
+	string jid;
+	string p_str;
+	int p_str1;
+	for( int i = 0; i < nTuples; i++ )
+	{
+			jid = PQgetvalue(presult,i , 0);
+			mapVer.insert(make_pair(string(jid),	string( PQgetvalue(presult,i , 2) )));
+	}
+	for( int i = 0; i < nTuples; i++ )
+	{
+		if( "Unavaliable" == (p_str=PQgetvalue(presult,i,1)) )
+		{
+			if( (int)mapVer.count(PQgetvalue(presult,i,0)) >= 200)
+			{
+				multimap<string,string>::iterator it1;
+				it1=mapVer.find(PQgetvalue(presult, i,0));
+				string s = "DELETE FROM resource where id ='";
+				s += PQgetvalue(presult,i,2);
+				s += "';";
+				PQexec(this->psql, s.c_str());
+				mapVer.erase(it1);
+			}
+		}
+	}
+}
+
 void Database::initListVer( void ) {
 
 	presult = PQexec(this->psql, "SELECT jidbare, resource, ver FROM resource;");
@@ -576,10 +609,104 @@ void Database::initListVer( void ) {
 			jid += PQgetvalue(presult,i , 1);
 			listVer.insert(make_pair(string(jid),	string( PQgetvalue(presult,i , 2) )));
 	}
-/*	map<string, string>::iterator it;
+	map<string, string>::iterator it;
 	for( it = listVer.begin(); it != listVer.end(); it++ )
 	{
 		cout << it->first << it->second <<endl;
 	}
-	*/
+	
+}
+
+void Database::insertTableGeoloc( Geoloc* geoloc ) {
+
+	string query = DB_DEF_GEOLOC;
+	Database::getTime();
+
+	string p_str = geoloc->timestamp();
+	if( geoloc->timestamp() == "" )
+		p_str = this->sTime;
+
+	query += "'";
+	query += geoloc->jid().bare() + "', timestamp '";
+	query += this->sTime;
+	query += "', '" + geoloc->id() + "', " + numToStr( geoloc->accuracy() ) + 
+	", " + numToStr(geoloc->alt()) + ", '" + convertXML(geoloc->area()) + "', " 
+	+ numToStr( geoloc->bearing() ) + ", '" + convertXML( geoloc->building() ) + "', '" 
+	+ convertXML( geoloc->country() ) + "', '" 
+	+ convertXML( geoloc->countrycode() ) 
+	+ "', '" + convertXML( geoloc->datum() ) + "', '" 
+	+ convertXML( geoloc->description() ) + "', " + numToStr( geoloc->error() ) 
+	+ ", '" + convertXML( geoloc->floor() ) + "', " + numToStr( geoloc->lat() ) 
+	+ ", '" + convertXML( geoloc->locality() ) + "', " + numToStr( geoloc->lon() ) 
+	+ ", '" + convertXML( geoloc->postalcode() ) + "', '" + convertXML( geoloc->region() ) 
+	+ "', '" + convertXML( geoloc->room() ) + "', " + numToStr( geoloc->speed() ) 
+	+ ", '" 	+ convertXML( geoloc->street() ) + "', '" + convertXML( geoloc->text() ) 
+	+ "', timestamp '" + convertXML(p_str ) 
+	+ "', '" + convertXML( geoloc->uri() ) + "');";
+		cout <<query<<endl;
+	presult = PQexec( this->psql, query.c_str() );
+	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+	{
+		PQclear(presult);
+		Database::exitError();
+	}
+	PQclear(presult);
+}
+
+
+void Database::insertTableTune( Tune* tune ) {
+
+	string query = DB_DEF_TUNE;
+	Database::getTime();
+
+	query += "'";
+	query += tune->jid().bare() + "', timestamp '";
+	query += this->sTime;
+	query += "', '" + tune->id() + "', '" + convertXML( tune->artist() ) + "', " + numToStr(tune->length()) + ", " + numToStr(tune->rating()) + ", '" 
+	+ convertXML( tune->source() ) + "', '"	+ convertXML( tune->title() )	+ "', '" + convertXML( tune->track() ) + "', '" + convertXML( tune->uri() ) + "');";
+		cout <<query<<endl;
+	presult = PQexec( this->psql, query.c_str() );
+	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+	{
+		PQclear(presult);
+		Database::exitError();
+	}
+	PQclear(presult);
+}
+
+
+void Database::insertTableMood( Mood* mood ) {
+
+	string query = DB_DEF_MOOD;
+	Database::getTime();
+	query += "'";
+	query += mood->jid().bare() + "', timestamp '";
+	query += this->sTime;
+	query += "', '" + mood->id() + "', '" + convertXML( mood->mood() ) + "', '" + convertXML( mood->text() ) + "');";
+		cout <<query<<endl;
+	presult = PQexec( this->psql, query.c_str() );
+	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+	{
+		PQclear(presult);
+		Database::exitError();
+	}
+	PQclear(presult);
+}
+
+void Database::insertTableActivity( Activity* activity ) {
+
+	string query = DB_DEF_ACTIVITY;
+	Database::getTime();
+	query += "'";
+	query += activity->jid().bare() + "', timestamp '";
+	query += this->sTime;
+	query += "', '" + activity->id() + "', '" + convertXML( activity->activity() ) + "', '" + convertXML( activity->spec() ) + "', '" + convertXML( activity->text() ) + "');";
+		cout <<query<<endl;
+	presult = PQexec( this->psql, query.c_str() );
+	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+	{
+		PQclear(presult);
+		Database::exitError();
+	}
+	PQclear(presult);
 }

@@ -26,6 +26,11 @@
 #include <iostream>
 #include <map>
 
+#include "geoloc.h"
+#include "tune.h"
+#include "mood.h"
+#include "activity.h"
+#include "func.h"
 #include <gloox/parser.h>
 
 using namespace std;
@@ -39,7 +44,6 @@ class Database
 	private:
 		PGconn *psql;
 		PGresult *presult;
-//		Parser* parser;
 
 	protected:
 		string hostaddr;
@@ -54,6 +58,7 @@ class Database
 	public:
 
 		map<string, string> listVer;
+		multimap<string, string> mapVer;
 
 		/**
 		 * Naplneni listu uzivateli
@@ -198,6 +203,7 @@ class Database
 		 *
 		 */
 		string convertInt( int number );
+		string convertFloat( float number );
 
 
 		/**
@@ -234,6 +240,11 @@ class Database
 		void updateTableResource( string jidBare, string resource, string nameSW, string versionSW, string osSW);
 
 		bool existResource( const string user, const string resource );
+		void insertTableGeoloc( Geoloc* geoloc);
+		void clearResourceTable( void );
+		void insertTableTune( Tune* tune );
+		void insertTableMood( Mood* mood );
+		void insertTableActivity( Activity* activity );
 };
 
 #endif

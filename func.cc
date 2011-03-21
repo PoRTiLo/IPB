@@ -52,3 +52,65 @@ string getPassTerminal() {
 
 	return  pass;
 }
+
+
+string numToStr( const int number ) {
+
+	stringstream ss;
+	ss << number;
+	return ss.str();
+}
+
+string numToStr( const float number ) {
+
+	stringstream ss;
+	ss << number;
+	return ss.str();
+}
+
+string numToStr( const unsigned int number ) {
+
+	stringstream ss;
+	ss << number;
+	return ss.str();
+}
+
+string numToStr( const short int number ) {
+
+	stringstream ss;
+	ss << number;
+	return ss.str();
+}
+
+float stringToFloat( const string str ) {
+
+	istringstream is(str);
+	float num;
+	is >> num;
+	return num;
+}
+
+int stringToInt( const string str ) {
+
+	istringstream is(str);
+	int num;
+	is >> num;
+	return num;
+}
+
+unsigned int stringToUnsignedInt( const string str ) {
+
+	istringstream is(str);
+	unsigned int num;
+	is >> num;
+	return num;
+}
+
+short int stringToShortInt( const string str ) {
+
+	istringstream is(str);
+	short int num;
+	is >> num;
+	return num;
+}
+

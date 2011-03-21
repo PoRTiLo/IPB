@@ -4,10 +4,10 @@
 #define HALLO "caok"
 
 //jabber
-//#define DEF_LOGIN "JabInfo@jabbim.com"
+//#define DEF_LOGIN "JabInfo@jabbim.com/bot"
 //#define DEF_PASS "xse20IPB10"
 
-#define DEF_LOGIN "konsole@localhost"
+#define DEF_LOGIN "konsole@localhost/bot"
 #define DEF_PASS "javier"
 
 //database.H
@@ -144,19 +144,64 @@
 							 " subtype text"
 #define DB_DEF_MESSAGE "INSERT INTO message ( date, fromJ, toJ, message, subject, thread, subtype) VALUES ("
 
+#define DB_TABLE_GEOLOC " id serial PRIMARY KEY,"\
+								" jidBare text,"\
+								" time timestamp,"\
+								" nodeId text,"\
+								" accuracy real,"\
+					 		   " alt real,"\
+								" area text,"\
+								" bearing real,"\
+								" building text," \
+								" country text," \
+								" countrycode text,"\
+								" datum text,"\
+								" description text,"\
+					 		   " error real,"\
+								" floor text,"\
+								" lat integer,"\
+								" locality text," \
+								" lon integer,"\
+								" postalcode text,"\
+								" region text,"\
+					 		   " room text,"\
+								" speed real,"\
+								" street text,"\
+								" text text," \
+								" timestamp timestamp," \
+								" uri text"
 
+#define DB_DEF_GEOLOC "INSERT INTO geoloc ( jidBare, time, nodeId, accuracy, alt, area, bearing, building, country, countrycode, datum, description, error, floor, lat, locality, lon, postalcode, region, room, speed, street, text, timestamp, uri) VALUES ("
 
+#define DB_TABLE_TUNE " id serial PRIMARY KEY,"\
+								" jidBare text,"\
+								" time timestamp,"\
+								" nodeId text,"\
+								" artist text,"\
+					 		   " length integer,"\
+								" rating integer,"\
+								" source text,"\
+								" title text," \
+								" track text," \
+								" uri text"
 
-  /**
-   *
-   */
-  enum TuneType
-  {
-    TuneActive       =  1,     /**< User is actively participating in the chat session. */
-    TuneComposing    =  2,     /**< User is composing a message. */
-    TunePaused       =  4,     /**< User had been composing but now has stopped. */
-    TuneInactive     =  8,     /**< User has not been actively participating in the chat session. */
-    TuneGone         = 16,     /**< User has effectively ended their participation in the chat
-                                     * session. */
-    TuneInvalid      = 32      /**< Invalid type. */
-  };
+#define DB_DEF_TUNE "INSERT INTO tune ( jidBare, time, nodeId, artist, length, rating, source, title, track, uri) VALUES ("
+
+#define DB_TABLE_MOOD " id serial PRIMARY KEY,"\
+								" jidBare text,"\
+								" time timestamp,"\
+								" nodeId text,"\
+								" mood text,"\
+								" text text"
+
+#define DB_DEF_MOOD "INSERT INTO mood ( jidBare, time, nodeId, mood, text) VALUES ("
+
+#define DB_TABLE_ACTIVITY " id serial PRIMARY KEY,"\
+								" jidBare text,"\
+								" time timestamp,"\
+								" nodeId text,"\
+								" activity text,"\
+								" spec text,"\
+								" text text"
+
+#define DB_DEF_ACTIVITY "INSERT INTO activity ( jidBare, time, nodeId, activity, spec, text) VALUES ("
