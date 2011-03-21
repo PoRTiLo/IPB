@@ -1,20 +1,31 @@
 #ifndef TUNE_H__
 #define TUNE_H__
 
-#include <gloox/gloox.h>
-#include <gloox/stanzaextension.h>
 #include <gloox/tag.h>
+#include <gloox/jid.h>
 
 #include <string>
 
-#include "const.h"
+#include "func.h"
 
+using namespace std;
 using namespace gloox;
-  class gloox::Tag;
 
-  class Tune : public StanzaExtension
-  {
-    public:
+class Tune
+{
+
+	protected:
+		string m_artist;
+		short int m_length;
+		unsigned int m_rating;
+		string m_source;
+		string m_title;
+		string m_track;
+		string m_uri;
+		string m_id;
+		JID m_jid;
+
+	public:
       /**
        * Constructs a new object from the given Tag.
        * @param tag A Tag to parse.
@@ -22,47 +33,42 @@ using namespace gloox;
       Tune( const Tag* tag );
 
       /**
-       * Constructs a new object of the given type.
-       * @param state The chat state.
-       */
-      Tune( TuneType state )
-        : StanzaExtension( ExtChatState ), m_state( state )
-      {}
-
-      /**
        * Virtual destructor.
        */
       virtual ~Tune() {}
 
-      /**
-       * Returns the object's state.
-       * @return The object's state.
-       */
-      TuneType state() const { return m_state; }
+		
+		string artist( void );
+		void artist( const string artist );
 
-      // reimplemented from StanzaExtension
-      virtual const std::string& filterString() const;
+		short int length( void );
+		void length( const short int length );
 
-      // reimplemented from StanzaExtension
-      virtual StanzaExtension* newInstance( const gloox::Tag* tag ) const
-      {
-        return new Tune( tag );
-      }
+		unsigned int rating( void );
+		void rating( const unsigned int rating );
 
-      // reimplemented from StanzaExtension
-      Tag* tag() const;
+		string source( void );
+		void source( const string source );
 
-      // reimplemented from StanzaExtension
-      virtual StanzaExtension* clone() const
-      {
-        return new Tune( *this );
-      }
+		string title( void );;
+		void title( const string title );
 
-    private:
-      TuneType m_state;
+		string track( void );
+		void track( const string track );
 
-  };
+		string uri( void );
+		void uri( const string uri );
 
-//}
+		string id( void );
+		void id( const string id );
 
-#endif // CHATSTATE_H__
+		JID jid( void );
+		void jid( const string jid );
+
+		void parserTag( const Tag * tag );
+
+		void clear( void );
+};
+
+
+#endif // TUNE_H__
