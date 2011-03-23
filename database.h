@@ -28,6 +28,7 @@
 #include "tune.h"
 #include "mood.h"
 #include "activity.h"
+#include "swversion.h"
 #include "func.h"
 #include <gloox/parser.h>
 
@@ -235,6 +236,7 @@ class Database
 		bool updateTableResource( const std::string jidBare, const std::string presence, const std::string status, const std::string resource, const int priority, std::string ver );
 		void updateTableResource( const std::string jidBare, const std::string presence, const std::string status, const std::string resource);
 		void updateTableResource( std::string jidBare, std::string resource, std::string nameSW, std::string versionSW, std::string osSW);
+		bool updateTableResource( SwVersion* swversion );
 
 		bool existResource( const std::string user, const std::string resource );
 		void insertTableGeoloc( Geoloc* geoloc);

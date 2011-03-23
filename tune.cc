@@ -98,31 +98,31 @@ void Tune::jid( const std::string jid ) {
 
 void Tune::parserTag( const Tag * tag ) {
 
-	if( tag->hasChild("item") )
-	{
-		Tag * p_tag1 = tag->findChild("item")->clone();
+	if( tag->hasChild("item" ))
+{
+	Tag * p_tag1 = tag->findChild("item")->clone();
 
-		id( p_tag1->findAttribute("id") );
+	id( p_tag1->findAttribute("id") );
 		
-		Tag * p_tag = p_tag1->findChild("tune")->clone();
-		if( !p_tag->children().empty() )
-		{
-			if( p_tag->findChild("artist") )
-				artist( (p_tag->findChild("artist"))->cdata() );
-			if( p_tag->findChild("length") )
-				length( stringToShortInt((p_tag->findChild("length"))->cdata()) );
-			if( p_tag->findChild("rating") )
-				rating( stringToUnsignedInt((p_tag->findChild("rating"))->cdata()) );
-			if( p_tag->findChild("source") )
-				source( (p_tag->findChild("source"))->cdata() );
-			if( p_tag->findChild("title") )
-				title( (p_tag->findChild("title"))->cdata() );
-			if( p_tag->findChild("track") )
-				track( (p_tag->findChild("track"))->cdata() );
-			if( p_tag->findChild("uri") )
-				uri( (p_tag->findChild("uri"))->cdata() );
-		}
+	Tag * p_tag = p_tag1->findChild("tune")->clone();
+	if( !p_tag->children().empty() )
+	{
+		if( p_tag->findChild("artist") )
+			artist( (p_tag->findChild("artist"))->cdata() );
+		if( p_tag->findChild("length") )
+			length( stringToShortInt((p_tag->findChild("length"))->cdata()) );
+		if( p_tag->findChild("rating") )
+			rating( stringToUnsignedInt((p_tag->findChild("rating"))->cdata()) );
+		if( p_tag->findChild("source") )
+			source( (p_tag->findChild("source"))->cdata() );
+		if( p_tag->findChild("title") )
+			title( (p_tag->findChild("title"))->cdata() );
+		if( p_tag->findChild("track") )
+			track( (p_tag->findChild("track"))->cdata() );
+		if( p_tag->findChild("uri") )
+			uri( (p_tag->findChild("uri"))->cdata() );
 	}
+}
 }
 
 

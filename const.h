@@ -11,6 +11,8 @@
 #define DEF_PASS "javier"
 
 //database.H
+
+
 #define DB_SERV "localhost"
 #define DB_ADDR "127.0.0.1"
 #define DB_PORT "" 
@@ -20,14 +22,15 @@
 #define DB_TIME "10"
 
 //dotazy
-//#define DB_SERV "localhost"
-//#define DB_ADDR "147.229.12.139"
-//#define DB_PORT "" 
-//#define DB_USER "xsendl00"
-//#define DB_PASS "e5bd224e6d"
-//#define DB_NAME "xsendl00"
-//#define DB_TIME "10"
-
+/*
+#define DB_SERV "localhost"
+#define DB_ADDR "147.229.12.139"
+#define DB_PORT "" 
+#define DB_USER "xsendl00"
+#define DB_PASS "e5bd224e6d"
+#define DB_NAME "xsendl00"
+#define DB_TIME "10"
+*/
 //dotazy
 #define DB_C_T "Create table "
 #define DB_D_T_I_E "Drop table if exists "
@@ -80,7 +83,15 @@
 								" resource text,"\
 								" nameSW text," \
 								" versionSW text," \
-								" osSW text"
+								" osSW text,"\
+								" ver text,"\
+								" category text,"\
+								" type text,"\
+								" jingleVoice boolean,"\
+								" jingleVideo boolean,"\
+								" googleVoice boolean,"\
+								" googleVideo boolean"
+
 #define DB_SELECT_RESOURCE "Select * from resource"
 #define DB_DATA_LOGAREA "Insert into logarea ( num, name, description, descriptionCz ) VALUES "\
 								 "( 1, 'LogAreaClassParser', 'Log message from Parser', 'Zprava z parsru'),"\
@@ -132,6 +143,7 @@
 							 " nameSW text,"\
 							 " versionSW text,"\
 							 " osSW text"
+							 
 #define DB_DEF_PRESENCE "INSERT INTO presence ( date, fromJ, toJ, message, name, resource, presence, priority, nameSW, versionSW, osSW) VALUES ("
 #define DB_DEF_PRESENCE1 "INSERT INTO presence ( date, fromJ, toJ, message, name, resource, presence, priority) VALUES ("
 #define DB_TABLE_MESSAGE "id serial PRIMARY KEY,"\
@@ -205,3 +217,12 @@
 								" text text"
 
 #define DB_DEF_ACTIVITY "INSERT INTO activity ( jidBare, time, nodeId, activity, spec, text) VALUES ("
+
+#define HELP_ECHO " Program vznika jako bakalarska prace. \n"\
+			" Jednoltive prikazy vraci udaje na zaklade nasbiranych informaci, tedy co je prijimano a od Vas vysilano\n"\
+			" Zakladni prikazy : INFO   - zakladni informace \n"\
+			"                  : VCARD  - vcard \n"\
+			"                  : GEOLOC - geolokace \n"\
+			"                  : TUNE   - co prave poslocuham \n"\
+			"            a dalsi......\n"\
+			" DODELAT :)"     

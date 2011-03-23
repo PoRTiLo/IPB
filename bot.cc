@@ -10,6 +10,7 @@ VLASTNI - poznamky do databaze
 
 //kontolovat zda jsou lidi z kontakt listu, treb au messageHandler
 //podivat s ena konverzi cisel, zda a co se stane pokud to nini cislo, vytvorit soubor s funkcema
+//napoveda-mozno implementvat XHTML tagy:)
 */
 #include "bot.h"
 
@@ -61,17 +62,19 @@ string Bot::getPass() {
 		j->disco()->addFeature( "http://jabber.org/protocol/mood+notify");
 		j->disco()->addFeature( "http://jabber.org/protocol/geoloc+notify");
 		j->disco()->addFeature( "http://jabber.org/protocol/activity+notify");
-		j->disco()->addFeature( "urn:xmpp:jingle:apps:rtp:1");
-		j->disco()->addFeature( "urn:xmpp:jingle:apps:rtp:audio");
-		j->disco()->addFeature( "urn:xmpp:jingle:apps:rtp:video");
+
+//       		j->registerStanzaExtension( new Disco::Info(NULL) );
+  //     		j->registerStanzaExtension( new Disco::Items(NULL) );
+    //   		j->registerStanzaExtension( new SoftwareVersion(NULL) );
+
+
 		j->registerStanzaExtension( new PubSub::Event(NULL) );
 		j->setPresence( Presence::Available, 5 );   //Nastaveni statusuvailable
 		j->registerPresenceHandler( this );
 		j->registerIqHandler(this, ExtVersion);
+		j->registerIqHandler(this, ExtDiscoItems );
 		j->registerIqHandler(this, ExtDiscoInfo);
 		j->logInstance().registerLogHandler(LogLevelDebug, LogAreaAll, this);
-	//	TagHandler * tags;
-	//	j->registerTagHandler(tags, "pepe","pepe");
 		StringList ca;
 		ca.push_back( "/pathto/cacert.crt" );
 		j->setCACerts(ca);
@@ -79,7 +82,7 @@ string Bot::getPass() {
 		database = new Database();
 		database->start();
 
-		swVersion = new SwVersion();
+		//swVersion = new SwVersion();
 		j->connect(false);  //kontrola spojeni se servrem
 		while(true)
 		{
@@ -220,10 +223,6 @@ void Bot::handleMessage( const Message& msg, MessageSession * /*session=0*/ )	{
 	}
 	else if( !msg.body().empty() )
 	{
-		cout<<database->timeDatabase()<<endl;
-		string p_pom = database->timeDatabase();
-		cout<<p_pom<<endl;
-		database->strToTime("p");
 		database->insertTableMessage( jid.bare().c_str(),  msg.body().c_str(),  msg.subject().c_str(), msg.thread().c_str(), messageSubtype(msg.subtype()).c_str() );
 		if( msg.body() == QUIT && (jid.bare() == "pidgin@localhost" || jid.bare() == "portilo@jabbim.cz") )
 			j->disconnect();
@@ -237,8 +236,14 @@ void Bot::handleMessage( const Message& msg, MessageSession * /*session=0*/ )	{
 			Message mess( gloox::Message::Chat, msg.from(), "ahoj");
 			j->send( mess);
 		}
-		else if( msg.body() == "remove")
-			j->rosterManager()->remove( msg.from() );
+		//else if( msg.body() == "remove")
+		//	j->rosterManager()->remove( msg.from() );
+		else
+		{
+
+			Message mess( gloox::Message::Chat, msg.from(), HELP_ECHO);
+			j->send( mess);
+		}
 	}
 	else
 	{
@@ -276,7 +281,39 @@ void Bot::end() {
 	database->exitError();
 }
 
-void Bot::handleDiscoInfo( const JID& /*iq*/, const Disco::Info&, int /*context*/ ) {
+void Bot::handleDiscoInfo( const JID& jidPom/*iq*/, const Disco::Info& info, int /*context*/ ) {
+
+	Tag *queryTag = info.tag()->clone();
+	SwVersion * swVersion = new SwVersion();
+	swVersion->jid(jidPom.full());
+ 	if( queryTag->findAttribute("xmlns") == "http://jabber.org/protocol/disco#info" )
+	{
+		bool update = false;
+		if(queryTag->hasChild("identity") )
+		{
+			update = true;
+			Tag *identTag = queryTag->findChild("identity")->clone();
+			swVersion->parserTagI( identTag );
+		}
+		if( queryTag->hasChild("x") )
+		{
+			update = true;
+			Tag *xTag =  (queryTag->findChild("x"))->clone();
+			swVersion->parserTagX( xTag );
+		}
+
+		if( queryTag->hasChild("feature") )
+		{
+			update = true;
+			swVersion->parserTagF( queryTag );
+		}
+
+		if( update )
+		{
+			database->updateTableResource( swVersion );
+			swVersion->clean();
+		}
+	}
 }
 
 void Bot::handleDiscoItems( const JID& /*iq*/, const Disco::Items&, int /*context*/ ) {
@@ -288,69 +325,23 @@ void Bot::handleDiscoError( const JID& /*iq*/, const Error*, int /*context*/ ) {
 
 bool Bot::handleIq( const IQ &iq ) {
 
-	if( (iq.tag()->findChild("query")) && iq.tag()->findAttribute("type") != "error" )
+	if( (iq.tag()->findChild("query")))// && iq.tag()->findAttribute("type") != "error" )
 	{
 		Tag *queryTag = (iq.tag()->findChild("query"))->clone();
 
+		SwVersion * swVersion = new SwVersion();
 		JID jidPom( iq.tag()->findAttribute("from") );
-
+		swVersion->jid(jidPom.full());
 		if( queryTag->findAttribute("xmlns") == XMLNS_VERSION )
 		{
-			if( queryTag->findChild("name") )
-				swVersion->name( queryTag->findChild("name")->cdata() );
-			if( queryTag->findChild("version") )
-				swVersion->version( queryTag->findChild("version")->cdata() );
-			if( queryTag->findChild("os") )
-				swVersion->os( queryTag->findChild("os")->cdata() );
-
+			swVersion->parserTagVer( queryTag );
 			database->updateTableResource( jidPom.bare(), jidPom.resource(), swVersion->name(), swVersion->version(), swVersion->os());
-		}
-		else if( queryTag->findAttribute("xmlns") == XMLNS_DISCO_INFO )
-		{
-			if(queryTag->hasChild("identity") )
-			{
-				Tag *identTag = queryTag->findChild("identity")->clone();
-
-				if( identTag->hasAttribute("category") )
-					swVersion->category(identTag->findAttribute("category") );
-				if( identTag->hasAttribute("name") )
-					swVersion->name( identTag->findAttribute("name") );
-				if( identTag->hasAttribute("type") )
-					swVersion->type( identTag->findAttribute("type") );
-			}
-
-	//		Tag *xTag =  (iq.tag()->findChild("x"))->clone();
-	//		swVersion->parserTagX( xTag);
-			/*if(xTag->findChild("field","var","ip_version") )
-			{
-				Tag * fieldTag = xTag->findChild("field","var","ip_version")->clone();
-//				swVersion->setIP( (fieldTag->findChild("value"))->cdata() );					//dodelat, mozno i IP6
-			}
-			if(xTag->findChild("field","var","os") )
-			{
-				Tag * fieldTag = xTag->findChild("field","var","os")->clone();
-				swVersion->setOs( (fieldTag->findChild("value"))->cdata() );
-			}
-			if(xTag->findChild("field","var","os_version") )
-			{
-				Tag * fieldTag = xTag->findChild("field","var","os_version")->clone();
-				swVersion->setOsVersion( (fieldTag->findChild("value"))->cdata() );
-			}
-			if(xTag->findChild("field","var","software") )
-			{
-				Tag * fieldTag = xTag->findChild("field","var","software")->clone();
-				swVersion->setSoftware( (fieldTag->findChild("value"))->cdata() );
-			}
-			if(xTag->findChild("field","var","software_version") )
-			{
-				Tag * fieldTag = xTag->findChild("field","var","software_version")->clone();
-				swVersion->setVersion( (fieldTag->findChild("value"))->cdata() );
-			}*/
+			swVersion->clean();
 		}
 	}
 }
 
-void Bot::handleIqID( const IQ &	iq, int context  ) {
+void Bot::handleIqID( const IQ &iq, int context  ) {
 
 }
 
@@ -366,8 +357,11 @@ void Bot::handlePresence( const Presence& presence) {
 		if( presence.subtype() != 5 )
 		{
 
+			SwVersion * swVersion = new SwVersion();
+			swVersion->jid(jidFull.full());
 			database->insertTablePresence( jidFull.bare(), presence.status(), jidFull.username(), jidFull.resource(), presenceString(presence.subtype()), presence.priority(),
 			                               swVersion->name(), swVersion->version(), swVersion->os() );
+			swVersion->clean();
 			cout<< "vlozeno do DB - PRESENCE"<<endl;
 			if( (presence.findExtension( ExtCaps )) != 0 )
 			{

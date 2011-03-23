@@ -305,19 +305,38 @@ void Database::updateTableStatus( std::string jidBare,std::string presence,std::
 //
 void Database::updateTableResource( std::string jidBare,std::string resource,std::string nameSW,std::string versionSW,std::string osSW) {
 
-		std::string query = DB_UPDATE;
-		Database::getTime();
-		query += "resource ";
-		query += DB_SET;
-		query += "nameSW = '" + nameSW + "', versionSW = '" + versionSW + "', osSW = '" + osSW +"' " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
-		presult = PQexec( this->psql, query.c_str() );
-		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
-		{
-			PQclear(presult);
-			Database::exitError();
-		}
+	std::string query = DB_UPDATE;
+	Database::getTime();
+	query += "resource ";
+	query += DB_SET;
+	query += "nameSW = '" + nameSW + "', versionSW = '" + versionSW + "', osSW = '" + osSW +"' " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
+	presult = PQexec( this->psql, query.c_str() );
+	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
+	{
+		PQclear(presult);
+		Database::exitError();
+	}
 	PQclear(presult);
+}
 
+bool Database::updateTableResource( SwVersion* swVersion ) {
+
+	std::string query = DB_UPDATE;
+	Database::getTime();
+	query += "resource ";
+	query += DB_SET;
+	if( (swVersion->version() != "") && (swVersion->osVersion() != "") )
+		query += "nameSW = '" + swVersion->name() + "', versionSW = '" + swVersion->version() + "', osSW = '" + swVersion->osVersion() + "', category = '" + swVersion->category() + "',type = '" + swVersion->type() + "', jingleVoice = " +swVersion->jingleVoice() + ", jingleVideo = " + swVersion->jingleVideo() + ", googleVideo = " + swVersion->googleVideo() + ", googleVoice = " + swVersion->googleVoice() + " "+  DB_WHERE + "jidbare = '" + swVersion->jid().bare()+"' AND resource = '"+swVersion->jid().resource()+"';";
+	else if( (swVersion->version() == "") && (swVersion->osVersion() == "") )
+		query += "nameSW = '" + swVersion->name() + "', category = '" + swVersion->category() + "',type = '" + swVersion->type() + "', jingleVoice = " +swVersion->jingleVoice() + ", jingleVideo = " + swVersion->jingleVideo() + ", googleVideo = " + swVersion->googleVideo() + ", googleVoice = " + swVersion->googleVoice() + " "+  DB_WHERE + "jidbare = '" + swVersion->jid().bare()+"' AND resource = '"+swVersion->jid().resource()+"';";
+std::cout<<query<<std::endl;
+	presult = PQexec( this->psql, query.c_str() );
+	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
+	{
+		PQclear(presult);
+		Database::exitError();
+	}
+	PQclear(presult);
 }
 
 bool Database::updateTableResource( std::string jidBare,std::string presence,std::string status,std::string resource, int priority,std::string ver) {
@@ -593,7 +612,7 @@ void Database::clearResourceTable( void ) {
 				std::string s = "DELETE FROM resource where id ='";
 				s += PQgetvalue(presult,i,2);
 				s += "';";
-	//			PQexec(this->psql, s.c_str());
+				PQexec(this->psql, s.c_str());
 				mapVer.erase(it1);
 			}
 		}
@@ -676,8 +695,6 @@ void Database::insertTableGeoloc( Geoloc* geoloc ) {
 	}
 	else
 		cont = insertGeoloc( geoloc->jid().bare(), false );
-
-		std::cout<<geoloc->lat()<<",,,"<<geoloc->lon()<<std::endl;
 
 	Database::getTime();
 	if( cont )

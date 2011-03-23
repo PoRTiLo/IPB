@@ -4,6 +4,7 @@
 
 #include <gloox/iq.h>
 #include <string>
+#include <iostream>
 using namespace gloox;
 
 
@@ -31,8 +32,22 @@ class SwVersion
 		std::string m_category;
 		std::string m_software;
 		std::string m_type;
+		JID m_jid;
+		std::string m_jingleVoice;	//	urn:xmpp:jingle:apps:rtp:audio
+		std::string m_jingleVideo;	//	urn:xmpp:jingle:apps:rtp:video
+		std::string m_googleVoice;	//	http://www.google.com/xmpp/protocol/voice/v1
+		std::string m_googleVideo;	//	http://www.google.com/xmpp/protocol/video/v1
 
 	public:
+		
+		std::string jingleVoice( void );
+		std::string jingleVideo( void );
+		std::string googleVideo( void );
+		std::string googleVoice( void );
+		void jingleVoice( std::string voice );
+		void jingleVideo( std::string video );
+		void googleVoice( std::string voice );
+		void googleVideo( std::string video );
 		/**
 		 * Nastaveni udaje pro odeslani pozadavku.
 		 * @param[in] <std::string> toJid prihlasovaci udaj prijimaciho klienta.
@@ -45,10 +60,6 @@ class SwVersion
 		 */
 		void version( std::string version );
 
-		/**
-		 * JID prijemce.
-		 * @return <std::string> jid prijemce.
-		 */
 		void os( std::string os );
 
 		void ip4( bool ip4 );
@@ -87,8 +98,8 @@ class SwVersion
 		 * @param[in] <std::string> toResource Resource prijemce.
 		 */
 		SwVersion( std::string m_name, std::string m_version, std::string m_os );
+		SwVersion( );
 
-		SwVersion(){};
 
 		/**
 		 * Vytvoreni zpravy IQ. Zadost o poslani informaci o software.
@@ -97,7 +108,23 @@ class SwVersion
 		 */
 		Tag* createIqStanza( std::string from, std::string toJid, std::string toResource );
 
-		void parserTag( const Tag * tag );
+		void parserTagX( const Tag * tag );
+		void parserTagI( const Tag * tag );
+		void parserTagVer( const Tag * queryTag );
+		void parserTagF( const Tag * queryTag );
+		void clean( void );
+
+		/**
+		 * Uzivatelsky login.
+		 * @return<JID> jid login uzivatele.
+		 */
+		JID jid( void );
+
+		/**
+		 * Nastaveni uzivatelskeho loginu.
+		 * @param<string> jid.
+		 */
+		void jid( const std::string jid );
 };
 
 #endif //SWVERSION_H__

@@ -72,7 +72,7 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 		RosterManager* roster;
 		VCardManager* m_vManager;
 		Database* database;
-		SwVersion* swVersion;
+//		SwVersion* swVersion;
 		int m_count;
 	public:
 

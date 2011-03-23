@@ -57,7 +57,7 @@ void Mood::jid( const std::string jid ) {
 
 void Mood::parserTag( const Tag * tag ) {
 
-	if( tag->hasChild("item") )
+	if( tag->hasChild("item" ))
 	{
 		Tag * p_tag1 = tag->findChild("item")->clone();
 

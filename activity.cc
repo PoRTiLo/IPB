@@ -69,35 +69,36 @@ void Activity::jid( const std::string jid ) {
 // rozparsrovani XML
 void Activity::parserTag( const Tag * tag ) {
 
-	if( tag->hasChild("item") )
-	{
-		Tag * p_tag1 = tag->findChild("item")->clone();
+	
+if( tag->hasChild("item" ))
+{
+	Tag * p_tag1 = tag->findChild("item")->clone();
 
-		id( tag->findAttribute("id") );
-		Tag * p_tag = p_tag1->findChild("activity")->clone();
-		if( !p_tag->children().empty() )
+	id( tag->findAttribute("id") );
+	Tag * p_tag = p_tag1->findChild("activity")->clone();
+	if( !p_tag->children().empty() )
+	{
+		for( int i = 0; i != 11; i++ )
 		{
-			for( int i = 0; i != 11; i++ )
+			if( p_tag->hasChild( m_activityTab[i][0] ) )
 			{
-				if( p_tag->hasChild( m_activityTab[i][0] ) )
+				for( int j = 0; j != 13; j++ )
 				{
-					for( int j = 0; j != 13; j++ )
+					Tag * p_tag2 = p_tag->findChild(m_activityTab[i][0])->clone();
+					if( p_tag2->hasChild( m_activityTab[i][j] ) )
 					{
-						Tag * p_tag2 = p_tag->findChild(m_activityTab[i][0])->clone();
-						if( p_tag2->hasChild( m_activityTab[i][j] ) )
-						{
-							spec( (p_tag2->findChild(m_activityTab[i][j]))->name() );
-							break;
-						}
+						spec( (p_tag2->findChild(m_activityTab[i][j]))->name() );
+						break;
 					}
-					activity( (p_tag->findChild(m_activityTab[i][0]))->name() );
-					break;
 				}
+				activity( (p_tag->findChild(m_activityTab[i][0]))->name() );
+				break;
 			}
-			if( p_tag->findChild("text") )
-				text( (p_tag->findChild("text"))->cdata() );
 		}
+		if( p_tag->findChild("text") )
+			text( (p_tag->findChild("text"))->cdata() );
 	}
+}
 }
 
 // pomocna tabulka
