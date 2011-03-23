@@ -259,57 +259,57 @@ void Geoloc::clear( void ) {
 void Geoloc::parserTag( const Tag * tag ) {
 
 	if( tag->hasChild("item" ))
-{
-	Tag * p_tag1 = tag->findChild("item")->clone();
-	id( p_tag1->findAttribute("id") );
-	Tag * p_tag = p_tag1->findChild("geoloc")->clone();
-
-	if( !p_tag->children().empty() )
 	{
-		if( p_tag->findChild("accuracy") )
-			accuracy( stringToFloat( (p_tag->findChild("accuracy"))->cdata() ));
-		if( p_tag->findChild("alt") )
-			alt( stringToFloat((p_tag->findChild("alt"))->cdata() ));
-		if( p_tag->findChild("area") )
-			area( (p_tag->findChild("area"))->cdata() );
-		if( p_tag->findChild("bearing") )
-			bearing( stringToFloat( (p_tag->findChild("bearing"))->cdata() ));
-		if( p_tag->findChild("building") )
-			building( (p_tag->findChild("building"))->cdata() );
-		if( p_tag->findChild("country") )
-			country( (p_tag->findChild("country"))->cdata() );
-		if( p_tag->findChild("countrycode") )
-			countrycode( (p_tag->findChild("countrycode"))->cdata() );
-		if( p_tag->findChild("datum") )
-			datum( (p_tag->findChild("datum"))->cdata() );
-		if( p_tag->findChild("description") )
-			description( (p_tag->findChild("description"))->cdata() );
-		if( p_tag->findChild("error") )
-			error( stringToFloat( (p_tag->findChild("error"))->cdata() ));
-		if( p_tag->findChild("floor") )
-			floor( (p_tag->findChild("floor"))->cdata() );
-		if( p_tag->findChild("lat") )
-			lat( stringToFloat((p_tag->findChild("lat"))->cdata() ));
-		if( p_tag->findChild("locality") )
-			locality( (p_tag->findChild("locality"))->cdata() );
-		if( p_tag->findChild("lon") )
-			lon( stringToFloat((p_tag->findChild("lon"))->cdata() ));
-		if( p_tag->findChild("postalcode") )
-			postalcode( (p_tag->findChild("postalcode"))->cdata() );
-		if( p_tag->findChild("region") )
-			region( (p_tag->findChild("region"))->cdata() );
-		if( p_tag->findChild("room") )
-			room( (p_tag->findChild("room"))->cdata() );
-		if( p_tag->findChild("speed") )
-			speed( stringToFloat((p_tag->findChild("speed"))->cdata() ));
-		if( p_tag->findChild("street") )
-			street( (p_tag->findChild("street"))->cdata() );
-		if( p_tag->findChild("text") )
-			text( (p_tag->findChild("text"))->cdata() );
-		if( p_tag->findChild("timestamp") )
-			timestamp( (p_tag->findChild("timestamp"))->cdata() );
-		if( p_tag->findChild("uri") )
-			uri( (p_tag->findChild("uri"))->cdata() );
+		Tag * p_tag1 = tag->findChild("item")->clone();
+		id( p_tag1->findAttribute("id") );
+		Tag * p_tag = p_tag1->findChild("geoloc")->clone();
+
+		if( !p_tag->children().empty() )
+		{
+			if( p_tag->findChild("accuracy") )
+				accuracy( stringToFloat( (p_tag->findChild("accuracy"))->cdata() ));
+			if( p_tag->findChild("alt") )
+				alt( stringToFloat((p_tag->findChild("alt"))->cdata() ));
+			if( p_tag->findChild("area") )
+				area( (p_tag->findChild("area"))->cdata() );
+			if( p_tag->findChild("bearing") )
+				bearing( stringToFloat( (p_tag->findChild("bearing"))->cdata() ));
+			if( p_tag->findChild("building") )
+				building( (p_tag->findChild("building"))->cdata() );
+			if( p_tag->findChild("country") )
+				country( (p_tag->findChild("country"))->cdata() );
+			if( p_tag->findChild("countrycode") )
+				countrycode( (p_tag->findChild("countrycode"))->cdata() );
+			if( p_tag->findChild("datum") )
+				datum( (p_tag->findChild("datum"))->cdata() );
+			if( p_tag->findChild("description") )
+				description( (p_tag->findChild("description"))->cdata() );
+			if( p_tag->findChild("error") )
+					error( stringToFloat( (p_tag->findChild("error"))->cdata() ));
+			if( p_tag->findChild("floor") )
+				floor( (p_tag->findChild("floor"))->cdata() );
+			if( p_tag->findChild("lat") )
+				lat( stringToFloat((p_tag->findChild("lat"))->cdata() ));
+			if( p_tag->findChild("locality") )
+				locality( (p_tag->findChild("locality"))->cdata() );
+			if( p_tag->findChild("lon") )
+					lon( stringToFloat((p_tag->findChild("lon"))->cdata() ));
+			if( p_tag->findChild("postalcode") )
+				postalcode( (p_tag->findChild("postalcode"))->cdata() );
+			if( p_tag->findChild("region") )
+				region( (p_tag->findChild("region"))->cdata() );
+			if( p_tag->findChild("room") )
+				room( (p_tag->findChild("room"))->cdata() );
+			if( p_tag->findChild("speed") )
+					speed( stringToFloat((p_tag->findChild("speed"))->cdata() ));
+			if( p_tag->findChild("street") )
+				street( (p_tag->findChild("street"))->cdata() );
+			if( p_tag->findChild("text") )
+				text( (p_tag->findChild("text"))->cdata() );
+			if( p_tag->findChild("timestamp") )
+				timestamp( (p_tag->findChild("timestamp"))->cdata() );
+			if( p_tag->findChild("uri") )
+				uri( (p_tag->findChild("uri"))->cdata() );
+		}
 	}
-}
 }

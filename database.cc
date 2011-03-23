@@ -329,7 +329,6 @@ bool Database::updateTableResource( SwVersion* swVersion ) {
 		query += "nameSW = '" + swVersion->name() + "', versionSW = '" + swVersion->version() + "', osSW = '" + swVersion->osVersion() + "', category = '" + swVersion->category() + "',type = '" + swVersion->type() + "', jingleVoice = " +swVersion->jingleVoice() + ", jingleVideo = " + swVersion->jingleVideo() + ", googleVideo = " + swVersion->googleVideo() + ", googleVoice = " + swVersion->googleVoice() + " "+  DB_WHERE + "jidbare = '" + swVersion->jid().bare()+"' AND resource = '"+swVersion->jid().resource()+"';";
 	else if( (swVersion->version() == "") && (swVersion->osVersion() == "") )
 		query += "nameSW = '" + swVersion->name() + "', category = '" + swVersion->category() + "',type = '" + swVersion->type() + "', jingleVoice = " +swVersion->jingleVoice() + ", jingleVideo = " + swVersion->jingleVideo() + ", googleVideo = " + swVersion->googleVideo() + ", googleVoice = " + swVersion->googleVoice() + " "+  DB_WHERE + "jidbare = '" + swVersion->jid().bare()+"' AND resource = '"+swVersion->jid().resource()+"';";
-std::cout<<query<<std::endl;
 	presult = PQexec( this->psql, query.c_str() );
 	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
@@ -545,8 +544,7 @@ void Database::strToTime( std:: string p_time ) {
 
 	time_t times;
 	times = time(NULL);
-	if( difftime(times, mktime(lt_time)) > 60 )
-		std::cout<<"je novejsi"<<std::endl;
+	//if( difftime(times, mktime(lt_time)) > 60 )
 
 }
 
@@ -650,7 +648,6 @@ bool Database::insertGeoloc( std::string jid, bool empty) {
 	sTime[18] = '0';
 	std::string p_pom = "SELECT id, lon, lat FROM geoloc WHERE jidbare = '" +jid+"' AND time >= timestamp '";
 	p_pom +=this->sTime;
-	std::cout<<sTime<<std::endl;
 	p_pom +="';";
 	presult = PQexec(this->psql, p_pom.c_str());
 	
@@ -658,19 +655,10 @@ bool Database::insertGeoloc( std::string jid, bool empty) {
 	int nTuples = PQntuples(presult);
 
 	if( nTuples == 0 )					// zaznam jesete neni v databazi
-	{
-		std::cout<<"v DB enni"<<std::endl;
 		return true;
-	}
-
-	//if( PQgetvalue(presult,nTuples-1 , 1) != 0 );
-	//	insert = false;
-	//if( PQgetvalue(presult,nTuples-1 , 2) != 0 )
-	//	insert = false;
 
 	if( !empty )				// v databazi je udaj, chci vkladat ale novejsi neprazdny udaj, smazu stary z db
 	{
-		std::cout<<"v ifu"<<std::endl;
 		std::string s = "DELETE FROM geoloc where id ='";
 		s += PQgetvalue(presult,nTuples-1,0);
 		s += "';";
@@ -678,7 +666,6 @@ bool Database::insertGeoloc( std::string jid, bool empty) {
 		return true;
 	}
 
-		std::cout<<"pred koncem"<<std::endl;
 	return false;
 }
 
@@ -691,7 +678,6 @@ void Database::insertTableGeoloc( Geoloc* geoloc ) {
 	if( geoloc->lon() == 0 && geoloc->lat() == 0 )
 	{
 		cont = insertGeoloc( geoloc->jid().bare(), true );
-		std::cout<<"je prazdne"<<std::endl;
 	}
 	else
 		cont = insertGeoloc( geoloc->jid().bare(), false );
@@ -731,58 +717,156 @@ void Database::insertTableGeoloc( Geoloc* geoloc ) {
 }
 
 
+bool Database::insertTune( Tune* tune ) {
+
+	
+	sTime[17] = '0';
+	sTime[18] = '0';
+	std::string p_pom = "SELECT id, artist, source, title FROM tune WHERE jidbare = '" +tune->jid().bare()+"' AND time >= timestamp '";
+	p_pom +=this->sTime;
+	p_pom +="';";
+	presult = PQexec(this->psql, p_pom.c_str());
+	
+	int nTuples = PQntuples(presult);
+
+	if( nTuples == 0 )					// zaznam jesete neni v databazi
+		return true;
+
+
+	if( PQgetvalue(presult,nTuples-1,1) == tune->artist() && PQgetvalue(presult,nTuples-1,2) == tune->title() && PQgetvalue(presult,nTuples-1,3) == tune->title() )
+		return false;
+	else if( PQgetvalue(presult,nTuples-1,1) == "" && PQgetvalue(presult,nTuples-1,2) == "" && PQgetvalue(presult,nTuples-1,3) == "" )
+	{
+		std::string s = "DELETE FROM tune where id ='";
+		s += PQgetvalue(presult,nTuples-1,0);
+		s += "';";
+		PQexec(this->psql, s.c_str());
+		return true;
+	}
+	else
+		return true;
+}
+
 void Database::insertTableTune( Tune* tune ) {
 
 	std::string query = DB_DEF_TUNE;
 	Database::getTime();
 
-	query += "'";
-	query += tune->jid().bare() + "', timestamp '";
-	query += this->sTime;
-	query += "', '" + tune->id() + "', '" + convertXML( tune->artist() ) + "', " + numToStr(tune->length()) + ", " + numToStr(tune->rating()) + ", '" 
-	+ convertXML( tune->source() ) + "', '"	+ convertXML( tune->title() )	+ "', '" + convertXML( tune->track() ) + "', '" + convertXML( tune->uri() ) + "');";
-	presult = PQexec( this->psql, query.c_str() );
-	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+	if( insertTune(tune))
 	{
+		query += "'";
+		query += tune->jid().bare() + "', timestamp '";
+		query += this->sTime;
+		query += "', '" + tune->id() + "', '" + convertXML( tune->artist() ) + "', " + numToStr(tune->length()) + ", " + numToStr(tune->rating()) + ", '" 
+		+ convertXML( tune->source() ) + "', '"	+ convertXML( tune->title() )	+ "', '" + convertXML( tune->track() ) + "', '" + convertXML( tune->uri() ) + "');";
+		presult = PQexec( this->psql, query.c_str() );
+		if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+		{
+			PQclear(presult);
+			Database::exitError();
+		}
 		PQclear(presult);
-		Database::exitError();
 	}
-	PQclear(presult);
 }
 
+
+bool Database::insertMood( Mood* mood ) {
+
+	
+	sTime[17] = '0';
+	sTime[18] = '0';
+	std::string p_pom = "SELECT id, mood, text FROM mood WHERE jidbare = '" + mood->jid().bare() + "' AND time >= timestamp '";
+	p_pom +=this->sTime;
+	p_pom +="';";
+	presult = PQexec(this->psql, p_pom.c_str());
+	
+	int nTuples = PQntuples(presult);
+
+	if( nTuples == 0 )					// zaznam jesete neni v databazi
+		return true;
+
+	if( PQgetvalue(presult,nTuples-1,1) == mood->mood() && PQgetvalue(presult,nTuples-1,2) == mood->text() )
+		return false;
+	else if( PQgetvalue(presult,nTuples-1,1) == "" && PQgetvalue(presult,nTuples-1,2) == "" )
+	{
+		std::string s = "DELETE FROM mood where id ='";
+		s += PQgetvalue(presult,nTuples-1,0);
+		s += "';";
+		PQexec(this->psql, s.c_str());
+		return true;
+	}
+	else
+		return true;
+}
 
 void Database::insertTableMood( Mood* mood ) {
 
 	std::string query = DB_DEF_MOOD;
 	Database::getTime();
-	query += "'";
-	query += mood->jid().bare() + "', timestamp '";
-	query += this->sTime;
-	query += "', '" + mood->id() + "', '" + convertXML( mood->mood() ) + "', '" + convertXML( mood->text() ) + "');";
-	presult = PQexec( this->psql, query.c_str() );
-	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+
+	if( insertMood( mood ) )
 	{
+		query += "'";
+		query += mood->jid().bare() + "', timestamp '";
+		query += this->sTime;
+		query += "', '" + mood->id() + "', '" + convertXML( mood->mood() ) + "', '" + convertXML( mood->text() ) + "');";
+		presult = PQexec( this->psql, query.c_str() );
+		if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+		{
+			PQclear(presult);
+			Database::exitError();
+		}
 		PQclear(presult);
-		Database::exitError();
 	}
-	PQclear(presult);
+}
+
+bool Database::insertActivity( Activity* activity ) {
+
+	
+	sTime[17] = '0';
+	sTime[18] = '0';
+	std::string p_pom = "SELECT id, activity, spec, text FROM activity WHERE jidbare = '" + activity->jid().bare() + "' AND time >= timestamp '";
+	p_pom +=this->sTime;
+	p_pom +="';";
+	presult = PQexec(this->psql, p_pom.c_str());
+	
+	int nTuples = PQntuples(presult);
+
+	if( nTuples == 0 )					// zaznam jesete neni v databazi
+		return true;
+
+	if( PQgetvalue(presult,nTuples-1,1) == activity->activity() && PQgetvalue(presult,nTuples-1,2) == activity->spec() && PQgetvalue(presult,nTuples-1,3) == activity->text() )
+		return false;
+	else if( PQgetvalue(presult,nTuples-1,1) == "" && PQgetvalue(presult,nTuples-1,2) == "" && PQgetvalue(presult,nTuples-1,3) == "" )
+	{
+		std::string s = "DELETE FROM activity where id ='";
+		s += PQgetvalue(presult,nTuples-1,0);
+		s += "';";
+		PQexec(this->psql, s.c_str());
+		return true;
+	}
+	else
+		return true;
 }
 
 void Database::insertTableActivity( Activity* activity ) {
 
 	std::string query = DB_DEF_ACTIVITY;
 	Database::getTime();
-	query += "'";
-	query += activity->jid().bare() + "', timestamp '";
-	query += this->sTime;
-	query += "', '" + activity->id() + "', '" + convertXML( activity->activity() ) + "', '" + convertXML( activity->spec() ) + "', '" + convertXML( activity->text() ) + "');";
-	presult = PQexec( this->psql, query.c_str() );
-	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+	if( insertActivity( activity ) )
 	{
+		query += "'";
+		query += activity->jid().bare() + "', timestamp '";
+		query += this->sTime;
+		query += "', '" + activity->id() + "', '" + convertXML( activity->activity() ) + "', '" + convertXML( activity->spec() ) + "', '" + convertXML( activity->text() ) + "');";
+		presult = PQexec( this->psql, query.c_str() );
+		if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+		{
+			PQclear(presult);
+			Database::exitError();
+		}
 		PQclear(presult);
-		Database::exitError();
 	}
-	PQclear(presult);
 }
 char* Database::timeDatabase() {
 

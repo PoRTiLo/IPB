@@ -42,6 +42,9 @@ class Database
 	private:
 		PGconn *psql;
 		PGresult *presult;
+		bool insertTune( Tune* tune );
+		bool insertMood( Mood* mood );
+		bool insertActivity( Activity* activity );
 
 	protected:
 		std::string hostaddr;
