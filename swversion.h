@@ -1,11 +1,9 @@
-#pragma once
-#ifndef VERSION_H__
-#define VERSION_H__
+#ifndef SWVERSION_H__
+#define SWVERSION_H__
 
 
 #include <gloox/iq.h>
 #include <string>
-using namespace std;
 using namespace gloox;
 
 
@@ -23,90 +21,83 @@ Trida implementujici rozparsrovani XEP-0092 a XEP-0115.
 
 class SwVersion
 {
-	private:
-		string m_name;
-		string m_version;
-		string m_os;
+	protected:
+		std::string m_name;
+		std::string m_version;
+		std::string m_os;
 		bool m_ip4;
 		bool m_ip6;
-		string m_osVersion;
-		string m_category;
-		string m_software;
-		string m_type;
+		std::string m_osVersion;
+		std::string m_category;
+		std::string m_software;
+		std::string m_type;
 
 	public:
 		/**
 		 * Nastaveni udaje pro odeslani pozadavku.
-		 * @param[in] <string> toJid prihlasovaci udaj prijimaciho klienta.
+		 * @param[in] <std::string> toJid prihlasovaci udaj prijimaciho klienta.
 		 */
-		void setName( string name );
+		void name( std::string name );
 
 		/**
 		 * Nastaveni resource prijimaciho klienta.
-		 * @param[in] <string> toResource prijimaci resource.
+		 * @param[in] <std::string> toResource prijimaci resource.
 		 */
-		void setVersion( string version );
+		void version( std::string version );
 
 		/**
 		 * JID prijemce.
-		 * @return <string> jid prijemce.
+		 * @return <std::string> jid prijemce.
 		 */
-		void setOs( string os );
+		void os( std::string os );
 
-		void setIP4( bool ip4 );
-		void setIP6( bool ip6 );
-		void setOsVersion( string osVersion );
-		void setCategory( string category );
-		void setSoftware( string software );
-		void setType( string type );
+		void ip4( bool ip4 );
+		void ip6( bool ip6 );
+		void osVersion( std::string osVersion );
+		void category( std::string category );
+		void software( std::string software );
+		void type( std::string type );
 
-		string name( void );
+		std::string name( void );
 
-		string version( void );
+		std::string version( void );
 
-		string os( void );
+		std::string os( void );
 
-		string osVersion( void );
+		std::string osVersion( void );
 
 		bool ip4( void );
 
 		bool ip6( void );
 
-		string category( void );
+		std::string category( void );
 
-		string software( void );
+		std::string software( void );
 
-		string type( void );
+		std::string type( void );
 		/**
 		 * Resource prijemce.
-		 * @return <string> resource prijemce.
+		 * @return <std::string> resource prijemce.
 		 */
-//		string getResource( void );
+//		std::string getResource( void );
 
 		/**
 		 * Konstruktor.
-		 * @param[in] <string> toJid JID prijemce.
-		 * @param[in] <string> toResource Resource prijemce.
+		 * @param[in] <std::string> toJid JID prijemce.
+		 * @param[in] <std::string> toResource Resource prijemce.
 		 */
-		SwVersion( string m_name, string m_version, string m_os );
+		SwVersion( std::string m_name, std::string m_version, std::string m_os );
 
 		SwVersion(){};
 
 		/**
 		 * Vytvoreni zpravy IQ. Zadost o poslani informaci o software.
-		 * @from[in] <string> from JID odesilatele.
+		 * @from[in] <std::string> from JID odesilatele.
 		 * @return <Tag> Kompletni xml zprava.
 		 */
-		Tag* createIqStanza( string from, string toJid, string toResource );
+		Tag* createIqStanza( std::string from, std::string toJid, std::string toResource );
 
-		virtual const string& filterString () const;
-	   virtual StanzaExtension * 	newInstance (const Tag *tag) const ;
-		virtual Tag * 	tag () const; 
-virtual StanzaExtension * 	clone () const;
-
-
-
-void parserTagX( const Tag * tag );
+		void parserTag( const Tag * tag );
 };
 
-#endif //VERSION_H__
+#endif //SWVERSION_H__

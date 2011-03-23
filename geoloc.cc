@@ -9,313 +9,307 @@ Geoloc::Geoloc( Tag* tag )
 
 float Geoloc::accuracy( void ) {
 
-	return m_accuracy;
+	return this->m_accuracy;
 }
 
 void Geoloc::accuracy( const float accuracy ) {
 
-	m_accuracy = accuracy;
+	this->m_accuracy = accuracy;
 }
 
 float Geoloc::alt( void ) {
 
-	return m_alt;
+	return this->m_alt;
 }
 
 void Geoloc::alt( const float alt ) {
 
-	m_alt = alt;
+	this->m_alt = alt;
 }
 
-string Geoloc::area( void ) {
+std::string Geoloc::area( void ) {
 
-	return m_area;
+	return this->m_area;
 }
 
-void Geoloc::area( const string area ) {
+void Geoloc::area( const std::string area ) {
 
-	m_area = area;
+	this->m_area = area;
 }
 
 float Geoloc::bearing( void ) {
 
-	return m_bearing;
+	return this->m_bearing;
 }
 
 void Geoloc::bearing( float bearing ) {
 
-	m_bearing = bearing;
+	this->m_bearing = bearing;
 }
 
-string Geoloc::building( void ) {
+std::string Geoloc::building( void ) {
 
-	return m_building;
+	return this->m_building;
 }
 
-void Geoloc::building( const string building ) {
+void Geoloc::building( const std::string building ) {
 
-	m_building = building;
+	this->m_building = building;
 }
 
-string Geoloc::country( void ) {
+std::string Geoloc::country( void ) {
 
-	return m_country;
+	return this->m_country;
 }
 
-void Geoloc::country( const string country ) {
+void Geoloc::country( const std::string country ) {
 
-	m_country = country;
+	this->m_country = country;
 }
 
-string Geoloc::countrycode( void ) {
+std::string Geoloc::countrycode( void ) {
 
-	return m_countrycode;
+	return this->m_countrycode;
 }
 
-void Geoloc::countrycode( const string countrycode ) {
+void Geoloc::countrycode( const std::string countrycode ) {
 
-	m_countrycode = countrycode;
+	this->m_countrycode = countrycode;
 }
 
-string Geoloc::datum( void ) {
+std::string Geoloc::datum( void ) {
 
-	return m_datum;
+	return this->m_datum;
 }
 
-void Geoloc::datum( const string datum ) {
+void Geoloc::datum( const std::string datum ) {
 
-	m_datum = datum;
+	this->m_datum = datum;
 }
 
-string Geoloc::description( void ) {
+std::string Geoloc::description( void ) {
 
-	return m_description;
+	return this->m_description;
 }
 
-void Geoloc::description( const string description ) {
+void Geoloc::description( const std::string description ) {
 
-	m_description = description;
+	this->m_description = description;
 }
 
 float Geoloc::error( void ) {
 
-	return m_error;
+	return this->m_error;
 }
 
 void Geoloc::error( const float error ) {
 
-	 m_error = error;
+	 this->m_error = error;
 }
 
-string Geoloc::floor( void ) {
+std::string Geoloc::floor( void ) {
 
-	return m_floor;
+	return this->m_floor;
 }
 
-void Geoloc::floor( const string floor ) {
+void Geoloc::floor( const std::string floor ) {
 
-	m_floor = floor;
+	this->m_floor = floor;
 }
 
 float Geoloc::lat( void ) {
 
-	return m_lat;
+	return this->m_lat;
 }
 
 void Geoloc::lat( const float lat ) {
 
-	m_lat = lat;
+	this->m_lat = lat;
 }
 
-string Geoloc::locality( void ) {
+std::string Geoloc::locality( void ) {
 
-	return m_locality;
+	return this->m_locality;
 }
 
-void Geoloc::locality( const string locality ) {
+void Geoloc::locality( const std::string locality ) {
 
-	m_locality = locality;
+	this->m_locality = locality;
 }
 
 float Geoloc::lon( void ) {
 
-	return m_lon;
+	return this->m_lon;
 }
 
 void Geoloc::lon( const float lon ) {
 
-	m_lon = lon;
+	this->m_lon = lon;
 }
 
-string Geoloc::postalcode( void ) {
+std::string Geoloc::postalcode( void ) {
 
-	return m_postalcode;
+	return this->m_postalcode;
 }
 
-void Geoloc::postalcode( const string postalcode ) {
+void Geoloc::postalcode( const std::string postalcode ) {
 
-	m_postalcode = postalcode;
+	this->m_postalcode = postalcode;
 }
 
-string Geoloc::region( void ) {
+std::string Geoloc::region( void ) {
 
-	return m_region;
+	return this->m_region;
 }
 
-void Geoloc::region( const string region ) {
+void Geoloc::region( const std::string region ) {
 
-	m_region = region;
+	this->m_region = region;
 }
 
-string Geoloc::street( void ) {
+std::string Geoloc::street( void ) {
 
-	return m_street;
+	return this->m_street;
 }
 
-void Geoloc::street( const string street ) {
+void Geoloc::street( const std::string street ) {
 
-	m_street = street;
+	this->m_street = street;
 }
 
-string Geoloc::text( void ) {
+std::string Geoloc::text( void ) {
 
-	return m_text;
+	return this->m_text;
 }
 
-void Geoloc::text( const string text ) {
+void Geoloc::text( const std::string text ) {
 
-	m_text = text;
+	this->m_text = text;
 }
 
-string Geoloc::timestamp( void ) {
+std::string Geoloc::timestamp( void ) {
 
-	return m_timestamp;
+	return this->m_timestamp;
 }
 
-void Geoloc::timestamp( const string timestamp ) {
+void Geoloc::timestamp( const std::string timestamp ) {
 
-	m_timestamp = timestamp;
+	this->m_timestamp = timestamp;
 }
 
 float Geoloc::speed( void ) {
 
-	return m_speed;
+	return this->m_speed;
 }
 
 void Geoloc::speed( const float speed ) {
 
-	m_speed = speed;
+	this->m_speed = speed;
 }
-string Geoloc::uri( void ) {
+std::string Geoloc::uri( void ) {
 
-	return m_uri;
-}
-
-string Geoloc::room( void ) {
-
-	return m_room;
+	return this->m_uri;
 }
 
-void Geoloc::room( const string room ) {
+std::string Geoloc::room( void ) {
 
-	m_room = room;
+	return this->m_room;
 }
 
-void Geoloc::uri( const string uri ) {
+void Geoloc::room( const std::string room ) {
+
+	this->m_room = room;
+}
+
+void Geoloc::uri( const std::string uri ) {
 	
-	m_uri = uri;
+	this->m_uri = uri;
 }
 
-string Geoloc::id( void ) {
+std::string Geoloc::id( void ) {
 
-	return m_id;
+	return this->m_id;
 }
 
-void Geoloc::id( const string id ) {
+void Geoloc::id( const std::string id ) {
 
-	m_id = id;
+	this->m_id = id;
 }
 
 JID Geoloc::jid( void ) {
 
-	return m_jid;
+	return this->m_jid;
 }
 		
-void Geoloc::jid( const string jid ) {
+void Geoloc::jid( const std::string jid ) {
 
-	m_jid.setJID(jid);
+	this->m_jid.setJID(jid);
 }
 
 void Geoloc::clear( void ) {
 
-	m_accuracy = 0.0;
-	m_alt = 0.0;
-	m_bearing = 0.0;
-	m_error = 0.0;
-	m_lat = 0.0;
-	m_lon = 0.0;
-	m_speed = 0.0;
+	this->m_accuracy = 0.0;
+	this->m_alt = 0.0;
+	this->m_bearing = 0.0;
+	this->m_error = 0.0;
+	this->m_lat = 0.0;
+	this->m_lon = 0.0;
+	this->m_speed = 0.0;
 }
 void Geoloc::parserTag( const Tag * tag ) {
 
-//mozna zjednodusit ptani se jestili to je ITEM A GEOLOC	
-	if( tag->findChild("item") )
+	if( tag->hasChild("item") )
 	{
 		Tag * p_tag1 = tag->findChild("item")->clone();
-
 		id( p_tag1->findAttribute("id") );
+		Tag * p_tag = p_tag1->findChild("geoloc")->clone();
 
-		if( p_tag1->findChild("geoloc") )
+		if( !p_tag->children().empty() )
 		{
-			Tag * p_tag = p_tag1->findChild("geoloc")->clone();
-
-			if( !p_tag->children().empty() )
-			{
-				if( p_tag->findChild("accuracy") )
-					accuracy( stringToInt( (p_tag->findChild("accuracy"))->cdata() ));
-				if( p_tag->findChild("alt") )
-					alt( stringToInt((p_tag->findChild("alt"))->cdata() ));
-				if( p_tag->findChild("area") )
-					area( (p_tag->findChild("area"))->cdata() );
-				if( p_tag->findChild("bearing") )
-					bearing( stringToInt( (p_tag->findChild("bearing"))->cdata() ));
-				if( p_tag->findChild("building") )
-					building( (p_tag->findChild("building"))->cdata() );
-				if( p_tag->findChild("country") )
-					country( (p_tag->findChild("country"))->cdata() );
-				if( p_tag->findChild("countrycode") )
-					countrycode( (p_tag->findChild("countrycode"))->cdata() );
-				if( p_tag->findChild("datum") )
-					datum( (p_tag->findChild("datum"))->cdata() );
-				if( p_tag->findChild("description") )
-					description( (p_tag->findChild("description"))->cdata() );
-				if( p_tag->findChild("error") )
-					error( stringToInt( (p_tag->findChild("error"))->cdata() ));
-				if( p_tag->findChild("floor") )
-					floor( (p_tag->findChild("floor"))->cdata() );
-				if( p_tag->findChild("lat") )
-					lat( stringToInt((p_tag->findChild("lat"))->cdata() ));
-				if( p_tag->findChild("locality") )
-					locality( (p_tag->findChild("locality"))->cdata() );
-				if( p_tag->findChild("lon") )
-					lon( stringToInt((p_tag->findChild("lon"))->cdata() ));
-				if( p_tag->findChild("postalcode") )
-					postalcode( (p_tag->findChild("postalcode"))->cdata() );
-				if( p_tag->findChild("region") )
-					region( (p_tag->findChild("region"))->cdata() );
-				if( p_tag->findChild("room") )
-					room( (p_tag->findChild("room"))->cdata() );
-				if( p_tag->findChild("speed") )
-					speed( stringToInt((p_tag->findChild("speed"))->cdata() ));
-				if( p_tag->findChild("street") )
-					street( (p_tag->findChild("street"))->cdata() );
-				if( p_tag->findChild("text") )
-					text( (p_tag->findChild("text"))->cdata() );
-				if( p_tag->findChild("timestamp") )
-					timestamp( (p_tag->findChild("timestamp"))->cdata() );
-				if( p_tag->findChild("uri") )
-					uri( (p_tag->findChild("uri"))->cdata() );
-			}
+			if( p_tag->findChild("accuracy") )
+				accuracy( stringToFloat( (p_tag->findChild("accuracy"))->cdata() ));
+			if( p_tag->findChild("alt") )
+				alt( stringToFloat((p_tag->findChild("alt"))->cdata() ));
+			if( p_tag->findChild("area") )
+				area( (p_tag->findChild("area"))->cdata() );
+			if( p_tag->findChild("bearing") )
+				bearing( stringToFloat( (p_tag->findChild("bearing"))->cdata() ));
+			if( p_tag->findChild("building") )
+				building( (p_tag->findChild("building"))->cdata() );
+			if( p_tag->findChild("country") )
+				country( (p_tag->findChild("country"))->cdata() );
+			if( p_tag->findChild("countrycode") )
+				countrycode( (p_tag->findChild("countrycode"))->cdata() );
+			if( p_tag->findChild("datum") )
+				datum( (p_tag->findChild("datum"))->cdata() );
+			if( p_tag->findChild("description") )
+				description( (p_tag->findChild("description"))->cdata() );
+			if( p_tag->findChild("error") )
+				error( stringToFloat( (p_tag->findChild("error"))->cdata() ));
+			if( p_tag->findChild("floor") )
+				floor( (p_tag->findChild("floor"))->cdata() );
+			if( p_tag->findChild("lat") )
+				lat( stringToFloat((p_tag->findChild("lat"))->cdata() ));
+			if( p_tag->findChild("locality") )
+				locality( (p_tag->findChild("locality"))->cdata() );
+			if( p_tag->findChild("lon") )
+				lon( stringToFloat((p_tag->findChild("lon"))->cdata() ));
+			if( p_tag->findChild("postalcode") )
+				postalcode( (p_tag->findChild("postalcode"))->cdata() );
+			if( p_tag->findChild("region") )
+				region( (p_tag->findChild("region"))->cdata() );
+			if( p_tag->findChild("room") )
+				room( (p_tag->findChild("room"))->cdata() );
+			if( p_tag->findChild("speed") )
+				speed( stringToFloat((p_tag->findChild("speed"))->cdata() ));
+			if( p_tag->findChild("street") )
+				street( (p_tag->findChild("street"))->cdata() );
+			if( p_tag->findChild("text") )
+				text( (p_tag->findChild("text"))->cdata() );
+			if( p_tag->findChild("timestamp") )
+				timestamp( (p_tag->findChild("timestamp"))->cdata() );
+			if( p_tag->findChild("uri") )
+				uri( (p_tag->findChild("uri"))->cdata() );
 		}
 	}
 }

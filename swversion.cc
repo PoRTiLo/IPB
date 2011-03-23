@@ -1,14 +1,14 @@
 #include "swversion.h"
 
 // Konstruktor
-//Version::Version( string name, string version, string os )
+//Version::Version( std::string name, string version, string os )
 //{
 //	this->m_name = toJid;
 //	this->resource = toResource;
 //}
 
 // Tvorba IQ dotazu
-Tag* SwVersion::createIqStanza( string fromJid, string toJid, string toResource ) {
+Tag* SwVersion::createIqStanza( std::string fromJid, std::string toJid, std::string toResource ) {
 
 	Tag *myTagIq = new Tag("iq");
 	myTagIq->addAttribute("from", fromJid);
@@ -23,117 +23,103 @@ Tag* SwVersion::createIqStanza( string fromJid, string toJid, string toResource 
 	return myTagIq;
 }
 
-void SwVersion::parserTagX( const Tag * xTag ) {
+void SwVersion::parserTag( const Tag * xTag ) {
 
 
-			if(xTag->findChild("field","var","ip_version") )
-			{
-				Tag * fieldTag = xTag->findChild("field","var","ip_version")->clone();
-//				swVersion->setIP( (fieldTag->findChild("value"))->cdata() );					//dodelat, mozno i IP6
-			}
-			if(xTag->findChild("field","var","os") )
-			{
-				Tag * fieldTag = xTag->findChild("field","var","os")->clone();
-				setOs( (fieldTag->findChild("value"))->cdata() );
-			}
-			if(xTag->findChild("field","var","os_version") )
-			{
-				Tag * fieldTag = xTag->findChild("field","var","os_version")->clone();
-				setOsVersion( (fieldTag->findChild("value"))->cdata() );
-			}
-			if(xTag->findChild("field","var","software") )
-			{
-				Tag * fieldTag = xTag->findChild("field","var","software")->clone();
-				setSoftware( (fieldTag->findChild("value"))->cdata() );
-			}
-			if(xTag->findChild("field","var","software_version") )
-			{
-				Tag * fieldTag = xTag->findChild("field","var","software_version")->clone();
-				setVersion( (fieldTag->findChild("value"))->cdata() );
-			}
+	if(xTag->findChild("field","var","ip_version") )
+	{
+		Tag * fieldTag = xTag->findChild("field","var","ip_version")->clone();
+//		swVersion->setIP( (fieldTag->findChild("value"))->cdata() );					//dodelat, mozno i IP6
+	}
+	if(xTag->findChild("field","var","os") )
+	{
+		Tag * fieldTag = xTag->findChild("field","var","os")->clone();
+		os( (fieldTag->findChild("value"))->cdata() );
+	}
+	if(xTag->findChild("field","var","os_version") )
+	{
+		Tag * fieldTag = xTag->findChild("field","var","os_version")->clone();
+		osVersion( (fieldTag->findChild("value"))->cdata() );
+	}
+	if(xTag->findChild("field","var","software") )
+	{
+		Tag * fieldTag = xTag->findChild("field","var","software")->clone();
+		software( (fieldTag->findChild("value"))->cdata() );
+	}
+	if(xTag->findChild("field","var","software_version") )
+	{
+		Tag * fieldTag = xTag->findChild("field","var","software_version")->clone();
+		version( (fieldTag->findChild("value"))->cdata() );
+	}
 }
 
-const string& SwVersion::filterString () const {
-
-}
-
-StanzaExtension * SwVersion::newInstance (const Tag *tag) const {
-
-}
-Tag * SwVersion::tag () const {
-
-}
-
-StanzaExtension * SwVersion::clone() const {
-
-}
 
 // Nastaveni JID prijemce
-void SwVersion::setName( string name ) {
+void SwVersion::name( std::string name ) {
 
 	this->m_name = name;
 }
 
 // Nastaveni resource prijemce
-void SwVersion::setVersion( string version ) {
+void SwVersion::version( std::string version ) {
 
 	this->m_version = version;
 }
 
 // Ziskani JID prijemce
-void SwVersion::setOs( string os ) {
+void SwVersion::os( std::string os ) {
 
 	 this->m_os = os;
 }
 
 // Ziskani resource prijemce
-string SwVersion::name( void ) {
+std::string SwVersion::name( void ) {
 
 	return this->m_name;
 }
 // Ziskani resource prijemce
-string SwVersion::version( void ) {
+std::string SwVersion::version( void ) {
 
 	return this->m_version;
 }
 // Ziskani resource prijemce
-string SwVersion::os( void ) {
+std::string SwVersion::os( void ) {
 
 	return this->m_os;
 }
 
-void SwVersion::setIP4( bool ip4 ) {
+void SwVersion::ip4( bool ip4 ) {
 
 	this->m_ip4 = ip4;
 }
 
-void SwVersion::setIP6( bool ip6 ) {
+void SwVersion::ip6( bool ip6 ) {
 
 	this->m_ip6 = ip6;
 }
 
-void SwVersion::setOsVersion( string osVersion ) {
+void SwVersion::osVersion( std::string osVersion ) {
 
 	this->m_osVersion = osVersion;
 }
 
-void SwVersion::setCategory( string category ) {
+void SwVersion::category( std::string category ) {
 
 	this->m_category = category;
 }
 
 
-void SwVersion::setSoftware( string software ) {
+void SwVersion::software( std::string software ) {
 
 	this->m_software = software;
 }
 
-void SwVersion::setType( string type ) {
+void SwVersion::type( std::string type ) {
 
 	this->m_type = type;
 }
 
-string SwVersion::osVersion( void ) {
+std::string SwVersion::osVersion( void ) {
 
 	return this->m_osVersion;
 }
@@ -148,7 +134,7 @@ bool SwVersion::ip6( void ) {
 	return this->m_ip6;
 }
 
-string SwVersion::category( void ) {
+std::string SwVersion::category( void ) {
 
 	return this->m_category;
 }

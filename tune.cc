@@ -6,126 +6,121 @@ Tune::Tune( const Tag* tag )
 	parserTag( tag );
 }
 
-string Tune::artist( void ) {
+std::string Tune::artist( void ) {
 
-	return m_artist;
+	return this->m_artist;
 }
 
-void Tune::artist( const string artist ) {
+void Tune::artist( const std::string artist ) {
 
-	m_artist = artist;
+	this->m_artist = artist;
 }
 
 short int Tune::length( void ) {
 
-	return m_length;
+	return this->m_length;
 }
 
 void Tune::length( const short int length ) {
 
-	m_length = length;
+	this->m_length = length;
 }
 
 unsigned int Tune::rating( void ) {
 
-	return m_rating;
+	return this->m_rating;
 }
 
 void Tune::rating( const unsigned int rating ) {
 
-	m_rating = rating;
+	this->m_rating = rating;
 }
 
-string Tune::source( void ) {
+std::string Tune::source( void ) {
 
-	return m_source;
+	return this->m_source;
 }
 
-void Tune::source( const string source ) {
+void Tune::source( const std::string source ) {
 
-	m_source = source;
+	this->m_source = source;
 }
 
-string Tune::title( void ) {
+std::string Tune::title( void ) {
 
-	return m_title;
+	return this->m_title;
 }
 
-void Tune::title( const string title ) {
+void Tune::title( const std::string title ) {
 
-	m_title = title;
+	this->m_title = title;
 }
 
-string Tune::track( void ) {
+std::string Tune::track( void ) {
 
-	return m_track;
+	return this->m_track;
 }
 
-void Tune::track( const string track ) {
+void Tune::track( const std::string track ) {
 
-	m_track = track;
+	this->m_track = track;
 }
 
-string Tune::uri( void ) {
+std::string Tune::uri( void ) {
 
-	return m_uri;
+	return this->m_uri;
 }
 
-void Tune::uri( const string uri ) {
+void Tune::uri( const std::string uri ) {
 
-	m_uri = uri;
+	this->m_uri = uri;
 }
 
-string Tune::id( void ) {
+std::string Tune::id( void ) {
 
-	return m_id;
+	return this->m_id;
 }
 
-void Tune::id( const string id ) {
+void Tune::id( const std::string id ) {
 
-	m_id = id;
+	this->m_id = id;
 }
 
 JID Tune::jid( void ) {
 
-	return m_jid;
+	return this->m_jid;
 }
 		
-void Tune::jid( const string jid ) {
+void Tune::jid( const std::string jid ) {
 
-	m_jid.setJID(jid);
+	this->m_jid.setJID(jid);
 }
 
 void Tune::parserTag( const Tag * tag ) {
 
-//mozna zjednodusit ptani se jestili to je ITEM A GEOLOC	
-	if( tag->findChild("item") )
+	if( tag->hasChild("item") )
 	{
 		Tag * p_tag1 = tag->findChild("item")->clone();
 
 		id( p_tag1->findAttribute("id") );
 		
-		if( p_tag1->findChild("tune") )
+		Tag * p_tag = p_tag1->findChild("tune")->clone();
+		if( !p_tag->children().empty() )
 		{
-			Tag * p_tag = p_tag1->findChild("tune")->clone();
-
-			if( !p_tag->children().empty() )
-			{
-				if( p_tag->findChild("artist") )
-					artist( (p_tag->findChild("artist"))->cdata() );
-				if( p_tag->findChild("length") )
-					length( stringToShortInt((p_tag->findChild("length"))->cdata()) );
-				if( p_tag->findChild("rating") )
-					rating( stringToUnsignedInt((p_tag->findChild("rating"))->cdata()) );
-				if( p_tag->findChild("source") )
-					source( (p_tag->findChild("source"))->cdata() );
-				if( p_tag->findChild("title") )
-					title( (p_tag->findChild("title"))->cdata() );
-				if( p_tag->findChild("track") )
-					track( (p_tag->findChild("track"))->cdata() );
-				if( p_tag->findChild("uri") )
-					uri( (p_tag->findChild("uri"))->cdata() );
-			}
+			if( p_tag->findChild("artist") )
+				artist( (p_tag->findChild("artist"))->cdata() );
+			if( p_tag->findChild("length") )
+				length( stringToShortInt((p_tag->findChild("length"))->cdata()) );
+			if( p_tag->findChild("rating") )
+				rating( stringToUnsignedInt((p_tag->findChild("rating"))->cdata()) );
+			if( p_tag->findChild("source") )
+				source( (p_tag->findChild("source"))->cdata() );
+			if( p_tag->findChild("title") )
+				title( (p_tag->findChild("title"))->cdata() );
+			if( p_tag->findChild("track") )
+				track( (p_tag->findChild("track"))->cdata() );
+			if( p_tag->findChild("uri") )
+				uri( (p_tag->findChild("uri"))->cdata() );
 		}
 	}
 }
@@ -133,6 +128,6 @@ void Tune::parserTag( const Tag * tag ) {
 
 void Tune::clear( void ) {
 
-	m_length = 0;
-	m_rating = 0;
+	this->m_length = 0;
+	this->m_rating = 0;
 }

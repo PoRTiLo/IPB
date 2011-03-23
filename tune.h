@@ -8,21 +8,23 @@
 
 #include "func.h"
 
-using namespace std;
 using namespace gloox;
 
+/**
+ * Implementace XEP-0118: User Tune
+ */
 class Tune
 {
 
 	protected:
-		string m_artist;
+		std::string m_artist;
 		short int m_length;
 		unsigned int m_rating;
-		string m_source;
-		string m_title;
-		string m_track;
-		string m_uri;
-		string m_id;
+		std::string m_source;
+		std::string m_title;
+		std::string m_track;
+		std::string m_uri;
+		std::string m_id;
 		JID m_jid;
 
 	public:
@@ -38,8 +40,8 @@ class Tune
       virtual ~Tune() {}
 
 		
-		string artist( void );
-		void artist( const string artist );
+		std::string artist( void );
+		void artist( const std::string artist );
 
 		short int length( void );
 		void length( const short int length );
@@ -47,23 +49,23 @@ class Tune
 		unsigned int rating( void );
 		void rating( const unsigned int rating );
 
-		string source( void );
-		void source( const string source );
+		std::string source( void );
+		void source( const std::string source );
 
-		string title( void );;
-		void title( const string title );
+		std::string title( void );;
+		void title( const std::string title );
 
-		string track( void );
-		void track( const string track );
+		std::string track( void );
+		void track( const std::string track );
 
-		string uri( void );
-		void uri( const string uri );
+		std::string uri( void );
+		void uri( const std::string uri );
 
-		string id( void );
-		void id( const string id );
+		std::string id( void );
+		void id( const std::string id );
 
 		JID jid( void );
-		void jid( const string jid );
+		void jid( const std::string jid );
 
 		void parserTag( const Tag * tag );
 

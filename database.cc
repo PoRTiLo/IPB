@@ -13,7 +13,7 @@ Database::Database()
 	this->connInfo = "";
 }
 
-Database::Database( string shostaddr, string sdbname, string suser, string spassword, string sconnectTimeout,  string sport )
+Database::Database( std::string shostaddr, std::string sdbname, std::string suser, std::string spassword, std::string sconnectTimeout,  std::string sport )
 {
 	this->hostaddr = shostaddr;
 	this->dbname = sdbname;
@@ -26,13 +26,13 @@ Database::Database( string shostaddr, string sdbname, string suser, string spass
 
 void Database::makeStringConnect() {
 	
-	string shostaddr = "hostaddr = '";
-	string sport = "' port = '";
-	string sdbname = "' dbname = '";
-	string suser = "' user = '";
-	string spassword = "' password = '";
-	string sconnect_timeout = "' connect_timeout = '";
-	string sconnInfo = "";
+	std::string shostaddr = "hostaddr = '";
+	std::string sport = "' port = '";
+	std::string sdbname = "' dbname = '";
+	std::string suser = "' user = '";
+	std::string spassword = "' password = '";
+	std::string sconnect_timeout = "' connect_timeout = '";
+	std::string sconnInfo = "";
 	this->connInfo += shostaddr + hostaddr + sport + port + sdbname + dbname + suser + user + spassword + password + sconnect_timeout + connectTimeout +"'";
 }
 
@@ -93,9 +93,9 @@ void Database::connect() {
 	}
 }
 
-void Database::dropTable( const string nameTable ) {
+void Database::dropTable( const std::string nameTable ) {
 
-	string query = DB_D_T_I_E + nameTable + "CASCADE;";
+	std::string query = DB_D_T_I_E + nameTable + "CASCADE;";
 	presult = PQexec(this->psql, query.c_str());
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK)
 	{
@@ -106,10 +106,9 @@ void Database::dropTable( const string nameTable ) {
 	PQclear(presult);
 }
 
-bool Database::createTable( const string nameTable, const string structTable ) {
+bool Database::createTable( const std::string nameTable, const std::string structTable ) {
 
-	string query = DB_SELECT_ALL + nameTable + ";";
-	cout<<query<<endl;
+	std::string query = DB_SELECT_ALL + nameTable + ";";
 	presult = PQexec(this->psql, query.c_str());
 	if(PQresultStatus(presult) == PGRES_TUPLES_OK)
 	{
@@ -134,15 +133,14 @@ bool Database::createTable( const string nameTable, const string structTable ) {
 }
 
 
-void Database::insertTablePresence( const string jid, const string msg, const string name, const string resource, const string presence, const int priority, const string nameSW, const string versionSW, const string osSW ) {
+void Database::insertTablePresence( const std::string jid, const std::string msg, const std::string name, const std::string resource, const std::string presence, const int priority, const std::string nameSW, const std::string versionSW, const std::string osSW ) {
 
-	string query = DB_DEF_PRESENCE;
+	std::string query = DB_DEF_PRESENCE;
 	Database::getTime();
 	query += "timestamp '";
 	query += this->sTime;
 	query += "', '" + jid + "', 'JabInfo@jabbim.cz', '";
 	query += Database::convertXML(msg) + "', '" +  name + "', '" + resource + "', '" + Database::convertXML(presence) + "', " + numToStr( priority )+", '" + nameSW + "', '" + versionSW + "', '" + osSW + "');";
-		cout <<query<<endl;
 	presult = PQexec( this->psql, query.c_str() );
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
@@ -152,16 +150,15 @@ void Database::insertTablePresence( const string jid, const string msg, const st
 	PQclear(presult);
 }
 
-void Database::insertTablePresence( const string jid, const string msg, const string name, const string resource, const string presence ) {
+void Database::insertTablePresence( const std::string jid, const std::string msg, const std::string name, const std::string resource, const std::string presence ) {
 
-	string query = DB_DEF_PRESENCE1;
+	std::string query = DB_DEF_PRESENCE1;
 	Database::getTime();
 	query += "timestamp '";
 	query += this->sTime;
 	query += "', '" + jid + "', 'JabInfo@jabbim.cz', '"; 
 	query += Database::convertXML(msg) + "', '" +  name + "', '" + resource + "', '" + presence + "', 0 );";
 	presult = PQexec( this->psql, query.c_str() );
-	cout<<query<<endl;
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
 		PQclear(presult);
@@ -170,10 +167,10 @@ void Database::insertTablePresence( const string jid, const string msg, const st
 	PQclear(presult);
 }
 
-void Database::insertTableVCard( string jidBare, string nickname, string url, string bday, string jabberid, string title, string role, string note, string mailer, string rev, string uid, string tz, string prodid, string sortstring, string nFamily, string nGiven, string nMiddle, string nPrefix, string nSuffix ) {
+void Database::insertTableVCard( std::string jidBare,std::string nickname,std::string url,std::string bday,std::string jabberid,std::string title,std::string role,std::string note,std::string mailer,std::string rev,std::string uid,std::string tz,std::string prodid,std::string sortstring,std::string nFamily,std::string nGiven,std::string nMiddle,std::string nPrefix,std::string nSuffix ) {
 
 	Database::getTime();
-	string query = DB_INSERT;
+	std::string query = DB_INSERT;
 	query += "vcard ( jid, dateAdd, family, given, middle, prefix, suffix, nickname, url, bday, jabberid, title, role, note, mailer, rev, uid, tz, prodid, sortstring) VALUES ( '" + jidBare + "', timestamp '" + this->sTime + "', '" + nFamily + "', '" + nFamily + "', '" + nGiven + "', '" + nMiddle + "', '" + nPrefix + "', '" + nSuffix + "', '" + url + "', '" + bday + "', '" + jabberid + "', '" + title + "', '" + role + "', '" + note + "', '" + mailer + "', '" + rev + "', '" + uid + "', '" + tz + "', '" + prodid + "', '" + sortstring + "');";
 	presult = PQexec( this->psql, query.c_str() );
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
@@ -184,10 +181,10 @@ void Database::insertTableVCard( string jidBare, string nickname, string url, st
 	PQclear(presult);
 }
 
-void Database::insertTableMessage( const string jid, const string msg, const string subject, const string thread, const string subtype ) {
+void Database::insertTableMessage( const std::string jid, const std::string msg, const std::string subject, const std::string thread, const std::string subtype ) {
 
 	Database::getTime();
-	string query = DB_DEF_MESSAGE;
+	std::string query = DB_DEF_MESSAGE;
 	query += "timestamp '";
 	query += this->sTime;
 	query += "', '" + jid + "', 'JabIndo@jabbim.cz', '";
@@ -201,7 +198,7 @@ void Database::insertTableMessage( const string jid, const string msg, const str
 	PQclear(presult);
 }
 
-void Database::insertTableConst( const string query ) {
+void Database::insertTableConst( const std::string query ) {
 	
 	presult = PQexec( this->psql, query.c_str() );
 	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
@@ -212,14 +209,14 @@ void Database::insertTableConst( const string query ) {
 	PQclear(presult);
 }
 
-void Database::insertTableUser( string jidBare) {
+void Database::insertTableUser( std::string jidBare) {
 
 	if( !existUser(jidBare) )
 	{
 		//vlozeni noveho uzivatele
 
 		Database::getTime();
-		string query = DB_INSERT;
+		std::string query = DB_INSERT;
 		query += "userjid (jidbare, date) VALUES ('"+ jidBare + "', timestamp '" + this->sTime + "');";
 		presult = PQexec( this->psql, query.c_str() );
 		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
@@ -240,9 +237,9 @@ void Database::insertTableUser( string jidBare) {
 	PQclear(presult);
 }
 
-void Database::updateTableStatus( string user ) {
+void Database::updateTableStatus( std::string user ) {
 
-	string query = "Select * from resource where jidbare = '";
+	std::string query = "Select * from resource where jidbare = '";
 	query += user + "';";
 	presult = PQexec(this->psql, query.c_str());
 	if(PQresultStatus(presult) == PGRES_TUPLES_OK)
@@ -250,15 +247,15 @@ void Database::updateTableStatus( string user ) {
 		int nFields = PQnfields(presult);	//sloupec
 		int nTuples = PQntuples(presult);	//radek
 		int priority = -127;
-		string pom, pomS;
+		std::string pom, pomS;
 		int pomInt = 0;
 		int culomn = -1;
 		for( int i = 0; i < nTuples; i++ )
 		{
 				pom = PQgetvalue(presult,i,5);
 				pomS = PQgetvalue(presult,i,2);
-				string some_string;
-				istringstream buffer(pom);
+				std::string some_string;
+				std::istringstream buffer(pom);
 				buffer >> pomInt;
 				if( priority <= pomInt && pomS != "Unavaliable" && pomS != "unavaliable")
 				{
@@ -274,8 +271,8 @@ void Database::updateTableStatus( string user ) {
 			{
 				pom = PQgetvalue(presult,i,5);
 				pomS = PQgetvalue(presult,i,2);
-				string some_string;
-				istringstream buffer(pom);
+				std::string some_string;
+				std::istringstream buffer(pom);
 				buffer >> pomInt;
 				if( priority <= pomInt )
 				{
@@ -289,14 +286,13 @@ void Database::updateTableStatus( string user ) {
 	}
 }
 
-void Database::updateTableStatus( string jidBare, string presence, string status, string resource, string nameSW) {
+void Database::updateTableStatus( std::string jidBare,std::string presence,std::string status,std::string resource,std::string nameSW) {
 
 		Database::getTime();
-		string query = DB_UPDATE;
+		std::string query = DB_UPDATE;
 		query += "status ";
 		query += DB_SET;
 		query += "presence = '" + presence + "', status = '" + Database::convertXML(status) + "', date = timestamp '" + this->sTime + "', resource='" + resource + "' , nameSW = '" + nameSW + "' " + DB_WHERE + "jidbare = '" + jidBare +	"';";
-		cout <<query<<endl;
 		presult = PQexec( this->psql, query.c_str() );
 		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 		{
@@ -307,14 +303,13 @@ void Database::updateTableStatus( string jidBare, string presence, string status
 }
 
 //
-void Database::updateTableResource( string jidBare, string resource, string nameSW, string versionSW, string osSW) {
+void Database::updateTableResource( std::string jidBare,std::string resource,std::string nameSW,std::string versionSW,std::string osSW) {
 
-		string query = DB_UPDATE;
+		std::string query = DB_UPDATE;
 		Database::getTime();
 		query += "resource ";
 		query += DB_SET;
 		query += "nameSW = '" + nameSW + "', versionSW = '" + versionSW + "', osSW = '" + osSW +"' " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
-		cout <<query<<endl;
 		presult = PQexec( this->psql, query.c_str() );
 		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 		{
@@ -325,17 +320,16 @@ void Database::updateTableResource( string jidBare, string resource, string name
 
 }
 
-bool Database::updateTableResource( string jidBare, string presence, string status, string resource, int priority, string ver) {
+bool Database::updateTableResource( std::string jidBare,std::string presence,std::string status,std::string resource, int priority,std::string ver) {
 
 	bool update = false;
-	string query = DB_UPDATE;
+	std::string query = DB_UPDATE;
 	if( existResource(jidBare, resource) ) //uzivatelsky ucet s mistem existuje, aktualizuji
 	{
 		Database::getTime();
 		query += "resource ";
 		query += DB_SET;
 		query += "presence = '"+presence+"', status = '"+Database::convertXML(status)+"', date = timestamp '" + this->sTime + "', priority=" + numToStr(priority) + ", ver = '" + ver + "' " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
-		cout <<query<<endl;
 		presult = PQexec( this->psql, query.c_str() );
 		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 		{
@@ -363,17 +357,16 @@ bool Database::updateTableResource( string jidBare, string presence, string stat
 }
 
 
-bool Database::updateTableResource( string jidBare, string presence, string status, string resource, int priority) {
+bool Database::updateTableResource( std::string jidBare,std::string presence,std::string status,std::string resource, int priority) {
 
 	bool update = false;
-	string query = DB_UPDATE;
+	std::string query = DB_UPDATE;
 	if( existResource(jidBare, resource) ) //uzivatelsky ucet s mistem existuje, aktualizuji
 	{
 		Database::getTime();
 		query += "resource ";
 		query += DB_SET;
 		query += "presence = '"+presence+"', status = '"+Database::convertXML(status)+"', date = timestamp '" + this->sTime + "', priority=" + numToStr(priority) + " " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
-		cout <<query<<endl;
 		presult = PQexec( this->psql, query.c_str() );
 		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 		{
@@ -401,14 +394,13 @@ bool Database::updateTableResource( string jidBare, string presence, string stat
 }
 
 
-void Database::updateTableResource( string jidBare, string presence, string status, string resource) {
+void Database::updateTableResource( std::string jidBare,std::string presence,std::string status,std::string resource) {
 
-		string query = DB_UPDATE;
+		std::string query = DB_UPDATE;
 		Database::getTime();
 		query += "resource ";
 		query += DB_SET;
 		query += "presence = '"+presence+"', status = '"+Database::convertXML(status)+"', date = timestamp '" + this->sTime + "' " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
-		cout<<query<<endl;
 		presult = PQexec( this->psql, query.c_str() );
 		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 		{
@@ -418,9 +410,9 @@ void Database::updateTableResource( string jidBare, string presence, string stat
 	PQclear(presult);
 }
 //
-bool Database::existResource( const string user, const string resource ) {
+bool Database::existResource( const std::string user, const std::string resource ) {
 
-	string query = "Select jidbare from resource where jidbare = '";
+	std::string query = "Select jidbare from resource where jidbare = '";
 	query += user + "' and resource = '";
 	query += resource + "';";
 	presult = PQexec(this->psql, query.c_str());
@@ -436,9 +428,9 @@ bool Database::existResource( const string user, const string resource ) {
 		return false;
 }
 
-bool Database::existUser( const string user ) {
+bool Database::existUser( const std::string user ) {
 
-	string query = "Select jidbare from userjid where jidbare = '";
+	std::string query = "Select jidbare from userjid where jidbare = '";
 	query += user + "';";
 
 	presult = PQexec(this->psql, query.c_str());
@@ -454,10 +446,10 @@ bool Database::existUser( const string user ) {
 		return false;
 }
 
-void Database::insertTableDebug( int level, int area, const string message ) {
+void Database::insertTableDebug( int level, int area, const std::string message ) {
 
 	Database::getTime();
-	string query = DB_INSERT;
+	std::string query = DB_INSERT;
 	query += "debug ( area, dateAdd, level, message) VALUES ("+ numToStr(area) + ", timestamp '" + this->sTime + "', ";
 	query += numToStr( level ) + ", '" + Database::convertXML(message) + "');";
 	presult = PQexec( this->psql, query.c_str() );
@@ -473,11 +465,11 @@ void Database::insertTableDebug( int level, int area, const string message ) {
 	}
 }
 
-void Database::insertTableXML( int level, int area, const string message ) {
-//	string parserMes = message;
+void Database::insertTableXML( int level, int area, const std::string message ) {
+//	std::string parserMes = message;
 //	parser->feed(parserMes);
 	Database::getTime();
-	string query = DB_INSERT;
+	std::string query = DB_INSERT;
 	query += "xml ( area, dateAdd, level, message) VALUES ("+ numToStr(area) + ", timestamp '" + this->sTime + "', ";
 	query += numToStr( level ) + ", '" + Database::convertXML(message) + "');";
 	presult = PQexec( this->psql, query.c_str() );
@@ -493,13 +485,13 @@ void Database::insertTableXML( int level, int area, const string message ) {
 
 }
 
-string Database::convertXML( string message ) {
+std::string Database::convertXML(std::string message ) {
 
 	size_t lenght = message.length();
 	char mess[2*lenght+1];
-	const char* pepa= message.c_str();
-	PQescapeString( mess, pepa, lenght );
-	string back(mess);
+	const char* pom = message.c_str();
+	PQescapeString( mess, pom, lenght );
+	std::string back(mess);
 	return back;
 }
 
@@ -521,6 +513,23 @@ void Database::getTime() {
   	strftime(this->sTime, 80 - 1, "%Y-%m-%d %H:%M:%S ", ltmtime);
 }
 
+void Database::strToTime( std:: string p_time ) {
+
+	struct tm * lt_time;
+	std::string p_pom = "timestamp 2011-03-22 10:37:23";
+	lt_time->tm_year = stringToInt(p_pom.substr(10,4))-1900;
+	lt_time->tm_mon = stringToInt(p_pom.substr(15,2)) - 1;
+	lt_time->tm_mday = stringToInt(p_pom.substr(18,2));
+	lt_time->tm_hour = stringToInt(p_pom.substr(21,2));
+	lt_time->tm_min = stringToInt(p_pom.substr(24,2));
+	lt_time->tm_sec = stringToInt(p_pom.substr(27,2));
+
+	time_t times;
+	times = time(NULL);
+	if( difftime(times, mktime(lt_time)) > 60 )
+		std::cout<<"je novejsi"<<std::endl;
+
+}
 
 void Database::dropAll() {
 
@@ -536,7 +545,7 @@ void Database::dropAll() {
 
 }
 
-string Database::printUser() const {
+std::string Database::printUser() const {
 
 	PGresult* presult;
 	presult = PQexec(this->psql, "SELECT jidbare FROM userjid;");
@@ -545,16 +554,14 @@ string Database::printUser() const {
 	int nFields = PQnfields(presult);
 	int nTuples = PQntuples(presult);
 
-	string result;
-	stringstream ss;
-	string back;
+	std::string result;
+	std::stringstream ss;
+	std::string back;
 	for( int i = 0; i < nTuples; i++ )
 	{
 		ss << PQgetvalue(presult,i , 0);
-
-		cout << PQgetvalue(presult,i , 0)<<endl;
 		ss >> back;
-		result += " - " + string( PQgetvalue(presult,i , 0)) + "\n";
+		result += " - " + std::string( PQgetvalue(presult,i , 0)) + "\n";
 	}
 	return result;
 }
@@ -567,14 +574,13 @@ void Database::clearResourceTable( void ) {
 	int nFields = PQnfields(presult);
 	int nTuples = PQntuples(presult);
 
-				cout<<"ooo1"<<endl;
-	string jid;
-	string p_str;
+	std::string jid;
+	std::string p_str;
 	int p_str1;
 	for( int i = 0; i < nTuples; i++ )
 	{
 			jid = PQgetvalue(presult,i , 0);
-			mapVer.insert(make_pair(string(jid),	string( PQgetvalue(presult,i , 2) )));
+			mapVer.insert(make_pair(std::string(jid),	std::string( PQgetvalue(presult,i , 2) )));
 	}
 	for( int i = 0; i < nTuples; i++ )
 	{
@@ -582,12 +588,12 @@ void Database::clearResourceTable( void ) {
 		{
 			if( (int)mapVer.count(PQgetvalue(presult,i,0)) >= 200)
 			{
-				multimap<string,string>::iterator it1;
-				it1=mapVer.find(PQgetvalue(presult, i,0));
-				string s = "DELETE FROM resource where id ='";
+				std::multimap<std::string,std::string>::iterator it1;
+				it1 = mapVer.find(PQgetvalue(presult, i,0));
+				std::string s = "DELETE FROM resource where id ='";
 				s += PQgetvalue(presult,i,2);
 				s += "';";
-				PQexec(this->psql, s.c_str());
+	//			PQexec(this->psql, s.c_str());
 				mapVer.erase(it1);
 			}
 		}
@@ -601,62 +607,116 @@ void Database::initListVer( void ) {
 	int nFields = PQnfields(presult);
 	int nTuples = PQntuples(presult);
 
-	string jid;
+	std::string jid;
 	for( int i = 0; i < nTuples; i++ )
 	{
 			jid = PQgetvalue(presult,i , 0);
 			jid += "/";
 			jid += PQgetvalue(presult,i , 1);
-			listVer.insert(make_pair(string(jid),	string( PQgetvalue(presult,i , 2) )));
+			listVer.insert(make_pair(std::string(jid), std::string( PQgetvalue(presult,i , 2) )));
 	}
-	map<string, string>::iterator it;
-	for( it = listVer.begin(); it != listVer.end(); it++ )
-	{
-		cout << it->first << it->second <<endl;
-	}
+//	std::map<std::string,std::string>::iterator it;
+//	for( it = listVer.begin(); it != listVer.end(); it++ )
+//	{
+//		cout << it->first << it->second <<endl;
+//	}
 	
+}
+
+//vrati true vkladam do DB
+bool Database::insertGeoloc( std::string jid, bool empty) {
+
+	
+	sTime[17] = '0';
+	sTime[18] = '0';
+	std::string p_pom = "SELECT id, lon, lat FROM geoloc WHERE jidbare = '" +jid+"' AND time >= timestamp '";
+	p_pom +=this->sTime;
+	std::cout<<sTime<<std::endl;
+	p_pom +="';";
+	presult = PQexec(this->psql, p_pom.c_str());
+	
+	int nFields = PQnfields(presult);
+	int nTuples = PQntuples(presult);
+
+	if( nTuples == 0 )					// zaznam jesete neni v databazi
+	{
+		std::cout<<"v DB enni"<<std::endl;
+		return true;
+	}
+
+	//if( PQgetvalue(presult,nTuples-1 , 1) != 0 );
+	//	insert = false;
+	//if( PQgetvalue(presult,nTuples-1 , 2) != 0 )
+	//	insert = false;
+
+	if( !empty )				// v databazi je udaj, chci vkladat ale novejsi neprazdny udaj, smazu stary z db
+	{
+		std::cout<<"v ifu"<<std::endl;
+		std::string s = "DELETE FROM geoloc where id ='";
+		s += PQgetvalue(presult,nTuples-1,0);
+		s += "';";
+		PQexec(this->psql, s.c_str());
+		return true;
+	}
+
+		std::cout<<"pred koncem"<<std::endl;
+	return false;
 }
 
 void Database::insertTableGeoloc( Geoloc* geoloc ) {
 
-	string query = DB_DEF_GEOLOC;
+	std::string query = DB_DEF_GEOLOC;
 	Database::getTime();
 
-	string p_str = geoloc->timestamp();
-	if( geoloc->timestamp() == "" )
-		p_str = this->sTime;
-
-	query += "'";
-	query += geoloc->jid().bare() + "', timestamp '";
-	query += this->sTime;
-	query += "', '" + geoloc->id() + "', " + numToStr( geoloc->accuracy() ) + 
-	", " + numToStr(geoloc->alt()) + ", '" + convertXML(geoloc->area()) + "', " 
-	+ numToStr( geoloc->bearing() ) + ", '" + convertXML( geoloc->building() ) + "', '" 
-	+ convertXML( geoloc->country() ) + "', '" 
-	+ convertXML( geoloc->countrycode() ) 
-	+ "', '" + convertXML( geoloc->datum() ) + "', '" 
-	+ convertXML( geoloc->description() ) + "', " + numToStr( geoloc->error() ) 
-	+ ", '" + convertXML( geoloc->floor() ) + "', " + numToStr( geoloc->lat() ) 
-	+ ", '" + convertXML( geoloc->locality() ) + "', " + numToStr( geoloc->lon() ) 
-	+ ", '" + convertXML( geoloc->postalcode() ) + "', '" + convertXML( geoloc->region() ) 
-	+ "', '" + convertXML( geoloc->room() ) + "', " + numToStr( geoloc->speed() ) 
-	+ ", '" 	+ convertXML( geoloc->street() ) + "', '" + convertXML( geoloc->text() ) 
-	+ "', timestamp '" + convertXML(p_str ) 
-	+ "', '" + convertXML( geoloc->uri() ) + "');";
-		cout <<query<<endl;
-	presult = PQexec( this->psql, query.c_str() );
-	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+	bool cont = true;
+	if( geoloc->lon() == 0 && geoloc->lat() == 0 )
 	{
-		PQclear(presult);
-		Database::exitError();
+		cont = insertGeoloc( geoloc->jid().bare(), true );
+		std::cout<<"je prazdne"<<std::endl;
 	}
-	PQclear(presult);
+	else
+		cont = insertGeoloc( geoloc->jid().bare(), false );
+
+		std::cout<<geoloc->lat()<<",,,"<<geoloc->lon()<<std::endl;
+
+	Database::getTime();
+	if( cont )
+	{
+		std::string p_str = geoloc->timestamp();
+		if( geoloc->timestamp() == "" )
+			p_str = this->sTime;
+
+		query += "'";
+		query += geoloc->jid().bare() + "', timestamp '";
+		query += this->sTime;
+		query += "', '" + geoloc->id() + "', " + numToStr( geoloc->accuracy() ) + 
+		", " + numToStr(geoloc->alt()) + ", '" + convertXML(geoloc->area()) + "', " 
+		+ numToStr( geoloc->bearing() ) + ", '" + convertXML( geoloc->building() ) + "', '" 
+		+ convertXML( geoloc->country() ) + "', '" 
+		+ convertXML( geoloc->countrycode() ) 
+		+ "', '" + convertXML( geoloc->datum() ) + "', '" 
+		+ convertXML( geoloc->description() ) + "', " + numToStr( geoloc->error() ) 
+		+ ", '" + convertXML( geoloc->floor() ) + "', " + numToStr( geoloc->lat() ) 
+		+ ", '" + convertXML( geoloc->locality() ) + "', " + numToStr( geoloc->lon() ) 
+		+ ", '" + convertXML( geoloc->postalcode() ) + "', '" + convertXML( geoloc->region() ) 
+		+ "', '" + convertXML( geoloc->room() ) + "', " + numToStr( geoloc->speed() ) 
+		+ ", '" 	+ convertXML( geoloc->street() ) + "', '" + convertXML( geoloc->text() ) 
+		+ "', timestamp '" + convertXML(p_str ) 
+		+ "', '" + convertXML( geoloc->uri() ) + "');";
+		presult = PQexec( this->psql, query.c_str() );
+		if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+		{
+			PQclear(presult);
+			Database::exitError();
+		}
+		PQclear(presult);
+	}
 }
 
 
 void Database::insertTableTune( Tune* tune ) {
 
-	string query = DB_DEF_TUNE;
+	std::string query = DB_DEF_TUNE;
 	Database::getTime();
 
 	query += "'";
@@ -664,7 +724,6 @@ void Database::insertTableTune( Tune* tune ) {
 	query += this->sTime;
 	query += "', '" + tune->id() + "', '" + convertXML( tune->artist() ) + "', " + numToStr(tune->length()) + ", " + numToStr(tune->rating()) + ", '" 
 	+ convertXML( tune->source() ) + "', '"	+ convertXML( tune->title() )	+ "', '" + convertXML( tune->track() ) + "', '" + convertXML( tune->uri() ) + "');";
-		cout <<query<<endl;
 	presult = PQexec( this->psql, query.c_str() );
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
@@ -677,13 +736,12 @@ void Database::insertTableTune( Tune* tune ) {
 
 void Database::insertTableMood( Mood* mood ) {
 
-	string query = DB_DEF_MOOD;
+	std::string query = DB_DEF_MOOD;
 	Database::getTime();
 	query += "'";
 	query += mood->jid().bare() + "', timestamp '";
 	query += this->sTime;
 	query += "', '" + mood->id() + "', '" + convertXML( mood->mood() ) + "', '" + convertXML( mood->text() ) + "');";
-		cout <<query<<endl;
 	presult = PQexec( this->psql, query.c_str() );
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
@@ -695,13 +753,12 @@ void Database::insertTableMood( Mood* mood ) {
 
 void Database::insertTableActivity( Activity* activity ) {
 
-	string query = DB_DEF_ACTIVITY;
+	std::string query = DB_DEF_ACTIVITY;
 	Database::getTime();
 	query += "'";
 	query += activity->jid().bare() + "', timestamp '";
 	query += this->sTime;
 	query += "', '" + activity->id() + "', '" + convertXML( activity->activity() ) + "', '" + convertXML( activity->spec() ) + "', '" + convertXML( activity->text() ) + "');";
-		cout <<query<<endl;
 	presult = PQexec( this->psql, query.c_str() );
 	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
@@ -709,4 +766,8 @@ void Database::insertTableActivity( Activity* activity ) {
 		Database::exitError();
 	}
 	PQclear(presult);
+}
+char* Database::timeDatabase() {
+
+	return this->sTime;
 }

@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef GEOLOC_H__
 #define GEOLOC_H__
 
@@ -10,11 +8,10 @@
 #include <gloox/jid.h>
 
 #include "func.h"
-using namespace std;
 using namespace gloox;
 
 /**
- * Implementace XEP-0080.
+ * Implementace XEP-0080: User Location.
  */
 class Geoloc
 {
@@ -23,27 +20,27 @@ class Geoloc
 	protected:
 		float m_accuracy;
 		float m_alt;
-		string m_area;
+		std::string m_area;
 		float m_bearing;
-		string m_building;
-		string m_country;
-		string m_countrycode;
-		string m_datum;
-		string m_description;
+		std::string m_building;
+		std::string m_country;
+		std::string m_countrycode;
+		std::string m_datum;
+		std::string m_description;
 		float m_error;
-		string m_floor;
+		std::string m_floor;
 		float m_lat;
-		string m_locality;
+		std::string m_locality;
 		float m_lon;
-		string m_postalcode;
-		string m_region;
-		string m_room;
+		std::string m_postalcode;
+		std::string m_region;
+		std::string m_room;
 		float m_speed;
-		string m_street;
-		string m_text;
-		string m_timestamp;
-		string m_uri;
-		string m_id;
+		std::string m_street;
+		std::string m_text;
+		std::string m_timestamp;
+		std::string m_uri;
+		std::string m_id;
 		JID m_jid;
 
 	public:
@@ -64,71 +61,71 @@ class Geoloc
 		float alt( void );
 		void alt( const float alt );
 
-		string area( void );
-		void area( const string area );
+		std::string area( void );
+		void area( const std::string area );
 
 		float bearing( void );
 		void bearing( float bearing );
 
-		string building( void );
-		void building( const string building );
+		std::string building( void );
+		void building( const std::string building );
 
-		string country( void );
-		void country( const string country );
+		std::string country( void );
+		void country( const std::string country );
 
-		string countrycode( void );
-		void countrycode( const string countrycode );
+		std::string countrycode( void );
+		void countrycode( const std::string countrycode );
 
-		string datum( void );
-		void datum( const string datum );
+		std::string datum( void );
+		void datum( const std::string datum );
 
-		string description( void );
-		void description( const string description );
+		std::string description( void );
+		void description( const std::string description );
 
 		float error( void );
 		void error( const float error );
 
-		string floor( void );
-		void floor( const string floor );
+		std::string floor( void );
+		void floor( const std::string floor );
 
 		float lat( void );
 		void lat( const float lat );
 
-		string locality( void );
-		void locality( const string locality );
+		std::string locality( void );
+		void locality( const std::string locality );
 
 		float lon( void );
 		void lon( const float lon );
 
-		string postalcode( void );
-		void postalcode( const string postalcode );
+		std::string postalcode( void );
+		void postalcode( const std::string postalcode );
 
-		string region( void );
-		void region( const string region );
+		std::string region( void );
+		void region( const std::string region );
 
-		string street( void );
-		void street( const string street );
+		std::string street( void );
+		void street( const std::string street );
 
-		string text( void );
-		void text( const string text );
+		std::string text( void );
+		void text( const std::string text );
 
-		string timestamp( void );
-		void timestamp( const string timestamp );
+		std::string timestamp( void );
+		void timestamp( const std::string timestamp );
 
 		float speed( void );
 		void speed( const float speed );
 
-		string room( void );
-		void room( const string room );
+		std::string room( void );
+		void room( const std::string room );
 
-		string uri( void );
-		void uri( const string uri );
+		std::string uri( void );
+		void uri( const std::string uri );
 
-		string id( void );
-		void id( const string id );
+		std::string id( void );
+		void id( const std::string id );
 
 		JID jid( void );
-		void jid( const string jid );
+		void jid( const std::string jid );
 
 		void parserTag( const Tag * tag );
 

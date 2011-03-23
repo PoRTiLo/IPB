@@ -1,96 +1,107 @@
 #include "activity.h"
 
+// Konstruktor
 Activity::Activity( const Tag* tag )
 {
 	parserTag( tag );
 }
 		
-string Activity::activity( void ) {
+// get
+std::string Activity::activity( void ) {
 
 	return this->m_activity;
 }
 
-void Activity::activity( const string activity ) {
+// set
+void Activity::activity( const std::string activity ) {
 
-	m_activity = activity;
+	this->m_activity = activity;
 }
 
-string Activity::spec( void ) {
+// get
+std::string Activity::spec( void ) {
 
 	return this->m_spec;
 }
 
-void Activity::spec( const string spec ) {
+// set
+void Activity::spec( const std::string spec ) {
 
-	m_spec = spec;
+	this->m_spec = spec;
 }
-string Activity::text( void ) {
+
+// get
+std::string Activity::text( void ) {
 
 	return this->m_text;
 }
 
-void Activity::text( const string text ) {
+// set
+void Activity::text( const std::string text ) {
 
-	m_text = text;
+	this->m_text = text;
 }
 
-string Activity::id( void ) {
+// get
+std::string Activity::id( void ) {
 
-	return m_id;
+	return this->m_id;
 }
 
-void Activity::id( const string id ) {
+// set
+void Activity::id( const std::string id ) {
 
-	m_id = id;
+	this->m_id = id;
 }
 
+// get
 JID Activity::jid( void ) {
 
-	return m_jid;
-}
-		
-void Activity::jid( const string jid ) {
-
-	m_jid.setJID(jid);
+	return this->m_jid;
 }
 
+// set
+void Activity::jid( const std::string jid ) {
+
+	this->m_jid.setJID(jid);
+}
+
+// rozparsrovani XML
 void Activity::parserTag( const Tag * tag ) {
 
-//mozna zjednodusit ptani se jestili to je ITEM A GEOLOC	
-	if( tag->findChild("item") )
+	if( tag->hasChild("item") )
 	{
 		Tag * p_tag1 = tag->findChild("item")->clone();
 
 		id( tag->findAttribute("id") );
-		if( p_tag1->findChild("activity") )
+		Tag * p_tag = p_tag1->findChild("activity")->clone();
+		if( !p_tag->children().empty() )
 		{
-			Tag * p_tag = p_tag1->findChild("activity")->clone();
-			if( !p_tag->children().empty() )
+			for( int i = 0; i != 11; i++ )
 			{
-				for( int i = 0; i != 11; i++ )
+				if( p_tag->hasChild( m_activityTab[i][0] ) )
 				{
-					if( p_tag->hasChild( m_activityTab[i][0] ) )
+					for( int j = 0; j != 13; j++ )
 					{
-						for( int j = 0; j != 13; j++ )
+						Tag * p_tag2 = p_tag->findChild(m_activityTab[i][0])->clone();
+						if( p_tag2->hasChild( m_activityTab[i][j] ) )
 						{
-							Tag * p_tag2 = p_tag->findChild(m_activityTab[i][0])->clone();
-							if( p_tag2->hasChild( m_activityTab[i][j] ) )
-							{
-								spec( (p_tag2->findChild(m_activityTab[i][j]))->name() );
-								break;
-							}
+							spec( (p_tag2->findChild(m_activityTab[i][j]))->name() );
+							break;
 						}
-						activity( (p_tag->findChild(m_activityTab[i][0]))->name() );
-						break;
 					}
+					activity( (p_tag->findChild(m_activityTab[i][0]))->name() );
+					break;
 				}
-				if( p_tag->findChild("text") )
-					text( (p_tag->findChild("text"))->cdata() );
 			}
+			if( p_tag->findChild("text") )
+				text( (p_tag->findChild("text"))->cdata() );
 		}
 	}
 }
- const string Activity::m_activityTab[11][13] = {{"doing_chores","buying_groceries", "cleaning", "cooking", "doing_maintenance", "doing_the_dishes", "doing_the_laundry", "gardening", "running_an_errand", "walking_the_dog"},
+
+// pomocna tabulka
+const std::string Activity::m_activityTab[11][13] = {{"doing_chores","buying_groceries", "cleaning", "cooking", "doing_maintenance", "doing_the_dishes", "doing_the_laundry", "gardening", "running_an_errand", "walking_the_dog"},
  															{"drinking"," having_a_beer", "having_coffee", "having_tea"},
 															{"eating", "having_a_snack", "having_breakfast", "having_dinner", "having_lunch"},
  															{"exercising", "cycling", "dancing", "hiking", "jogging", "playing_sports", "running", "skiing", "swimming", "working_out"},

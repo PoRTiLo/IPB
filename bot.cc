@@ -13,36 +13,35 @@ VLASTNI - poznamky do databaze
 */
 #include "bot.h"
 
-	Bot::Bot()
-	{
-		this->login = DEF_LOGIN;
-		this->pass = DEF_PASS;
-	}
+Bot::Bot()
+{
+	this->login = DEF_LOGIN;
+	this->pass = DEF_PASS;
+}
 
-	Bot::Bot(string log, string password)
-	{
-		this->login = log;
-		this->pass = password;
-	}
+Bot::Bot(string log, string password)
+{
+	this->login = log;
+	this->pass = password;
+}
 
-	Bot::~Bot()
-	{
-	}
-	void Bot::setLogin( string log ) {
-		this->login = log;
-	}
+Bot::~Bot()	{	}
 
-	void Bot::setPass( string password ) {
-		this->pass = password;
-	}
+void Bot::setLogin( string log ) {
+	this->login = log;
+}
 
-	string Bot::getLogin() {
-		return this->login;
-	}
+void Bot::setPass( string password ) {
+	this->pass = password;
+}
 
-	string Bot::getPass() {
-		return this->pass;
-	}
+string Bot::getLogin() {
+	return this->login;
+}
+
+string Bot::getPass() {
+	return this->pass;
+}
 
 	bool Bot::run() {
 
@@ -62,6 +61,9 @@ VLASTNI - poznamky do databaze
 		j->disco()->addFeature( "http://jabber.org/protocol/mood+notify");
 		j->disco()->addFeature( "http://jabber.org/protocol/geoloc+notify");
 		j->disco()->addFeature( "http://jabber.org/protocol/activity+notify");
+		j->disco()->addFeature( "urn:xmpp:jingle:apps:rtp:1");
+		j->disco()->addFeature( "urn:xmpp:jingle:apps:rtp:audio");
+		j->disco()->addFeature( "urn:xmpp:jingle:apps:rtp:video");
 		j->registerStanzaExtension( new PubSub::Event(NULL) );
 		j->setPresence( Presence::Available, 5 );   //Nastaveni statusuvailable
 		j->registerPresenceHandler( this );
@@ -95,17 +97,16 @@ VLASTNI - poznamky do databaze
 		delete(database);
 	}
 
-	void Bot::onDisconnect( ConnectionError ) {
-		printf("onDisconecct \n"); 
-	}
+void Bot::onDisconnect( ConnectionError ) {
+	printf("onDisconecct \n"); 
+}
 
-	void Bot::onConnect() {
-	}
+void Bot::onConnect() {
+}
 
- 	bool Bot::onTLSConnect( const CertInfo& info ) {
-//		printf( "info %d:\n ",info.status);
-		return true;
-	}
+bool Bot::onTLSConnect( const CertInfo& info ) {
+	return true;
+}
 
 	
 
@@ -118,109 +119,61 @@ VLASTNI - poznamky do databaze
 		}
 
 
-	void Bot::handleItemSubscribed( const JID& jid ) {
-		printf("handled subscribed:%s\n", jid.bare().c_str());
-		m_vManager->fetchVCard(jid,this);
-		database->insertTableUser(jid.bare());
+void Bot::handleItemSubscribed( const JID& jid ) {
+	printf("handled subscribed:%s\n", jid.bare().c_str());
+	m_vManager->fetchVCard(jid,this);
+	database->insertTableUser(jid.bare());
+
+	j->disco()->getDiscoInfo(jid,"", this,1,"");
+}
+
+void Bot::handleItemAdded( const JID& jid ) {
+	printf("handle ADD:%s\n", jid.bare().c_str());
+}
+
+void Bot::handleItemUnsubscribed( const JID& jid ) {
+	printf("hande UNSUBSCRIED:%s\n", jid.bare().c_str());
+}
+
+void Bot::handleItemRemoved ( const JID& jid ) {
+	printf("handle REMOVED:%s\n", jid.bare().c_str());
+}
+
+void Bot::handleItemUpdated( const JID& jid ) {
+	printf("handle UPDATE:%s\n", jid.bare().c_str());
+}
+
+void Bot::handleRoster( const Roster& roster ) {
+
+	Roster::const_iterator it = roster.begin();
+	for( ; it != roster.end(); ++it )
+	{
+		m_vManager->fetchVCard((*it).second->jid(), this);
+		database->insertTableUser((*it).second->jid());
 	}
+}
 
-		void Bot::handleItemAdded( const JID& jid ) {
-			printf("handle ADD:%s\n", jid.bare().c_str());
-		}
-
-		void Bot::handleItemUnsubscribed( const JID& jid ) {
-			printf("hande UNSUBSCRIED:%s\n", jid.bare().c_str());
-		}
-
-		void Bot::handleItemRemoved ( const JID& jid ) {
-			printf("handle REMOVED:%s\n", jid.bare().c_str());
-
-		}
-
-		void Bot::handleItemUpdated( const JID& jid ) {
-			printf("handle UPDATE:%s\n", jid.bare().c_str());
-		}
-
-	void Bot::handleRoster( const Roster& roster ) {
-
-		Roster::const_iterator it = roster.begin();
-		for( ; it != roster.end(); ++it )
-		{
-			m_vManager->fetchVCard((*it).second->jid(), this);
-			database->insertTableUser((*it).second->jid());
-		}
-				
-	}
-
-		void Bot::handleRosterError( const IQ& ) {
-		}
+void Bot::handleRosterError( const IQ& ) {
+}
 		
-	string Bot::presenceString( const int presence ) {
+void Bot::handleSelfPresence( const RosterItem& item, const std::string& resources, Presence::PresenceType presence, const std::string& msg ) {
+}
 
-		if( presence == 0 )
-			return "Available";
-		else if( presence == 1 )
-			return "Chat";
-		else if( presence == 2 )
-			return "Away";
-		else if( presence == 3 )
-			return "DND";
-		else if( presence == 4 )
-			return "XA";
-		else if( presence == 5 )
-			return "Unavaliable";
-		else if( presence == 6 )
-			return "Probe";
-		else if( presence == 7 )
-			return "Error";
-		else if( presence == 8 )
-			return "Invalid";
-		else
-			return "Unknown presence";
-	}
+bool Bot::handleSubscriptionRequest( const JID& jid, const std::string& ) {
 
-	
-		void Bot::handleSelfPresence( const RosterItem& item, const std::string& resources, Presence::PresenceType presence, const std::string& msg ) {
-			printf("");
-		}
+	StringList groups;
+	JID id(jid);
+	j->rosterManager()->subscribe(id, "", groups, "" );
+	return true;
+}
 
-		bool Bot::handleSubscriptionRequest( const JID& jid, const std::string& ) {
-			printf("");
-			StringList groups;
-			JID id(jid);
-			j->rosterManager()->subscribe(id, "", groups, "" );
-			return true;
-		}
+bool Bot::handleUnsubscriptionRequest( const JID& jid, const std::string& ) {
 
-		bool Bot::handleUnsubscriptionRequest( const JID& jid, const std::string& ) {
-			printf("");
-			return true;
-		}
+	return true;
+}
 
-		void Bot::handleNonrosterPresence( const Presence& presence ) {
-			printf("");
-		}
-
-		
-	
-	string Bot::messageSubtype( const int subtype ) {
-
-		if( subtype == 1 )
-			return "chat";
-		else if( subtype == 2 )
-			return "error";
-		else if( subtype == 4 )
-			return "groupchat";
-		else if( subtype == 8 )
-			return "headline";
-		else if( subtype == 16 )
-			return "normal";
-		else if( subtype == 32 )
-			return "invalid";
-		else
-			return "unknow";
-	}
-
+void Bot::handleNonrosterPresence( const Presence& presence ) {
+}
 
 void Bot::handleMessage( const Message& msg, MessageSession * /*session=0*/ )	{
 	
@@ -240,38 +193,45 @@ void Bot::handleMessage( const Message& msg, MessageSession * /*session=0*/ )	{
 				Geoloc* geoloc = new Geoloc( p_tag );
 				geoloc->jid(jid.full());
 				database->insertTableGeoloc(geoloc);
-				cout<<"http://jabber.org/protocol/geoloc"<<endl;
+//				cout<<"http://jabber.org/protocol/geoloc"<<endl;
 			}
 			else if( p_str == "http://jabber.org/protocol/tune" )
 			{
 				Tune* tune = new Tune( p_tag );
 				tune->jid(jid.full());
 				database->insertTableTune(tune);
-				cout<<"http://jabber.org/protocol/tune"<<endl;
+//				cout<<"http://jabber.org/protocol/tune"<<endl;
 			}
 			else if( p_str == "http://jabber.org/protocol/mood" )
 			{
 				Mood* mood = new Mood( p_tag );
 				mood->jid(jid.full());
 				database->insertTableMood(mood);
-				cout<<"http://jabber.org/protocol/mood"<<endl;
+//				cout<<"http://jabber.org/protocol/mood"<<endl;
 			}
 			else if( p_str == "http://jabber.org/protocol/activity" )
 			{
 				Activity* activity = new Activity( p_tag );
 				activity->jid(jid.full());
 				database->insertTableActivity(activity);
-				cout<<"http://jabber.org/protocol/activity"<<endl;
+//				cout<<"http://jabber.org/protocol/activity"<<endl;
 			}
 		}
 	}
 	else if( !msg.body().empty() )
 	{
-		database->insertTableMessage( jid.bare().c_str(),  msg.body().c_str(),  msg.subject().c_str(), msg.thread().c_str(), Bot::messageSubtype(msg.subtype()).c_str() );
+		cout<<database->timeDatabase()<<endl;
+		string p_pom = database->timeDatabase();
+		cout<<p_pom<<endl;
+		database->strToTime("p");
+		database->insertTableMessage( jid.bare().c_str(),  msg.body().c_str(),  msg.subject().c_str(), msg.thread().c_str(), messageSubtype(msg.subtype()).c_str() );
 		if( msg.body() == QUIT && (jid.bare() == "pidgin@localhost" || jid.bare() == "portilo@jabbim.cz") )
 			j->disconnect();
 		else if( msg.body() == "USER" && (jid.bare() == "pidgin@localhost" || jid.bare() == "portilo@jabbim.cz") )
-;//			j->send(database->printUser());
+		{
+			Message mess( gloox::Message::Chat, msg.from(), database->printUser() );
+			j->send( mess );
+		}
 		else if( msg.body() == HALLO )
 		{
 			Message mess( gloox::Message::Chat, msg.from(), "ahoj");
@@ -286,89 +246,81 @@ void Bot::handleMessage( const Message& msg, MessageSession * /*session=0*/ )	{
 	}
 }
 		
-	void Bot::handleLog( LogLevel level, LogArea area, const std::string& message ) {
+void Bot::handleLog( LogLevel level, LogArea area, const std::string& message ) {
 
-		printf( "log level :%d, area :%d, %s\n", level, area, message.c_str() );
-		if( area == LogAreaXmlIncoming || area == LogAreaXmlOutgoing )
-			database->insertTableXML( level, area, message );
-		else// if( area == LogAreaClassDns )      	//Debagovaci zprava
-			database->insertTableDebug( level, area, message );
-	}
+	printf( "log level :%d, area :%d, %s\n", level, area, message.c_str() );
+	if( area == LogAreaXmlIncoming || area == LogAreaXmlOutgoing )
+		database->insertTableXML( level, area, message );
+	else// if( area == LogAreaClassDns )      	//Debagovaci zprava
+		database->insertTableDebug( level, area, message );
+}
 
 
-	void Bot::handleVCard( const JID& jid, const VCard* v) {
-//			++m_count;
+void Bot::handleVCard( const JID& jid, const VCard* v) {
 // podivat jestli je dobre to V, jestli vubec nekdy nastane ze je prazdne
-		if( !v )	//vcard je prazdny
-		{	
-			database->insertTableUser(jid.bare());
-		}
-		else
-		{
-			database->insertTableVCard(jid.bare(), v->nickname(), v->url(), v->bday(), v->jabberid(), v->title(), v->role(), v->note(), v->mailer(), v->rev(), v->uid(), v->tz(), v->prodid(), v->sortstring(), v->name().family, v->name().given, v->name().middle, v->name().prefix, v->name().suffix);
-			database->insertTableUser(jid.bare());
-		}
-
+	if( !v )	//vcard je prazdny
+		database->insertTableUser(jid.bare());
+	else
+	{
+		database->insertTableVCard(jid.bare(), v->nickname(), v->url(), v->bday(), v->jabberid(), v->title(), v->role(), v->note(), v->mailer(), v->rev(), v->uid(), v->tz(), v->prodid(), v->sortstring(), v->name().family, v->name().given, v->name().middle, v->name().prefix, v->name().suffix);
+		database->insertTableUser(jid.bare());
 	}
+}
 
-		void Bot::handleVCardResult( VCardContext context, const JID& jid, StanzaError se = StanzaErrorUndefined) {
+void Bot::handleVCardResult( VCardContext context, const JID& jid, StanzaError se = StanzaErrorUndefined) {
+}
 
-		}
+void Bot::end() {
 
-	void Bot::end() {
+	j->disconnect();
+	database->exitError();
+}
 
-		j->disconnect();
-		database->exitError();
-	}
+void Bot::handleDiscoInfo( const JID& /*iq*/, const Disco::Info&, int /*context*/ ) {
+}
 
-	  void Bot::handleDiscoInfo( const JID& /*iq*/, const Disco::Info&, int /*context*/ )
-	     {
-//			        printf( "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmhandleDiscoInfoResult}\n" );
-					      }
+void Bot::handleDiscoItems( const JID& /*iq*/, const Disco::Items&, int /*context*/ ) {
+}
 
-							    void Bot::handleDiscoItems( const JID& /*iq*/, const Disco::Items&, int /*context*/ )
-								     {
-										        printf( "handleDiscoItemsResult\n" );
-												      }
-
-														  void Bot::handleDiscoError( const JID& /*iq*/, const Error*, int /*context*/ )
-															     {
-																	        printf( "handleDiscoError\n" );
-
-															}
+void Bot::handleDiscoError( const JID& /*iq*/, const Error*, int /*context*/ ) {
+}
 
 
 bool Bot::handleIq( const IQ &iq ) {
 
 	if( (iq.tag()->findChild("query")) && iq.tag()->findAttribute("type") != "error" )
 	{
-		Tag *queryTag =  (iq.tag()->findChild("query"))->clone();
+		Tag *queryTag = (iq.tag()->findChild("query"))->clone();
 
 		JID jidPom( iq.tag()->findAttribute("from") );
 
 		if( queryTag->findAttribute("xmlns") == XMLNS_VERSION )
 		{
 			if( queryTag->findChild("name") )
-				swVersion->setName( queryTag->findChild("name")->cdata() );
+				swVersion->name( queryTag->findChild("name")->cdata() );
 			if( queryTag->findChild("version") )
-				swVersion->setVersion( queryTag->findChild("version")->cdata() );
+				swVersion->version( queryTag->findChild("version")->cdata() );
 			if( queryTag->findChild("os") )
-				swVersion->setOs( queryTag->findChild("os")->cdata() );
+				swVersion->os( queryTag->findChild("os")->cdata() );
 
 			database->updateTableResource( jidPom.bare(), jidPom.resource(), swVersion->name(), swVersion->version(), swVersion->os());
 		}
 		else if( queryTag->findAttribute("xmlns") == XMLNS_DISCO_INFO )
 		{
-			if(queryTag->findChild("identity") )
+			if(queryTag->hasChild("identity") )
 			{
 				Tag *identTag = queryTag->findChild("identity")->clone();
-				swVersion->setCategory(identTag->findAttribute("category") );
-				swVersion->setName( identTag->findAttribute("name") );
-				swVersion->setType( identTag->findAttribute("type") );
+
+				if( identTag->hasAttribute("category") )
+					swVersion->category(identTag->findAttribute("category") );
+				if( identTag->hasAttribute("name") )
+					swVersion->name( identTag->findAttribute("name") );
+				if( identTag->hasAttribute("type") )
+					swVersion->type( identTag->findAttribute("type") );
 			}
 
-			Tag *xTag =  (iq.tag()->findChild("x"))->clone();
-			swVersion->parserTagX( xTag);
+	//		Tag *xTag =  (iq.tag()->findChild("x"))->clone();
+	//		swVersion->parserTagX( xTag);
 			/*if(xTag->findChild("field","var","ip_version") )
 			{
 				Tag * fieldTag = xTag->findChild("field","var","ip_version")->clone();
@@ -398,26 +350,23 @@ bool Bot::handleIq( const IQ &iq ) {
 	}
 }
 
-		void Bot::handleIqID 	( 	const IQ & 	iq, 
-				int 	context
-					){
+void Bot::handleIqID( const IQ &	iq, int context  ) {
 
-//cout <<"...qwqwqwqw...................................handleIQID............................"<<endl;
-		}
+}
 
 
-	// Reakce na zmenu statusu uzivatele v kontakt listu
+// Reakce na zmenu statusu uzivatele v kontakt listu
 void Bot::handlePresence( const Presence& presence) {
 
 	JID jidFull = presence.from();
 
-	Roster* roster =	j->rosterManager()->roster();
+	Roster* roster = j->rosterManager()->roster();
 	if( roster->find(jidFull.bare()) != roster->end() )	//kontrola ze to poslal nekdo ze seznamu jiaignorace
 	{
 		if( presence.subtype() != 5 )
 		{
 
-			database->insertTablePresence( jidFull.bare(), presence.status(), jidFull.username(), jidFull.resource(), Bot::presenceString(presence.subtype()), presence.priority(),
+			database->insertTablePresence( jidFull.bare(), presence.status(), jidFull.username(), jidFull.resource(), presenceString(presence.subtype()), presence.priority(),
 			                               swVersion->name(), swVersion->version(), swVersion->os() );
 			cout<< "vlozeno do DB - PRESENCE"<<endl;
 			if( (presence.findExtension( ExtCaps )) != 0 )
@@ -435,7 +384,7 @@ void Bot::handlePresence( const Presence& presence) {
 					if( ver == it->second )	// je vse aktualni
 					{
 						cout<<"uzivatel pouziva stejnou verzi programu co je v listu"<<endl;
-						update = database->updateTableResource( jidFull.bare(), Bot::presenceString(presence.subtype()), presence.status(), jidFull.resource(), presence.priority());
+						update = database->updateTableResource( jidFull.bare(), presenceString(presence.subtype()), presence.status(), jidFull.resource(), presence.priority());
 						newResource = false;
 					}
 				}
@@ -446,42 +395,20 @@ void Bot::handlePresence( const Presence& presence) {
 					database->listVer[jidFull.full()] = ver;
 					j->send( swVersion->createIqStanza( this->login, jidFull.bare(), jidFull.resource()) );			// poslani dotazi na software verzi XEP-0092
 					j->disco()->getDiscoInfo(jidFull.full(),"", this,1,"");
-					database->updateTableResource( jidFull.bare(), Bot::presenceString(presence.subtype()), presence.status(), jidFull.resource(), presence.priority(), ver);
+					database->updateTableResource( jidFull.bare(), presenceString(presence.subtype()), presence.status(), jidFull.resource(), presence.priority(), ver);
 				}
 			}
 		}
 		else
 		{
-			database->insertTablePresence( jidFull.bare(), presence.status(), jidFull.username(), jidFull.resource(), Bot::presenceString(presence.subtype()) );
-			database->updateTableResource( jidFull.bare(), Bot::presenceString(presence.subtype()), presence.status(), jidFull.resource());
+			database->insertTablePresence( jidFull.bare(), presence.status(), jidFull.username(), jidFull.resource(), presenceString(presence.subtype()) );
+			database->updateTableResource( jidFull.bare(), presenceString(presence.subtype()), presence.status(), jidFull.resource());
 		}
 		database->updateTableStatus(jidFull.bare());					// aktualizace tabulky Status na zakldade tabuly resource
 	}
 }
-	// Reakce na zmenu statusu uzivatele v kontakt listu
-	void Bot::handleRosterPresence( const RosterItem& item, const std::string& resource, Presence::PresenceType presence, const std::string& msg ) {
+
+// Reakce na zmenu statusu uzivatele v kontakt listu
+void Bot::handleRosterPresence( const RosterItem& item, const std::string& resource, Presence::PresenceType presence, const std::string& msg ) {
 		
-//item.jid()getDiscoInfo();
-//JID jidTo(item.jid()+"/"+resource);
-//	j->disco()->getDiscoInfo(jidTo,"", this,1,"");
-/*		if( presence != 5 )
-		{
-
-			database->insertTablePresence( item.jid(), msg, item.name(), resource, Bot::presenceString(presence), item.resource(resource)->priority(),
-			                               swVersion->name(), swVersion->version(), swVersion->os() );
-			bool update = database->updateTableResource( item.jid(), Bot::presenceString(presence), msg, resource, item.resource(resource)->priority() );
-
-			if( !update )
-			{
-				j->send( swVersion->createIqStanza( this->login, item.jid(), resource) );			// poslani dotazi na software verzi XEP-0092
-			}
-		}
-		else
-		{
-			database->insertTablePresence( item.jid(), msg, item.name(), resource, Bot::presenceString(presence) );
-			database->updateTableResource( item.jid(), Bot::presenceString(presence), msg, resource);
-		}
-
-		database->updateTableStatus(item.jid());					// aktualizace tabulky Status na zakldade tabuly resource
-		*/
-	}
+}

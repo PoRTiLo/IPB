@@ -62,7 +62,7 @@ extern bool g_global;
  * 
  * 
  */
-class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListener, VCardHandler,  DiscoHandler, IqHandler, PresenceHandler//, MessageSessionHandler
+class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListener, VCardHandler,  DiscoHandler, IqHandler, PresenceHandler
 {
 	protected:
 		string login;										// JID
@@ -214,19 +214,7 @@ class Bot : public RosterListener, LogHandler, MessageHandler, ConnectionListene
 		virtual void handleVCardResult( VCardContext context, const JID& jid, StanzaError se );
 
 
-		/**
-		 * Prevod typu zpravy na text.
-		 * @param[in] <inst> subtype Typ zpravy.
-		 * @return <string> Textova reprezentace typu zpravy.
-		 */
-		string messageSubtype( const int subtype );
 
-		/**
-		 * Prevod typu presence na text.
-		 * @param[in] <int> presence Typ presence.
-		 * @return <string> Textove reprezentace typu presence.
-		 */
-		string presenceString( const int presence );
 
 		void end();
 	 	virtual void handleDiscoInfo( const JID& /*iq*/, const Disco::Info&, int /*context*/ );

@@ -9,8 +9,6 @@
 //
 //		:predelat listVer na protected a ne public
 
-#pragma once
-
 #ifndef DATABASE_H__
 #define DATABASE_H__
 
@@ -33,7 +31,6 @@
 #include "func.h"
 #include <gloox/parser.h>
 
-using namespace std;
 using namespace gloox;
 
 /**
@@ -46,19 +43,19 @@ class Database
 		PGresult *presult;
 
 	protected:
-		string hostaddr;
-		string dbname;
-		string user;
-		string password;
-		string connectTimeout;
-		string connInfo;
-		string port;
+		std::string hostaddr;
+		std::string dbname;
+		std::string user;
+		std::string password;
+		std::string connectTimeout;
+		std::string connInfo;
+		std::string port;
 		char sTime[80];
 
 	public:
 
-		map<string, string> listVer;
-		multimap<string, string> mapVer;
+		std::map<std::string, std::string> listVer;
+		std::multimap<std::string, std::string> mapVer;
 
 		/**
 		 * Naplneni listu uzivateli
@@ -72,14 +69,14 @@ class Database
 
 		/**
 		 * Konstruktor.
-		 * @param[in] <string> hostaddr Adresa servru databaze.
-		 * @param[in] <string> dbname Jmeno databaze.
-		 * @param[in] <string> user Uzivatelsek jemno vlastnika databaze.
-		 * @param[in] <string> password Heslo pro pripojeni do databaze.
-		 * @param[in] <string> connectTimeout Cas pro ukonceni pripojeni pokud se to nepovede.
-		 * @param[in] <string> port Port pripojeni.
+		 * @param[in] <std::string> hostaddr Adresa servru databaze.
+		 * @param[in] <std::string> dbname Jmeno databaze.
+		 * @param[in] <std::string> user Uzivatelsek jemno vlastnika databaze.
+		 * @param[in] <std::string> password Heslo pro pripojeni do databaze.
+		 * @param[in] <std::string> connectTimeout Cas pro ukonceni pripojeni pokud se to nepovede.
+		 * @param[in] <std::string> port Port pripojeni.
 		 */
-		Database( string hostaddr, string dbname, string user, string password, string connectTimeout, string  port );
+		Database( std::string hostaddr, std::string dbname, std::string user, std::string password, std::string connectTimeout, std::string  port );
 		
 		/**
 		 * Destruktor.
@@ -108,66 +105,66 @@ class Database
 
 		/**
 		 * Odstraneni tabulky z databaze.
-		 * @param[in] <const string> nameTable Jmeno tabulky odebirane z databaze.
+		 * @param[in] <const std::string> nameTable Jmeno tabulky odebirane z databaze.
 		 */
-		void dropTable( const string nameTable );
+		void dropTable( const std::string nameTable );
 
 		/**
 		 * Vytvoreni tabulky.
-		 * @param[in] <const string> nameTable Jmeno tabulky, ktera bude vytvorena.
-		 * @param[in] <const string> dataTable Data pro vytvoreni tabulky, jmena a typy sloupcu.
+		 * @param[in] <const std::string> nameTable Jmeno tabulky, ktera bude vytvorena.
+		 * @param[in] <const std::string> dataTable Data pro vytvoreni tabulky, jmena a typy sloupcu.
 		 * @return <bool> true Tabulka vytvorena.
 		 *                false Tabulka neni vutvorena, mozna jiz existuje.
 		 */
-		bool createTable( const string nameTable, const string dataTable );
+		bool createTable( const std::string nameTable, const std::string dataTable );
 
 		/**
 		 * Vlozeni dat do tabulky vcard.
-		 * @param[in] <const string> sJid 
+		 * @param[in] <const std::string> sJid 
 		 */
-//		void insertTableVCard( const string sJid, const string name );
+//		void insertTableVCard( const std::string sJid, const string name );
 		
 		/**
 		 * Vlozeni dat do tabulky VCARD.
-		 * @param[in] <string> jidBare
-		 * @param[in] <string> nickname
-		 * @param[in] <string> url
-		 * @param[in] <string> bday
-		 * @param[in] <string> jabberid
-		 * @param[in] <string> title
-		 * @param[in] <string> role
-		 * @param[in] <string> note
-		 * @param[in] <string> mailer
-		 * @param[in] <string> rev
-		 * @prama[in] <string> uid
-		 * @param[in] <string> tz
-		 * @param[in] <string> proid
-		 * @param[in] <string> sortstring
-		 * @param[in] <string> nFamily
-		 * @param[in] <string> nGiven
-		 * @param[in] <string> nMiddle
-		 * @param[in] <string> nPrefix
-		 * @param[in] <string> nSuffix
+		 * @param[in] <std::string> jidBare
+		 * @param[in] <std::string> nickname
+		 * @param[in] <std::string> url
+		 * @param[in] <std::string> bday
+		 * @param[in] <std::string> jabberid
+		 * @param[in] <std::string> title
+		 * @param[in] <std::string> role
+		 * @param[in] <std::string> note
+		 * @param[in] <std::string> mailer
+		 * @param[in] <std::string> rev
+		 * @param[in] <std::string> uid
+		 * @param[in] <std::string> tz
+		 * @param[in] <std::string> proid
+		 * @param[in] <std::string> sortstring
+		 * @param[in] <std::string> nFamily
+		 * @param[in] <std::string> nGiven
+		 * @param[in] <std::string> nMiddle
+		 * @param[in] <std::string> nPrefix
+		 * @param[in] <std::string> nSuffix
 		 */
-		void insertTableVCard( string jidBare, string nickname, string url, string bday, string jabberid, string title, string role, string note, string mailer, string rev, string uid, string tz, string proid, string sortstring, string nFamily, string nGiven, string nMiddle, string nPrefix, string nSuffix );
+		void insertTableVCard( std::string jidBare, std::string nickname, std::string url, std::string bday, std::string jabberid, std::string title, std::string role, std::string note, std::string mailer, std::string rev, std::string uid, std::string tz, std::string proid, std::string sortstring, std::string nFamily, std::string nGiven, std::string nMiddle, std::string nPrefix, std::string nSuffix );
 
 		/**
 		 * Vlozeni logovych informaci. Id cilso = informace slovy.
-		 * @param[in] <string> query Data vlozena do tabulky.
+		 * @param[in] <std::string> query Data vlozena do tabulky.
 		 */
-		void insertTableConst( const string query );
+		void insertTableConst( const std::string query );
 
 		/**
 		 *	Vlozeni uzivatele do tabulky user.
-		 * @param[in] <string> user Jmeno uziovatele, JID.
+		 * @param[in] <std::string> user Jmeno uziovatele, JID.
 		 */
-		void insertTableUser( string user );
+		void insertTableUser( std::string user );
 
 		/**
 		 * Zjisteni zda je uzivatel jiz v databazi, v tabulce user.
-		 * @param[in] <string> user Jmeno (JID) uzivatele hledaneho v tabulce.
+		 * @param[in] <std::string> user Jmeno (JID) uzivatele hledaneho v tabulce.
 		 */
-		bool existUser( string user );
+		bool existUser( std::string user );
 
 		/**
 		 *
@@ -187,7 +184,7 @@ class Database
 		/**
 		 *
 		 */
-		void insertTableDebug( int level, int area, const string message );
+		void insertTableDebug( int level, int area, const std::string message );
 
 		/**
 		 *
@@ -195,15 +192,15 @@ class Database
 		 *
 		 *
 		 */
-		void insertTableXML( int level, int area, string message );
+		void insertTableXML( int level, int area, std::string message );
 
 		/**
 		 *
 		 *
 		 *
 		 */
-		string convertInt( int number );
-		string convertFloat( float number );
+		std::string convertInt( int number );
+		std::string convertFloat( float number );
 
 
 		/**
@@ -216,7 +213,7 @@ class Database
 		 *
 		 *
 		 */
-		string convertXML( string message );
+		std::string convertXML( std::string message );
 
 		/**
 		 *
@@ -225,26 +222,30 @@ class Database
 		 *
 		 *
 		 */
-		void insertTablePresence( const string jid, const string msg, const string name, const string resource, const string presence, const int priority, const string nameSW, const string versionSW, const string osSW );
-		void insertTablePresence( const string jid, const string msg, const string name, const string resource, const string presence );
-		void insertTableMessage( const string jid, const string msg, const string subject, const string thread, const string subtype );
+		void insertTablePresence( const std::string jid, const std::string msg, const std::string name, const std::string resource, const std::string presence, const int priority, const std::string nameSW, const std::string versionSW, const std::string osSW );
+		void insertTablePresence( const std::string jid, const std::string msg, const std::string name, const std::string resource, const std::string presence );
+		void insertTableMessage( const std::string jid, const std::string msg, const std::string subject, const std::string thread, const std::string subtype );
 
-		string printUser() const; 
+		std::string printUser() const; 
 
-		void updateTableStatus( const string jidBare, const string presence, const string status, const string resource, const string nameSW);
-		void updateTableStatus( const string jidBare);
+		void updateTableStatus( const std::string jidBare, const std::string presence, const std::string status, const std::string resource, const std::string nameSW);
+		void updateTableStatus( const std::string jidBare);
 
-		bool updateTableResource( const string jidBare, const string presence, const string status, const string resource, const int priority );
-		bool updateTableResource( const string jidBare, const string presence, const string status, const string resource, const int priority, string ver );
-		void updateTableResource( const string jidBare, const string presence, const string status, const string resource);
-		void updateTableResource( string jidBare, string resource, string nameSW, string versionSW, string osSW);
+		bool updateTableResource( const std::string jidBare, const std::string presence, const std::string status, const std::string resource, const int priority );
+		bool updateTableResource( const std::string jidBare, const std::string presence, const std::string status, const std::string resource, const int priority, std::string ver );
+		void updateTableResource( const std::string jidBare, const std::string presence, const std::string status, const std::string resource);
+		void updateTableResource( std::string jidBare, std::string resource, std::string nameSW, std::string versionSW, std::string osSW);
 
-		bool existResource( const string user, const string resource );
+		bool existResource( const std::string user, const std::string resource );
 		void insertTableGeoloc( Geoloc* geoloc);
 		void clearResourceTable( void );
 		void insertTableTune( Tune* tune );
 		void insertTableMood( Mood* mood );
 		void insertTableActivity( Activity* activity );
+
+		char* timeDatabase();
+		void strToTime( std:: string p_time );
+		bool insertGeoloc( std::string jid, bool empty);
 };
 
 #endif

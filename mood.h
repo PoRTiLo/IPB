@@ -5,22 +5,23 @@
 #include <gloox/jid.h>
 
 #include <string>
-#include <list>
 #include "func.h"
 
-using namespace std;
 using namespace gloox;
 
+/**
+ * Trida reprezentujici XEP-0107: User Mood
+ */
 class Mood
 {
 
 	protected:
 
-		static const string m_moodTab[];
-		string m_mood;
-		string m_text;
-		string m_id;
-		JID m_jid;
+		static const std::string m_moodTab[];				// tabulka se vsema moodama
+		std::string m_mood;										// mood hodnota
+		std::string m_text;										// dodatecny text stavu
+		std::string m_id;											// id
+		JID m_jid;													// jid uzivatele
 
 	public:
       /**
@@ -34,19 +35,58 @@ class Mood
        */
       virtual ~Mood() {}
 
-		
-		string mood( void );
-		void mood( const string mood );
+		/**
+		 * Vrati hodnotu modu.
+		 * @return <string>.
+		 */
+		std::string mood( void );
 
-		string text( void );
-		void text( const string text );
+		/**
+		 * Nastaveni hodnoty moodu.
+		 * @parama[in]<string> mood hodnota modu.
+		 */
+		void mood( const std::string mood );
 
-		string id( void );
-		void id( const string id );
+		/**
+		 * Vrati hodnotu text.
+		 * @return<string> text hodnota textu.
+		 */
+		std::string text( void );
 
+		/**
+		 * Nastavi doplnujici text.
+		 * @param[in]<string> text hodnota textu.
+		 */
+		void text( const std::string text );
+
+		/**
+		 * Vrati ID.
+		 * @return<string> id.
+		 */
+		std::string id( void );
+
+		/**
+		 * Nastavi Id.
+		 * @param[in]<string> id.
+		 */
+		void id( const std::string id );
+
+		/**
+		 * Uzivatelsky login.
+		 * @return<JID> jid login uzivatele.
+		 */
 		JID jid( void );
-		void jid( const string jid );
 
+		/**
+		 * Nastaveni uzivatelskeho loginu.
+		 * @param<string> jid.
+		 */
+		void jid( const std::string jid );
+
+		/**
+		 * Rozparsrovani prichozi zpravy.
+		 * @param<Tag> tag xml zparva.
+		 */
 		void parserTag( const Tag * tag );
 };
 
