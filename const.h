@@ -57,11 +57,15 @@
 							" prodid text,"\
 							" sortstring text,"\
 							" photoExtval text,"\
-							" photoBinval bytea,"\
+							" photoBinval text,"\
 							" photoType text,"\
 							" logoExtval text,"\
-							" logoBinval bytea,"\
-							" logoType text"
+							" logoBinval text,"\
+							" logoType text,"\
+							" geoLat real,"\
+							" geoLon real,"\
+							" orgName text,"\
+							" orgUnits text"
 #define DB_INSERT "Insert into "
 #define DB_UPDATE "UPDATE "
 #define DB_SET "SET "

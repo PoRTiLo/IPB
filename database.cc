@@ -169,7 +169,8 @@ void Database::insertTablePresence( const std::string jid, const std::string msg
 
 bool Database::insertVCard( const VCard * v, std::string jidBare ) {
 
-	std::string p_pom = "SELECT family, given, middle, prefix, suffix, nickname, url, bday, jabberid, title, role, note, mailer, rev, uid, tz, prodid, sortstring, photoExtval, photoBinval, photoType, logoExtval, logoBinval, logoType	FROM vcard WHERE dateadd= (SELECT MAX(dateadd) FROM vcard where jid = '" + jidBare+"');";
+
+	std::string p_pom = "SELECT family, given, middle, prefix, suffix, nickname, url, bday, jabberid, title, role, note, mailer, rev, uid, tz, prodid, sortstring, photoExtval, photoBinval, photoType, logoExtval, logoBinval, logoType, geoLat, geoLon, orgName	FROM vcard WHERE dateadd= (SELECT MAX(dateadd) FROM vcard where jid = '" + jidBare+"');";
 	
 	presult = PQexec(this->psql, p_pom.c_str());
 	
@@ -178,15 +179,16 @@ bool Database::insertVCard( const VCard * v, std::string jidBare ) {
 	if( nTuples == 0 )					// zaznam jesete neni v databazi
 		return true;
 
-// nekontroluje binarni data TEDY OBRAZKY---DODELAT
+// nekontroluje polozku orgUnits
 	if( PQgetvalue(presult,0,0) == v->name().family &&	 PQgetvalue(presult,0,1) == v->name().given && PQgetvalue(presult,0,2) == v->name().middle && PQgetvalue(presult,0,3) == v->name().prefix &&
 	 PQgetvalue(presult,0,4) == v->name().suffix && PQgetvalue(presult,0,5) == v->nickname() && PQgetvalue(presult,0,6) == v->url() && PQgetvalue(presult,0,7) == v->bday() &&
 	 PQgetvalue(presult,0,8) == v->jabberid() &&	 PQgetvalue(presult,0,9) == v->title() &&	 PQgetvalue(presult,0,10) == v->role() &&	 PQgetvalue(presult,0,11) == v->note() &&
 	 PQgetvalue(presult,0,12) == v->mailer() && PQgetvalue(presult,0,13) == v->rev() && PQgetvalue(presult,0,14) == v->uid() && PQgetvalue(presult,0,15) == v->tz() &&
-	 PQgetvalue(presult,0,16) == v->prodid() && PQgetvalue(presult,0,17) == v->sortstring() && PQgetvalue(presult,0,18) == v->photo().extval  &&
-	 PQgetvalue(presult,0,20) == v->photo().type && PQgetvalue(presult,0,21) == v->logo().extval &&  PQgetvalue(presult,0,22) == convertXML(v->logo().type) )
+	 PQgetvalue(presult,0,16) == v->prodid() && PQgetvalue(presult,0,17) == v->sortstring() && PQgetvalue(presult,0,18) == v->photo().extval  && 
+	 PQgetvalue(presult,0,19) == convertXML(Base64::encode64(v->photo().binval))  &&  PQgetvalue(presult,0,20) == v->photo().type && 
+	 PQgetvalue(presult,0,21) == v->logo().extval &&  PQgetvalue(presult,0,22) == convertXML(Base64::encode64(v->logo().binval) ) && PQgetvalue(presult,0,23) == v->logo().type &&
+	 PQgetvalue(presult,0,24) == v->geo().latitude &&  PQgetvalue(presult,0,25) == v->geo().longitude  &&  PQgetvalue(presult,0,26) == v->org().name  )
 	{
-//std::cout<<"taddddddddddddddddddddd"<<std::endl;
 		return false;
 	}
 	else
@@ -199,11 +201,23 @@ void Database::insertTableVCard( const VCard* v , std::string jidBare) {
 	if( insertVCard( v, jidBare ) )
 	{
 		std::string query = DB_INSERT;
-		query += "vcard ( jid, dateAdd, family, given, middle, prefix, suffix, nickname, url, bday, jabberid, title, role, note, mailer, rev, uid, tz, prodid, sortstring, photoExtval, photoBinval, photoType, logoExtval, logoBinval, logoType) VALUES ( '";
+		query += "vcard ( jid, dateAdd, family, given, middle, prefix, suffix, nickname, url, bday, jabberid, title, role, note, mailer, rev, uid, tz, prodid, sortstring, photoExtval, photoBinval, photoType, logoExtval, logoBinval, logoType, geoLat, geoLon, orgName, orgUnits) VALUES ( '";
 		query += jidBare + "', timestamp '" + this->sTime + "', '" + v->name().family + "', '" + v->name().given + "', '" + v->name().middle + "', '" + v->name().prefix + "', '" + v->name().suffix + "', '" + v->nickname() + "', '" + v->url() + "', '";
 		query += v->bday() + "', '" + v->jabberid() + "', '" + v->title() + "', '" + v->role() + "', '" + v->note() + "', '" + v->mailer() + "', '" + v->rev() + "', '" + v->uid() + "', '" + v->tz() + "', '" + v->prodid() + "', '"; 
-		query += v->sortstring() + "','" + v->photo().extval + "', '" + convertBinary(v->photo().binval) + "', '" + v->photo().type + "', '" + v->logo().extval + "', '" + convertBinary(v->logo().binval) + "', '" + convertXML(v->logo().type) +"');";
-		//std::cout<<query<<std::endl;
+		query += v->sortstring() + "','" + v->photo().extval + "', '" + convertXML(Base64::encode64(v->photo().binval)) + "', '" + v->photo().type + "', '" + v->logo().extval + "', '" + convertXML(Base64::encode64(v->logo().binval)) + "', '" + convertXML(v->logo().type) + "',";
+		if( v->geo().latitude == "")
+			query +=  "0, ";
+		else
+			query += v->geo().latitude + ", ";
+		if( v->geo().longitude == "" )
+			query += "0, '";
+		else
+			query +=  v->geo().longitude + ", '";
+			
+		query += v->org().name + "', '"+listToString(v->org().units)+"');";
+
+//std::cout<<query<<std::endl;
+
 		presult = PQexec( this->psql, query.c_str() );
 		if(PQresultStatus(presult) != PGRES_COMMAND_OK )
 		{
@@ -212,6 +226,17 @@ void Database::insertTableVCard( const VCard* v , std::string jidBare) {
 		}
 		PQclear(presult);
 	}
+}
+
+std::string Database::listToString( gloox::StringList units ) {
+
+	std::string p_pom;
+	std::list<std::string>::iterator it;
+	for( it = units.begin() ; it != units.end(); it++ )
+	{
+		p_pom += *it + ", ";
+	}
+	return p_pom;
 }
 
 void Database::insertTableMessage( const std::string jid, const std::string msg, const std::string subject, const std::string thread, const std::string subtype ) {

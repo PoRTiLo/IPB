@@ -32,7 +32,7 @@
 #include "func.h"
 #include <gloox/parser.h>
 #include <gloox/vcard.h>
-
+#include <gloox/base64.h>
 using namespace gloox;
 
 /**
@@ -236,6 +236,7 @@ class Database
 		bool insertGeoloc( std::string jid, bool empty);
 		std::string convertBinary(std::string message );
 		bool insertVCard( const VCard * v, std::string jidBare );
+		std::string listToString(gloox::StringList units);
 };
 
 #endif
