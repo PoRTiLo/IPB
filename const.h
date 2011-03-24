@@ -55,7 +55,13 @@
 							" uid text,"\
 							" tz text,"\
 							" prodid text,"\
-							" sortstring text"
+							" sortstring text,"\
+							" photoExtval text,"\
+							" photoBinval bytea,"\
+							" photoType text,"\
+							" logoExtval text,"\
+							" logoBinval bytea,"\
+							" logoType text"
 #define DB_INSERT "Insert into "
 #define DB_UPDATE "UPDATE "
 #define DB_SET "SET "

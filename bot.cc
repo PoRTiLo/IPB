@@ -267,7 +267,7 @@ void Bot::handleVCard( const JID& jid, const VCard* v) {
 		database->insertTableUser(jid.bare());
 	else
 	{
-		database->insertTableVCard(jid.bare(), v->nickname(), v->url(), v->bday(), v->jabberid(), v->title(), v->role(), v->note(), v->mailer(), v->rev(), v->uid(), v->tz(), v->prodid(), v->sortstring(), v->name().family, v->name().given, v->name().middle, v->name().prefix, v->name().suffix);
+		database->insertTableVCard( v, jid.bare() );
 		database->insertTableUser(jid.bare());
 	}
 }

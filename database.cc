@@ -167,18 +167,51 @@ void Database::insertTablePresence( const std::string jid, const std::string msg
 	PQclear(presult);
 }
 
-void Database::insertTableVCard( std::string jidBare,std::string nickname,std::string url,std::string bday,std::string jabberid,std::string title,std::string role,std::string note,std::string mailer,std::string rev,std::string uid,std::string tz,std::string prodid,std::string sortstring,std::string nFamily,std::string nGiven,std::string nMiddle,std::string nPrefix,std::string nSuffix ) {
+bool Database::insertVCard( const VCard * v, std::string jidBare ) {
+
+	std::string p_pom = "SELECT family, given, middle, prefix, suffix, nickname, url, bday, jabberid, title, role, note, mailer, rev, uid, tz, prodid, sortstring, photoExtval, photoBinval, photoType, logoExtval, logoBinval, logoType	FROM vcard WHERE dateadd= (SELECT MAX(dateadd) FROM vcard where jid = '" + jidBare+"');";
+	
+	presult = PQexec(this->psql, p_pom.c_str());
+	
+	int nTuples = PQntuples(presult);
+
+	if( nTuples == 0 )					// zaznam jesete neni v databazi
+		return true;
+
+// nekontroluje binarni data TEDY OBRAZKY---DODELAT
+	if( PQgetvalue(presult,0,0) == v->name().family &&	 PQgetvalue(presult,0,1) == v->name().given && PQgetvalue(presult,0,2) == v->name().middle && PQgetvalue(presult,0,3) == v->name().prefix &&
+	 PQgetvalue(presult,0,4) == v->name().suffix && PQgetvalue(presult,0,5) == v->nickname() && PQgetvalue(presult,0,6) == v->url() && PQgetvalue(presult,0,7) == v->bday() &&
+	 PQgetvalue(presult,0,8) == v->jabberid() &&	 PQgetvalue(presult,0,9) == v->title() &&	 PQgetvalue(presult,0,10) == v->role() &&	 PQgetvalue(presult,0,11) == v->note() &&
+	 PQgetvalue(presult,0,12) == v->mailer() && PQgetvalue(presult,0,13) == v->rev() && PQgetvalue(presult,0,14) == v->uid() && PQgetvalue(presult,0,15) == v->tz() &&
+	 PQgetvalue(presult,0,16) == v->prodid() && PQgetvalue(presult,0,17) == v->sortstring() && PQgetvalue(presult,0,18) == v->photo().extval  &&
+	 PQgetvalue(presult,0,20) == v->photo().type && PQgetvalue(presult,0,21) == v->logo().extval &&  PQgetvalue(presult,0,22) == convertXML(v->logo().type) )
+	{
+//std::cout<<"taddddddddddddddddddddd"<<std::endl;
+		return false;
+	}
+	else
+		return true;
+}
+
+void Database::insertTableVCard( const VCard* v , std::string jidBare) {
 
 	Database::getTime();
-	std::string query = DB_INSERT;
-	query += "vcard ( jid, dateAdd, family, given, middle, prefix, suffix, nickname, url, bday, jabberid, title, role, note, mailer, rev, uid, tz, prodid, sortstring) VALUES ( '" + jidBare + "', timestamp '" + this->sTime + "', '" + nFamily + "', '" + nFamily + "', '" + nGiven + "', '" + nMiddle + "', '" + nPrefix + "', '" + nSuffix + "', '" + url + "', '" + bday + "', '" + jabberid + "', '" + title + "', '" + role + "', '" + note + "', '" + mailer + "', '" + rev + "', '" + uid + "', '" + tz + "', '" + prodid + "', '" + sortstring + "');";
-	presult = PQexec( this->psql, query.c_str() );
-	if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+	if( insertVCard( v, jidBare ) )
 	{
+		std::string query = DB_INSERT;
+		query += "vcard ( jid, dateAdd, family, given, middle, prefix, suffix, nickname, url, bday, jabberid, title, role, note, mailer, rev, uid, tz, prodid, sortstring, photoExtval, photoBinval, photoType, logoExtval, logoBinval, logoType) VALUES ( '";
+		query += jidBare + "', timestamp '" + this->sTime + "', '" + v->name().family + "', '" + v->name().given + "', '" + v->name().middle + "', '" + v->name().prefix + "', '" + v->name().suffix + "', '" + v->nickname() + "', '" + v->url() + "', '";
+		query += v->bday() + "', '" + v->jabberid() + "', '" + v->title() + "', '" + v->role() + "', '" + v->note() + "', '" + v->mailer() + "', '" + v->rev() + "', '" + v->uid() + "', '" + v->tz() + "', '" + v->prodid() + "', '"; 
+		query += v->sortstring() + "','" + v->photo().extval + "', '" + convertBinary(v->photo().binval) + "', '" + v->photo().type + "', '" + v->logo().extval + "', '" + convertBinary(v->logo().binval) + "', '" + convertXML(v->logo().type) +"');";
+		//std::cout<<query<<std::endl;
+		presult = PQexec( this->psql, query.c_str() );
+		if(PQresultStatus(presult) != PGRES_COMMAND_OK )
+		{
+			PQclear(presult);
+			Database::exitError();
+		}
 		PQclear(presult);
-		Database::exitError();
 	}
-	PQclear(presult);
 }
 
 void Database::insertTableMessage( const std::string jid, const std::string msg, const std::string subject, const std::string thread, const std::string subtype ) {
@@ -512,6 +545,20 @@ std::string Database::convertXML(std::string message ) {
 	std::string back(mess);
 	return back;
 }
+
+std::string Database::convertBinary(std::string message ) {
+
+	size_t lenght = message.length();
+	unsigned char* mess;
+	const unsigned char* y;
+	y = (unsigned char* ) message.c_str();
+	size_t len1 = 3*lenght+1;
+	size_t* len = &len1;
+	mess = PQescapeByteaConn( this->psql,y, 	lenght,	len );
+	std::string blah = reinterpret_cast < const char* >( mess );
+	return blah;
+}
+
 
 /**
  *

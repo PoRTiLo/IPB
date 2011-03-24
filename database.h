@@ -23,7 +23,7 @@
 #include <cassert>
 #include <iostream>
 #include <map>
-
+#include <fstream>
 #include "geoloc.h"
 #include "tune.h"
 #include "mood.h"
@@ -31,6 +31,7 @@
 #include "swversion.h"
 #include "func.h"
 #include <gloox/parser.h>
+#include <gloox/vcard.h>
 
 using namespace gloox;
 
@@ -130,27 +131,9 @@ class Database
 		
 		/**
 		 * Vlozeni dat do tabulky VCARD.
-		 * @param[in] <std::string> jidBare
-		 * @param[in] <std::string> nickname
-		 * @param[in] <std::string> url
-		 * @param[in] <std::string> bday
-		 * @param[in] <std::string> jabberid
-		 * @param[in] <std::string> title
-		 * @param[in] <std::string> role
-		 * @param[in] <std::string> note
-		 * @param[in] <std::string> mailer
-		 * @param[in] <std::string> rev
-		 * @param[in] <std::string> uid
-		 * @param[in] <std::string> tz
-		 * @param[in] <std::string> proid
-		 * @param[in] <std::string> sortstring
-		 * @param[in] <std::string> nFamily
-		 * @param[in] <std::string> nGiven
-		 * @param[in] <std::string> nMiddle
-		 * @param[in] <std::string> nPrefix
-		 * @param[in] <std::string> nSuffix
+		 * @param[in] <VCard> v
 		 */
-		void insertTableVCard( std::string jidBare, std::string nickname, std::string url, std::string bday, std::string jabberid, std::string title, std::string role, std::string note, std::string mailer, std::string rev, std::string uid, std::string tz, std::string proid, std::string sortstring, std::string nFamily, std::string nGiven, std::string nMiddle, std::string nPrefix, std::string nSuffix );
+		void insertTableVCard( const VCard* v, std::string jidBare );
 
 		/**
 		 * Vlozeni logovych informaci. Id cilso = informace slovy.
@@ -251,6 +234,8 @@ class Database
 		char* timeDatabase();
 		void strToTime( std:: string p_time );
 		bool insertGeoloc( std::string jid, bool empty);
+		std::string convertBinary(std::string message );
+		bool insertVCard( const VCard * v, std::string jidBare );
 };
 
 #endif
