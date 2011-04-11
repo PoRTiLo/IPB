@@ -1,6 +1,5 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.10.12)  6 FEB 2011 15:03
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  11 APR 2011 22:44
 entering extended mode
- restricted \write18 enabled.
  %&-line parsing enabled.
 **projekt
 (./projekt.tex
@@ -444,7 +443,7 @@ Package: pndraw
 
 (/usr/share/texmf-texlive/tex/latex/petri-nets/pnversion.tex)
 \c@pncount=\count124
-runsystem(pn2pdf projekt)...disabled (restricted).
+runsystem(pn2pdf projekt)...disabled.
 
 )
 (/usr/share/texmf-texlive/tex/latex/pstricks/pstricks.sty
@@ -612,29 +611,32 @@ File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
 \Fld@listcount=\count137
 )
 \du=\skip50
- (./projekt.aux)
+ (./projekt.aux
+
+LaTeX Warning: Label `picFayyad' multiply defined.
+
+)
 \openout1 = `projekt.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for IL2/cmr/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 115.
-LaTeX Font Info:    ... okay on input line 115.
-
-(/usr/share/texmf/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for IL2/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+ (/usr/share/texmf/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count138
 \scratchdimen=\dimen184
@@ -647,7 +649,7 @@ LaTeX Font Info:    ... okay on input line 115.
 \MPnumerator=\count142
 \everyMPtoPDFconversion=\toks34
 )
-Package hyperref Info: Link coloring ON on input line 115.
+Package hyperref Info: Link coloring ON on input line 116.
  (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -656,15 +658,15 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count143
 )
-LaTeX Info: Redefining \ref on input line 115.
-LaTeX Info: Redefining \pageref on input line 115.
+LaTeX Info: Redefining \ref on input line 116.
+LaTeX Info: Redefining \pageref on input line 116.
  (./projekt.out)
 (./projekt.out)
 \@outlinefile=\write4
 \openout4 = `projekt.out'.
 
 \AtBeginShipoutBox=\box42
-LaTeX Font Info:    Try loading font information for IL2+phv on input line 121.
+LaTeX Font Info:    Try loading font information for IL2+phv on input line 122.
 
  (/usr/share/texmf-texlive/tex/cslatex/base/il2phv.fd
 File: il2phv.fd 1998/12/27 CS Helvetica
@@ -683,45 +685,45 @@ Non-PDF special ignored!
 \@vyskartext=\skip51
 \@vyskaobr=\skip52
 
-<fig/vut-zp2.pdf, id=112, 109.40875pt x 109.40875pt>
+<fig/vut-zp2.pdf, id=116, 109.40875pt x 109.40875pt>
 File: fig/vut-zp2.pdf Graphic file (type pdf)
  <use fig/vut-zp2.pdf>
-Overfull \hbox (109.58464pt too wide) in paragraph at lines 121--121
+Overfull \hbox (109.58464pt too wide) in paragraph at lines 122--122
 [][] 
  []
 
-<fig/fit-zp2.pdf, id=113, 120.45pt x 120.45pt>
+<fig/fit-zp2.pdf, id=117, 120.45pt x 120.45pt>
 File: fig/fit-zp2.pdf Graphic file (type pdf)
  <use fig/fit-zp2.pdf>
-Overfull \hbox (109.58464pt too wide) in paragraph at lines 121--121
+Overfull \hbox (109.58464pt too wide) in paragraph at lines 122--122
 [][] 
  []
 
 [2 <./fig/vut-zp2.pdf> <./fig/fit-zp2.pdf>]
 
 LaTeX Font Warning: Font shape `IL2/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 121.
+(Font)              size <17.28> substituted on input line 122.
 
 
 LaTeX Font Warning: Font shape `IL2/cmr/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 121.
+(Font)              size <17.28> substituted on input line 122.
 
 [3]
 
 LaTeX Font Warning: Font shape `IL2/cmr/m/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 121.
+(Font)              size <17.28> substituted on input line 122.
 
 
 LaTeX Font Warning: Font shape `IL2/cmr/bx/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 121.
+(Font)              size <17.28> substituted on input line 122.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 121.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 122.
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 121.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 122.
  [4] (./projekt.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 4.
 
@@ -750,7 +752,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.14 \chapter
+l.15 \chapter
              {XMPP} [2
 
 ]
@@ -759,7 +761,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.30 
+l.31 
       [3
 
 ] (./message.tex) (./struktura.tex)
@@ -770,7 +772,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.115 
+l.117 
        [4]
 Overfull \hbox (3.06631pt too wide) in paragraph at lines 124--124
 []|\IL2/cmr/bx/n/10.95 Jazyk| 
@@ -786,79 +788,87 @@ Underfull \hbox (badness 10000) in paragraph at lines 128--128
 []|\IL2/cmr/m/n/10.95 c,
  []
 
-[5]
-LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 156
+LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 153
 .
- (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
+(/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
 File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
 )
-Overfull \hbox (15.91585pt too wide) in paragraph at lines 167--167
+Overfull \hbox (15.91585pt too wide) in paragraph at lines 164--164
 []\IL2/cmtt/m/n/10.95 1. <?xml version="1.0" encoding="utf-8"?>           // XM
 L deklarace, kódování[] 
  []
 
 
-Overfull \hbox (21.66454pt too wide) in paragraph at lines 167--167
+Overfull \hbox (21.66454pt too wide) in paragraph at lines 164--164
 []\IL2/cmtt/m/n/10.95 6.   <bakaláøské titul="Bc."></bakaláøské>          // ná
 zev a hodnota atributu[] 
  []
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 177.
+[5]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 174.
 
-(/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
+ (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 177.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 174.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Citation `XXX' on page 6 undefined on input line 195.
+LaTeX Warning: Citation `XXX' on page 6 undefined on input line 192.
 
 [6]
-Overfull \hbox (21.20468pt too wide) in paragraph at lines 215--226
+Overfull \hbox (21.20468pt too wide) in paragraph at lines 212--223
 []\IL2/cmr/m/n/10.95 Základní pou-¾ití \OML/cmm/m/it/10.95 <\IL2/cmr/m/it/10.95
  pre-sence/\OML/cmm/m/it/10.95 > \IL2/cmr/m/n/10.95 je zob-ra-zeno na ob-rázku 
 [][]2.6[][]. Kon-takt \IL2/cmr/m/it/10.95 jabinfo@jabbim.com/bot
  []
 
-[7] [8]
+[7]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8]
+Overfull \hbox (15.91585pt too wide) in paragraph at lines 293--293
+[]\IL2/cmtt/m/n/10.95 4.       node='http://code.google.com/p/exodus#QgayPKawpk
+PSDYmwT/WM94uAlu0='/>[] 
+ []
+
+[9] [10]
 Kapitola 3.
-[9
+\c@definice=\count144
+[11
 
-]
+] (./datamining.tex) [12] [13] [14] (./statistika.tex) [15] [16]
 Kapitola 4.
-(./database.tex) [10
+(./database.tex) [17
 
-] [11]
+] [18]
 Kapitola 5.
-) (./projekt.bbl [12
+) (./projekt.bbl [19
 
-]) (./prilohy.tex [13
+] [20
 
-]
+]) (./prilohy.tex [21]
 P\v {r}\'{\i }loha A.
-[14
+[22
 
 ]
 P\v {r}\'{\i }loha B.
-[15
+[23
 
 ]
 P\v {r}\'{\i }loha C.
-[16
+[24
 
 ]
 P\v {r}\'{\i }loha D.
-[17
+[25
 
 ]
 P\v {r}\'{\i }loha E.
-[18
+[26
 
-]) [19] (./projekt.aux)
+]) [27] (./projekt.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -866,13 +876,16 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 15487 strings out of 495027
- 248222 string characters out of 1181418
- 379968 words of memory out of 3000000
- 18195 multiletter control sequences out of 15000+50000
- 24480 words of font info for 69 fonts, out of 3000000 for 9000
+ 15567 strings out of 495027
+ 249071 string characters out of 1181420
+ 384093 words of memory out of 3000000
+ 18227 multiletter control sequences out of 15000+50000
+ 25093 words of font info for 70 fonts, out of 3000000 for 9000
  38 hyphenation exceptions out of 8191
  47i,17n,57p,1371b,986s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
@@ -882,18 +895,20 @@ pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
 , replaced by a fixed one
 
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8a.enc}</usr/share/texmf-texlive
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type
-1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csbx10.pfb>
-</usr/share/texmf-texlive/fonts/type1/public/cs/csbx12.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/cs/csr10.pfb></usr/share/texmf-texlive/fonts/type1/pub
-lic/cs/csr6.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csr8.pfb></usr/
-share/texmf-texlive/fonts/type1/public/cs/csr9.pfb></usr/share/texmf-texlive/fo
-nts/type1/public/cs/csti10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/
-cstt10.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on projekt.pdf (23 pages, 207765 bytes).
+/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csbx10.pfb></usr/share
+/texmf-texlive/fonts/type1/public/cs/csbx12.pfb></usr/share/texmf-texlive/fonts
+/type1/public/cs/csbxti10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/c
+sr10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csr6.pfb></usr/share/t
+exmf-texlive/fonts/type1/public/cs/csr8.pfb></usr/share/texmf-texlive/fonts/typ
+e1/public/cs/csr9.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csti10.pf
+b></usr/share/texmf-texlive/fonts/type1/public/cs/cstt10.pfb></usr/share/texmf-
+texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on projekt.pdf (31 pages, 266888 bytes).
 PDF statistics:
- 393 PDF objects out of 1000 (max. 8388607)
- 91 named destinations out of 1000 (max. 500000)
- 223 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 517 PDF objects out of 1000 (max. 8388607)
+ 132 named destinations out of 1000 (max. 500000)
+ 231 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -4,45 +4,45 @@ The style file: czechiso.bst
 Database file #1: literatura.bib
 Warning--I didn't find a database entry for "XXX"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 140733193391032.
-You've used 12 entries,
+You've used 19 entries,
             3151 wiz_defined-function locations,
-            736 strings with 6835 characters,
-and the built_in function-call counts, 5044 in all, are:
-= -- 330
-> -- 154
-< -- 7
-+ -- 72
-- -- 42
-* -- 277
-:= -- 581
-add.period$ -- 24
-call.type$ -- 12
-change.case$ -- 67
-chr.to.int$ -- 21
-cite$ -- 12
-duplicate$ -- 512
-empty$ -- 520
-format.name$ -- 48
-if$ -- 1099
+            784 strings with 7719 characters,
+and the built_in function-call counts, 7783 in all, are:
+= -- 511
+> -- 247
+< -- 9
++ -- 117
+- -- 68
+* -- 423
+:= -- 901
+add.period$ -- 38
+call.type$ -- 19
+change.case$ -- 100
+chr.to.int$ -- 27
+cite$ -- 19
+duplicate$ -- 783
+empty$ -- 799
+format.name$ -- 78
+if$ -- 1693
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 135
-newline$ -- 51
-num.names$ -- 24
-pop$ -- 310
+int.to.str$ -- 19
+missing$ -- 206
+newline$ -- 76
+num.names$ -- 38
+pop$ -- 481
 preamble$ -- 1
-purify$ -- 45
+purify$ -- 71
 quote$ -- 0
-skip$ -- 141
+skip$ -- 226
 stack$ -- 0
-substring$ -- 98
-swap$ -- 239
+substring$ -- 149
+swap$ -- 362
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 34
+type$ -- 56
 warning$ -- 0
-while$ -- 31
-width$ -- 14
-write$ -- 131
+while$ -- 47
+width$ -- 21
+write$ -- 198
 (There was 1 warning)

@@ -37,7 +37,7 @@
 
 \usepackage{pnets}
 \usepackage{pstricks}
-
+\usepackage{colortbl}
 % =======================================================================
 % balíèek "hyperref" vytváøí klikací odkazy v pdf, pokud tedy pou¾ijeme pdflatex
 % problém je, ¾e balíèek hyperref musí být uveden jako poslední, tak¾e nemù¾e
@@ -65,48 +65,50 @@
 \projectinfo{
   %Prace
   project=BP,            %typ prace BP/SP/DP/DR
-  year=2008,             %rok
+  year=2011,             %rok
   date=\today,           %datum odevzdani
   %Nazev prace
-  title.cs={Název práce},  %nazev prace v cestine
-  title.en={Thesis title}, %nazev prace v anglictine
+  title.cs={Datamining z jabberu},  %nazev prace v cestine
+  title.en={Datamining from Jabberu}, %nazev prace v anglictine
   %Autor
-  author={Jméno Pøíjmení},   %jmeno prijmeni autora
+  author={Jaroslav Sendler},   %jmeno prijmeni autora
   %author.title.p=Bc., %titul pred jmenem (nepovinne)
   %author.title.a=PhD, %titul za jmenem (nepovinne)
   %Ustav
   department=UPSY, % doplnte prislusnou zkratku: UPSY/UIFS/UITS/UPGM
   %Skolitel
-  supervisor= Jméno Pøíjmení, %jmeno prijmeni skolitele
+  supervisor= Jozef Mlích, %jmeno prijmeni skolitele
   supervisor.title.p=Ing.,   %titul pred jmenem (nepovinne)
-  supervisor.title.a={Ph.D.},    %titul za jmenem (nepovinne)
+  %supervisor.title.a={Ph.D.},    %titul za jmenem (nepovinne)
   %Klicova slova, abstrakty, prohlaseni a podekovani je mozne definovat 
   %bud pomoci nasledujicich parametru nebo pomoci vyhrazenych maker (viz dale)
   %===========================================================================
   %Klicova slova
-  keywords.cs={Klíèová slova v èeském jazyce.}, %klicova slova v ceskem jazyce
-  keywords.en={Klíèová slova v anglickém jazyce.}, %klicova slova v anglickem jazyce
+  keywords.cs={Jabber, XMPP, robot, datamining, dolování dat.}, %klicova slova v ceskem jazyce
+  keywords.en={Jabber, XMPP, robot, datamining.}, %klicova slova v anglickem jazyce
   %Abstract
-  abstract.cs={Výtah (abstrakt) práce v èeském jazyce.}, % abstrakt v ceskem jazyce
-  abstract.en={Výtah (abstrakt) práce v anglickém jazyce.}, % abstrakt v anglickem jazyce
+  abstract.cs={Pøedmìtem této bakaláøské práce bylo seznámení se s problematikou komunikace pøes Jabber sí», která zde byla rozebrána.
+Konkrétním cílem bylo vytvoøení jednoduchého Jabberového klienta, který by byl schopen získávat statistická data. Nashromá¾dìná data slou¾ila pro pozdìj¹í analýzu a grafickou reprezentaci informací z nich získaných.}, % abstrakt v ceskem jazyce
+  abstract.en={The objective of this thesis was acquaint oneself with problems of communication via Jabber network, which was also analyzed. The specific objective was to create a simple Jabber's client which would be able to obtain statistical data. The collected data was used for analysis and graphic representation of information.}, % abstrakt v anglickem jazyce
   %Prohlaseni
   declaration={Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana ...},
   %Podekovani (nepovinne)
   acknowledgment={Zde je mo¾né uvést podìkování vedoucímu práce a tìm, kteøí poskytli odbornou pomoc.} % nepovinne
 }
 
+
 %Abstrakt (cesky, anglicky)
-%\abstract[cs]{Do tohoto odstavce bude zapsán výtah (abstrakt) práce v èeském jazyce.}
-%\abstract[en]{Do tohoto odstavce bude zapsán výtah (abstrakt) práce v anglickém jazyce.}
+\abstract[cs]{Pøedmìtem této bakaláøské práce bylo seznámení se s problematikou komunikace pøes Jabber sí», která zde byla rozebrána.
+Konkrétním cílem bylo vytvoøení jednoduchého Jabberového klienta, který by byl schopen získávat statistická data. Nashromá¾dìná data slou¾ila pro pozdìj¹í analýzu a grafickou reprezentaci informací z nich získaných.}
+\abstract[en]{The objective of this thesis was acquaint oneself with problems of communication via Jabber network, which was also analyzed. The specific objective was to create a simple Jabber's client which would be able to obtain statistical data. The collected data was used for analysis and graphic representation of information.}
 
 %Klicova slova (cesky, anglicky)
-%\keywords[cs]{Sem budou zapsána jednotlivá klíèová slova v èeském jazyce, oddìlená èárkami.}
-%\keywords[en]{Sem budou zapsána jednotlivá klíèová slova v anglickém jazyce, oddìlená èárkami.}
+\keywords[cs]{Jabber, XMPP, robot, datamining, dolování dat.}
+\keywords[en]{Jabber, XMPP, robot, datamining.}
 
 %Prohlaseni
-%\declaration{Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana X...
-%Dal¹í informace mi poskytli...
-%Uvedl jsem v¹echny literární prameny a publikace, ze kterých jsem èerpal.}
+\declaration{Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana Ing. Josefa Mlícha.
+Uvedl jsem v¹echny literární prameny a publikace, ze kterých jsem èerpal.}
 
 %Podekovani (nepovinne)
 %\acknowledgment{V této sekci je mo¾no uvést podìkování vedoucímu práce a tìm, kteøí poskytli odbornou pomoc

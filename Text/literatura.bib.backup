@@ -109,6 +109,70 @@ http://tools.ietf.org/html/rfc3920, 2004-10 [cit. 2010-05-17].
       note =         "{10-2004, [cit. \today]}",
    }
 
+  @MISC{Xep0060,
+      author =       "Peter Millard and Peter Saint-Andre and Ralph Meijer",  
+      title =        "XEP-0060: Publish-Subscribe",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0060.html}",
+      note =         "{12-07-2010, [cit. \today]}",
+   }
+
+  @MISC{Xep0163,
+      author =       "Peter Saint-Andre and Kevin Smith",  
+      title =        "XEP-0163: Personal Eventing Protocol",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0163.html}",
+      note =         "{12-07-2010, [cit. \today]}",
+   }
+
+  @MISC{Xep0080,
+      author =       "Joe Hildebrand and Peter Saint-Andre",  
+      title =        "XEP-0080: User Location",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0080.html}",
+      note =         "{15-09-2009, [cit. \today]}",
+   }
+
+  @MISC{Xep0092,
+      author =       "Peter Saint-Andre",  
+      title =        "XEP-0092: Software Version",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0092.html}",
+      note =         "{2-15-2007, [cit. \today]}",
+   }
+
+  @MISC{Xep0107,
+      author =       "Peter Saint-Andre and Ralph Meijer",  
+      title =        "XEP-0107: User Mood",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0107.html}",
+      note =         "{29-10-2008, [cit. \today]}",
+   }
+
+  @MISC{Xep0108,
+      author =       "Ralph Meijer and Peter Saint-Andre",  
+      title =        "XEP-0108: User Activity",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0108.html}",
+      note =         "{29-10-2008, [cit. \today]}",
+   }
+
+  @MISC{Xep0118,
+      author =       "Peter Saint-Andre",  
+      title =        "XEP-0118: User Tune",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0118.html}",
+      note =         "{30-01-2008, [cit. \today]}",
+   }
+
+  @MISC{Xep0115,
+      author =       "Joe Hildebrand and Peter Saint-Andre and Remko Tronçon and Jacek Konieczny",  
+      title =        "XEP-0115: Entity Capabilities",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0115.html}",
+      note =         "{02-26-2008, [cit. \today]}",
+   }
+
   @MISC{Xml5th,
       author =       "{Kolektiv autorù}",  
       title =        "Extensible Markup Language (XML) 1.0",
@@ -131,17 +195,48 @@ http://tools.ietf.org/html/rfc3920, 2004-10 [cit. 2010-05-17].
       title =        "Ejabberd the Erlang Jabber/XMPP deamon community site",
       howpublished=  "[online]",
       url =          "{http://www.ejabberd.im/}",
-      note =         "2010 , [cit. \today]",
+      note =         "2010, [cit. \today]",
    }
 
   @MISC{Openfire,
       author =       "{WWW Stránky}",  
-      title =        "Openfire",
+      title =        "Openfire is a real time collaboration server",
       howpublished=  "[online]",
       url =          "{http://www.igniterealtime.org/projects/openfire/}",
-      note =         "2010 , [cit. \today]",
+      note =         "2010, [cit. \today]",
    }
 
+  @MISC{Jabberd2,
+      author =       "{WWW Stránky - Matthias Wimmer}",  
+      title =        "Jabberd2 - XMPP Server",
+      howpublished=  "[online]",
+      url =          "{http://codex.xiaoka.com/wiki/jabberd2:start}",
+      note =         "2010, [cit. \today]",
+   }
+
+  @MISC{Jabberd14,
+      author =       "{WWW Stránky}",  
+      title =        "Jabberd14 the original Jabber server implementation",
+      howpublished=  "[online]",
+      url =          "{http://jabberd.org/}",
+      note =         "2010, [cit. \today]",
+   }
+
+  @MISC{Prosody,
+      author =       "{WWW Stránky}",  
+      title =        "Prosody a study in simplicity",
+      howpublished=  "[online]",
+      url =          "{http://prosody.im/}",
+      note =         "2010, [cit. \today]",
+   }
+
+  @MISC{Tigase,
+      author =       "{WWW Stránky}",  
+      title =        "Tigase is the website of the Tigase XMPP/Jabber Server",
+      howpublished=  "[online]",
+      url =          "{http://www.tigase.org/}",
+      note =         "2010, [cit. \today]",
+   }
    @MISC{fitWeb,
       author =       "Z. Rábová and P. Hanáèek and P. Peringer and P. Pøikryl and B. Køena",  
       title =        "U¾iteèné rady pro psaní odborného textu [online]",
@@ -149,3 +244,12 @@ http://tools.ietf.org/html/rfc3920, 2004-10 [cit. 2010-05-17].
       year =         "2008-11-01 [cit. 2008-11-28]",
       howpublished=  "{\tt http://www.fit.vutbr.cz/info/statnice/psani\_textu.html}",
    }
+
+    @BOOK{IIS,
+      author =       "Tomá¹ Hru¹ka",
+      title =        "Informaèní systémy : IIS/PIS",
+      address =      "Brno",
+      publisher =    "Fakulta informaèních technologií",
+      year =         "2008",
+      pages =        "14733",
+    }

@@ -12,9 +12,32 @@
 Adams, D.: \emph{Programming jabber}. Sebastopol: O'Reilly, první vydání, 2002,
   455 s., iSBN~05-960-0202-5.
 
+\bibitem{Berka}
+Berka, P.: \emph{Dobývání znalostí z databází}. Praha: Academia, první vydání,
+  2003, 366 s., iSBN~80-200-1062-9.
+
+\bibitem{Fayyad}
+Fayyad, U.~M.; Smyth, P.: \emph{Advances in knowledge discovery and data
+  mining}. California: MIT Press, první vydání, 1996, 611 s.,
+  iSBN~02-625-6097-6.
+
 \bibitem{Fred}
 Fred, H.: \emph{Computer networking and the internet}. Edinburg: Addison-Wesley
   Publishing Company, první vydání, 2005, 803 s., iSBN~03-212-6358-8.
+
+\bibitem{Xep0080}
+Hildebrand, J.; Saint-Andre, P.: XEP-0080: User Location. [online],
+  {15-09-2009, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0080.html}}
+
+\bibitem{Xep0115}
+Hildebrand, J.; Saint-Andre, P.; Tronçon, R.; aj.: XEP-0115: Entity
+  Capabilities. [online], {02-26-2008, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0115.html}}
+
+\bibitem{IIS}
+Hru¹ka, T.: \emph{Informaèní systémy : IIS/PIS}. Brno: Fakulta informaèních
+  technologií, 2008, 14733 s.
 
 \bibitem{Xml5th}
 {Kolektiv autorù}: Extensible Markup Language (XML) 1.0. [online], 26-11-2008,
@@ -38,6 +61,15 @@ Millard, P.; Saint-Andre, P.; Meijer, R.: XEP-0060: Publish-Subscribe.
 \bibitem{Moore}
 Moore, D.; Wright, W.: \emph{Jabber developer's handbook}. Indianapolis: Sams
   Publishing, první vydání, 2004, 487 s., iSBN~06-723-2536-5.
+
+\bibitem{DM}
+Nemrava, M.; Pospí¹il, J.: Dolování dat a jeho aplikace. [online], 2006, [cit.
+  \today].
+\newline\urlprefix\url{{http://www.spatial.cs.umn.edu/paper_ps/dmchap.pdf}}
+
+\bibitem{Xep0118}
+Saint-Andre, P.: XEP-0118: User Tune. [online], {30-01-2008, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0118.html}}
 
 \bibitem{Xep0163}
 Saint-Andre, P.; Smith, K.: XEP-0163: Personal Eventing Protocol. [online],
