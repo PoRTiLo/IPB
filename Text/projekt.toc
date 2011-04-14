@@ -2,26 +2,28 @@
 \contentsline {chapter}{\numberline {1}\'Uvod}{2}{chapter.1}
 \contentsline {chapter}{\numberline {2}XMPP}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Architektura}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}XML}{5}{section.2.2}
+\contentsline {section}{\numberline {2.2}XML}{6}{section.2.2}
 \contentsline {section}{\numberline {2.3}Stanza}{6}{section.2.3}
 \contentsline {section}{\numberline {2.4}Roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{8}{section.2.4}
 \contentsline {section}{\numberline {2.5}Knihovny}{9}{section.2.5}
 \contentsline {chapter}{\numberline {3}Data mining}{11}{chapter.3}
 \contentsline {section}{\numberline {3.1}Metody dolovan\IeC {\'\i } dat}{13}{section.3.1}
-\contentsline {section}{\numberline {3.2}shlukov\'an\IeC {\'\i }}{16}{section.3.2}
-\contentsline {section}{\numberline {3.3}Dolovan\IeC {\'\i } znalosti z datab\'az\IeC {\'\i }}{16}{section.3.3}
-\contentsline {section}{\numberline {3.4}Programy}{16}{section.3.4}
-\contentsline {chapter}{\numberline {4}Developer}{17}{chapter.4}
-\contentsline {section}{\numberline {4.1}Datab\'aze}{17}{section.4.1}
-\contentsline {section}{\numberline {4.2}Bot}{17}{section.4.2}
-\contentsline {section}{\numberline {4.3}Knihovny, jazyk}{17}{section.4.3}
-\contentsline {section}{\numberline {4.4}Jin\'e produkty}{17}{section.4.4}
-\contentsline {chapter}{\numberline {5}Z\'av\v er}{19}{chapter.5}
-\contentsline {chapter}{\numberline {A}Obsah CD}{22}{appendix.A}
-\contentsline {chapter}{\numberline {B}Manual}{23}{appendix.B}
-\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{24}{appendix.C}
-\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k v\'yraz\r u}{25}{appendix.D}
-\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{26}{appendix.E}
-\contentsline {section}{\numberline {E.1}iq}{26}{section.E.1}
-\contentsline {section}{\numberline {E.2}Message}{27}{section.E.2}
-\contentsline {section}{\numberline {E.3}Presence}{27}{section.E.3}
+\contentsline {section}{\numberline {3.2}Shlukov\'an\IeC {\'\i }}{15}{section.3.2}
+\contentsline {section}{\numberline {3.3}Programy}{18}{section.3.3}
+\contentsline {chapter}{\numberline {4}Developer}{19}{chapter.4}
+\contentsline {section}{\numberline {4.1}Datab\'aze}{19}{section.4.1}
+\contentsline {section}{\numberline {4.2}Bot}{19}{section.4.2}
+\contentsline {section}{\numberline {4.3}Knihovny, jazyk}{19}{section.4.3}
+\contentsline {section}{\numberline {4.4}Jin\'e produkty}{19}{section.4.4}
+\contentsline {chapter}{\numberline {5}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{21}{chapter.5}
+\contentsline {chapter}{\numberline {6}Z\'av\v er}{22}{chapter.6}
+\contentsline {chapter}{\numberline {A}Obsah CD}{25}{appendix.A}
+\contentsline {chapter}{\numberline {B}Manual}{26}{appendix.B}
+\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{27}{appendix.C}
+\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k v\'yraz\r u}{28}{appendix.D}
+\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{29}{appendix.E}
+\contentsline {section}{\numberline {E.1}iq}{29}{section.E.1}
+\contentsline {section}{\numberline {E.2}Message}{30}{section.E.2}
+\contentsline {section}{\numberline {E.3}Presence}{30}{section.E.3}
+\contentsline {section}{\numberline {E.4}P\v rehled pr\r ub\v ehu roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{31}{section.E.4}
+\contentsline {chapter}{\numberline {F}P\v rehled klient\r u a jejich roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{33}{appendix.F}
