@@ -1,0 +1,272 @@
+/*
+ * --------------ITW-----------------
+ *
+ * Project:  Kaskadove styly.
+ * File:     css.css
+ * Author:   Jaroslav Sendler, xsendl00, xsendl00 AT stud.fit.vutr.cz
+ *
+ * Created on May 3, 2010
+ *
+ * Encoding: UTF-8
+ *
+ * Description:
+ */
+ 
+
+	body {
+		margin: 0 0 0 0;
+		padding: 1em 1em;
+		font-size: 1em;
+		font-family: arial, verdana, sans-serif;
+		background: black;
+		background-image: url('img/back1.gif');
+		background-repeat: repeat;		
+	}
+
+	table, td, th {
+		margin-left:auto;
+		margin-right:auto;
+		border:1px solid #996600;
+		background-color:#996600;
+		color:white;
+	}
+
+/*	
+	body #page {
+		background:white;
+		width: 70%;
+		margin: auto; 
+		text-align: left;
+		padding: 0 18px ;
+		background-repeat: repeat-y;
+		background-position: 0 ;
+		z-index:300;	
+	}
+	
+	a {
+		color: black;
+	}
+
+	#main {
+		min-width: 650px;
+		text-align: justify;
+	}
+
+	#head {
+	}
+
+	#head h1 {
+		margin: 0 0 0 0;
+		text-align: center;
+		text-align: center; 
+		vertical-align: middle;
+	}
+	
+	#head h1 a {
+
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		background-image: url('logo.png');
+		background-position: right;
+		background-repeat: no-repeat;
+		height: 200px;
+		width: 650px;
+		max-width:650px;
+ 		
+	}
+	
+	#head h1 a span {
+		display: none;
+	}
+	
+
+/*****************************vodorvovne menu************/
+/*
+	#topmenu {
+		position: relative;
+		width: 100%;
+		background-image: url('top_line_high.png');
+		background-repeat: repeat;
+		min-height: 10px;
+		background-position: bottom;/*0px 30px;*/
+/*		margin: 0 0 0 0;
+		padding: 5px 0 5px 0;
+		z-index: 2;
+	}
+	
+	#topmenu ul {
+		padding: 0 0 0 0;
+		margin: 0 0 0 0;
+		
+	}
+
+	#topmenu ul li {
+		display: inline;	
+	}
+	
+	#topmenu ul li a {
+		text-decoration: none;
+		font-weight: bold;
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+		border-left: 2px white solid;
+	}
+
+	#topmenu ul li a:hover {
+		background-image: url('top_menu_light.png');
+		background-repeat: repeat;		
+	}
+	
+	#topmenu ul li:first-child a{
+		border: none;
+	}
+
+
+	#main1 {
+		margin: 0; 
+		padding: 0;
+		background: white url("menu4.png") top left repeat-y;
+	}
+
+/*------------------left MENU*/
+	
+/*
+	#leftmenu {
+		margin-top:2em;
+		
+		font-size: 0.8em;
+		float: left;
+		/*position: absolute;*/
+/*
+	}
+	
+	#leftmenu .column-in {
+		margin: 0; 
+		padding: .5em 15px;
+		border-top: 2px black solid;
+		border-bottom: 2px black solid;
+	}
+	
+	#leftmenu .column-in b {
+		font-size: 1.5em;
+	}	
+
+	#leftmenu .column-in ul {
+		list-style-type: none;																		/* zruseni odrazek u seznamu leveho menu */
+/*		padding: 0 0 0 0;
+	}
+	
+	#leftmenu  .column-in ul li {
+		margin-left:10px;
+		width: 100px;
+		margin-top:0.5em;
+	}
+
+	#leftmenu  .column-in ul li a {
+		text-decoration: none;																		/* nepodtrzeno */
+/*	}
+
+
+	#leftmenu  .column-in ul li a:visited {
+		text-decoration: none;
+	}
+
+	#leftmenu  .column-in ul li a:hover {
+		font-size: 1.2em;
+	}
+	
+	#leftmenu #info {
+		margin-top: 40px;
+		border-left: 1px blue dotted;
+		border-right: 1px blue dotted;
+	}
+
+	#leftmenu #info ul{
+		list-style-type: none;
+	}
+	
+	#leftmenu #info ul li {
+		margin-top: 10px;
+	}
+
+	#leftmenu #info a{
+		text-decoration: none;																/* podtrzeno */
+/*	}
+
+	#leftmenu  #info ul li a:hover {
+		color: red;
+	}
+
+	#middle {
+		padding-top: 1em;
+		margin-top: 1em;
+		margin-right: 1em;
+		margin-left: 173px;
+		min-height: 300px;
+	}
+
+	#middle p {
+		padding: 0 0 0 0;
+	}
+
+	
+	#middle #aktual h2 {
+		border-top: 1px solid 	#808080;
+		background-color: #add8e6;
+		padding-left: 6px;
+		margin-top: 1.5em;
+	}
+	
+	#middle #aktual dl {
+		padding: 0.5em; 
+	}
+	
+	#middle #aktual dt {
+		float: left;
+		width: 9em;
+		text-align: right;
+		font-weight: bold;
+		margin-right: 1em;
+	}
+	
+	#middle #aktual dd {
+		margin: 0 0 0 10.5em;
+		padding: 0 0 0.3em 0.5em;
+	}
+	
+	#middle #aktual a {
+		color: blue;
+	}
+
+
+/*****************************zapati*********************/
+
+	#footer {
+		clear: both;
+		text-align: center;
+		color: black;
+		font-size: 0.8em;
+		margin: 0 0 0 0;
+		padding: 0.5em 0 0.5em 0;
+	}
+
+	#footer p {
+		display: inline;
+		font-style: italic;
+	}
+	
+	#footer #reason {
+		line-height: 1.5em;
+	}	
+	
+	#footer span {
+		margin: 0 .5em 0 .5em;
+	}
+	#footer a {
+		font-style: normal;
+		color:black;
+	}
+	#footer a:hover {
+		font-style: normal;
+	}
