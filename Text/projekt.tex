@@ -39,6 +39,49 @@
 \usepackage{pstricks}
 \usepackage{colortbl}
 \usepackage{subfigure}
+\usepackage{listings}
+
+
+\def\lstlistingname{Pøíklad}
+\lstset{ %
+language=XML,                   % the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+                                % will be numbered
+numbersep=-10pt,                % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=tb,                       % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                % also try caption instead of title
+escapeinside={\%*}{*)},         % if you want to add a comment within your code
+morekeywords={*,..., fakulta},            % if you want to add more keywords to the set
+commentstyle=\color{gray}\upshape
+}
+
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  morekeywords={xmlns,version,type, fakulty, titul, to, from, id}% list your attributes here
+}
+
 % =======================================================================
 % balíèek "hyperref" vytváøí klikací odkazy v pdf, pokud tedy pou¾ijeme pdflatex
 % problém je, ¾e balíèek hyperref musí být uveden jako poslední, tak¾e nemù¾e
@@ -108,11 +151,11 @@ Konkrétním cílem bylo vytvoøení jednoduchého Jabberového klienta, který by byl s
 \keywords[en]{Jabber, XMPP, robot, datamining.}
 
 %Prohlaseni
-\declaration{Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana Ing. Josefa Mlícha.
+\declaration{Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana Ing. Jozefa Mlícha.
 Uvedl jsem v¹echny literární prameny a publikace, ze kterých jsem èerpal.}
 
 %Podekovani (nepovinne)
-\acknowledgment{Tímto bych chtìl podìkovat mému vedoucímu bakaláøské práce Ing. Josefovi Mlíchovi za ochotu a kladný pøístup pøi konzultacích. Dále za poskytnutí hardware na nìm¾ bì¾el program a sbíral data.}
+\acknowledgment{Tímto bych chtìl podìkovat mému vedoucímu bakaláøské práce Ing. Jozefovi Mlíchovi za ochotu a kladný pøístup pøi konzultacích. Dále za poskytnutí hardware na nìm¾ bì¾el program a sbíral data.}
 
 \begin{document}
   % Vysazeni titulnich stran
