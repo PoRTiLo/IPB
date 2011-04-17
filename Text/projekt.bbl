@@ -49,6 +49,11 @@ Hru¹ka, T.: \emph{Informaèní systémy : IIS/PIS}. Brno: Fakulta informaèních
 Kosek, J.: \emph{XML pro ka¾dého : podrobný prùvodce}. Praha: Grada, první
   vydání, 2000, 163 s., iSBN~80-716-9860-1.
 
+\bibitem{Xep0108}
+Meijer, R.; Saint-Andre, P.: XEP-0108: User Activity. [online], {29-10-2008,
+  [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0108.html}}
+
 \bibitem{Xep0060}
 Millard, P.; Saint-Andre, P.; Meijer, R.: XEP-0060: Publish-Subscribe.
   [online], {12-07-2010, [cit. \today]}.
@@ -66,6 +71,11 @@ Nemrava, M.; Pospí¹il, J.: Dolování dat a jeho aplikace. [online], 2006, [cit.
 \bibitem{Xep0118}
 Saint-Andre, P.: XEP-0118: User Tune. [online], {30-01-2008, [cit. \today]}.
 \newline\urlprefix\url{{http://xmpp.org/extensions/xep-0118.html}}
+
+\bibitem{Xep0107}
+Saint-Andre, P.; Meijer, R.: XEP-0107: User Mood. [online], {29-10-2008, [cit.
+  \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0107.html}}
 
 \bibitem{Xep0163}
 Saint-Andre, P.; Smith, K.: XEP-0163: Personal Eventing Protocol. [online],

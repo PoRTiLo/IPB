@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  16 APR 2011 00:40
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  17 APR 2011 23:08
 entering extended mode
  %&-line parsing enabled.
 **projekt
@@ -806,133 +806,115 @@ l.14 \chapter
 
 ]
 Kapitola 2.
-(./struktura.tex)pdfTeX warning (ext4): destination with the same identifier (n
-ame{page.3}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.35 
+l.28 
       [3
 
-] (./jabinfo.tex)pdfTeX warning (ext4): destination with the same identifier (n
-ame{page.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.50 \subsection
-                *{Klient} [4]
+] (./struktura.tex) (./jabinfo.tex)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 97.
- (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.54 \begin{enumerate}
+                       [4] [5]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 98.
+
+(/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 97.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 98.
  [6]
 
-LaTeX Warning: Citation `XXX' on page 7 undefined on input line 133.
-
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7]
-
-LaTeX Warning: Reference `picPep' on page 8 undefined on input line 169.
-
-
-LaTeX Warning: Reference `picPep' on page 8 undefined on input line 169.
-
-
-LaTeX Warning: Reference `picPep1' on page 8 undefined on input line 195.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[8] [9]
+[7] [8] [9] [10]
 Kapitola 3.
 \c@definice=\count157
-[10
+[11
 
-] (./datamining.tex) [11] [12]
-LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 387
+] (./datamining.tex) [12] [13]
+LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 385
 .
 
 (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
 File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
-) [13] (./statistika.tex)
+) [14] (./statistika.tex)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14] [15] (./dbscan.tex) [16] [17]
+[15] [16] (./dbscan.tex) [17] [18]
 Kapitola 4.
 (./Database1.tex)
-Overfull \hbox (25.01682pt too wide) in paragraph at lines 1149--519
+Overfull \hbox (25.01682pt too wide) in paragraph at lines 1149--517
  [] 
  []
 
-[18
+[19
 
-] [19]
+] [20]
 Kapitola 5.
-[20
+[21
 
 ]
 Kapitola 6.
-) (./projekt.bbl [21
+) (./projekt.bbl [22
 
-] [22
+] [23
 
-]) (./prilohy.tex [23]
+]) (./prilohy.tex [24]
 P\v {r}\'{\i }loha A.
-[24
-
-]
-P\v {r}\'{\i }loha B.
 [25
 
 ]
-P\v {r}\'{\i }loha C.
+P\v {r}\'{\i }loha B.
 [26
 
 ]
-P\v {r}\'{\i }loha D.
+P\v {r}\'{\i }loha C.
 [27
+
+]
+P\v {r}\'{\i }loha D.
+[28
 
 ]
 P\v {r}\'{\i }loha E.
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 47.
-[28
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 62.
+[29
 
-] [29] [30] [31]
+] [30] [31] [32]
 P\v {r}\'{\i }loha F.
 LaTeX Font Info:    Font shape `IL2/cmtt/bx/n' in size <6> not available
-(Font)              Font shape `IL2/cmtt/m/n' tried instead on input line 266.
+(Font)              Font shape `IL2/cmtt/m/n' tried instead on input line 265.
 
-Overfull \hbox (0.53485pt too wide) in paragraph at lines 327--328
+Overfull \hbox (0.53485pt too wide) in paragraph at lines 326--327
 [][] 
  []
 
-) [32
+) [33
 
-] [33] (./projekt.aux)
+] [34] (./projekt.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 17469 strings out of 495027
- 274150 string characters out of 1181420
- 429224 words of memory out of 3000000
- 20041 multiletter control sequences out of 15000+50000
+ 17495 strings out of 495027
+ 274490 string characters out of 1181420
+ 417314 words of memory out of 3000000
+ 20052 multiletter control sequences out of 15000+50000
  25389 words of font info for 71 fonts, out of 3000000 for 9000
  38 hyphenation exceptions out of 8191
- 47i,11n,57p,1438b,1542s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,11n,57p,1390b,1542s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8a.enc}</usr/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
@@ -948,9 +930,9 @@ csr8.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csr9.pfb></usr/share/t
 exmf-texlive/fonts/type1/public/cs/csti10.pfb></usr/share/texmf-texlive/fonts/t
 ype1/public/cs/cstt10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/cstt8
 .pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on projekt.pdf (37 pages, 332953 bytes).
+Output written on projekt.pdf (38 pages, 343916 bytes).
 PDF statistics:
- 647 PDF objects out of 1000 (max. 8388607)
- 191 named destinations out of 1000 (max. 500000)
+ 678 PDF objects out of 1000 (max. 8388607)
+ 206 named destinations out of 1000 (max. 500000)
  231 words of extra memory for PDF output out of 10000 (max. 10000000)
 
