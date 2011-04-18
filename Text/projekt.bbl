@@ -33,7 +33,7 @@ Hildebrand, J.; Saint-Andre, P.: XEP-0080: User Location. [online],
 
 \bibitem{Xep0115}
 Hildebrand, J.; Saint-Andre, P.; Tronçon, R.; aj.: XEP-0115: Entity
-  Capabilities. [online], {02-26-2008, [cit. \today]}.
+  Capabilities. [online], {26-02-2008, [cit. \today]}.
 \newline\urlprefix\url{{http://xmpp.org/extensions/xep-0115.html}}
 
 \bibitem{IIS}
@@ -59,6 +59,11 @@ Millard, P.; Saint-Andre, P.; Meijer, R.: XEP-0060: Publish-Subscribe.
   [online], {12-07-2010, [cit. \today]}.
 \newline\urlprefix\url{{http://xmpp.org/extensions/xep-0060.html}}
 
+\bibitem{Xep0292}
+Mizzi, S.; Saint-Andre, P.: XEP-0292: vCard4 Over XMPP. [online], {02-26-2008,
+  [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0292.html}}
+
 \bibitem{Moore}
 Moore, D.; Wright, W.: \emph{Jabber developer's handbook}. Indianapolis: Sams
   Publishing, první vydání, 2004, 487 s., iSBN~06-723-2536-5.
@@ -68,9 +73,23 @@ Nemrava, M.; Pospí¹il, J.: Dolování dat a jeho aplikace. [online], 2006, [cit.
   \today].
 \newline\urlprefix\url{{http://www.spatial.cs.umn.edu/paper_ps/dmchap.pdf}}
 
+\bibitem{Xep0054}
+Saint-Andre, P.: XEP-0054: vcard-temp. [online], {07-16-2008, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0054.html}}
+
+\bibitem{Xep0092}
+Saint-Andre, P.: XEP-0092: Software Version. [online], {02-15-2007, [cit.
+  \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0092.html}}
+
 \bibitem{Xep0118}
 Saint-Andre, P.: XEP-0118: User Tune. [online], {30-01-2008, [cit. \today]}.
 \newline\urlprefix\url{{http://xmpp.org/extensions/xep-0118.html}}
+
+\bibitem{Xep0153}
+Saint-Andre, P.: XEP-0153: vCard-Based Avatars. [online], {16-08-2006, [cit.
+  \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0153.html}}
 
 \bibitem{Xep0107}
 Saint-Andre, P.; Meijer, R.: XEP-0107: User Mood. [online], {29-10-2008, [cit.

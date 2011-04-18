@@ -3,10 +3,10 @@
 % (c) 2008 Michal Bidlo
 % E-mail: bidlom AT fit vutbr cz
 %============================================================================
-% kodovaní: iso-8859-2 (zmena prikazem iconv, recode nebo cstocs)
+% kodovanÃ­: iso-8859-2 (zmena prikazem iconv, recode nebo cstocs)
 %----------------------------------------------------------------------------
-% zpracování: make, make pdf, make desky, make clean
-% pøipomínky posílejte na e-mail: bidlom AT fit.vutbr.cz
+% zpracovÃ¡nÃ­: make, make pdf, make desky, make clean
+% pÅ™ipomÃ­nky posÃ­lejte na e-mail: bidlom AT fit.vutbr.cz
 % vim: set syntax=tex encoding=latin2:
 %============================================================================
 \documentclass[cover]{fitthesis} % odevzdani do wisu - odkazy, na ktere se da klikat
@@ -22,7 +22,7 @@
 % zde zvolime kodovani, ve kterem je napsan text prace
 % "latin2" pro iso8859-2 nebo "cp1250" pro windows-1250, "utf8" pro "utf-8"
 %\usepackage{ucs}
-\usepackage[latin2]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1, IL2]{fontenc}
 \usepackage{url}
 \DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}}
@@ -40,9 +40,9 @@
 \usepackage{colortbl}
 \usepackage{subfigure}
 % =======================================================================
-% balíèek "hyperref" vytváøí klikací odkazy v pdf, pokud tedy pou¾ijeme pdflatex
-% problém je, ¾e balíèek hyperref musí bıt uveden jako poslední, tak¾e nemù¾e
-% bıt v ¹ablonì
+% balÃ­Äek "hyperref" vytvÃ¡Å™Ã­ klikacÃ­ odkazy v pdf, pokud tedy pouÅ¾ijeme pdflatex
+% problÃ©m je, Å¾e balÃ­Äek hyperref musÃ­ bÃ½t uveden jako poslednÃ­, takÅ¾e nemÅ¯Å¾e
+% bÃ½t v Å¡ablonÄ›
 \ifWis
 \ifx\pdfoutput\undefined % nejedeme pod pdflatexem
 \else
@@ -52,7 +52,7 @@
   \definecolor{anchors}{rgb}{1,0,0}
   \def\AnchorColor{anchors}
   \def\LinkColor{links}
-  \def\pdfBorderAttrs{/Border [0 0 0] }  % bez okrajù kolem odkazù
+  \def\pdfBorderAttrs{/Border [0 0 0] }  % bez okrajÅ¯ kolem odkazÅ¯
   \pdfcompresslevel=9
 \fi
 \fi
@@ -78,41 +78,41 @@
   %Ustav
   department=UPSY, % doplnte prislusnou zkratku: UPSY/UIFS/UITS/UPGM
   %Skolitel
-  supervisor= Jozef Mlích, %jmeno prijmeni skolitele
+  supervisor= Jozef MlÃ­ch, %jmeno prijmeni skolitele
   supervisor.title.p=Ing.,   %titul pred jmenem (nepovinne)
   %supervisor.title.a={Ph.D.},    %titul za jmenem (nepovinne)
   %Klicova slova, abstrakty, prohlaseni a podekovani je mozne definovat 
   %bud pomoci nasledujicich parametru nebo pomoci vyhrazenych maker (viz dale)
   %===========================================================================
   %Klicova slova
-  keywords.cs={Jabber, XMPP, robot, data mining, dolování dat.}, %klicova slova v ceskem jazyce
+  keywords.cs={Jabber, XMPP, robot, data mining, dolovÃ¡nÃ­ dat.}, %klicova slova v ceskem jazyce
   keywords.en={Jabber, XMPP, robot, data mining.}, %klicova slova v anglickem jazyce
   %Abstract
-  abstract.cs={Pøedmìtem této bakaláøské práce bylo seznámení se s problematikou komunikace pøes Jabber sí», která zde byla rozebrána.
-Konkrétním cílem bylo vytvoøení jednoduchého Jabberového klienta, kterı by byl schopen získávat statistická data. Nashromá¾dìná data slou¾ila pro pozdìj¹í analızu a grafickou reprezentaci informací z nich získanıch.}, % abstrakt v ceskem jazyce
+  abstract.cs={PÅ™edmÄ›tem tÃ©to bakalÃ¡Å™skÃ© prÃ¡ce bylo seznÃ¡menÃ­ se s problematikou komunikace pÅ™es Jabber sÃ­Å¥, kterÃ¡ zde byla rozebrÃ¡na.
+KonkrÃ©tnÃ­m cÃ­lem bylo vytvoÅ™enÃ­ jednoduchÃ©ho JabberovÃ©ho klienta, kterÃ½ by byl schopen zÃ­skÃ¡vat statistickÃ¡ data. NashromÃ¡Å¾dÄ›nÃ¡ data slouÅ¾ila pro pozdÄ›jÅ¡Ã­ analÃ½zu a grafickou reprezentaci informacÃ­ z nich zÃ­skanÃ½ch.}, % abstrakt v ceskem jazyce
   abstract.en={The objective of this thesis was acquaint oneself with problems of communication via Jabber network, which was also analyzed. The specific objective was to create a simple Jabber's client which would be able to obtain statistical data. The collected data was used for analysis and graphic representation of information.}, % abstrakt v anglickem jazyce
   %Prohlaseni
-  declaration={Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana ...},
+  declaration={ProhlaÅ¡uji, Å¾e jsem tuto bakalÃ¡Å™skou prÃ¡ci vypracoval samostatnÄ› pod vedenÃ­m pana ...},
   %Podekovani (nepovinne)
-  acknowledgment={Zde je mo¾né uvést podìkování vedoucímu práce a tìm, kteøí poskytli odbornou pomoc.} % nepovinne
+  acknowledgment={Zde je moÅ¾nÃ© uvÃ©st podÄ›kovÃ¡nÃ­ vedoucÃ­mu prÃ¡ce a tÄ›m, kteÅ™Ã­ poskytli odbornou pomoc.} % nepovinne
 }
 
 
 %Abstrakt (cesky, anglicky)
-\abstract[cs]{Pøedmìtem této bakaláøské práce bylo seznámení se s problematikou komunikace pøes Jabber sí», která zde byla rozebrána.
-Konkrétním cílem bylo vytvoøení jednoduchého Jabberového klienta, kterı by byl schopen získávat statistická data. Nashromá¾dìná data slou¾ila pro pozdìj¹í analızu a grafickou reprezentaci informací z nich získanıch.}
+\abstract[cs]{PÅ™edmÄ›tem tÃ©to bakalÃ¡Å™skÃ© prÃ¡ce bylo seznÃ¡menÃ­ se s problematikou komunikace pÅ™es Jabber sÃ­Å¥, kterÃ¡ zde byla rozebrÃ¡na.
+KonkrÃ©tnÃ­m cÃ­lem bylo vytvoÅ™enÃ­ jednoduchÃ©ho JabberovÃ©ho klienta, kterÃ½ by byl schopen zÃ­skÃ¡vat statistickÃ¡ data. NashromÃ¡Å¾dÄ›nÃ¡ data slouÅ¾ila pro pozdÄ›jÅ¡Ã­ analÃ½zu a grafickou reprezentaci informacÃ­ z nich zÃ­skanÃ½ch.}
 \abstract[en]{The objective of this thesis was acquaint oneself with problems of communication via Jabber network, which was also analyzed. The specific objective was to create a simple Jabber's client which would be able to obtain statistical data. The collected data was used for analysis and graphic representation of information.}
 
 %Klicova slova (cesky, anglicky)
-\keywords[cs]{Jabber, XMPP, robot, datamining, dolování dat.}
+\keywords[cs]{Jabber, XMPP, robot, datamining, dolovÃ¡nÃ­ dat.}
 \keywords[en]{Jabber, XMPP, robot, datamining.}
 
 %Prohlaseni
-\declaration{Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana Ing. Josefa Mlícha.
-Uvedl jsem v¹echny literární prameny a publikace, ze kterıch jsem èerpal.}
+\declaration{ProhlaÅ¡uji, Å¾e jsem tuto bakalÃ¡Å™skou prÃ¡ci vypracoval samostatnÄ› pod vedenÃ­m pana Ing. Josefa MlÃ­cha.
+Uvedl jsem vÅ¡echny literÃ¡rnÃ­ prameny a publikace, ze kterÃ½ch jsem Äerpal.}
 
 %Podekovani (nepovinne)
-\acknowledgment{Tímto bych chtìl podìkovat mému vedoucímu bakaláøské práce Ing. Josefovi Mlíchovi za ochotu a kladnı pøístup pøi konzultacích. Dále za poskytnutí hardware na nìm¾ bì¾el program a sbíral data.}
+\acknowledgment{TÃ­mto bych chtÄ›l podÄ›kovat mÃ©mu vedoucÃ­mu bakalÃ¡Å™skÃ© prÃ¡ce Ing. Josefovi MlÃ­chovi za ochotu a kladnÃ½ pÅ™Ã­stup pÅ™i konzultacÃ­ch. DÃ¡le za poskytnutÃ­ hardware na nÄ›mÅ¾ bÄ›Å¾el program a sbÃ­ral data.}
 
 \begin{document}
   % Vysazeni titulnich stran

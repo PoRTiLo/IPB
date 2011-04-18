@@ -32,185 +32,199 @@
 
 \chapter{Stanza - základní schéma}\label{Estanza}
 
+Pøehled základních elementù, které jsou vyu¾ívány pøi Jabber komunikaci. Struktura jednotlivých èástí stanzy ukazuje pouze prvky relativní k této práci. Pomocí hranatých závorek je znázornìna mno¾ina, ze které musí být vybrán právì jeden prvek. Na místì uvozovek se oèekává jakákoliv povolená hodnota.
 
-\section{iq}\label{Eiq}
+
+\section{Iq}\label{Eiq}
 
 \begin{figure}[h]
 \lstset{language=Xml ,caption={Popis elementu \textit{iq}.},label=picEiq}
 \begin{lstlisting}
-<iq from=""
-    to=""
-    type="[get,set,result,error]"
-    id=""
-  Namespace
-</ig>
+          <iq from=""
+              to=""
+              type="[get,set,result,error]"
+              id=""
+            Namespace
+          </iq>
 \end{lstlisting}
 \end{figure}
 
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{ l  l  l  l } 
-jabber:client & jabber:server& jabber:iq:auth& jabber:iq:register\\ 
-jabber:iq:roster& jabber:x:offline& jabber:iq:agent& jabber:iq:agents\\ 
- jabber:x:delay& jabber:iq:version& jabber:iq:time& vcard-temp\\ 
- jabber:iq:private& jabber:iq:search& jabber:iq:oob& jabber:x:oob\\ 
- jabber:iq:admin& jabber:iq:filter& jabber:iq:auth:0k& jabber:iq:browse\\ 
-jabber:x:event& jabber:iq:conference& jabber:x:signed& jabber:x:encrypted\\ 
- jabber:iq:gateway& jabber:iq:last& jabber:x:envelope& jabber:x:expire\\ 	
-  jabber:xdb:ginsert& jabber:xdb:nslist&\multicolumn{2}{l}{texthttp://www.w3.org/1999/xhtml}
-\end{tabular}
-\caption{Pøehled Namespace elementu \textit{\textless iq/\textgreater}.}
-\label{tabNamespaceIqE}
-\end{center} 
-\end{table}
+%\begin{table}[h]
+%\begin{center}
+%\begin{tabular}{ l  l  l  l } 
+%jabber:client & jabber:server& jabber:iq:auth& jabber:iq:register\\ 
+%jabber:iq:roster& jabber:x:offline& jabber:iq:agent& jabber:iq:agents\\ 
+% jabber:x:delay& jabber:iq:version& jabber:iq:time& vcard-temp\\ 
+% jabber:iq:private& jabber:iq:search& jabber:iq:oob& jabber:x:oob\\ 
+% jabber:iq:admin& jabber:iq:filter& jabber:iq:auth:0k& jabber:iq:browse\\ 
+%jabber:x:event& jabber:iq:conference& jabber:x:signed& jabber:x:encrypted\\ 
+% jabber:iq:gateway& jabber:iq:last& jabber:x:envelope& jabber:x:expire\\ 	
+%  jabber:xdb:ginsert& jabber:xdb:nslist&\multicolumn{2}{l}{texthttp://www.w3.org/1999/xhtml}
+%\end{tabular}
+%\caption{Pøehled Namespace elementu \textit{iq}.}
+%\label{tabNamespaceIqE}
+%\end{center} 
+%\end{table}
 
-\newpage
+
 \section{Message}\label{Emessage}
 
 \begin{figure}[h]
-\begin{verbatim}
-<message from=""
-         to=""
-         type="[normal,chat,groupchat, headline, error]"
-         id=""
-  <body>  </body>
-  <x xmlns="jabber:x:event">
-     <[Offline, Delivered, Displayed, Composing]/>
-  <subject>  </subject>
-  <thread>   </thread>
-  <error>    </error>
-  <x>        </x>
-</message>
-\end{verbatim}  
-\caption{Popis elementu \textit{\textless message/\textgreater}.}
- \label{picMessageE}
+\lstset{language=Xml ,caption={Popis elementu \textit{message}.},label=picMessageE}
+\begin{lstlisting}
+      <message from=""
+               to=""
+               type="[normal,chat,groupchat, headline, error]"
+               id=""
+        <body>  </body>
+        <x xmlns="jabber:x:event">
+           [Offline, Delivered, Displayed, Composing]
+        <subject>  </subject>
+        <thread>   </thread>
+        <error>    </error>
+        <x>        </x>
+      </message>
+\end{lstlisting}
 \end{figure}
 
 \section{Presence}\label{Epresence}
+
 \begin{figure}[h]
-\begin{verbatim}
-<presence from=""
-          to=""
-          type="[available, unavailable, probe, subscribe,
-                 unsubscribe, subscribed, unsubscribed, error]"
-          id=""
-  <show>
-    [away, chat, dnd, normal, xa]
-  </show>
-  <status>     </status>
-  <priority>   </priority>
-  <error>      </error>
-</presence>
-\end{verbatim} 
-\caption{Popis elementu \textit{\textless presence/\textgreater}.}
- \label{picPresenceE}
+\lstset{language=Xml ,caption={Popis elementu \textit{presence}.},label=picPresenceE}
+\begin{lstlisting}
+      <presence from=""
+                to=""
+                type="[available, unavailable, probe, subscribe,
+                       unsubscribe, subscribed, unsubscribed, error]"
+                id=""
+        <show>
+          [away, chat, dnd, normal, xa]
+        </show>
+        <status>     </status>
+        <priority>   </priority>
+        <error>      </error>
+      </presence>
+\end{lstlisting}
 \end{figure}
+
 
 \newpage
 \section{Pøehled prùbìhu roz¹íøení}\label{Erozsireni}
-\begin{figure}[ht]
-\begin{verbatim}
-<iq from="uzivatel@jabbim.com" type="set" id="pub1">
-   <pubsub xmlns="http://jabber.org/protocol/pubsub">
-      <publish node="http://jabber.org/protocol/tune">
-         <item>
-            <tune xmlns="http://jabber.org/protocol/tune">
-               <artist>Daniel Landa</artist>
-               <length>255</length>
-               <source>Nigredo</source>
-               <title>1968</title>
-               <track>5</track>
-            </tune>
-         </item>
-      </publish>
-   </pubsub>
-</iq>
-\end{verbatim}  
-\caption{Informování server o právì pøehrávající písnièce.}
- \label{picSPep1}
+
+Ukázka celého pøíkladu ¹íøení statusu pomocí roz¹íøení \textit{Usre Tune}. U¾ivatel \textit{user} poslouchá hudbu a informuje server zasláním zprávy zobrazené v pøíkladu \ref{picSPep1}.
+\begin{figure}[h]
+\begin{center}
+\input{stanza}
+\caption{Ukázka \uv{¹íøení} \textit{User Tune}.}
+ \label{dbscan}
+\end{center}
 \end{figure}
 
-\begin{figure}[ht]
-\begin{verbatim}
-<message from="uzivatel@jabbim.com" type="set"
-         to="jabinfo@jabbim.com/bot" id="pub1">
-   <event xmlns="http://jabber.org/protocol/pubsub#event">
-      <items node="http://jabber.org/protocol/tune">
-         <item>
-            <tune xmlns="http://jabber.org/protocol/tune">
-               <artist>Daniel Landa</artist>
-               <length>255</length>
-               <source>Nigredo</source>
-               <title>1968</title>
-               <track>5</track>
-            </tune>
-         </item>
-      </items>
-   </event>
-</message>
-\end{verbatim}  
-\caption{Server informuje u¾ivatele podporující roz¹íøení o stavu \textit{uzivatel@jabbim.com}.}
- \label{picSPep2}
+\begin{figure}[h]
+\lstset{language=Xml ,caption={Informování serveru o právì pøehrávající hudbì.},label=picSPep1}
+\begin{lstlisting}
+      <iq from="user@jabbim.com" type="set" id="pub1">
+         <pubsub xmlns="http://jabber.org/protocol/pubsub">
+            <publish node="http://jabber.org/protocol/tune">
+               <item>
+                  <tune xmlns="http://jabber.org/protocol/tune">
+                     <artist>Daniel Landa</artist>
+                     <length>255</length>
+                     <source>Nigredo</source>
+                     <title>1968</title>
+                     <track>5</track>
+                  </tune>
+               </item>
+            </publish>
+         </pubsub>
+      </iq>
+\end{lstlisting}
+\end{figure}
+\newpage
+Server obdr¾í informace od klienta \textit{user} zprávu o pøehrávající hudbì. Pomocí elementu \textit{message} ji pøepo¹le v¹em u¾ivatelùm z kontakt listu u¾ivatele \textit{user}, kteøí jsou pro odbìr tìchto typù zpráv zaregistrováni. Tato struktura zprávy je prezentována na pøíkladu \ref{picSPep2}.
+\begin{figure}[h]
+\lstset{language=Xml ,caption={Server informuje u¾ivatele podporující roz¹íøení o stavu \textit{user@jabbim.com}.},label=picSPep2}
+\begin{lstlisting}
+      <message from="user@jabbim.com" type="set"
+               to="jabinfo@jabbim.com/bot" id="pub1">
+         <event xmlns="http://jabber.org/protocol/pubsub#event">
+            <items node="http://jabber.org/protocol/tune">
+               <item>
+                  <tune xmlns="http://jabber.org/protocol/tune">
+                     <artist>Daniel Landa</artist>
+                     <length>255</length>
+                     <source>Nigredo</source>
+                     <title>1968</title>
+                    <track>5</track>
+                  </tune>
+               </item>
+            </items>
+         </event>
+      </message>
+\end{lstlisting}
 \end{figure}
 
-\begin{figure}[ht]
-\begin{verbatim}
-<message from="uzivatel@jabbim.com" type="set"
-         to="uzivatel@jabbim.com/doma" id="pub2">
-   <event xmlns="http://jabber.org/protocol/pubsub#event">
-      <items node="http://jabber.org/protocol/tune">
-         <item>
-            <tune xmlns="http://jabber.org/protocol/tune">
-               <artist>Daniel Landa</artist>
-               <length>255</length>
-               <source>Nigredo</source>
-               <title>1968</title>
-               <track>5</track>
-            </tune>
-         </item>
-      </items>
-   </event>
-</message>
-\end{verbatim}  
-\caption{Server pøepo¹le informace o pøehrávané písnièce v¹em otevøeným spojením u¾ivatele \textit{uzivatel@jabbim.com}.}
- \label{picSPep3}
+Zpráva o pøehrávané hudbì je také pøeposlána v¹em otevøeným spojením u¾ivatele \textit{user}, ukázáno na pøíkladì \ref{picSPep3}.
+
+\begin{figure}[h]
+\lstset{language=Xml ,caption={Server pøepo¹le informace o pøehrávané hudbì v¹em otevøeným spojením u¾ivatele \textit{user@jabbim.com}.},label=picSPep3}
+\begin{lstlisting}
+      <message from="user@jabbim.com" type="set"
+               to="user@jabbim.com/doma" id="pub2">
+         <event xmlns="http://jabber.org/protocol/pubsub#event">
+            <items node="http://jabber.org/protocol/tune">
+               <item>
+                  <tune xmlns="http://jabber.org/protocol/tune">
+                     <artist>Daniel Landa</artist>
+                     <length>255</length>
+                     <source>Nigredo</source>
+                     <title>1968</title>
+                     <track>5</track>
+                  </tune>
+               </item>
+            </items>
+         </event>
+      </message>
+\end{lstlisting}
+\end{figure}
+\newpage
+Pøestane--li u¾ivatel \textit{user} poslouchat/vysílat informace o pøehrávané hudbì, provede to pomocí zprávy ukázané na pøíkladu \ref{picSPep4}. Zpráva typu \textit{iq}, ve které je polo¾ka \textit{tune} nesoucí informace o skladbì prázdná.
+\begin{figure}[h]
+\lstset{language=Xml ,caption={U¾ivatel ukonèil \uv{vysílaní} roz¹íøených zpráv o svém stavu.},label=picSPep4}
+\begin{lstlisting}
+      <iq from="user@jabbim.com/prace" type="set" id="pub1">
+         <pubsub xmlns="http://jabber.org/protocol/pubsub">
+            <publish node="http://jabber.org/protocol/tune">
+               <item>
+                  <tune xmlns="http://jabber.org/protocol/tune"/>
+               </item>
+            </publish>
+         </pubsub>
+      </iq>
+\end{lstlisting}
 \end{figure}
 
-\begin{figure}[ht]
-\begin{verbatim}
-<iq from="uzivatel@jabbim.com/prace" type="set" id="pub1">
-   <pubsub xmlns="http://jabber.org/protocol/pubsub">
-      <publish node="http://jabber.org/protocol/tune">
-         <item>
-            <tune xmlns="http://jabber.org/protocol/tune"/>
-         </item>
-      </publish>
-   </pubsub>
-</iq>
-\end{verbatim}  
-\caption{U¾ivatel ukonèil \uv{vysílaní} roz¹íøených zpráv o svém stavu.}
- \label{picSPep4}
+Server informuje v¹echny úèastníky odbìru zprávou, která má polo¾ku \textit{tune} prázdnou. Tak jak to prezentuje pøíklad \ref{picSPep5}.
+
+\begin{figure}[h]
+\lstset{language=Xml ,caption={Server informuje klienty o ukonèení ¹íøení roz¹íøeného statusu u¾ivatele \textit{user@jabbim.com}.},label=picSPep5}
+\begin{lstlisting}
+      <message from="user@jabbim.com"
+               to="jabinfo@jabbim.com/bot">
+         <event xmlns="http://jabber.org/protocol/pubsub#event">
+            <items node="http://jabber.org/protocol/tune">
+               <item>
+                  <tune xmlns="http://jabber.org/protocol/tune"/>
+               </item>
+            </items>
+         </event>
+      </message>
+\end{lstlisting}
 \end{figure}
 
-\begin{figure}[ht]
-\begin{verbatim}
-<message from="uzivatel@jabbim.com"
-         to="jabinfo@jabbim.com/bot">
-   <event xmlns="http://jabber.org/protocol/pubsub#event">
-      <items node="http://jabber.org/protocol/tune">
-         <item>
-            <tune xmlns="http://jabber.org/protocol/tune"/>
-         </item>
-      </items>
-   </event>
-</message>
-\end{verbatim}  
-\caption{Server informuje klienty o ukonèení ¹íøení roz¹íøeného statusu u¾ivatele \textit{uzivatel@jabbim.com}.}
- \label{picSPep5}
-\end{figure}
 
 \chapter{Pøehled klientù a jejich roz¹íøení}\label{Eklient}
-...... sdufiysdiufisudfyn df ..
+
 
 .
 zrofj http://xmpp.org/xmpp-software/clients/

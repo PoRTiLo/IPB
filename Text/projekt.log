@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  17 APR 2011 23:08
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  19 APR 2011 00:57
 entering extended mode
  %&-line parsing enabled.
 **projekt
@@ -662,7 +662,14 @@ File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
 \Fld@listcount=\count149
 )
 \du=\skip56
- (./projekt.aux)
+ (./projekt.aux
+
+LaTeX Warning: Label `XEP-0115' multiply defined.
+
+
+LaTeX Warning: Label `dbscan' multiply defined.
+
+)
 \openout1 = `projekt.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 160.
@@ -683,8 +690,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 160.
 LaTeX Font Info:    ... okay on input line 160.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 160.
 LaTeX Font Info:    ... okay on input line 160.
-
-(/usr/share/texmf/tex/context/base/supp-pdf.mkii
+ (/usr/share/texmf/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count150
 \scratchdimen=\dimen190
@@ -791,7 +797,7 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.4 \chapter
+l.5 \chapter
             {Úvod} [1
 
 
@@ -801,7 +807,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.14 \chapter
+l.15 \chapter
              {XMPP} [2
 
 ]
@@ -810,7 +816,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28 
+l.26 
       [3
 
 ] (./struktura.tex) (./jabinfo.tex)
@@ -821,100 +827,101 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.54 \begin{enumerate}
+l.53 \begin{enumerate}
                        [4] [5]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 98.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 95.
 
 (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 98.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 95.
  [6]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7] [8] [9] [10]
+[7] [8] [9] [10] [11]
 Kapitola 3.
 \c@definice=\count157
-[11
+[12
 
-] (./datamining.tex) [12] [13]
-LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 385
+] (./datamining.tex) [13] [14]
+LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 362
 .
 
 (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
 File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
-) [14] (./statistika.tex)
+) [15] (./statistika.tex)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15] [16] (./dbscan.tex) [17] [18]
+[16] [17] (./dbscan.tex) [18] [19]
 Kapitola 4.
 (./Database1.tex)
-Overfull \hbox (25.01682pt too wide) in paragraph at lines 1149--517
+Overfull \hbox (25.01682pt too wide) in paragraph at lines 1149--494
  [] 
  []
 
-[19
+[20
 
-] [20]
+] [21]
 Kapitola 5.
-[21
+[22
 
 ]
 Kapitola 6.
-) (./projekt.bbl [22
+) (./projekt.bbl [23
 
-] [23
+] [24
 
-]) (./prilohy.tex [24]
+]) (./prilohy.tex [25]
 P\v {r}\'{\i }loha A.
-[25
-
-]
-P\v {r}\'{\i }loha B.
 [26
 
 ]
-P\v {r}\'{\i }loha C.
+P\v {r}\'{\i }loha B.
 [27
 
 ]
-P\v {r}\'{\i }loha D.
+P\v {r}\'{\i }loha C.
 [28
 
 ]
-P\v {r}\'{\i }loha E.
-LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 62.
+P\v {r}\'{\i }loha D.
 [29
 
-] [30] [31] [32]
+]
+P\v {r}\'{\i }loha E.
+[30
+
+] [31] (./stanza.tex) [32] [33] [34]
 P\v {r}\'{\i }loha F.
 LaTeX Font Info:    Font shape `IL2/cmtt/bx/n' in size <6> not available
-(Font)              Font shape `IL2/cmtt/m/n' tried instead on input line 265.
+(Font)              Font shape `IL2/cmtt/m/n' tried instead on input line 279.
 
-Overfull \hbox (0.53485pt too wide) in paragraph at lines 326--327
+Overfull \hbox (0.53485pt too wide) in paragraph at lines 340--341
 [][] 
  []
 
-) [33
+) [35
 
-] [34] (./projekt.aux)
+] [36] (./projekt.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 17495 strings out of 495027
- 274490 string characters out of 1181420
- 417314 words of memory out of 3000000
- 20052 multiletter control sequences out of 15000+50000
+ 17609 strings out of 495027
+ 276146 string characters out of 1181420
+ 522433 words of memory out of 3000000
+ 20065 multiletter control sequences out of 15000+50000
  25389 words of font info for 71 fonts, out of 3000000 for 9000
  38 hyphenation exceptions out of 8191
- 47i,11n,57p,1390b,1542s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,11n,57p,1393b,1543s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8a.enc}</usr/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
@@ -930,9 +937,9 @@ csr8.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csr9.pfb></usr/share/t
 exmf-texlive/fonts/type1/public/cs/csti10.pfb></usr/share/texmf-texlive/fonts/t
 ype1/public/cs/cstt10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/cstt8
 .pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on projekt.pdf (38 pages, 343916 bytes).
+Output written on projekt.pdf (40 pages, 371841 bytes).
 PDF statistics:
- 678 PDF objects out of 1000 (max. 8388607)
- 206 named destinations out of 1000 (max. 500000)
+ 826 PDF objects out of 1000 (max. 8388607)
+ 304 named destinations out of 1000 (max. 500000)
  231 words of extra memory for PDF output out of 10000 (max. 10000000)
 
