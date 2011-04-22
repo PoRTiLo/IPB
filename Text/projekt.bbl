@@ -16,6 +16,10 @@ Adams, D.: \emph{Programming jabber}. Sebastopol: O'Reilly, první vydání, 2002,
 Berka, P.: \emph{Dobývání znalostí z databází}. Praha: Academia, první vydání,
   2003, 366 s., iSBN~80-200-1062-9.
 
+\bibitem{Bramer}
+Bramer, M.: \emph{Principles of Data mining}. London: Springer, první vydání,
+  2007, 343 s., iSBN~18-462-8765-0.
+
 \bibitem{Fayyad}
 Fayyad, U.~M.; Smyth, P.: \emph{Advances in knowledge discovery and data
   mining}. California: MIT Press, první vydání, 1996, 611 s.,
@@ -115,5 +119,9 @@ Saint-André, P.: Extensible Messaging and Presence Protocol (XMPP): Instant
 Saint-André, P.; Smith, K.; Troncon, R.: \emph{XMPP : the definitive guide :
   building real-time applications with jabber technologies}. Sebastopol:
   O'Reilly, první vydání, 2009, 287 s., iSBN~978-059-6521-264.
+
+\bibitem{Rezankova}
+Øezánková, H.; Húsek, D.; Sná¹el, V.: \emph{Shluková analýza dat}. Praha:
+  Professional Publishing, druhé vydání, 2009, 218 s., iSBN~978-808-6946-818.
 
 \end{thebibliography}
