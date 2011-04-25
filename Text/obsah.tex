@@ -565,10 +565,21 @@ Díky jednoduchosti a relativní rychlosti je metoda \textit{k-means} stále výrazn
 \end{figure}
 
 \section{Programy}
-\subsection*{Fitminer}
-\subsection*{Rapid miner}
-\subsection*{Weka}
+V souèasné dobì na programovém trhu existuje mnoho systému, které jsou zamìøeny na data mining. Mezi nejroz¹íøenìj¹í a nejdostupnìj¹í nástroje patøí Weka a RapidMiner. K tìmto nástrojùm je také mo¾né zaøadit program vyvíjený na fakultì informaèních technologií v Brnì. V této práci byl pro samotný data miningg vyu¾it program RapidMiner, který dostal pøednost pøed ostatními. Z pohledu nástroje FIT-miner, který ve své základní èásti podporuje z databází pouze MySQL, se RapidMiner jevil jako vhodnìj¹í. Kompatibilitu pro databáze typu PostgreSQL ji¾ mìl zabudovanou a tak nebylo potøeba vyvíjet ¾ádné doplòující moduly, jak by to bylo u FIT-mineru. V pøípadì nástroje Weka, RapidMiner pùsobil propracovanìj¹ím dojmem a také nabízí lep¹í grafické zobrazení vyhodnocených výsledkù. 
+\subsection*{RapidMiner}
+RapidMiner je, tak jak je popsán na oficiálních stránkách produktu \cite{XXX}, celosvìtovì nejpou¾ívanìj¹í open--source systém pro dolování dat. Je mo¾né jej pou¾ívat jako samotnou aplikaci nebo jej zaèlenit jako komponentu do vlastních výrobkù. Pro zájemce je nabízen také ve verzích  pro firmy, které jsou rozdílné v poplatcích, podpoøe pro zákazníka, záruce a dal¹ích balíècích slu¾eb zaji¹»ující celkovou komplexnost a spolehlivost produktu.
+
+Jak ji¾ vìt¹ina podobných aplikací, je v souèasné dobì implementován v jazyce Java, díky které nabízí flexibilní nejen grafické prostøedí. K vybraným základním rysùm toho nástroje, tak jak jsou prezentovány firmou \textit{Rapid-i}, patøí: výkonné, pøesto intuitivní grafické u¾ivatelské rozhraní pro návrh procesù, jednoduché øe¹ení pro transformaci dat, kontrola výsledkù ji¾ pøi samotném návrhu a dal¹í. Nástrojem RapidMinerem je podporována ¹iroká ¹kála metod a algoritmù pro data minig, nejen vlastních a i z konkurenèního softwaru Weka. V základní verzi urèené pro veøejnost je k nalezení pøes 100 procesù k modelování. Jsou zde zastoupeny jak metody klasifikaèní a asociaèní, tak i metody shlukovací z nich¾ lze jmenovat napøíklad DBSCAN, \textit{k}--medoids a hlavnì \textit{k}--means. 
+
+K dal¹ím schopnostem RapidMineru je mo¾nost spu¹tìní jeho samotného pomocí grafického rozhraní nebo z pøíkazové øádky. Jak ji¾ bylo uvedeno døíve, je také mo¾né jej pou¾ít jako knihovnu v jazyce Java. V této práci jsou skloubeny první dvì mo¾nosti pou¾ití. Pomocí grafického prostøedí byl vytvoøen experiment, otestována jeho funkènost a následnì pro jednotlivá shlukování pou¾ita ¹ablona procesu, která byla volána z pøíkazové øádky. Tato mo¾nost je k dispozici díky tomu, ¾e jsou projekty v programu RapidMiner ukládány do èitelné a strukturované formy za pomocí znaèkovacího jazyka xml.
+
 \chapter{Implementace}
+Obsahem ètvrté kapitoly je popis praktické èásti této práce. Jsou zde popsány jednotlivé prvky, které byly pou¾ity jak pro získání dat, tak pro jejich následné ulo¾ení. 
+
+Cílem této práce je dolování dat z Jabberu. Jak ji¾ bylo døíve napsáno, Jabber je real--time komunikaèní slu¾ba díky ní¾ mohou její u¾ivatelé komunikovat, informovat nebo sdílet svùj status s jinými u¾ivateli. Celá tato vzájemná komunikace skrývá nepøeberné mno¾ství informací o klientech dané sítì. V¹echna tato navzájem vymìnìná nebo poskytnutá data následnì poslou¾í jako zdroj samotnému dolování. Pro jejich uskladnìní je vyu¾ita databáze, jejich¾ strukturální návrh prezentuje obrázek è. \ref{picDatabase}. 
+
+Druhá èást této kapitoly je zamìøena na robota, co¾ je Jabber klient implementován v jazyce C++ s konzolovým rozhraním. Robot v této práci hraje roli pasivního u¾ivatele, který informace pouze pøijímá. Ve vybraných pøípadech doká¾e u¾ivatele ve svém kontakt listu vyzvat k zaslání odpovìdi s informacemi na po¾adovanou ¾ádost. Struktura samotného robota je popsána ní¾e a reprezentována obrázkem è. \ref{picRobot}. Na konci èásti o Jabber robotovi bude zmínìno o knihovnì \textit{gloox} \cite{gloox}, kterou je zprostøedkovány v¹echny nále¾itosti Jabber komunikace.
+
 %\section{Slepá ulièka}
 %Pùvodní návrh práce od stávajícího se odli¹uje v tìchto bodech:
 %\begin{enumerate}
@@ -577,15 +588,25 @@ Díky jednoduchosti a relativní rychlosti je metoda \textit{k-means} stále výrazn
 %\end{enumerate}
 %První bod nemohl být splnìn kvùli nepodporovanému stavu invisible. Neexistuje ¾ádná schválená ani rozpracovaná verze XEPu, která by ukazovala jak stavu neviditelnosti dosáhnout.
 %Druhý bod pùvodního návrh ztroskotal na neschopnosti Jabber klientù a serverù pracovat korektnì s prioritou. V XEP-XXXX se pouze doporuèuje nastavení stejné hodnoty priority do v¹ech resource. Tato vlastnost by mìla poskytnout mo¾nost rozesílat zpráva v¹em zdrojùm daného úètu se stejnou prioritou. Samozøejmì by nesmìl mít ¾ádný jiný zdroj priority vy¹¹í.
+
 \section{Databáze}
+
+Data, která jsou sbírána robotem, jsou ukládána do objektovì--relaèní databáze PostgreSQL\footnote{vyvinul se z projektu Ingres}. PostgreSQL nebo--li také Postgres byl pou¾it ve verzi 8.4.7 a je provozován na operaèním systému Ubuntu Maverick verze 10.10.
 \subsection*{Návrh databáze}
+Struktura databáze, do které je ukládána ve¹kerá komunikace Jabber robota, vyu¾ívá relaèní model. Obrázkem è. \ref{picDatabase} jsou prezentovány nejdùle¾itìj¹í èásti databáze. Celou strukturu návrhu je mo¾né nalézt v pøíloze \ref{Edatabase}. V jednotlivých èástí návrhu databáze je poèítáno s jejím druhotným vyu¾itím obsahu, které bude popsáno v dal¹ích èástí této práce.
+
+%temporalni DB
+V dobì návrhu databáze zcela nebylo jasné, která data budou následnì analyzována. Z toho dùvodu se struktura databáze sna¾í zachytit v¹echna \uv{dùle¾itá} data. Pøedem nebylo urèen typ znalostí, kterých by se pøi dolování mìlo dosáhnout. Za úèelem neztratit ¾ádná data, je v návrhu databáze obsa¾ena tabulka \textit{xml}, která je nositelem obsah jak v¹ech pøijatých, tak i odeslaných zpráv.
+
+
 \begin{figure}[hb]
 \begin{center}
 \input{Database1}
 \caption{Struktura databáze}
- \label{pic1}
+ \label{picDatabase}
 \end{center}
 \end{figure}
+\subsection*{Transformace dat}
 \section{Architektura}
 --robot plus databaze
 --rapidminer--spusteni davkove/vlastni algoritmus v PHP
@@ -593,9 +614,9 @@ Díky jednoduchosti a relativní rychlosti je metoda \textit{k-means} stále výrazn
 \section{Robot}
 --class diagram, pomoci nej popsat strukturu, mozne rozsireni
 \subsection*{gloox}
-Gloox je stabilní Jabber/XMPP knihovna vydávána pod licencí GNU GPL. Je urèena pro vývoj klienta a komponent. Jeliko¾ je psána v ANSCI C++ mezi podporované platformy patøí Linux, Windows, Mac OS X, Symbian/Nokia S60, FreeBSD a dal¹í systémy stavìjící na ANSI C++ kompilátor.
+Gloox je stabilní Jabber/XMPP knihovna vydávána pod licencí GNU GPL. Je urèena pro vývoj klienta a komponent. Jeliko¾ je psána v ANSCI C++ je mo¾né ji oznaèit jako multiplatformní \footnote{Linux, Windows, Mac OS X, Symbian/Nokia S60, FreeBSD}.
 
-Pomocí knihovny gloox je psán bot v této práci. Byla vybrána na základì po¾adavku psaní programu v jazyce C/C++ a operaèním systému Linux. V porovnání s jinými knihovnami pro jazyk C nebo C++ disponuje lep¹í podporou a dokumentací. Gloox plnì podporuje standart XMPP Core \cite{Rfc3920} a z vìt¹í èásti i standard XMPP IM \cite{Rfc3921}. Dodateènì je plnì podporováno kolem 30 XEP standardù napøíklad XEP-0054 vcard-temp a dal¹í.
+Pomocí knihovny gloox je psán bot v této práci. Byla vybrána na základì po¾adavku psaní programu v jazyce C/C++ a operaèním systému Linux. V porovnání s jinými knihovnami pro jazyk C nebo C++ disponuje lep¹í podporou a dokumentací. Gloox plnì podporuje standart XMPP Core \cite{Rfc3920} a z vìt¹í èásti i standard XMPP IM \cite{Rfc3921}. Dodateènì je plnì podporováno kolem 30 XEP standardù napøíklad vcard-temp\cite{Xep0054} a dal¹í.
 
 \subsection*{Návrh bota}
 %\section{Knihovny, jazyk}

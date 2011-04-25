@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  24 APR 2011 23:04
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  25 APR 2011 23:08
 entering extended mode
  %&-line parsing enabled.
 **projekt
@@ -911,46 +911,59 @@ File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
 (./statistika.tex) [17] [18]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 513.
- [19] [20]
+ [19]
+
+LaTeX Warning: Citation `XXX' on page 20 undefined on input line 570.
+
+[20] [21]
 Kapitola 4.
+
+LaTeX Warning: Reference `picRobot' on page 22 undefined on input line 581.
+
+
+LaTeX Warning: Citation `gloox' on page 22 undefined on input line 581.
+
+
+LaTeX Warning: Reference `Edatabase' on page 22 undefined on input line 596.
+
 (./Database1.tex)
-Overfull \hbox (25.01682pt too wide) in paragraph at lines 1149--585
+Overfull \hbox (25.01682pt too wide) in paragraph at lines 1149--605
  [] 
  []
 
-[21
+[22
 
-] [22]
+] [23] [24]
 Kapitola 5.
-[23
+[25
 
 ]
 Kapitola 6.
-) (./projekt.bbl [24
+) (./projekt.bbl [26
 
-] [25
+] [27
 
-]) (./prilohy.tex [26]
+]) (./prilohy.tex [28]
 P\v {r}\'{\i }loha A.
-[27
-
-]
-P\v {r}\'{\i }loha B.
-[28
-
-]
-P\v {r}\'{\i }loha C.
 [29
 
 ]
-P\v {r}\'{\i }loha D.
+P\v {r}\'{\i }loha B.
 [30
 
 ]
-P\v {r}\'{\i }loha E.
+P\v {r}\'{\i }loha C.
 [31
 
-] [32] (./stanza.tex) [33] [34] [35]
+]
+P\v {r}\'{\i }loha D.
+[32
+
+]
+P\v {r}\'{\i }loha E.
+[33
+
+] [34] (./stanza.tex) [35] [36] [37]
 P\v {r}\'{\i }loha F.
 LaTeX Font Info:    Font shape `IL2/cmtt/bx/n' in size <6> not available
 (Font)              Font shape `IL2/cmtt/m/n' tried instead on input line 279.
@@ -959,22 +972,25 @@ Overfull \hbox (0.53485pt too wide) in paragraph at lines 340--341
 [][] 
  []
 
-) [36
+) [38
 
-] [37] (./projekt.aux)
+] [39] (./projekt.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18235 strings out of 495027
- 286202 string characters out of 1181420
- 525303 words of memory out of 3000000
- 20651 multiletter control sequences out of 15000+50000
+ 18242 strings out of 495027
+ 286269 string characters out of 1181420
+ 527417 words of memory out of 3000000
+ 20655 multiletter control sequences out of 15000+50000
  25927 words of font info for 72 fonts, out of 3000000 for 9000
  38 hyphenation exceptions out of 8191
  47i,10n,68p,1396b,1551s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -996,9 +1012,9 @@ mf-texlive/fonts/type1/public/cs/csr9.pfb></usr/share/texmf-texlive/fonts/type1
 ></usr/share/texmf-texlive/fonts/type1/public/cs/cstt10.pfb></usr/share/texmf-t
 exlive/fonts/type1/public/cs/cstt8.pfb></usr/share/texmf-texlive/fonts/type1/ur
 w/helvetic/uhvr8a.pfb>
-Output written on projekt.pdf (41 pages, 412035 bytes).
+Output written on projekt.pdf (43 pages, 420447 bytes).
 PDF statistics:
- 876 PDF objects out of 1000 (max. 8388607)
- 322 named destinations out of 1000 (max. 500000)
+ 893 PDF objects out of 1000 (max. 8388607)
+ 325 named destinations out of 1000 (max. 500000)
  231 words of extra memory for PDF output out of 10000 (max. 10000000)
 

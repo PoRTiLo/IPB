@@ -9,19 +9,19 @@
 \contentsline {section}{\numberline {3.1}Metody dolovan\IeC {\'\i } dat}{14}{section.3.1}
 \contentsline {section}{\numberline {3.2}Shlukov\'an\IeC {\'\i }}{16}{section.3.2}
 \contentsline {section}{\numberline {3.3}Programy}{20}{section.3.3}
-\contentsline {chapter}{\numberline {4}Implementace}{21}{chapter.4}
-\contentsline {section}{\numberline {4.1}Datab\'aze}{21}{section.4.1}
-\contentsline {section}{\numberline {4.2}Architektura}{21}{section.4.2}
-\contentsline {section}{\numberline {4.3}Robot}{21}{section.4.3}
-\contentsline {chapter}{\numberline {5}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{23}{chapter.5}
-\contentsline {chapter}{\numberline {6}Z\'av\v er}{24}{chapter.6}
-\contentsline {chapter}{\numberline {A}Obsah CD}{27}{appendix.A}
-\contentsline {chapter}{\numberline {B}Manual}{28}{appendix.B}
-\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{29}{appendix.C}
-\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k v\'yraz\r u}{30}{appendix.D}
-\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{31}{appendix.E}
-\contentsline {section}{\numberline {E.1}Iq}{31}{section.E.1}
-\contentsline {section}{\numberline {E.2}Message}{31}{section.E.2}
-\contentsline {section}{\numberline {E.3}Presence}{32}{section.E.3}
-\contentsline {section}{\numberline {E.4}P\v rehled pr\r ub\v ehu roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{33}{section.E.4}
-\contentsline {chapter}{\numberline {F}P\v rehled klient\r u a jejich roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{36}{appendix.F}
+\contentsline {chapter}{\numberline {4}Implementace}{22}{chapter.4}
+\contentsline {section}{\numberline {4.1}Datab\'aze}{22}{section.4.1}
+\contentsline {section}{\numberline {4.2}Architektura}{23}{section.4.2}
+\contentsline {section}{\numberline {4.3}Robot}{23}{section.4.3}
+\contentsline {chapter}{\numberline {5}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{25}{chapter.5}
+\contentsline {chapter}{\numberline {6}Z\'av\v er}{26}{chapter.6}
+\contentsline {chapter}{\numberline {A}Obsah CD}{29}{appendix.A}
+\contentsline {chapter}{\numberline {B}Manual}{30}{appendix.B}
+\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{31}{appendix.C}
+\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k v\'yraz\r u}{32}{appendix.D}
+\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{33}{appendix.E}
+\contentsline {section}{\numberline {E.1}Iq}{33}{section.E.1}
+\contentsline {section}{\numberline {E.2}Message}{33}{section.E.2}
+\contentsline {section}{\numberline {E.3}Presence}{34}{section.E.3}
+\contentsline {section}{\numberline {E.4}P\v rehled pr\r ub\v ehu roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{35}{section.E.4}
+\contentsline {chapter}{\numberline {F}P\v rehled klient\r u a jejich roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{38}{appendix.F}
