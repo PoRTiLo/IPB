@@ -346,6 +346,9 @@ Informace lze chápat jako data, která byla obohacena o sémantiku (význam), jsou 
 
 
 \section{Transformace dat}\label{TransformaceDat}
+Transformace dat tvoøí tøetí èást z celkového procesu dobývání znalostí z databází. Do této doby data pro¹la ji¾ nìkolika kroky. V první fázi byla sbírána Jabber komunikace, která je popsána v první kapitole. Druhá fáze byla zamìøena na zú¾ení výsledné mno¾iny a proto byla vybrána jen data relevantní k této práci. I pøes tyto kroky relaèní databáze obsahuje velký poèet dat, která se nenachází ve stavu, kdy by mohla být pou¾ita jako zdroj pro data minig. Jak bude popsáno dále vìt¹ina metod pro dolování dat pracuje pouze s daty, která obsahují kvantitativní promìnné. Za tímto úèelem je potøeba v¹echny atributy tabulky z databáze, které mají být nadále pou¾ívány, pøevést na mìøitelné hodnoty.  
+
+mno¾ina $$ A\ = \{Available, Chat, Away, DND, XA, Unavailable\} $$ a mno¾ina $$\beta = \{xx,xx,xx,xx,xx,xx\}$$
 
 \section{Metody dolovaní dat}\label{MetodyDolovaiDat}
 Základ metod dolování dat je zalo¾en na statistice, posledních poznatcích z umìlé inteligence èi strojového uèení. Hlavní cíl tìchto netriviálních metod je spoleèný -- snaha zji¹tìné výsledky prezentovat srozumitelnou formou. Pro vìt¹inu pou¾ívaných metod je spoleèná vlastnost pøedpoklad, ¾e objekty popsané pomocí podobných charakteristik patøí do stejné skupiny (uèení na základì podobnosti similarity--based learning). Objekty obsahující atributy, lze pøevést na body v \textit{n}--rozmìrném prostoru, kde \textit{n} reprezentuje poèet atributù. Vychází z pøedstavy podobnosti bodù tvoøící urèité shluky v prostoru.
@@ -488,7 +491,29 @@ Hlavním zástupcem u uvedených metod je algoritmus \textit{k}--means, který je po
  %v ka¾dém kroku se pracuje se v¹emi shluky rozdìlení prvkù   se postupnì vylep¹uje.
 
 \subsubsection*{\textit{k}--means}\label{kMeans}
-Shlukování pomocí algoritmu \textit{k}--means je pou¾íváno pro data obsahující kvantitativní promìnné a pro data, která nejsou pøíli¹ za¹umìlá. Základní proces je tvoøen iterativním rozdìlováním objektù do tøíd na základì vzdáleností od jejich støedù. Støed nebo--li centroid shluku je vektor, jeho¾ vzdálenost od souètu vzdáleností objektù v této tøídì je minimální. Pro výpoèet vzdáleností mezi objekty samotnými nebo mezi objekty a støedem je pou¾ita euklidovská vzdálenost\footnote{mean=støed, centroid je vektor prùmìrù}, která je vyobrazena na obrázku è. \ref{picStat}. 
+Shlukování pomocí algoritmu \textit{k}--means je pou¾íváno pro data obsahující kvantitativní promìnné a pro data, která nejsou pøíli¹ za¹umìlá. Základní proces je tvoøen iterativním rozdìlováním objektù do tøíd na základì vzdáleností od jejich støedù. Støed nebo--li centroid shluku je vektor, jeho¾ vzdálenost od souètu vzdáleností objektù v této tøídì je minimální. Celý tento proces je prezentován na obrázku \ref{automat} pomocí jednoduchého schématu koneèného automatu. Jednotlivé kroky koneèného automatu odpovídají krokùm \textit{k}--means zobrazeného pomocí algoritmu \ref{algoritmus}.
+\begin{figure}[h]
+ \begin{center}
+   \begin{tikzpicture}[->,>=stealth',shorten >=1pt,%
+		      auto,node distance=2cm,on grid,semithick,
+		      inner sep=2pt,bend angle=45]
+    \node at ( 0,0) [initial,state, label=above:] (A){};
+    \node at ( 3,0) [state, label=above:](B)  {};
+    \node at ( 6,0) [state, label=above:](C)  {};
+    \node at ( 9,0) [state, accepting, label=above:](D)  {};
+    
+   
+    \path [every node/.style={font=\footnotesize}]
+      (A) edge node {$2.krok$} (B)
+      (B) edge node {$3.krok$} (C)
+      (C) edge [bend right] node {$4.krok$} (B)
+      (C) edge node {$4.krok$} (D);
+\end{tikzpicture}
+  \caption{Algoritmus \textit{k}--means zobrazený pomocí koneèného automatu.}
+  \label{automat}
+ \end{center}
+\end{figure}
+Pro výpoèet vzdáleností mezi objekty samotnými nebo mezi objekty a støedem je pou¾ita euklidovská vzdálenost\footnote{mean = støed, centroid je vektor prùmìrù}, která je vyobrazena na obrázku è. \ref{picStat}. 
 
 K hlavním výhodám algoritmu \textit{k}--means patøí jeho relativní efektivnost: $O(TKN)$, kde $N$ je poèet objektù, $K$ je poèet shlukù a $T$ je poèet iterací. Obvykle platí, ¾e poèet objektù je mnohem vìt¹í ne¾ poèet iterací i shlukù. Na druhou stranu má i øadu nevýhod, kvùli kterým je èasto rùznými zpùsoby modifikován (\textit{k}--medoids,
 %\footnote{PAM--Partitioning Around Medoids}
@@ -496,86 +521,26 @@ K hlavním výhodám algoritmu \textit{k}--means patøí jeho relativní efektivnost: 
 
 \textit{K}--menas je algoritmus, kterým jsou pøiøazovány objekty (vektory) $x_n$, kde $n=1,..,N$, 
 %\textit{I}--dimenzovaném prostoru (poèet atributù objektu) 
-do $S_k$, kde $k=1,...K$, shlukù. V prvním kroku jsou urèeny poèáteèní støedy tøíd, do kterých se budou objekty shlukovat. Urèení poèáteèních centroidù $c_k$ probíhá napøíklad náhodným výbìrem \textit{K} objektù nebo \textit{K} prvních objektù souboru. Druhým krokem jsou zkoumány jednotlivé vzdálenosti objektù $x_n$ od poèáteèních støedù $c_j$ pomocí euklidovské vzdálenosti. Na základì nejmen¹í zji¹tìné vzdálenosti mezi objektem a centroidem je objekt zaøazen do shluku, kterému nále¾í právì tento støed. Tøetím krokem tak jako u prvního jsou hledány nové støedy shlukù, nyní ale ji¾ na matematickém základì. Je vypoèítán na základì prùmìrných jednotlivých hodnot objektù a ulo¾en jako \textit{m}--rozmìrný vektor. Ètvrtým krokem se algoritmus dostává do koneèné fáze, kdy mohou nastat dva mo¾né pøípady. Novì nalezené støedy nejsou pøíli¹ vzdáleny od pøedchozích centroidù a proto je algoritmus ukonèen. Druhá èastìji se vyskytující mo¾nost iterativnì provádí algoritmus od druhého kroku dokud neplatí první mo¾nost nebo dokud se objekty nepøestanou pøemís»ovat úplnì. Pøi popisu tohoto algoritmu bylo èerpáno z \cite{Rezankova}.
+do $S_k$, kde $k=1,...K$, shlukù. V prvním kroku jsou urèeny poèáteèní støedy tøíd, do kterých se budou objekty shlukovat. Urèení poèáteèních centroidù $c_k$ probíhá napøíklad náhodným výbìrem \textit{K} objektù nebo \textit{K} prvních objektù souboru. Druhým krokem jsou zkoumány jednotlivé vzdálenosti objektù $x_n$ od poèáteèních støedù $c_j$ pomocí euklidovské vzdálenosti. Na základì nejmen¹í zji¹tìné vzdálenosti mezi objektem a centroidem je objekt zaøazen do shluku, kterému nále¾í právì tento støed. Tøetím krokem tak jako u prvního jsou hledány nové støedy shlukù, nyní ale ji¾ na matematickém základì. Je vypoèítán na základì prùmìrných jednotlivých hodnot objektù a ulo¾en jako \textit{m}--rozmìrný vektor. Ètvrtým krokem se algoritmus dostává do koneèné fáze, kdy mohou nastat dva mo¾né pøípady. Novì nalezené støedy nejsou pøíli¹ vzdáleny od pøedchozích centroidù a proto je algoritmus ukonèen. Druhá èastìji se vyskytující mo¾nost iterativnì provádí algoritmus od druhého kroku dokud neplatí první mo¾nost nebo dokud se objekty nepøestanou pøemís»ovat úplnì. Pøi popisu tohoto algoritmu bylo èerpáno z \cite{Rezankova, Berka}. Ní¾e zobrazený algoritmus \ref{algoritmus} prezentuje krok po kroku metodu \textit{k}--means.
 
 %-Je aplikovatelná, pouze pokud je tì¾i¹tì definováno.
-\floatname{algorithm}{Algoritmus}
-\begin{algorithm}                      % enter the algorithm environment
-                           % and a label for \ref{} commands later in the document
-\begin{algorithmic}                    % enter the algorithmic environment
-\REQUIRE $n \geq 0 \vee x \neq 0$
-\ENSURE $y = x^n$
-\STATE $y \Leftarrow 1$
-\IF{$n < 0$}
-\STATE $X \Leftarrow 1 / x$
-\STATE $N \Leftarrow -n$
-\ELSE
-\STATE $X \Leftarrow x$
-\STATE $N \Leftarrow n$
-\ENDIF
-\WHILE{$N \neq 0$}
-\IF{$N$ is even}
-\STATE $X \Leftarrow X \times X$
-\STATE $N \Leftarrow N / 2$
-\ELSE[$N$ is odd]
-\STATE $y \Leftarrow y \times X$
-\STATE $N \Leftarrow N - 1$
-\ENDIF
-\ENDWHILE
-\end{algorithmic}
-\caption{Calculate $y = x^n$}          % give the algorithm a caption
-\label{alg1}
-\end{algorithm}
+
+\def\lstlistingname{Algoritmus}
+\begin{figure}[h]
+\lstset{language=Algoritmus ,caption={Metoda \textit{k}-means byla pøevzata z \cite{Berka}.},label=algoritmus}
+\begin{lstlisting}
+1. náhodnì zvol rozklad do $K$ shlukù
+2. urèi centroidy pro v¹echny shluky v aktuálním rozkladu
+3. pro ka¾dý pøíklad $x$
+   3.1 urèi vzdálenosti $d(x,c_k)$, $k = 1,...,K$, kde $c_k$ je centorid k-tého shluku
+   3.2 nech» $d($x$,c_l)$ = min_k $d(x,c_k)$
+   3.3 není-li $x$ souèástí shluku $l$ (k jeho¾ centoridu $c_l$ má nejblí¾e), pøesuò $x$ do shluku $l$
+4. do¹lo-li k nìjakému pøesunu, potom jdi na $2$, jinak konec
+\end{lstlisting}
+\end{figure}
 
 Díky jednoduchosti a relativní rychlosti je metoda \textit{k-means} stále výraznì vyu¾ívána. Uplatnìní nachází v ¹iroké ¹kále oblastí jako je napøíklad biologie nebo poèítaèová grafika. Vzhledem k enormnímu poètu mo¾ného uspoøádaní nejsou výsledky v¾dy pøesné, ale èasto pouze pøibli¾né.
 
-\begin{figure}[h]
- \begin{center}
-%  \begin{tikzpicture}
- %   [place/.style={circle,draw=black!80,thick, inner sep=0pt,minimum size=10mm},
- %   transition/.style={rectangle,draw=black!80,thick,inner sep=0pt,minimum size=4mm},
- %   bend angle=45,
- %   pre/.style={<-, shorten <=1pt,>=stealth', semithick, minimum size=4mm},
- %   post/.style={->, shorten >=1pt, >=stealth', semithick,  minimum size=4mm}]
- %   \node at ( 0,0) [place, label=above:$1.krok$] (p0){};
- %   \node at ( 3,0) [place, label=above:$2.krok$] (p1){}
- %    edge [pre] (p0);
-  %  \node at ( 6,0) [place, label=above:$3.krok$] (p2){}
-  %    edge [pre] (p1)
-  %    edge [post, bend right] (p1);
-  %  \node at ( 9,0) [place, label=above:$4.krok$] (p3){}
-   %   edge [pre] (p2);
-   \begin{tikzpicture}[->,>=stealth',shorten >=1pt,%
-		      auto,node distance=2cm,on grid,semithick,
-		      inner sep=2pt,bend angle=45]
-    \node at ( 0,0) [initial,state, label=above:$1.krok$] (A){};
-    \node at ( 3,0) [state, label=above:$2.krok$](B)  {};
-    \node at ( 6,0) [state, label=above:$3.krok$](C)  {};
-    \node at ( 9,0) [state, accepting, label=above:$4.krok$](D)  {};
-    
-   
-    \path [every node/.style={font=\footnotesize}]
-      (A) edge node {} (B)
-      (B) edge node {} (C)
-      (C) edge [bend right] node {} (B)
-      (C) edge node {} (D);
-  %    edge
-   %   node {1,1,R} (C);
-%(B) edge [loop above] node {1,1,L} (B)
-%edge
-%node {0,1,L} (C)
-%(C) edge
-%node {0,1,L} (D)
-
-%(D) edge [loop below] node {1,1,R} (D)
-%edge
-%node {0,1,R} (A);
-\end{tikzpicture}
-%\end{tikzpicture}
-  \caption{My}
-  \label{mod5}
- \end{center}
-\end{figure}
 
 \section{Programy}
 V souèasné dobì na programovém trhu existuje mnoho systému, které jsou zamìøeny na data mining. Mezi nejroz¹íøenìj¹í a nejdostupnìj¹í nástroje patøí Weka a RapidMiner. K tìmto nástrojùm je také mo¾né zaøadit program vyvíjený na fakultì informaèních technologií v Brnì. V této práci byl pro samotný data miningg vyu¾it program RapidMiner, který dostal pøednost pøed ostatními. Z pohledu nástroje FIT-miner, který ve své základní èásti podporuje z databází pouze MySQL, se RapidMiner jevil jako vhodnìj¹í. Kompatibilitu pro databáze typu PostgreSQL ji¾ mìl zabudovanou a tak nebylo potøeba vyvíjet ¾ádné doplòující moduly, jak by to bylo u FIT-mineru. V pøípadì nástroje Weka, RapidMiner pùsobil propracovanìj¹ím dojmem a také nabízí lep¹í grafické zobrazení vyhodnocených výsledkù. 

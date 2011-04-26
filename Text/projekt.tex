@@ -32,8 +32,6 @@
  %  \usepackage{amsfonts}   % if you want the fonts
    \usepackage{amssymb}    % if you want extra symbols
 %\usepackage{latexsym}
-\usepackage{tikz}
-\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,petri}
 
 \usepackage{pnets}
 \usepackage{pstricks}
@@ -45,7 +43,8 @@
 \usepackage[chapter]{algorithm}
 \usepackage{tikz}
 \usetikzlibrary{automata}
-%\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,petri}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,petri}
+
 
 
 \def\lstlistingname{Pøíklad}
@@ -86,6 +85,20 @@ commentstyle=\color{gray}\upshape
   identifierstyle=\color{darkblue},
   keywordstyle=\color{cyan},
   morekeywords={xmlns,version,type, fakulty, titul, to, from, id, node}% list your attributes here
+}
+
+\lstdefinelanguage{Algoritmus}
+{
+  mathescape=true,
+  numbers=none,
+  morestring=[b]",
+  %morestring=[s]{}{},
+  %morecomment=[s]{}{},
+  basicstyle=\footnotesize,
+  stringstyle=\color{black},
+  identifierstyle=\color{black}\bfseries,
+  keywordstyle=\color{cyan},
+  morekeywords={}% list your attributes here
 }
 
 % =======================================================================
