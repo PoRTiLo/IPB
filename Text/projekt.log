@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  25 APR 2011 23:08
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  26 APR 2011 19:30
 entering extended mode
  %&-line parsing enabled.
 **projekt
@@ -786,14 +786,14 @@ Non-PDF special ignored!
 \@vyskartext=\skip59
 \@vyskaobr=\skip60
 
-<fig/vut-zp2.pdf, id=116, 109.40875pt x 109.40875pt>
+<fig/vut-zp2.pdf, id=120, 109.40875pt x 109.40875pt>
 File: fig/vut-zp2.pdf Graphic file (type pdf)
  <use fig/vut-zp2.pdf>
 Overfull \hbox (109.58464pt too wide) in paragraph at lines 172--172
 [][] 
  []
 
-<fig/fit-zp2.pdf, id=117, 120.45pt x 120.45pt>
+<fig/fit-zp2.pdf, id=121, 120.45pt x 120.45pt>
 File: fig/fit-zp2.pdf Graphic file (type pdf)
  <use fig/fit-zp2.pdf>
 Overfull \hbox (109.58464pt too wide) in paragraph at lines 172--172
@@ -865,7 +865,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28 
+l.30 
       [3
 
 ] (./struktura.tex) (./jabinfo.tex)
@@ -876,105 +876,110 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.52 
+l.54 
       [4] [5]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 97.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 101.
+
  (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 97.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 101.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [6]
-Overfull \hbox (5.14116pt too wide) in paragraph at lines 113--117
+Overfull \hbox (5.14116pt too wide) in paragraph at lines 117--121
 []\IL2/cmr/m/n/10.95 První pr-vek, který bude cha-rak-te-ri-zo-ván je ozna-èen 
 an-g-lic-kým vý-ra-zem \IL2/cmr/m/it/10.95 message \IL2/cmr/m/n/10.95 (zpráva).
 
  []
 
-[7] [8] [9] [10] [11]
+[7] [8]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9] [10] [11]
 Kapitola 3.
 [12
 
 ]
 \c@definice=\count170
- (./datamining.tex) [13] [14]
-LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 355
-.
-
-(/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
-File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
-) [15] [16]
-(./statistika.tex) [17] [18]
+ (./datamining.tex) [13] [14] [15] (./statistika.tex) [16] [17] [18]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 513.
- [19]
+put line 526.
 
-LaTeX Warning: Citation `XXX' on page 20 undefined on input line 570.
+[19]
 
-[20] [21]
+LaTeX Warning: Citation `XXX' on page 20 undefined on input line 583.
+
+[20]
 Kapitola 4.
 
-LaTeX Warning: Reference `picRobot' on page 22 undefined on input line 581.
+LaTeX Warning: Reference `picRobot' on page 21 undefined on input line 594.
 
 
-LaTeX Warning: Citation `gloox' on page 22 undefined on input line 581.
+LaTeX Warning: Citation `gloox' on page 21 undefined on input line 594.
 
 
-LaTeX Warning: Reference `Edatabase' on page 22 undefined on input line 596.
+LaTeX Warning: Reference `Edatabase' on page 21 undefined on input line 609.
 
 (./Database1.tex)
-Overfull \hbox (25.01682pt too wide) in paragraph at lines 1149--605
+Overfull \hbox (25.01682pt too wide) in paragraph at lines 1149--618
  [] 
  []
 
-[22
+[21
 
-] [23] [24]
+] [22] [23]
 Kapitola 5.
-[25
+[24
 
 ]
 Kapitola 6.
-) (./projekt.bbl [26
+) (./projekt.bbl [25
 
-] [27
+]
+LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 36.
 
-]) (./prilohy.tex [28]
+ (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
+File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
+)
+[26
+
+]) (./prilohy.tex [27]
 P\v {r}\'{\i }loha A.
-[29
+[28
 
 ]
 P\v {r}\'{\i }loha B.
-[30
+[29
 
 ]
 P\v {r}\'{\i }loha C.
-[31
+[30
 
 ]
 P\v {r}\'{\i }loha D.
-[32
+[31
 
 ]
 P\v {r}\'{\i }loha E.
-[33
+[32
 
-] [34] (./stanza.tex) [35] [36] [37]
+] [33] (./stanza.tex) [34] [35] [36]
 P\v {r}\'{\i }loha F.
 LaTeX Font Info:    Font shape `IL2/cmtt/bx/n' in size <6> not available
-(Font)              Font shape `IL2/cmtt/m/n' tried instead on input line 279.
+(Font)              Font shape `IL2/cmtt/m/n' tried instead on input line 281.
 
-Overfull \hbox (0.53485pt too wide) in paragraph at lines 340--341
+Overfull \hbox (0.53485pt too wide) in paragraph at lines 342--343
 [][] 
  []
 
-) [38
+) [37
 
-] [39] (./projekt.aux)
+] [38] (./projekt.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -987,34 +992,33 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18242 strings out of 495027
- 286269 string characters out of 1181420
- 527417 words of memory out of 3000000
- 20655 multiletter control sequences out of 15000+50000
+ 18234 strings out of 495027
+ 286194 string characters out of 1181420
+ 527587 words of memory out of 3000000
+ 20656 multiletter control sequences out of 15000+50000
  25927 words of font info for 72 fonts, out of 3000000 for 9000
  38 hyphenation exceptions out of 8191
  47i,10n,68p,1396b,1551s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8a.enc}</usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmmi9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/tex
-mf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/
-fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/
-public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/cs
-bx10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csbx12.pfb></usr/share
-/texmf-texlive/fonts/type1/public/cs/csbxti10.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/cs/csr10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/cs
-r6.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csr8.pfb></usr/share/tex
-mf-texlive/fonts/type1/public/cs/csr9.pfb></usr/share/texmf-texlive/fonts/type1
-/public/cs/csss8.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csti10.pfb
-></usr/share/texmf-texlive/fonts/type1/public/cs/cstt10.pfb></usr/share/texmf-t
-exlive/fonts/type1/public/cs/cstt8.pfb></usr/share/texmf-texlive/fonts/type1/ur
-w/helvetic/uhvr8a.pfb>
-Output written on projekt.pdf (43 pages, 420447 bytes).
+ve/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
+r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
+mf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/f
+onts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/p
+ublic/cs/csbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csbx12.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/cs/csbxti10.pfb></usr/share/texmf-
+texlive/fonts/type1/public/cs/csr10.pfb></usr/share/texmf-texlive/fonts/type1/p
+ublic/cs/csr6.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csr8.pfb></us
+r/share/texmf-texlive/fonts/type1/public/cs/csr9.pfb></usr/share/texmf-texlive/
+fonts/type1/public/cs/csss8.pfb></usr/share/texmf-texlive/fonts/type1/public/cs
+/csti10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/cstt10.pfb></usr/sh
+are/texmf-texlive/fonts/type1/public/cs/cstt8.pfb></usr/share/texmf-texlive/fon
+ts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on projekt.pdf (42 pages, 408240 bytes).
 PDF statistics:
- 893 PDF objects out of 1000 (max. 8388607)
- 325 named destinations out of 1000 (max. 500000)
- 231 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 877 PDF objects out of 1000 (max. 8388607)
+ 316 named destinations out of 1000 (max. 500000)
+ 239 words of extra memory for PDF output out of 10000 (max. 10000000)
 
