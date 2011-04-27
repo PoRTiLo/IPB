@@ -120,6 +120,11 @@ Saint-André, P.; Smith, K.; Troncon, R.: \emph{XMPP : the definitive guide :
   building real-time applications with jabber technologies}. Sebastopol:
   O'Reilly, první vydání, 2009, 287 s., iSBN~978-059-6521-264.
 
+\bibitem{RapidMiner}
+{WWW Stránky}: Tigase is the website of the Tigase XMPP/Jabber Server.
+  [online], 2010, [cit. \today].
+\newline\urlprefix\url{{http://www.tigase.org/}}
+
 \bibitem{Rezankova}
 Øezánková, H.; Húsek, D.; Sná¹el, V.: \emph{Shluková analýza dat}. Praha:
   Professional Publishing, druhé vydání, 2009, 218 s., iSBN~978-808-6946-818.

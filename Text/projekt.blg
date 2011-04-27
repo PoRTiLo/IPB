@@ -2,48 +2,45 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: projekt.aux
 The style file: czechiso.bst
 Database file #1: literatura.bib
-Warning--I didn't find a database entry for "XXX"
-Warning--I didn't find a database entry for "gloox"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 140733193391032.
-You've used 25 entries,
+You've used 26 entries,
             3151 wiz_defined-function locations,
-            821 strings with 8450 characters,
-and the built_in function-call counts, 9754 in all, are:
-= -- 647
-> -- 311
+            824 strings with 8569 characters,
+and the built_in function-call counts, 10051 in all, are:
+= -- 668
+> -- 318
 < -- 10
-+ -- 147
-- -- 86
-* -- 516
-:= -- 1137
-add.period$ -- 50
-call.type$ -- 25
-change.case$ -- 121
++ -- 150
+- -- 88
+* -- 529
+:= -- 1173
+add.period$ -- 52
+call.type$ -- 26
+change.case$ -- 125
 chr.to.int$ -- 30
-cite$ -- 25
-duplicate$ -- 968
-empty$ -- 995
-format.name$ -- 99
-if$ -- 2113
+cite$ -- 26
+duplicate$ -- 997
+empty$ -- 1027
+format.name$ -- 101
+if$ -- 2177
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 251
-newline$ -- 100
-num.names$ -- 50
-pop$ -- 617
+int.to.str$ -- 26
+missing$ -- 258
+newline$ -- 104
+num.names$ -- 52
+pop$ -- 637
 preamble$ -- 1
-purify$ -- 92
+purify$ -- 95
 quote$ -- 0
-skip$ -- 286
+skip$ -- 294
 stack$ -- 0
-substring$ -- 193
-swap$ -- 441
+substring$ -- 200
+swap$ -- 453
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 80
+type$ -- 84
 warning$ -- 0
-while$ -- 59
-width$ -- 27
-write$ -- 252
-(There were 2 warnings)
+while$ -- 61
+width$ -- 28
+write$ -- 261

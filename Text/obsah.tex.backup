@@ -346,9 +346,24 @@ Informace lze chápat jako data, která byla obohacena o sémantiku (význam), jsou 
 
 
 \section{Transformace dat}\label{TransformaceDat}
-Transformace dat tvoøí tøetí èást z celkového procesu dobývání znalostí z databází. Do této doby data pro¹la ji¾ nìkolika kroky, ve ktrých byla
+Transformace dat tvoøí tøetí èást z celkového procesu dobývání znalostí z databází. Do této doby data pro¹la ji¾ nìkolika kroky. V první fázi byla sbírána Jabber komunikace, která je popsána v první kapitole. Druhá fáze byla zamìøena na zú¾ení výsledné mno¾iny a proto byla vybrána jen data relevantní k této práci. I pøes tyto kroky relaèní databáze obsahuje velký poèet dat, která se nenachází ve stavu, kdy by mohla být pou¾ita jako zdroj pro data minig. Jak bude popsáno dále vìt¹ina metod pro dolování dat pracuje pouze s daty, která obsahují kvantitativní promìnné. Za tímto úèelem je potøeba v¹echny atributy tabulky z databáze, které mají být nadále pou¾ívány, pøevést na mìøitelné hodnoty.  
 
-mno¾ina $$ A\ = \{Available, Chat, Away, DND, XA, Unavailable\} $$ a mno¾ina $$\beta = \{xx,xx,xx,xx,xx,xx\}$$
+V pøípadu této práce se bude pracovat s atributy nesoucí informace o jak aktuálních tak minulých stavech u¾ivatelù, kteøí si pøidali úèet \textit{jabInfo@jabbim.com} do svého seznamu kontaktù. A tak byla jejich ka¾dá zmìna statusu ulo¾ena do databáze. Z dùvodu neèíselného hodnoty stavù, jako je napøíklad available, away a dal¹í, je tøeba provést jejich transformaci na kvantitativní hodnoty. Proces byl proveden pomocí bijektivního zobrazení. Kde zobrazení je, podle \cite{IIS}, funkce s definièním oborem $S$ a oborem hodnot $T$, která je nazývána binární relace $f \subseteq S \times T$. V této relaci se nevyskytují dvì rùzné dvojice ($s$,$t_1$) a ($s$,$t_2$), kde $s \in S$ a $t_1$, $t_2 \in T$. Prvky $t_1$ a $t_2$ jsou rùzné. Z toho vyplývá, ¾e ka¾dému prvku $s$ z mno¾iny $S$ je pøiøazen jednoznaènì právì jeden prvek $t \in T$. Tuto definici je mo¾né zapsat ve tvaru:
+$$f: S \rightarrow T,$$ kde $S$ a $T$ jsou mno¾iny ($D_f$, $H_f$).
+
+Konkrétní pøípad transformace z této práce tedy bude obsahovat mno¾inu $S$, kde $$ S = \{Available, Chat, Away, DND, XA, Unavaliable\} $$ a mno¾ina $T$, kde $$T = \{120,110,90,70,50,0\},$$ do které budou jednotlivé prvky z mno¾iny $S$ bijektivnì zobrazeny. Kdy bijekce je zobrazení, které ka¾dému prvku z cílové mno¾iny, konkrétnì z mno¾iny $T$, pøiøazuje právì jeden prvek z mno¾iny poèáteèní, tedy $S$.
+
+
+\begin{figure}[h]
+\begin{center}
+\input{bijekce}
+\caption{Bijektivní funkce transformuje hodnoty z $S$ do $T$.}
+ \label{bijekce}
+\end{center}
+\end{figure}
+Konkrétní grafická prezentace transformace je ukázána na obrázku \ref{bijekce}, kde definièní obor je tvoøen mno¾inou $S$ a oborem hodnot $T$. Jednotlivé prvky v $S$ jsou vyjádøeny svou textovou hodnotou a prvky výsledné mno¾iny $T$ ji¾ hodnotou èíselnou.
+Pøi výbìru velikosti jejich hodnoty bylo èerpáno z programu Gajim a z jeho funkce, která podle èasových intervalù neèinnosti automaticky nastavuje status a hlavnì èíslo priority.jsou vybrány na základì .... Prvky z mno¾iny $S$ jsou definovány Jabber standardem popsaným v RFC \cite{Rfc3920}.
+
 
 \section{Metody dolovaní dat}\label{MetodyDolovaiDat}
 Základ metod dolování dat je zalo¾en na statistice, posledních poznatcích z umìlé inteligence èi strojového uèení. Hlavní cíl tìchto netriviálních metod je spoleèný -- snaha zji¹tìné výsledky prezentovat srozumitelnou formou. Pro vìt¹inu pou¾ívaných metod je spoleèná vlastnost pøedpoklad, ¾e objekty popsané pomocí podobných charakteristik patøí do stejné skupiny (uèení na základì podobnosti similarity--based learning). Objekty obsahující atributy, lze pøevést na body v \textit{n}--rozmìrném prostoru, kde \textit{n} reprezentuje poèet atributù. Vychází z pøedstavy podobnosti bodù tvoøící urèité shluky v prostoru.
