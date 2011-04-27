@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  27 APR 2011 13:25
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  28 APR 2011 00:55
 entering extended mode
  %&-line parsing enabled.
 **projekt
@@ -714,7 +714,7 @@ File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
 \du=\skip58
  (./projekt.aux
 
-LaTeX Warning: Label `XEP-0115' multiply defined.
+LaTeX Warning: Label `EDatabase' multiply defined.
 
 )
 \openout1 = `projekt.aux'.
@@ -787,14 +787,14 @@ Non-PDF special ignored!
 \@vyskartext=\skip59
 \@vyskaobr=\skip60
 
-<fig/vut-zp2.pdf, id=120, 109.40875pt x 109.40875pt>
+<fig/vut-zp2.pdf, id=124, 109.40875pt x 109.40875pt>
 File: fig/vut-zp2.pdf Graphic file (type pdf)
  <use fig/vut-zp2.pdf>
 Overfull \hbox (109.58464pt too wide) in paragraph at lines 185--185
 [][] 
  []
 
-<fig/fit-zp2.pdf, id=121, 120.45pt x 120.45pt>
+<fig/fit-zp2.pdf, id=125, 120.45pt x 120.45pt>
 File: fig/fit-zp2.pdf Graphic file (type pdf)
  <use fig/fit-zp2.pdf>
 Overfull \hbox (109.58464pt too wide) in paragraph at lines 185--185
@@ -848,40 +848,37 @@ l.6 \chapter
             {Úvod} [1
 
 
-]
+]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.6 \chapter
+            {Úvod} [2]
 Kapitola 1.
 LaTeX Font Info:    Try loading font information for IL2+cmss on input line 6.
 (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmss.fd
 File: il2cmss.fd 1997/02/13 CsLaTeX font definitions
-)pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
+)pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.16 \chapter
-             {XMPP} [2
+             {XMPP} [3
 
 ]
 Kapitola 2.
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.30 
-      [3
-
-] (./struktura.tex) (./jabinfo.tex)
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.54 
-      [4] [5]
+l.30 
+      [4
+
+] (./struktura.tex) (./jabinfo.tex) [5] [6]
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 101.
 
- (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
+
+(/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
@@ -890,49 +887,46 @@ LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6]
+[7]
 Overfull \hbox (5.14116pt too wide) in paragraph at lines 117--121
 []\IL2/cmr/m/n/10.95 První pr-vek, který bude cha-rak-te-ri-zo-ván je ozna-èen 
 an-g-lic-kým vý-ra-zem \IL2/cmr/m/it/10.95 message \IL2/cmr/m/n/10.95 (zpráva).
 
  []
 
-[7] [8]
+[8] [9]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9] [10] [11]
+[10] [11] [12]
 Kapitola 3.
-[12
+[13
 
 ]
 \c@definice=\count170
- (./datamining.tex) [13] [14] (./bijekce.tex) [15] [16] (./statistika.tex)
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[17] [18] [19] [20] [21]
+ (./datamining.tex) [14] [15] (./bijekce.tex) [16] [17] (./statistika.tex)
+[18] [19] [20] [21] [22]
 Kapitola 4.
 
-LaTeX Warning: Reference `picRobot' on page 22 undefined on input line 573.
+LaTeX Warning: Reference `picRobot' on page 23 undefined on input line 576.
 
 
-LaTeX Warning: Reference `Edatabase' on page 22 undefined on input line 588.
+LaTeX Warning: Reference `Edatabase' on page 23 undefined on input line 591.
 
-(./Database1.tex)
-Overfull \hbox (25.01682pt too wide) in paragraph at lines 1149--597
+[23
+
+] (./DatabaseSmall.tex)
+Overfull \hbox (9.86827pt too wide) in paragraph at lines 681--607
  [] 
  []
 
-[22
-
-] [23] [24]
+[24] [25] [26]
 Kapitola 5.
-[25
+[27
 
 ]
 Kapitola 6.
-) (./projekt.bbl [26
+) (./projekt.bbl [28
 
 ]
 LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 36.
@@ -940,40 +934,49 @@ LaTeX Font Info:    Try loading font information for IL2+cmtt on input line 36.
  (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmtt.fd
 File: il2cmtt.fd 1997/08/20 CSLaTeX font definitions
 )
-[27
-
-]) (./prilohy.tex [28]
-P\v {r}\'{\i }loha A.
 [29
 
-]
-P\v {r}\'{\i }loha B.
-[30
-
-]
-P\v {r}\'{\i }loha C.
+]) (./prilohy.tex [30]
+P\v {r}\'{\i }loha A.
 [31
 
 ]
-P\v {r}\'{\i }loha D.
+P\v {r}\'{\i }loha B.
 [32
 
 ]
-P\v {r}\'{\i }loha E.
+P\v {r}\'{\i }loha C.
 [33
 
-] [34] (./stanza.tex) [35] [36] [37]
-P\v {r}\'{\i }loha F.
-LaTeX Font Info:    Font shape `IL2/cmtt/bx/n' in size <6> not available
-(Font)              Font shape `IL2/cmtt/m/n' tried instead on input line 281.
+]
+P\v {r}\'{\i }loha D.
+[34
 
-Overfull \hbox (0.53485pt too wide) in paragraph at lines 342--343
+]
+P\v {r}\'{\i }loha E.
+[35
+
+] [36] (./stanza.tex) [37] [38] [39]
+P\v {r}\'{\i }loha F.
+(./Database1.tex)
+Overfull \hbox (25.01682pt too wide) in paragraph at lines 1149--232
+ [] 
+ []
+
+[40
+
+] [41]
+P\v {r}\'{\i }loha G.
+LaTeX Font Info:    Font shape `IL2/cmtt/bx/n' in size <6> not available
+(Font)              Font shape `IL2/cmtt/m/n' tried instead on input line 289.
+
+Overfull \hbox (0.53485pt too wide) in paragraph at lines 350--351
 [][] 
  []
 
-) [38
+) [42
 
-] [39] (./projekt.aux)
+] [43] (./projekt.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -986,10 +989,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18240 strings out of 495027
- 286325 string characters out of 1181420
- 527790 words of memory out of 3000000
- 20664 multiletter control sequences out of 15000+50000
+ 18250 strings out of 495027
+ 286435 string characters out of 1181420
+ 525020 words of memory out of 3000000
+ 20665 multiletter control sequences out of 15000+50000
  26504 words of font info for 73 fonts, out of 3000000 for 9000
  38 hyphenation exceptions out of 8191
  47i,11n,68p,1396b,1551s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1012,9 +1015,9 @@ r9.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csss8.pfb></usr/share/te
 xmf-texlive/fonts/type1/public/cs/csti10.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/cs/cstt10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/cstt8.
 pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on projekt.pdf (43 pages, 445650 bytes).
+Output written on projekt.pdf (47 pages, 458443 bytes).
 PDF statistics:
- 895 PDF objects out of 1000 (max. 8388607)
- 309 named destinations out of 1000 (max. 500000)
- 239 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 922 PDF objects out of 1000 (max. 8388607)
+ 315 named destinations out of 1000 (max. 500000)
+ 247 words of extra memory for PDF output out of 10000 (max. 10000000)
 
