@@ -1,18 +1,14 @@
 #ifndef ACTIVITY_H__
 #define ACTIVITY_H__
 
-#include <gloox/tag.h>
-#include <gloox/jid.h>
-
-#include <string>
-#include "func.h"
+#include "extension.h"
 
 using namespace gloox;
 
 /**
  * Implementace rozsireni XEP-108: User Activity
  */
-class Activity
+class Activity : public Extension
 {
 
 	protected:
@@ -21,8 +17,6 @@ class Activity
 		std::string m_activity;
 		std::string m_spec;
 		std::string m_text;
-		std::string m_id;
-		JID m_jid;
 
 	public:
       /**
@@ -46,17 +40,13 @@ class Activity
 		std::string text( void );
 		void text( const std::string text );
 
-		std::string id( void );
-		void id( const std::string id );
-
-		JID jid( void );
-		void jid( const std::string jid );
-
 		/**
 		 * Rozparsrovani xml zpravy.
 		 * @param[in]<Tag> *tag xml zprava.
 		 */
-		void parserTag( const Tag * tag );
+		virtual void parserTag( const Tag * tag );
+	
+		virtual void clear( void);
 };
 
 

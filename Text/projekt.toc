@@ -7,23 +7,23 @@
 \contentsline {section}{\numberline {2.4}Roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{10}{section.2.4}
 \contentsline {chapter}{\numberline {3}Data mining}{13}{chapter.3}
 \contentsline {section}{\numberline {3.1}Transformace dat}{16}{section.3.1}
-\contentsline {section}{\numberline {3.2}Metody dolovan\IeC {\'\i } dat}{17}{section.3.2}
-\contentsline {section}{\numberline {3.3}Shlukov\'an\IeC {\'\i }}{18}{section.3.3}
-\contentsline {section}{\numberline {3.4}Programy}{22}{section.3.4}
-\contentsline {chapter}{\numberline {4}Implementace}{23}{chapter.4}
-\contentsline {section}{\numberline {4.1}Datab\'aze}{23}{section.4.1}
-\contentsline {section}{\numberline {4.2}Architektura}{25}{section.4.2}
-\contentsline {section}{\numberline {4.3}Robot}{25}{section.4.3}
-\contentsline {chapter}{\numberline {5}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{27}{chapter.5}
-\contentsline {chapter}{\numberline {6}Z\'av\v er}{28}{chapter.6}
-\contentsline {chapter}{\numberline {A}Obsah CD}{31}{appendix.A}
-\contentsline {chapter}{\numberline {B}Manual}{32}{appendix.B}
-\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{33}{appendix.C}
-\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k zkratek}{34}{appendix.D}
-\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{35}{appendix.E}
-\contentsline {section}{\numberline {E.1}Iq}{35}{section.E.1}
-\contentsline {section}{\numberline {E.2}Message}{35}{section.E.2}
-\contentsline {section}{\numberline {E.3}Presence}{36}{section.E.3}
-\contentsline {section}{\numberline {E.4}P\v rehled pr\r ub\v ehu roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{37}{section.E.4}
-\contentsline {chapter}{\numberline {F}N\'avrh datab\'aze}{40}{appendix.F}
-\contentsline {chapter}{\numberline {G}P\v rehled klient\r u a jejich roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{42}{appendix.G}
+\contentsline {section}{\numberline {3.2}Metody dolovan\IeC {\'\i } dat}{19}{section.3.2}
+\contentsline {section}{\numberline {3.3}Shlukov\'an\IeC {\'\i }}{20}{section.3.3}
+\contentsline {section}{\numberline {3.4}Programy}{23}{section.3.4}
+\contentsline {chapter}{\numberline {4}Implementace}{25}{chapter.4}
+\contentsline {section}{\numberline {4.1}Datab\'aze}{25}{section.4.1}
+\contentsline {section}{\numberline {4.2}Architektura}{28}{section.4.2}
+\contentsline {section}{\numberline {4.3}Robot}{28}{section.4.3}
+\contentsline {chapter}{\numberline {5}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{29}{chapter.5}
+\contentsline {chapter}{\numberline {6}Z\'av\v er}{30}{chapter.6}
+\contentsline {chapter}{\numberline {A}Obsah CD}{33}{appendix.A}
+\contentsline {chapter}{\numberline {B}Manual}{34}{appendix.B}
+\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{35}{appendix.C}
+\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k zkratek}{36}{appendix.D}
+\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{38}{appendix.E}
+\contentsline {section}{\numberline {E.1}Iq}{38}{section.E.1}
+\contentsline {section}{\numberline {E.2}Message}{38}{section.E.2}
+\contentsline {section}{\numberline {E.3}Presence}{39}{section.E.3}
+\contentsline {section}{\numberline {E.4}P\v rehled pr\r ub\v ehu roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{40}{section.E.4}
+\contentsline {chapter}{\numberline {F}N\'avrh datab\'aze}{43}{appendix.F}
+\contentsline {chapter}{\numberline {G}P\v rehled klient\r u a jejich roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{44}{appendix.G}

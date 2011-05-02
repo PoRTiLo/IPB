@@ -9,7 +9,6 @@
 #include <gloox/connectionlistener.h>
 #include <gloox/client.h>
 #include <gloox/messagehandler.h>
-//#include <gloox/component.h>
 #include <gloox/presence.h>
 #include <gloox/disco.h>
 #include <gloox/discohandler.h>

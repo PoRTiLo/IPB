@@ -1,6 +1,6 @@
 #include "tune.h"
 
-Tune::Tune( const Tag* tag ) 
+Tune::Tune( const Tag* tag ):Extension(tag) 
 {
 	clear();
 	parserTag( tag );
@@ -76,55 +76,34 @@ void Tune::uri( const std::string uri ) {
 	this->m_uri = uri;
 }
 
-std::string Tune::id( void ) {
-
-	return this->m_id;
-}
-
-void Tune::id( const std::string id ) {
-
-	this->m_id = id;
-}
-
-JID Tune::jid( void ) {
-
-	return this->m_jid;
-}
-		
-void Tune::jid( const std::string jid ) {
-
-	this->m_jid.setJID(jid);
-}
-
 void Tune::parserTag( const Tag * tag ) {
 
 	if( tag->hasChild("item" ))
-{
-	Tag * p_tag1 = tag->findChild("item")->clone();
-
-	id( p_tag1->findAttribute("id") );
-		
-	Tag * p_tag = p_tag1->findChild("tune")->clone();
-	if( !p_tag->children().empty() )
 	{
-		if( p_tag->findChild("artist") )
-			artist( (p_tag->findChild("artist"))->cdata() );
-		if( p_tag->findChild("length") )
-			length( stringToShortInt((p_tag->findChild("length"))->cdata()) );
-		if( p_tag->findChild("rating") )
-			rating( stringToUnsignedInt((p_tag->findChild("rating"))->cdata()) );
-		if( p_tag->findChild("source") )
-			source( (p_tag->findChild("source"))->cdata() );
-		if( p_tag->findChild("title") )
-			title( (p_tag->findChild("title"))->cdata() );
-		if( p_tag->findChild("track") )
-			track( (p_tag->findChild("track"))->cdata() );
-		if( p_tag->findChild("uri") )
-			uri( (p_tag->findChild("uri"))->cdata() );
+		Tag * p_tag1 = tag->findChild("item")->clone();
+
+		id( p_tag1->findAttribute("id") );
+		
+		Tag * p_tag = p_tag1->findChild("tune")->clone();
+		if( !p_tag->children().empty() )
+		{
+			if( p_tag->findChild("artist") )
+				artist( (p_tag->findChild("artist"))->cdata() );
+			if( p_tag->findChild("length") )
+				length( stringToShortInt((p_tag->findChild("length"))->cdata()) );
+			if( p_tag->findChild("rating") )
+				rating( stringToUnsignedInt((p_tag->findChild("rating"))->cdata()) );
+			if( p_tag->findChild("source") )
+				source( (p_tag->findChild("source"))->cdata() );
+			if( p_tag->findChild("title") )
+				title( (p_tag->findChild("title"))->cdata() );
+			if( p_tag->findChild("track") )
+				track( (p_tag->findChild("track"))->cdata() );
+			if( p_tag->findChild("uri") )
+				uri( (p_tag->findChild("uri"))->cdata() );
+		}
 	}
 }
-}
-
 
 void Tune::clear( void ) {
 

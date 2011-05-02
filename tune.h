@@ -1,19 +1,14 @@
 #ifndef TUNE_H__
 #define TUNE_H__
 
-#include <gloox/tag.h>
-#include <gloox/jid.h>
-
-#include <string>
-
-#include "func.h"
+#include "extension.h"
 
 using namespace gloox;
 
 /**
  * Implementace XEP-0118: User Tune
  */
-class Tune
+class Tune : public Extension
 {
 
 	protected:
@@ -24,8 +19,6 @@ class Tune
 		std::string m_title;
 		std::string m_track;
 		std::string m_uri;
-		std::string m_id;
-		JID m_jid;
 
 	public:
       /**
@@ -52,7 +45,7 @@ class Tune
 		std::string source( void );
 		void source( const std::string source );
 
-		std::string title( void );;
+		std::string title( void );
 		void title( const std::string title );
 
 		std::string track( void );
@@ -61,16 +54,9 @@ class Tune
 		std::string uri( void );
 		void uri( const std::string uri );
 
-		std::string id( void );
-		void id( const std::string id );
+		virtual void parserTag( const Tag * tag );
 
-		JID jid( void );
-		void jid( const std::string jid );
-
-		void parserTag( const Tag * tag );
-
-		void clear( void );
+		virtual void clear( void );
 };
-
 
 #endif // TUNE_H__

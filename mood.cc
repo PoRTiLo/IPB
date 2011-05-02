@@ -1,7 +1,7 @@
 #include "mood.h"
 
 // Konstruktor
-Mood::Mood( const Tag* tag )
+Mood::Mood( const Tag* tag ) : Extension(tag)
 {
 	parserTag( tag );
 }
@@ -30,31 +30,12 @@ void Mood::text( const std::string text ) {
 	this->m_text = text;
 }
 
-// get
-std::string Mood::id( void ) {
+//clear
+void Mood::clear( void ) {
 
-	return this->m_id;
 }
 
-// set
-void Mood::id( const std::string id ) {
-
-	this->m_id = id;
-}
-
-// get
-JID Mood::jid( void ) {
-
-	return this->m_jid;
-}
-
-// set
-void Mood::jid( const std::string jid ) {
-
-	this->m_jid.setJID(jid);
-}
-
-
+// parser tag
 void Mood::parserTag( const Tag * tag ) {
 
 	if( tag->hasChild("item" ))

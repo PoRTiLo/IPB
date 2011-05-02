@@ -82,7 +82,7 @@ void SwVersion::parserTagX( const Tag * xTag ) {
 	if(xTag->findChild("field","var","software") )
 	{
 		Tag * fieldTag = xTag->findChild("field","var","software")->clone();
-		software( (fieldTag->findChild("value"))->cdata() );
+		name( (fieldTag->findChild("value"))->cdata() );
 	}
 	if(xTag->findChild("field","var","software_version") )
 	{
@@ -158,11 +158,6 @@ void SwVersion::category( std::string category ) {
 }
 
 
-void SwVersion::software( std::string software ) {
-
-	this->m_software = software;
-}
-
 void SwVersion::type( std::string type ) {
 
 	this->m_type = type;
@@ -202,7 +197,6 @@ void SwVersion::clean( void ) {
 	this->m_ip6 = false;;
 	this->m_osVersion = "";
 	this->m_category = "";
-	this->m_software = "";
 	this->m_type = "";
 	this->m_jingleVoice = "FALSE";	//	urn:xmpp:jingle:apps:rtp:audio
 	this->m_jingleVideo = "FALSE";	//	urn:xmpp:jingle:apps:rtp:video

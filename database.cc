@@ -70,6 +70,7 @@ void Database::initDb() {
 	Database::createTable( "mood", DB_TABLE_MOOD );
 	Database::createTable( "activity", DB_TABLE_ACTIVITY );
 
+//printf("------------------------------------------\n");
 	Database::clearResourceTable() ; 
 	Database::initListVer();
 }
@@ -120,6 +121,7 @@ bool Database::createTable( const std::string nameTable, const std::string struc
 	{
 		query = DB_C_T + nameTable + " (" + structTable + ");";
 		presult = PQexec( this->psql, query.c_str() );
+	//	printf("%s\n",query.c_str());
 		if(PQresultStatus(presult) != PGRES_COMMAND_OK)
 		{
 			fprintf(stderr, "CHYNA dotazu\n");
@@ -322,7 +324,7 @@ void Database::updateTableStatus( std::string user ) {
 				}
 		}
 		if( culomn != -1 )
-			updateTableStatus( PQgetvalue(presult,culomn,1), PQgetvalue(presult,culomn,2), PQgetvalue(presult,culomn,3), PQgetvalue(presult,culomn,6), PQgetvalue(presult, culomn, 7));
+			updateTableStatus( PQgetvalue(presult,culomn,1), PQgetvalue(presult,culomn,2), PQgetvalue(presult,culomn,3), PQgetvalue(presult,culomn,6), PQgetvalue(presult, culomn, 7), PQgetvalue(presult,culomn,14), PQgetvalue(presult,culomn,13), PQgetvalue(presult,culomn,15), PQgetvalue(presult, culomn, 16) );
 		else
 		{
 			for( int i = 0; i < nTuples; i++ )
@@ -339,24 +341,25 @@ void Database::updateTableStatus( std::string user ) {
 				}
 			}
 			if( culomn != -1 )
-				updateTableStatus( PQgetvalue(presult,culomn,1), PQgetvalue(presult,culomn,2), PQgetvalue(presult,culomn,3), PQgetvalue(presult,culomn,6), PQgetvalue(presult, culomn, 7));
+				updateTableStatus( PQgetvalue(presult,culomn,1), PQgetvalue(presult,culomn,2), PQgetvalue(presult,culomn,3), PQgetvalue(presult,culomn,6), PQgetvalue(presult, culomn, 7), PQgetvalue(presult, culomn, 14), PQgetvalue(presult, culomn, 13), PQgetvalue(presult, culomn, 15), PQgetvalue(presult, culomn, 16) );
 		}
 	}
 }
 
-void Database::updateTableStatus( std::string jidBare,std::string presence,std::string status,std::string resource,std::string nameSW) {
+void Database::updateTableStatus( std::string jidBare,std::string presence,std::string status,std::string resource,std::string nameSW, std::string jingleVi, std::string jingleVo, std::string googleVo, std::string googleVi) {
 
-		Database::getTime();
-		std::string query = DB_UPDATE;
-		query += "status ";
-		query += DB_SET;
-		query += "presence = '" + presence + "', status = '" + Database::convertXML(status) + "', date = timestamp '" + this->sTime + "', resource='" + resource + "' , nameSW = '" + nameSW + "' " + DB_WHERE + "jidbare = '" + jidBare +	"';";
-		presult = PQexec( this->psql, query.c_str() );
-		if( PQresultStatus(presult) != PGRES_COMMAND_OK )
-		{
-			PQclear(presult);
-			Database::exitError();
-		}
+	Database::getTime();
+	std::string query = DB_UPDATE;
+	query += "status ";
+	query += DB_SET;
+	query += "presence = '" + presence + "', status = '" + Database::convertXML(status) + "', date = timestamp '" + this->sTime + "', resource='" + resource + "' , nameSW = '" + nameSW + "', jingleVideo ="+boolToString(jingleVi) +", jingleVoice ="+boolToString(jingleVo)+ ", googleVoice = "+boolToString(googleVo) +", googleVideo ="+boolToString(googleVi) + " "+ DB_WHERE + "jidbare = '" + jidBare +"';";
+std::cout<<query<<std::endl;
+	presult = PQexec( this->psql, query.c_str() );
+	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
+	{
+		PQclear(presult);
+		Database::exitError();
+	}
 	PQclear(presult);
 }
 
@@ -367,7 +370,7 @@ void Database::updateTableResource( std::string jidBare,std::string resource,std
 	Database::getTime();
 	query += "resource ";
 	query += DB_SET;
-	query += "nameSW = '" + nameSW + "', versionSW = '" + versionSW + "', osSW = '" + osSW +"' " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
+	query += "nameSW = '" + convertXML(nameSW) + "', versionSW = '" + convertXML(versionSW) + "', osSW = '" + convertXML(osSW) +"' " + DB_WHERE + "jidbare = '" +jidBare+"' AND resource = '"+resource+"';";
 	presult = PQexec( this->psql, query.c_str() );
 	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{
@@ -384,9 +387,9 @@ bool Database::updateTableResource( SwVersion* swVersion ) {
 	query += "resource ";
 	query += DB_SET;
 	if( (swVersion->version() != "") && (swVersion->osVersion() != "") )
-		query += "nameSW = '" + swVersion->name() + "', versionSW = '" + swVersion->version() + "', osSW = '" + swVersion->osVersion() + "', category = '" + swVersion->category() + "',type = '" + swVersion->type() + "', jingleVoice = " +swVersion->jingleVoice() + ", jingleVideo = " + swVersion->jingleVideo() + ", googleVideo = " + swVersion->googleVideo() + ", googleVoice = " + swVersion->googleVoice() + " "+  DB_WHERE + "jidbare = '" + swVersion->jid().bare()+"' AND resource = '"+swVersion->jid().resource()+"';";
+		query += "nameSW = '" + convertXML( swVersion->name() ) + "', versionSW = '" + convertXML( swVersion->version() )+ "', osSW = '" +convertXML(swVersion->os() ) + "', 'osVersion = '" + convertXML( swVersion->osVersion() ) + "', category = '" + swVersion->category() + "',type = '" + swVersion->type() + "', jingleVoice = " +swVersion->jingleVoice() + ", jingleVideo = " + swVersion->jingleVideo() + ", googleVideo = " + swVersion->googleVideo() + ", googleVoice = " + swVersion->googleVoice() + " "+  DB_WHERE + "jidbare = '" + swVersion->jid().bare()+"' AND resource = '"+swVersion->jid().resource()+"';";
 	else if( (swVersion->version() == "") && (swVersion->osVersion() == "") )
-		query += "nameSW = '" + swVersion->name() + "', category = '" + swVersion->category() + "',type = '" + swVersion->type() + "', jingleVoice = " +swVersion->jingleVoice() + ", jingleVideo = " + swVersion->jingleVideo() + ", googleVideo = " + swVersion->googleVideo() + ", googleVoice = " + swVersion->googleVoice() + " "+  DB_WHERE + "jidbare = '" + swVersion->jid().bare()+"' AND resource = '"+swVersion->jid().resource()+"';";
+		query += "nameSW = '" + convertXML( swVersion->name() ) + "', category = '" + swVersion->category() + "',type = '" + convertXML( swVersion->type() ) + "', jingleVoice = " +swVersion->jingleVoice() + ", jingleVideo = " + swVersion->jingleVideo() + ", googleVideo = " + swVersion->googleVideo() + ", googleVoice = " + swVersion->googleVoice() + " "+  DB_WHERE + "jidbare = '" + swVersion->jid().bare()+"' AND resource = '"+swVersion->jid().resource()+"';";
 	presult = PQexec( this->psql, query.c_str() );
 	if( PQresultStatus(presult) != PGRES_COMMAND_OK )
 	{

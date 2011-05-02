@@ -33,6 +33,8 @@
 #include <gloox/parser.h>
 #include <gloox/vcard.h>
 #include <gloox/base64.h>
+#include "connect.h"
+
 using namespace gloox;
 
 /**
@@ -215,7 +217,7 @@ class Database
 
 		std::string printUser() const; 
 
-		void updateTableStatus( const std::string jidBare, const std::string presence, const std::string status, const std::string resource, const std::string nameSW);
+		void updateTableStatus( const std::string jidBare, const std::string presence, const std::string status, const std::string resource, const std::string nameSW, const std::string jingleVi, std::string jingleVo, std::string googleVo, std::string googleVi);
 		void updateTableStatus( const std::string jidBare);
 
 		bool updateTableResource( const std::string jidBare, const std::string presence, const std::string status, const std::string resource, const int priority );

@@ -155,3 +155,11 @@ std::string presenceString( const int presence ) {
 	else
 		return "Unknown presence";
 }
+
+std::string boolToString( std::string str ) {
+
+	if( str == "t")
+		return "TRUE";
+	else
+		return "FALSE";
+}

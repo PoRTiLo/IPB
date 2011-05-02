@@ -91,14 +91,14 @@ commentstyle=\color{gray}\upshape
 {
   mathescape=true,
   numbers=none,
-  %morestring=[b]",
-  %morestring=[s]{>}{<},
-  %morecomment=[s]{<?}{?>},
-stringstyle=\ttfamily,
+  morestring=[b]",
+  %morestring=[s]{}{},
+  %morecomment=[s]{}{},
+  basicstyle=\footnotesize,
   stringstyle=\color{black},
-  identifierstyle=\color{black},
+  identifierstyle=\color{black}\bfseries,
   keywordstyle=\color{cyan},
-  morekeywords={x}% list your attributes here
+  morekeywords={}% list your attributes here
 }
 
 % =======================================================================

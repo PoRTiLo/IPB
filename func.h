@@ -52,4 +52,5 @@ std::string presenceString( const int presence );
 */
 std::string messageSubtype( const int subtype );
 
+std::string boolToString( std::string str );
 #endif //FUNC_H__

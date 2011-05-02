@@ -102,6 +102,7 @@ string Bot::getPass() {
 
 void Bot::onDisconnect( ConnectionError ) {
 	printf("onDisconecct \n"); 
+	run();	// opetovne pripojeni pri odhlaseni
 }
 
 void Bot::onConnect() {
@@ -368,28 +369,32 @@ void Bot::handlePresence( const Presence& presence) {
 				cout<<"stanza obsahuje rozsireni"<<endl;
 				bool newResource = true;
 				bool update = false;
+				
 				Tag * capTag = (presence.findExtension( ExtCaps ))->tag()->clone();
-				string ver = capTag->findAttribute("ver");
-				map<string, string>::iterator it;
-				it = database->listVer.find(jidFull.full());
-				if( it != database->listVer.end() )
+				if( capTag->hasAttribute("ver") )
 				{
-					cout<<"uzivatel je v listu"<<endl;
-					if( ver == it->second )	// je vse aktualni
+					string ver = capTag->findAttribute("ver");
+					map<string, string>::iterator it;
+					it = database->listVer.find(jidFull.full());
+					if( it != database->listVer.end() )
 					{
-						cout<<"uzivatel pouziva stejnou verzi programu co je v listu"<<endl;
-						update = database->updateTableResource( jidFull.bare(), presenceString(presence.subtype()), presence.status(), jidFull.resource(), presence.priority());
-						newResource = false;
+						cout<<"uzivatel je v listu"<<endl;
+						if( ver == it->second )	// je vse aktualni
+						{
+							cout<<"uzivatel pouziva stejnou verzi programu co je v listu"<<endl;
+							update = database->updateTableResource( jidFull.bare(), presenceString(presence.subtype()), presence.status(), jidFull.resource(), presence.priority());
+							newResource = false;
+						}
 					}
-				}
-				else
-					database->listVer.insert(make_pair(string(jidFull.full()), string(ver)));
-				if( !update || newResource )
-				{
-					database->listVer[jidFull.full()] = ver;
-					j->send( swVersion->createIqStanza( this->login, jidFull.bare(), jidFull.resource()) );			// poslani dotazi na software verzi XEP-0092
-					j->disco()->getDiscoInfo(jidFull.full(),"", this,1,"");
-					database->updateTableResource( jidFull.bare(), presenceString(presence.subtype()), presence.status(), jidFull.resource(), presence.priority(), ver);
+					else
+						database->listVer.insert(make_pair(string(jidFull.full()), string(ver)));
+					if( !update || newResource )
+					{
+						database->listVer[jidFull.full()] = ver;
+						j->send( swVersion->createIqStanza( this->login, jidFull.bare(), jidFull.resource()) );			// poslani dotazi na software verzi XEP-0092
+						j->disco()->getDiscoInfo(jidFull.full(),"", this,1,"");
+						database->updateTableResource( jidFull.bare(), presenceString(presence.subtype()), presence.status(), jidFull.resource(), presence.priority(), ver);
+					}
 				}
 			}
 		}

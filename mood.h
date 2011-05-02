@@ -1,18 +1,14 @@
 #ifndef MOOD_H__
 #define MOOD_H__
 
-#include <gloox/tag.h>
-#include <gloox/jid.h>
-
-#include <string>
-#include "func.h"
+#include "extension.h"
 
 using namespace gloox;
 
 /**
  * Trida reprezentujici XEP-0107: User Mood
  */
-class Mood
+class Mood : public Extension
 {
 
 	protected:
@@ -20,8 +16,6 @@ class Mood
 		static const std::string m_moodTab[];				// tabulka se vsema moodama
 		std::string m_mood;										// mood hodnota
 		std::string m_text;										// dodatecny text stavu
-		std::string m_id;											// id
-		JID m_jid;													// jid uzivatele
 
 	public:
       /**
@@ -60,34 +54,15 @@ class Mood
 		void text( const std::string text );
 
 		/**
-		 * Vrati ID.
-		 * @return<string> id.
-		 */
-		std::string id( void );
-
-		/**
-		 * Nastavi Id.
-		 * @param[in]<string> id.
-		 */
-		void id( const std::string id );
-
-		/**
-		 * Uzivatelsky login.
-		 * @return<JID> jid login uzivatele.
-		 */
-		JID jid( void );
-
-		/**
-		 * Nastaveni uzivatelskeho loginu.
-		 * @param<string> jid.
-		 */
-		void jid( const std::string jid );
-
-		/**
 		 * Rozparsrovani prichozi zpravy.
 		 * @param<Tag> tag xml zparva.
 		 */
-		void parserTag( const Tag * tag );
+		virtual void parserTag( const Tag * tag );
+
+		/**
+		 * Vymazani atributu.
+		 */
+		virtual void clear( void );
 };
 
 

@@ -3,34 +3,6 @@
 #define QUIT "quit"
 #define HALLO "caok"
 
-//jabber
-//#define DEF_LOGIN "JabInfo@jabbim.com/bot"
-//#define DEF_PASS "xse20IPB10"
-
-#define DEF_LOGIN "konsole@localhost/bot"
-#define DEF_PASS "javier"
-
-//database.H
-
-
-#define DB_SERV "localhost"
-#define DB_ADDR "127.0.0.1"
-#define DB_PORT "" 
-#define DB_USER "portilo"
-#define DB_PASS "trewq"
-#define DB_NAME "portilo"
-#define DB_TIME "10"
-
-//dotazy
-/*
-#define DB_SERV "localhost"
-#define DB_ADDR "147.229.12.139"
-#define DB_PORT "" 
-#define DB_USER "xsendl00"
-#define DB_PASS "e5bd224e6d"
-#define DB_NAME "xsendl00"
-#define DB_TIME "10"
-*/
 //dotazy
 #define DB_C_T "Create table "
 #define DB_D_T_I_E "Drop table if exists "
@@ -82,7 +54,11 @@
 								 "status text,"\
 					 		   " date timestamp,"\
 								" resource text," \
-								" nameSw text"
+								" nameSw text,"\
+								" jingleVideo boolean,"\
+								" jingleVoice boolean,"\
+								" googleVideo boolean,"\
+								" googleVoice boolean"
 #define DB_SELECT_STATUS "Select * from status"
 #define DB_TABLE_RESOURCE " id serial PRIMARY KEY,"\
 								" jidBare text,"\
@@ -94,6 +70,7 @@
 								" nameSW text," \
 								" versionSW text," \
 								" osSW text,"\
+								" osVersion text,"\
 								" ver text,"\
 								" category text,"\
 								" type text,"\
@@ -154,6 +131,7 @@
 							 " versionSW text,"\
 							 " osSW text"
 							 
+#define DB_DEF_PRESENCE "INSERT INTO presence ( date, fromJ, toJ, message, name, resource, presence, priority, nameSW, versionSW, osSW) VALUES ("
 #define DB_DEF_PRESENCE "INSERT INTO presence ( date, fromJ, toJ, message, name, resource, presence, priority, nameSW, versionSW, osSW) VALUES ("
 #define DB_DEF_PRESENCE1 "INSERT INTO presence ( date, fromJ, toJ, message, name, resource, presence, priority) VALUES ("
 #define DB_TABLE_MESSAGE "id serial PRIMARY KEY,"\

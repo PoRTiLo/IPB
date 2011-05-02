@@ -1,7 +1,7 @@
 #include "activity.h"
 
 // Konstruktor
-Activity::Activity( const Tag* tag )
+Activity::Activity( const Tag* tag ) : Extension(tag)
 {
 	parserTag( tag );
 }
@@ -42,63 +42,43 @@ void Activity::text( const std::string text ) {
 	this->m_text = text;
 }
 
-// get
-std::string Activity::id( void ) {
-
-	return this->m_id;
-}
-
-// set
-void Activity::id( const std::string id ) {
-
-	this->m_id = id;
-}
-
-// get
-JID Activity::jid( void ) {
-
-	return this->m_jid;
-}
-
-// set
-void Activity::jid( const std::string jid ) {
-
-	this->m_jid.setJID(jid);
-}
-
 // rozparsrovani XML
 void Activity::parserTag( const Tag * tag ) {
 
 	
-if( tag->hasChild("item" ))
-{
-	Tag * p_tag1 = tag->findChild("item")->clone();
-
-	id( tag->findAttribute("id") );
-	Tag * p_tag = p_tag1->findChild("activity")->clone();
-	if( !p_tag->children().empty() )
+	if( tag->hasChild("item" ))
 	{
-		for( int i = 0; i != 11; i++ )
+		Tag * p_tag1 = tag->findChild("item")->clone();
+
+		id( tag->findAttribute("id") );
+		Tag * p_tag = p_tag1->findChild("activity")->clone();
+		if( !p_tag->children().empty() )
 		{
-			if( p_tag->hasChild( m_activityTab[i][0] ) )
+			for( int i = 0; i != 11; i++ )
 			{
-				for( int j = 0; j != 13; j++ )
+				if( p_tag->hasChild( m_activityTab[i][0] ) )
 				{
-					Tag * p_tag2 = p_tag->findChild(m_activityTab[i][0])->clone();
-					if( p_tag2->hasChild( m_activityTab[i][j] ) )
+					for( int j = 0; j != 13; j++ )
 					{
-						spec( (p_tag2->findChild(m_activityTab[i][j]))->name() );
-						break;
+						Tag * p_tag2 = p_tag->findChild(m_activityTab[i][0])->clone();
+						if( p_tag2->hasChild( m_activityTab[i][j] ) )
+						{
+							spec( (p_tag2->findChild(m_activityTab[i][j]))->name() );
+							break;
+						}
 					}
+					activity( (p_tag->findChild(m_activityTab[i][0]))->name() );
+					break;
 				}
-				activity( (p_tag->findChild(m_activityTab[i][0]))->name() );
-				break;
 			}
+			if( p_tag->findChild("text") )
+				text( (p_tag->findChild("text"))->cdata() );
 		}
-		if( p_tag->findChild("text") )
-			text( (p_tag->findChild("text"))->cdata() );
 	}
 }
+
+void Activity::clear( void) {
+
 }
 
 // pomocna tabulka

@@ -1,19 +1,14 @@
 #ifndef GEOLOC_H__
 #define GEOLOC_H__
 
+#include "extension.h"
 
-#include <string>
-
-#include <gloox/tag.h>
-#include <gloox/jid.h>
-
-#include "func.h"
 using namespace gloox;
 
 /**
  * Implementace XEP-0080: User Location.
  */
-class Geoloc
+class Geoloc : public Extension
 {
 	private:
 
@@ -40,8 +35,6 @@ class Geoloc
 		std::string m_text;
 		std::string m_timestamp;
 		std::string m_uri;
-		std::string m_id;
-		JID m_jid;
 
 	public:
 
@@ -121,15 +114,9 @@ class Geoloc
 		std::string uri( void );
 		void uri( const std::string uri );
 
-		std::string id( void );
-		void id( const std::string id );
+		virtual void parserTag( const Tag * tag );
 
-		JID jid( void );
-		void jid( const std::string jid );
-
-		void parserTag( const Tag * tag );
-
-		void clear( void );
+		virtual void clear( void );
 };
 
 #endif

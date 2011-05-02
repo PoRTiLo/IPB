@@ -1,6 +1,6 @@
 #include "geoloc.h"
 
-Geoloc::Geoloc( Tag* tag ) 
+Geoloc::Geoloc( Tag* tag ): Extension(tag) 
 {
 	clear();
 	parserTag( tag );
@@ -224,26 +224,6 @@ void Geoloc::room( const std::string room ) {
 void Geoloc::uri( const std::string uri ) {
 	
 	this->m_uri = uri;
-}
-
-std::string Geoloc::id( void ) {
-
-	return this->m_id;
-}
-
-void Geoloc::id( const std::string id ) {
-
-	this->m_id = id;
-}
-
-JID Geoloc::jid( void ) {
-
-	return this->m_jid;
-}
-		
-void Geoloc::jid( const std::string jid ) {
-
-	this->m_jid.setJID(jid);
 }
 
 void Geoloc::clear( void ) {

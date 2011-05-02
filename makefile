@@ -11,7 +11,7 @@ PROJECT=IPB
 
 OBJ=main.o bot.o param.o errors.o database.o func.o swversion.o geoloc.o tune.o mood.o activity.o
 SRC=main.cc bot.cc param.cc errors.cc database.cc func.cc swversion.cc geoloc.cc tune.cc mood.cc activity.cc
-HEAD=bot.h param.h errors.h database.h const.h func.h swversion.h geoloc.h tune.h mood.h activity.h
+HEAD=bot.h param.h errors.h database.h const.h func.h swversion.h geoloc.h tune.h mood.h activity.h extension.h connect.h
 
 CCM=g++
 CCMFLAGS=-std=c++98 -Wall -Wextra -pedantic -D_REENTRANT -lpthread -lgloox -lpcre -L/usr/lib/postgresql/8.4/lib/ -lpq #-dumpspecs

@@ -30,7 +30,6 @@ class SwVersion
 		bool m_ip6;
 		std::string m_osVersion;
 		std::string m_category;
-		std::string m_software;
 		std::string m_type;
 		JID m_jid;
 		std::string m_jingleVoice;	//	urn:xmpp:jingle:apps:rtp:audio
@@ -66,7 +65,6 @@ class SwVersion
 		void ip6( bool ip6 );
 		void osVersion( std::string osVersion );
 		void category( std::string category );
-		void software( std::string software );
 		void type( std::string type );
 
 		std::string name( void );
@@ -82,8 +80,6 @@ class SwVersion
 		bool ip6( void );
 
 		std::string category( void );
-
-		std::string software( void );
 
 		std::string type( void );
 		/**
