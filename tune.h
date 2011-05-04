@@ -28,7 +28,7 @@ class Tune : public Extension
       Tune( const Tag* tag );
 
       /**
-       * Virtual destructor.
+       * Virtualni destruktor.
        */
       virtual ~Tune() {}
 

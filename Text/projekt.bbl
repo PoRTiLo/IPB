@@ -120,10 +120,14 @@ Saint-André, P.; Smith, K.; Troncon, R.: \emph{XMPP : the definitive guide :
   building real-time applications with jabber technologies}. Sebastopol:
   O'Reilly, první vydání, 2009, 287 s., iSBN~978-059-6521-264.
 
+\bibitem{Temporal}
+{WWW Stránky}: Database Systems. [online], 2007, [cit. \today].
+\newline\urlprefix\url{{http://www.cs.uct.ac.za/mit_notes_devel/Database/Lates%
+t/index.html}}
+
 \bibitem{RapidMiner}
-{WWW Stránky}: Tigase is the website of the Tigase XMPP/Jabber Server.
-  [online], 2010, [cit. \today].
-\newline\urlprefix\url{{http://www.tigase.org/}}
+{WWW Stránky}: RapidMiner. [online], 2011, [cit. \today].
+\newline\urlprefix\url{{http://rapid-i.com/content/view/181/190/}}
 
 \bibitem{Rezankova}
 Øezánková, H.; Húsek, D.; Sná¹el, V.: \emph{Shluková analýza dat}. Praha:

@@ -6,71 +6,85 @@ Tune::Tune( const Tag* tag ):Extension(tag)
 	parserTag( tag );
 }
 
+// get
 std::string Tune::artist( void ) {
 
 	return this->m_artist;
 }
 
+// set
 void Tune::artist( const std::string artist ) {
 
 	this->m_artist = artist;
 }
 
+// get
 short int Tune::length( void ) {
 
 	return this->m_length;
 }
 
+// set
 void Tune::length( const short int length ) {
 
 	this->m_length = length;
 }
 
+// get
 unsigned int Tune::rating( void ) {
 
 	return this->m_rating;
 }
 
+// set
 void Tune::rating( const unsigned int rating ) {
 
 	this->m_rating = rating;
 }
 
+// get
 std::string Tune::source( void ) {
 
 	return this->m_source;
 }
 
+// set
 void Tune::source( const std::string source ) {
 
 	this->m_source = source;
 }
 
+// get
 std::string Tune::title( void ) {
 
 	return this->m_title;
 }
 
+// set
 void Tune::title( const std::string title ) {
 
 	this->m_title = title;
 }
 
+// get
 std::string Tune::track( void ) {
 
 	return this->m_track;
 }
 
+// set
 void Tune::track( const std::string track ) {
 
 	this->m_track = track;
 }
 
+// get
 std::string Tune::uri( void ) {
 
 	return this->m_uri;
 }
 
+// set
 void Tune::uri( const std::string uri ) {
 
 	this->m_uri = uri;

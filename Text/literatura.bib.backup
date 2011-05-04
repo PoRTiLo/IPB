@@ -138,7 +138,7 @@ http://tools.ietf.org/html/rfc3920, 2004-10 [cit. 2010-05-17].
       title =        "XEP-0092: Software Version",
       howpublished=  "[online]",
       url =          "{http://xmpp.org/extensions/xep-0092.html}",
-      note =         "{2-15-2007, [cit. \today]}",
+      note =         "{02-15-2007, [cit. \today]}",
    }
 
   @MISC{Xep0107,
@@ -170,8 +170,34 @@ http://tools.ietf.org/html/rfc3920, 2004-10 [cit. 2010-05-17].
       title =        "XEP-0115: Entity Capabilities",
       howpublished=  "[online]",
       url =          "{http://xmpp.org/extensions/xep-0115.html}",
+      note =         "{26-02-2008, [cit. \today]}",
+   }
+
+  @MISC{Xep0054,
+      author =       "Peter Saint-Andre",  
+      title =        "XEP-0054: vcard-temp",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0054.html}",
+      note =         "{07-16-2008, [cit. \today]}",
+   }
+
+  @MISC{Xep0292,
+      author =       "Samantha Mizzi and Peter Saint-Andre",  
+      title =        "XEP-0292: vCard4 Over XMPP",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0292.html}",
       note =         "{02-26-2008, [cit. \today]}",
    }
+
+
+  @MISC{Xep0153,
+      author =       "Peter Saint-Andre",  
+      title =        "XEP-0153: vCard-Based Avatars",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0153.html}",
+      note =         "{16-08-2006, [cit. \today]}",
+   }
+
 
   @MISC{Xml5th,
       author =       "{Kolektiv autorù}",  
@@ -230,6 +256,14 @@ http://tools.ietf.org/html/rfc3920, 2004-10 [cit. 2010-05-17].
       note =         "2010, [cit. \today]",
    }
 
+  @MISC{RapidMiner,
+      author =       "{WWW Stránky}",  
+      title =        "RapidMiner",
+      howpublished=  "[online]",
+      url =          "{http://rapid-i.com/content/view/181/190/}",
+      note =         "2011, [cit. \today]",
+   }
+
   @MISC{Tigase,
       author =       "{WWW Stránky}",  
       title =        "Tigase is the website of the Tigase XMPP/Jabber Server",
@@ -237,6 +271,7 @@ http://tools.ietf.org/html/rfc3920, 2004-10 [cit. 2010-05-17].
       url =          "{http://www.tigase.org/}",
       note =         "2010, [cit. \today]",
    }
+
    @MISC{fitWeb,
       author =       "Z. Rábová and P. Hanáèek and P. Peringer and P. Pøikryl and B. Køena",  
       title =        "U¾iteèné rady pro psaní odborného textu [online]",
@@ -252,4 +287,68 @@ http://tools.ietf.org/html/rfc3920, 2004-10 [cit. 2010-05-17].
       publisher =    "Fakulta informaèních technologií",
       year =         "2008",
       pages =        "14733",
+    }
+
+
+  @MISC{DM,
+      author =       "Michal Nemrava and Jaromír Pospí¹il",  
+      title =        "Dolování dat a jeho aplikace",
+      howpublished=  "[online]",
+      url =          "{http://www.spatial.cs.umn.edu/paper_ps/dmchap.pdf}",
+      note =         "2006, [cit. \today]",
+   }
+
+    @BOOK{Berka,
+      author =       "Peter Berka",
+      title =        "Dobývání znalostí z databází",
+      edition =      "1",
+      address =      "Praha",
+      publisher =    "Academia",
+      year =         "2003",
+      pages =        "366",
+      note =         "ISBN~80-200-1062-9",
+    }
+
+    @BOOK{Fayyad,
+      author =       "Usama M. Fayyad AND P. Smyth",
+      title =        "Advances in knowledge discovery and data mining",
+      edition =      "1",
+      address =      "California",
+      publisher =    "MIT Press",
+      year =         "1996",
+      pages =        "611",
+      note =         "ISBN~02-625-6097-6",
+    }
+
+    @BOOK{Rezankova,
+      author =       "Hana Øezánková AND Du¹an Húsek AND Václav Sná¹el",
+      title =        "Shluková analýza dat",
+      edition =      "2. roz¹. vyd.",
+      address =      "Praha",
+      publisher =    "Professional Publishing",
+      year =         "2009",
+      pages =        "218",
+      note =         "ISBN~978-808-6946-818",
+    }
+
+    @BOOK{Han,
+      author =       "Jiawei Han AND Micheline Kamber",
+      title =        "Data mining : concepts and techniques",
+      edition =      "2",
+      address =      "San Francisco",
+      publisher =    "Morgan Kaufmann Publisher",
+      year =         "2006",
+      pages =        "770",
+      note =         "ISBN~15-586-0901-6",
+    }
+
+    @BOOK{Bramer,
+      author =       "Max Bramer",
+      title =        "Principles of Data mining",
+      edition =      "1",
+      address =      "London",
+      publisher =    "Springer",
+      year =         "2007",
+      pages =        "343",
+      note =         "ISBN~18-462-8765-0",
     }

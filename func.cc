@@ -1,12 +1,12 @@
 #include "func.h"
 
 #define LENGTH_PASS 100
-using namespace std;
+//using namespace std;
 bool f_global = false;
 
 void initSignal() {
 
-	cout << endl<< endl<< getpid()<<endl;
+	std::cout << std::endl << getpid() << std::endl;
 	(void)signal(SIGTERM, checkSignal);
 }
 

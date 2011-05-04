@@ -7,9 +7,15 @@
 //	this->resource = toResource;
 //}
 
-SwVersion::SwVersion( ) {
+SwVersion::SwVersion( )
+{
 
-	clean( );
+	clear();
+}
+SwVersion::SwVersion( const Tag* tag ) : Extension(tag)
+{
+
+	clear();
 }
 // Tvorba IQ dotazu
 Tag* SwVersion::createIqStanza( std::string fromJid, std::string toJid, std::string toResource ) {
@@ -26,6 +32,12 @@ Tag* SwVersion::createIqStanza( std::string fromJid, std::string toJid, std::str
 
 	return myTagIq;
 }
+
+void SwVersion::parserTag( const Tag * queryTag ) {
+
+
+}
+
 
 void SwVersion::parserTagVer( const Tag * queryTag ) {
 
@@ -91,18 +103,6 @@ void SwVersion::parserTagX( const Tag * xTag ) {
 	}
 }
 
-// get
-JID SwVersion::jid( void ) {
-
-	return this->m_jid;
-}
-
-// set
-void SwVersion::jid( const std::string jid ) {
-
-	this->m_jid.setJID(jid);
-}
-
 // Nastaveni JID prijemce
 void SwVersion::name( std::string name ) {
 
@@ -137,58 +137,67 @@ std::string SwVersion::os( void ) {
 	return this->m_os;
 }
 
+// set
 void SwVersion::ip4( bool ip4 ) {
 
 	this->m_ip4 = ip4;
 }
 
+// set
 void SwVersion::ip6( bool ip6 ) {
 
 	this->m_ip6 = ip6;
 }
 
+// set
 void SwVersion::osVersion( std::string osVersion ) {
 
 	this->m_osVersion = osVersion;
 }
 
+// set
 void SwVersion::category( std::string category ) {
 
 	this->m_category = category;
 }
 
-
+// set
 void SwVersion::type( std::string type ) {
 
 	this->m_type = type;
 }
 
+// get
 std::string SwVersion::type( void ) {
 
 	return this->m_type;
 }
 
+// get
 std::string SwVersion::osVersion( void ) {
 
 	return this->m_osVersion;
 }
 
+// get
 bool SwVersion::ip4( void ) {
 
 	return this->m_ip4;
 }
 
+// get
 bool SwVersion::ip6( void ) {
 
 	return this->m_ip6;
 }
 
+// get
 std::string SwVersion::category( void ) {
 
 	return this->m_category;
 }
 
-void SwVersion::clean( void ) {
+void SwVersion::clear( void ) {
 
 	this->m_name = "";
 	this->m_version = "";
@@ -202,70 +211,53 @@ void SwVersion::clean( void ) {
 	this->m_jingleVideo = "FALSE";	//	urn:xmpp:jingle:apps:rtp:video
 	this->m_googleVoice = "FALSE";	//	http://www.google.com/xmpp/protocol/voice/v1
 	this->m_googleVideo = "FALSE";	//	http://www.google.com/xmpp/protocol/video/v1
-
-
 }
 
+// get
 std::string SwVersion::jingleVoice( void ) {
 
 	return this->m_jingleVoice;
 }
 
+// get
 std::string SwVersion::jingleVideo( void ) {
 
 	return this->m_jingleVideo;
 }
 
+// get
 std::string SwVersion::googleVideo( void ) {
 
 	return this->m_googleVideo;
 }
 
+// get
 std::string SwVersion::googleVoice( void ) {
 
 	return this->m_googleVoice;
 }
 
+// set
 void SwVersion::jingleVoice( std::string voice ) {
 
 	this->m_jingleVoice = voice;
 }
 
+// set
 void SwVersion::jingleVideo( std::string video ) {
 
 	this->m_jingleVideo = video;
 }
 
+// set
 void SwVersion::googleVoice( std::string voice ) {
 
 	this->m_googleVoice = voice;
 }
 
+// set
 void SwVersion::googleVideo( std::string video ) {
 
 	this->m_googleVideo = video;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

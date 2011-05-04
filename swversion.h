@@ -3,7 +3,7 @@
 
 
 #include <gloox/iq.h>
-#include <string>
+#include "extension.h"
 #include <iostream>
 using namespace gloox;
 
@@ -20,7 +20,7 @@ Trida implementujici rozparsrovani XEP-0092 a XEP-0115.
 </iq>
 */
 
-class SwVersion
+class SwVersion : public Extension
 {
 	protected:
 		std::string m_name;
@@ -31,7 +31,6 @@ class SwVersion
 		std::string m_osVersion;
 		std::string m_category;
 		std::string m_type;
-		JID m_jid;
 		std::string m_jingleVoice;	//	urn:xmpp:jingle:apps:rtp:audio
 		std::string m_jingleVideo;	//	urn:xmpp:jingle:apps:rtp:video
 		std::string m_googleVoice;	//	http://www.google.com/xmpp/protocol/voice/v1
@@ -95,6 +94,7 @@ class SwVersion
 		 */
 		SwVersion( std::string m_name, std::string m_version, std::string m_os );
 		SwVersion( );
+		SwVersion( const Tag* tag );
 
 
 		/**
@@ -104,23 +104,16 @@ class SwVersion
 		 */
 		Tag* createIqStanza( std::string from, std::string toJid, std::string toResource );
 
-		void parserTagX( const Tag * tag );
-		void parserTagI( const Tag * tag );
-		void parserTagVer( const Tag * queryTag );
-		void parserTagF( const Tag * queryTag );
-		void clean( void );
 
-		/**
-		 * Uzivatelsky login.
-		 * @return<JID> jid login uzivatele.
-		 */
-		JID jid( void );
+		virtual void parserTag( const Tag* tag );
 
-		/**
-		 * Nastaveni uzivatelskeho loginu.
-		 * @param<string> jid.
-		 */
-		void jid( const std::string jid );
+		virtual void clear( void );
+
+		void parserTagX( const Tag* tag );
+		void parserTagI( const Tag* tag );
+		void parserTagVer( const Tag* tag );
+		void parserTagF( const Tag* tag );
+
 };
 
 #endif //SWVERSION_H__

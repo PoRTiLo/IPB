@@ -32,6 +32,7 @@ const char *ERRORS[] = {
 
 };
 
+/*
 ostream &getTime( ostream &stream) {
 
 	struct tm *localTime;
@@ -42,6 +43,7 @@ ostream &getTime( ostream &stream) {
 
 	return stream;
 }
+*/
 
 void getErrors( enum errors N ) {
 //	cout << getTime;

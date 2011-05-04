@@ -26,7 +26,7 @@ Bot::Bot(string log, string password)
 	this->pass = password;
 }
 
-Bot::~Bot()	{	}
+Bot::~Bot()	{}
 
 void Bot::setLogin( string log ) {
 	this->login = log;
@@ -312,7 +312,7 @@ void Bot::handleDiscoInfo( const JID& jidPom/*iq*/, const Disco::Info& info, int
 		if( update )
 		{
 			database->updateTableResource( swVersion );
-			swVersion->clean();
+			swVersion->clear();
 		}
 	}
 }
@@ -337,7 +337,7 @@ bool Bot::handleIq( const IQ &iq ) {
 		{
 			swVersion->parserTagVer( queryTag );
 			database->updateTableResource( jidPom.bare(), jidPom.resource(), swVersion->name(), swVersion->version(), swVersion->os());
-			swVersion->clean();
+			swVersion->clear();
 		}
 	}
 }
@@ -362,11 +362,9 @@ void Bot::handlePresence( const Presence& presence) {
 			swVersion->jid(jidFull.full());
 			database->insertTablePresence( jidFull.bare(), presence.status(), jidFull.username(), jidFull.resource(), presenceString(presence.subtype()), presence.priority(),
 			                               swVersion->name(), swVersion->version(), swVersion->os() );
-			swVersion->clean();
-			cout<< "vlozeno do DB - PRESENCE"<<endl;
+			swVersion->clear();
 			if( (presence.findExtension( ExtCaps )) != 0 )
 			{
-				cout<<"stanza obsahuje rozsireni"<<endl;
 				bool newResource = true;
 				bool update = false;
 				
@@ -378,10 +376,8 @@ void Bot::handlePresence( const Presence& presence) {
 					it = database->listVer.find(jidFull.full());
 					if( it != database->listVer.end() )
 					{
-						cout<<"uzivatel je v listu"<<endl;
 						if( ver == it->second )	// je vse aktualni
 						{
-							cout<<"uzivatel pouziva stejnou verzi programu co je v listu"<<endl;
 							update = database->updateTableResource( jidFull.bare(), presenceString(presence.subtype()), presence.status(), jidFull.resource(), presence.priority());
 							newResource = false;
 						}
