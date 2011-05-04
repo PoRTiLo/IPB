@@ -1,3 +1,8 @@
+/**
+ *@file mood.h
+ *@brief Trida implementujici rozsireni XEP--0107.
+ */
+
 #ifndef MOOD_H__
 #define MOOD_H__
 

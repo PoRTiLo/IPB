@@ -1,4 +1,8 @@
-//Hlavicka
+/**
+ *@file bot.h
+ *@brief Trida implementujici robota.
+ */
+
 #pragma once
 #ifndef BOT_H__
 #define BOT_H__

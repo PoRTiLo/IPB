@@ -1,5 +1,10 @@
-#pragma once
+/**
+ *@file const.h
+ *@brief Soubor konstant pro dotazy v jazyce SQL.
+ */
 
+
+#pragma once
 #define QUIT "quit"
 #define HALLO "caok"
 

@@ -1,3 +1,8 @@
+/**
+ *@file tune.h
+ *@brief Trida implementujici rozsireni XEP-0118.
+ */
+
 #ifndef TUNE_H__
 #define TUNE_H__
 
@@ -12,13 +17,13 @@ class Tune : public Extension
 {
 
 	protected:
-		std::string m_artist;
-		short int m_length;
-		unsigned int m_rating;
-		std::string m_source;
-		std::string m_title;
-		std::string m_track;
-		std::string m_uri;
+		std::string m_artist;		///< muzikant
+		short int m_length;			///< delka pisnicky
+		unsigned int m_rating;		///< hodnoceni pisnicky
+		std::string m_source;		///< zdroj
+		std::string m_title;			///< nazev alba
+		std::string m_track;			///< nazev pisnicky
+		std::string m_uri;			///< url adresa
 
 	public:
       /**

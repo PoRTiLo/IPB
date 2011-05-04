@@ -1,3 +1,8 @@
+/**
+ *@file geoloc.h
+ *@brief Trida implementujici rozsireni XEP--0080.
+ */
+
 #ifndef GEOLOC_H__
 #define GEOLOC_H__
 

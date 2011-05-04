@@ -1,3 +1,7 @@
+/**
+ *@file mood.cc
+ */
+
 #include "mood.h"
 
 // Konstruktor

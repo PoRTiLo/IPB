@@ -1,3 +1,8 @@
+/**
+ *@file swversion.h
+ *@brief Trida implementujici rozsireni XEP--0092.
+ */
+
 #ifndef SWVERSION_H__
 #define SWVERSION_H__
 

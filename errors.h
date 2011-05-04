@@ -1,3 +1,8 @@
+/**
+ *@file errors.h
+ *@brief Trida implementujici chybove hlaseni.
+ */
+
 #ifndef ERORRS_H__
 #define ERRORS_H__
 

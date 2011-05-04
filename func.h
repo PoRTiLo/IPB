@@ -1,3 +1,8 @@
+/**
+ *@file func.h
+ *@brief Soubor vsemoznych funkci.
+ */
+
 #ifndef FUNC_H__
 #define FUNC_H__
 

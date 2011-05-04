@@ -1,3 +1,8 @@
+/**
+ *@file activity.h
+ *@brief Trida implementujici rozsireni XEP--0108.
+ */
+
 #ifndef ACTIVITY_H__
 #define ACTIVITY_H__
 
