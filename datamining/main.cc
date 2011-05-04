@@ -1,17 +1,9 @@
 #include <stdio.h>
-//#include <stdlib.h>
 #include <string.h>
-//#include <ctype.h>
-//#include <assert.h>
-//#include <limits.h>
 
-//#include "utf8.h"
+#include "connect.h"
 
-
-//#include "bot.h"
-#include "param.h"
-#include "func.h"
-#include "database.h"
+#include "transform.h"
 
 /**
  * Main.
@@ -21,15 +13,13 @@
  */
 int main( int argc, char* argv[] ) {
 
-	Database* database = new Database();
+	Transform* transform = new Transform();
 	//JID jid("pidgin@localhost");
-	database->start();
-	std::vector<std::string> vectorUser = database->printUser();
+	transform->start();
+	std::vector<std::string> vectorUser = transform->printUser();
 	std::vector<std::string>::iterator it;
-	string dateS = "2010-12-07 12:02:20";
-	string dateE = "2010-12-09 13:34:05";
-	time_t secS = database->stringToSecFirst( dateS );
-	time_t secE = database->stringToSecFirst( dateE );
+	time_t secS = transform->stringToSecFirst( DATE_START );
+	time_t secE = transform->stringToSecFirst( DATE_END );
 	char dateStart[80];
 	struct tm*  timeS;
 	for(; secS <= secE; secS += 86400)
@@ -41,7 +31,7 @@ int main( int argc, char* argv[] ) {
 		for( it = vectorUser.begin(); it < vectorUser.end(); it++ )
 		{
 			std::cout <<""<<*it<<std::endl;
-			int *pointerArray = database->userToTab(vectorUser[i], dateStart);
+			int *pointerArray = transform->userToTab(vectorUser[i], dateStart);
 			i++;
 			for(int l=0; l < 289; l++)
 				printf("%d:%d\n",l,pointerArray[l]);
