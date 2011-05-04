@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: projekt.aux
+The style file: czechiso.bst
+Database file #1: literatura.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 140733193391032.
+You've used 27 entries,
+            3151 wiz_defined-function locations,
+            828 strings with 8652 characters,
+and the built_in function-call counts, 10348 in all, are:
+= -- 689
+> -- 325
+< -- 10
++ -- 153
+- -- 90
+* -- 542
+:= -- 1209
+add.period$ -- 54
+call.type$ -- 27
+change.case$ -- 129
+chr.to.int$ -- 30
+cite$ -- 27
+duplicate$ -- 1026
+empty$ -- 1059
+format.name$ -- 103
+if$ -- 2241
+int.to.chr$ -- 0
+int.to.str$ -- 27
+missing$ -- 265
+newline$ -- 108
+num.names$ -- 54
+pop$ -- 657
+preamble$ -- 1
+purify$ -- 98
+quote$ -- 0
+skip$ -- 302
+stack$ -- 0
+substring$ -- 207
+swap$ -- 465
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 88
+warning$ -- 0
+while$ -- 63
+width$ -- 29
+write$ -- 270

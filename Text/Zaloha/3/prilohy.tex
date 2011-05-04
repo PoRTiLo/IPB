@@ -1,0 +1,355 @@
+\chapter{Obsah CD}
+\chapter{Manual}
+\chapter{Konfigraèní soubor}
+%\chapter{RelaxNG Schéma konfiguraèního soboru}
+%\chapter{Plakat}
+
+\chapter{Slovník zkratek}
+\begin{description}
+\item [DNS] --- Domain Name System
+\item [GPG] --- dkshckdsjvlsdjvodsvjdfokj
+\item [IM slu¾by] --- dkshckdsjvlsdjvodsvjdfokj
+\item [IP] --- Internet Protocol
+\item [JEP] --- dkshckdsjvlsdjvodsvjdfokj
+\item [JID] --- dkshckdsjvlsdjvodsvjdfokj
+\item [SASL] --- dkshckdsjvlsdjvodsvjdfokj
+\item [TCP] --- dkshckdsjvlsdjvodsvjdfokj
+\item [TLS] --- dkshckdsjvlsdjvodsvjdfokj
+\item [WWW] --- dkshckdsjvlsdjvodsvjdfokj
+\item [XEP] --- dkshckdsjvlsdjvodsvjdfokj
+\item [XML] --- dkshckdsjvlsdjvodsvjdfokj
+\item [XMPP] --- dkshckdsjvlsdjvodsvjdfokj
+\item [e-mail] --- dkshckdsjvlsdjvodsvjdfokj
+\item [jabber] --- dkshckdsjvlsdjvodsvjdfokj
+\item [klient] --- dkshckdsjvlsdjvodsvjdfokj
+\item [presence] --- dkshckdsjvlsdjvodsvjdfokj
+\item [server] --- dkshckdsjvlsdjvodsvjdfokj
+\item [stanza] --- dkshckdsjvlsdjvodsvjdfokj
+\item [vCard] --- dkshckdsjvlsdjvodsvjdfokj
+\item [ID3v1] --- dkshckdsjvlsdjvodsvjdfokj
+\item [ID3v2] --- dkshckdsjvlsdjvodsvjdfokj
+\item [ASCII] --- dkshckdsjvlsdjvodsvjdfokj
+\item [utf-8] --- dkshckdsjvlsdjvodsvjdfokj
+\item [Base64] --- dkshckdsjvlsdjvodsvjdfokj
+\end{description}
+
+\chapter{Stanza - základní schéma}\label{Estanza}
+
+Pøehled základních elementù, které jsou vyu¾ívány pøi Jabber komunikaci. Struktura jednotlivých èástí stanzy ukazuje pouze prvky relativní k této práci. Pomocí hranatých závorek je znázornìna mno¾ina, ze které musí být vybrán právì jeden prvek. Na místì uvozovek se oèekává jakákoliv povolená hodnota.
+
+
+\section{Iq}\label{Eiq}
+
+\begin{figure}[h]
+\lstset{language=Xml ,caption={Popis elementu \textit{iq}.},label=picEiq}
+\begin{lstlisting}
+          <iq from=""
+              to=""
+              type="[get,set,result,error]"
+              id=""
+            Namespace
+          </iq>
+\end{lstlisting}
+\end{figure}
+
+%\begin{table}[h]
+%\begin{center}
+%\begin{tabular}{ l  l  l  l } 
+%jabber:client & jabber:server& jabber:iq:auth& jabber:iq:register\\ 
+%jabber:iq:roster& jabber:x:offline& jabber:iq:agent& jabber:iq:agents\\ 
+% jabber:x:delay& jabber:iq:version& jabber:iq:time& vcard-temp\\ 
+% jabber:iq:private& jabber:iq:search& jabber:iq:oob& jabber:x:oob\\ 
+% jabber:iq:admin& jabber:iq:filter& jabber:iq:auth:0k& jabber:iq:browse\\ 
+%jabber:x:event& jabber:iq:conference& jabber:x:signed& jabber:x:encrypted\\ 
+% jabber:iq:gateway& jabber:iq:last& jabber:x:envelope& jabber:x:expire\\ 	
+%  jabber:xdb:ginsert& jabber:xdb:nslist&\multicolumn{2}{l}{texthttp://www.w3.org/1999/xhtml}
+%\end{tabular}
+%\caption{Pøehled Namespace elementu \textit{iq}.}
+%\label{tabNamespaceIqE}
+%\end{center} 
+%\end{table}
+
+
+\section{Message}\label{Emessage}
+
+\begin{figure}[h]
+\lstset{language=Xml ,caption={Popis elementu \textit{message}.},label=picMessageE}
+\begin{lstlisting}
+      <message from=""
+               to=""
+               type="[normal,chat,groupchat, headline, error]"
+               id=""
+        <body>  </body>
+        <x xmlns="jabber:x:event">
+           [Offline, Delivered, Displayed, Composing]
+        <subject>  </subject>
+        <thread>   </thread>
+        <error>    </error>
+        <x>        </x>
+      </message>
+\end{lstlisting}
+\end{figure}
+
+\section{Presence}\label{Epresence}
+
+\begin{figure}[h]
+\lstset{language=Xml ,caption={Popis elementu \textit{presence}.},label=picPresenceE}
+\begin{lstlisting}
+      <presence from=""
+                to=""
+                type="[available, unavailable, probe, subscribe,
+                       unsubscribe, subscribed, unsubscribed, error]"
+                id=""
+        <show>
+          [away, chat, dnd, normal, xa]
+        </show>
+        <status>     </status>
+        <priority>   </priority>
+        <error>      </error>
+      </presence>
+\end{lstlisting}
+\end{figure}
+
+
+\newpage
+\section{Pøehled prùbìhu roz¹íøení}\label{Erozsireni}
+
+Ukázka celého pøíkladu ¹íøení statusu pomocí roz¹íøení \textit{User Tune}. U¾ivatel \textit{user} poslouchá hudbu a informuje server zasláním zprávy zobrazené v pøíkladu \ref{picSPep1}.
+\begin{figure}[h]
+\begin{center}
+\input{stanza}
+\caption{Ukázka \uv{¹íøení} \textit{User Tune}.}
+ \label{dbscan}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
+\lstset{language=Xml ,caption={Informování serveru o právì pøehrávající hudbì.},label=picSPep1}
+\begin{lstlisting}
+      <iq from="user@jabbim.com" type="set" id="pub1">
+         <pubsub xmlns="http://jabber.org/protocol/pubsub">
+            <publish node="http://jabber.org/protocol/tune">
+               <item>
+                  <tune xmlns="http://jabber.org/protocol/tune">
+                     <artist>Daniel Landa</artist>
+                     <length>255</length>
+                     <source>Nigredo</source>
+                     <title>1968</title>
+                     <track>5</track>
+                  </tune>
+               </item>
+            </publish>
+         </pubsub>
+      </iq>
+\end{lstlisting}
+\end{figure}
+\newpage
+Server obdr¾í informace od klienta \textit{user} zprávu o pøehrávající hudbì. Pomocí elementu \textit{message} ji pøepo¹le v¹em u¾ivatelùm z kontakt listu u¾ivatele \textit{user}, kteøí jsou pro odbìr tìchto typù zpráv zaregistrováni. Tato struktura zprávy je prezentována na pøíkladu \ref{picSPep2}.
+\begin{figure}[h]
+\lstset{language=Xml ,caption={Server informuje u¾ivatele podporující roz¹íøení o stavu \textit{user@jabbim.com}.},label=picSPep2}
+\begin{lstlisting}
+      <message from="user@jabbim.com" type="set"
+               to="jabinfo@jabbim.com/bot" id="pub1">
+         <event xmlns="http://jabber.org/protocol/pubsub#event">
+            <items node="http://jabber.org/protocol/tune">
+               <item>
+                  <tune xmlns="http://jabber.org/protocol/tune">
+                     <artist>Daniel Landa</artist>
+                     <length>255</length>
+                     <source>Nigredo</source>
+                     <title>1968</title>
+                    <track>5</track>
+                  </tune>
+               </item>
+            </items>
+         </event>
+      </message>
+\end{lstlisting}
+\end{figure}
+
+Zpráva o pøehrávané hudbì je také pøeposlána v¹em otevøeným spojením u¾ivatele \textit{user}, ukázáno na pøíkladì \ref{picSPep3}.
+
+\begin{figure}[h]
+\lstset{language=Xml ,caption={Server pøepo¹le informace o pøehrávané hudbì v¹em otevøeným spojením u¾ivatele \textit{user@jabbim.com}.},label=picSPep3}
+\begin{lstlisting}
+      <message from="user@jabbim.com" type="set"
+               to="user@jabbim.com/doma" id="pub2">
+         <event xmlns="http://jabber.org/protocol/pubsub#event">
+            <items node="http://jabber.org/protocol/tune">
+               <item>
+                  <tune xmlns="http://jabber.org/protocol/tune">
+                     <artist>Daniel Landa</artist>
+                     <length>255</length>
+                     <source>Nigredo</source>
+                     <title>1968</title>
+                     <track>5</track>
+                  </tune>
+               </item>
+            </items>
+         </event>
+      </message>
+\end{lstlisting}
+\end{figure}
+\newpage
+Pøestane--li u¾ivatel \textit{user} poslouchat/vysílat informace o pøehrávané hudbì, provede to pomocí zprávy ukázané na pøíkladu \ref{picSPep4}. Zpráva typu \textit{iq}, ve které je polo¾ka \textit{tune} nesoucí informace o skladbì prázdná.
+\begin{figure}[h]
+\lstset{language=Xml ,caption={U¾ivatel ukonèil \uv{vysílaní} roz¹íøených zpráv o svém stavu.},label=picSPep4}
+\begin{lstlisting}
+      <iq from="user@jabbim.com/prace" type="set" id="pub1">
+         <pubsub xmlns="http://jabber.org/protocol/pubsub">
+            <publish node="http://jabber.org/protocol/tune">
+               <item>
+                  <tune xmlns="http://jabber.org/protocol/tune"/>
+               </item>
+            </publish>
+         </pubsub>
+      </iq>
+\end{lstlisting}
+\end{figure}
+
+Server informuje v¹echny úèastníky odbìru zprávou, která má polo¾ku \textit{tune} prázdnou. Tak jak to prezentuje pøíklad \ref{picSPep5}.
+
+\begin{figure}[h]
+\lstset{language=Xml ,caption={Server informuje klienty o ukonèení ¹íøení roz¹íøeného statusu u¾ivatele \textit{user@jabbim.com}.},label=picSPep5}
+\begin{lstlisting}
+      <message from="user@jabbim.com"
+               to="jabinfo@jabbim.com/bot">
+         <event xmlns="http://jabber.org/protocol/pubsub#event">
+            <items node="http://jabber.org/protocol/tune">
+               <item>
+                  <tune xmlns="http://jabber.org/protocol/tune"/>
+               </item>
+            </items>
+         </event>
+      </message>
+\end{lstlisting}
+\end{figure}
+
+\chapter{Návrh databáze}\label{EDatabase}
+
+\begin{figure}[ht]
+\begin{center}
+\input{Database1}
+\caption{Struktura databáze}
+ \label{Edatabase}
+\end{center}
+\end{figure}
+\chapter{Pøehled klientù a jejich roz¹íøení}\label{Eklient}
+
+
+%.
+%zrofj http://xmpp.org/xmpp-software/clients/
+%..sd.fsdf
+\begin{table}[ht]
+\subtable{
+\centering
+\renewcommand{\arraystretch}{1.2}
+ {\tiny\tt
+\begin{tabular}{ l c c c c c c c c c c} 
+\rowcolor[gray]{0.9}
+\textbf{Klient}	&\textbf{OS} &\textbf{XEP--60}& \textbf{XEP--163}&\textbf{XEP--80} & \textbf{XEP--92} & \textbf{XEP--107} & \textbf{XEP--108} & \textbf{XEP--118}  & \textbf{XEP--} & \textbf{XEP--}\\
+Adium		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Agile Messenger & 		 & 		    & \\
+AQQ		& 		 & 		    & \\ 
+Ayttm		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+beejive		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Beem		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+BitlBee		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Bombus		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+BuddyMob	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Chatopus	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Citron		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Claros Chat	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+climm		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Coccinella	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Crosstalk	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Digsby		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+eM Client	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+emite		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Empathy		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Exodus		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Finch		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Gajim 		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Galaxium	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+glu		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+GNU Freetalk	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Gossip		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+iChat		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+iJab		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+IM+		& 		 & 		    & 		      & 		 & 		     & 			 &		\\ 
+imov Messenger	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+irssi-xmpp	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Jabbear		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Jabber Mix Client& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+jabber.el	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Jabbim		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Jabbim for Android& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Jabiru		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+JAJC		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Jappix		& 		 & 		    & 		      & 		 & 		     & 			 &		\\ \hline
+\end{tabular}} }
+\end{table}
+
+
+
+\begin{table}[ht]
+\subtable{
+\centering
+\renewcommand{\arraystretch}{1.2}
+ {\tiny\tt
+\begin{tabular}{ l c c c c c c c c c c} 
+\rowcolor[gray]{0.9}
+\textbf{Klient}	&\textbf{OS} &\textbf{XEP--60}& \textbf{XEP--163}&\textbf{XEP--80} & \textbf{XEP--92} & \textbf{XEP--107} & \textbf{XEP--108} & \textbf{XEP--118}  & \textbf{XEP--} & \textbf{XEP--}\\
+
+JBuddy Messenger& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Jeti		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Jitsi (SIP Communicator)& 	 & 		    & 		      & 		 & 		     & 			 &		\\
+JWChat		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Kadu		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Kopete		& 		 & 		    & 		      &			 & 		     & 			 &		\\
+Lampiro		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+m-im		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+mcabber		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+mChat		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Miranda IM	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Monal IM	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+OctroTalk	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+OneTeam		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+OneTeam for iPhone& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Oyo		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Pandion		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Poezio		& 		 & 		    & 		      & 		 &      	     & 			 &		\\
+Pidgin		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Prodromus	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Psi		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Psi+		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Quiet Internet Pager (QIP)& 	 & 		    & 		      & 		 & 		     & 			 &		\\
+qutIM		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+saje		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+SamePlace	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Sim-IM		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Slimster	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+SoapBox Communicator& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Spark		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+SparkWeb	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Synapse		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Talkonaut	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Tigase Messenger& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Tigase Minichat	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Tkabber		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Tlen		& 		 & 		    & 		      & 		 & 		     & 			 &		\\ 
+Trillian	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+TrophyIM	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+V\&V Messenger	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Vacuum-IM	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Vayusphere	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+WTW		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Xabber		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+xmppchat	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Yambi		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+Yaxim		& 		 & 		    & 		      & 		 & 		     & 			 &		\\ \hline
+\end{tabular}} }
+\caption{Pøehled podporovaných roz¹íøení u jednotlivých klientù.}
+\label{tabEklient}
+
+\end{table}
