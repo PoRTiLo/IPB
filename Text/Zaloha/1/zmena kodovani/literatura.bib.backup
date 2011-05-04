@@ -1,0 +1,255 @@
+//STEVENS, Richard W; FENNER, Bill; RUDOFF, Andrew M. Unix network programming. 3rd ed. Boston : Addison-Wesley, 2004. 991 s. ISBN 01-314-1155-1.
+//http://aleph.lib.vutbr.cz/F/IL1GQQAYAIGCMGP8BV3HGGF8I8FAND7T3FMKSUUI4CC6GMSIJM-17912?func=full-set-set&set_number=004182&set_entry=000001&format=999
+    @BOOK{UNIX,
+      author =       "W.Richard Stevens and Bill Fenner and Andrew M.Rudoff",
+      title =        "UNIX Network Programming",
+      edition =      "3",
+      address =       "Boston",
+      publisher =    "Addison-Wesley Publishing Company",
+      year =         "2004",
+      pages =        "991",
+      note =         "ISBN~01-314-1155-1",
+    }
+
+//http://aleph.lib.vutbr.cz/F/IL1GQQAYAIGCMGP8BV3HGGF8I8FAND7T3FMKSUUI4CC6GMSIJM-18429?func=full-set-set&set_number=004183&set_entry=000002&format=999
+//KUROSE, James F; ROSS, Keith W. Computer networking : top-down approach featuring the internet. 2nd ed. Boston : Addison-Wesley, 2003. 752 s. ISBN 03-211-7644-8.
+    @BOOK{Kurose,
+      author =       "James F. Kurose and Keith W Ross",
+      title =        "Computer networking : top-down approach featuring the internet",
+      edition =      "2",
+      address =       "Boston",
+      publisher =    "Addison-Wesley Publishing Company",
+      year =         "2003",
+      pages =        "752",
+      note =         "ISBN~03-211-7644-8",
+    }
+
+//FRED, Halsall. Computer networking and the internet. Vyd. 1. Edinburg : Addison-Wesley, 2005. 803 s. ISBN 03-212-6358-8.
+//http://aleph.lib.vutbr.cz/F/IL1GQQAYAIGCMGP8BV3HGGF8I8FAND7T3FMKSUUI4CC6GMSIJM-17231?func=full-set-set&set_number=004167&set_entry=000001&format=999
+    @BOOK{Fred,
+      author =       "Halsall Fred",
+      title =        "Computer networking and the internet",
+      edition =      "1",
+      address =       "Edinburg",
+      publisher =    "Addison-Wesley Publishing Company",
+      year =         "2005",
+      pages =        "803",
+      note =         "ISBN~03-212-6358-8",
+    }
+
+//http://aleph.lib.vutbr.cz/F/IL1GQQAYAIGCMGP8BV3HGGF8I8FAND7T3FMKSUUI4CC6GMSIJM-23355?func=full-set-set&set_number=004255&set_entry=000013&format=999
+//ADAMS, DJ. Programming jabber. Sebastopol : O'Reilly, 2002. 455 s. ISBN 05-960-0202-5.
+    @BOOK{Adams,
+      author =       "DJ. Adams",
+      title =        "Programming jabber",
+      edition =      "1",
+      address =      "Sebastopol",
+      publisher =    "O'Reilly",
+      year =         "2002",
+      pages =        "455",
+      note =         "ISBN~05-960-0202-5",
+    }
+
+//SAINT-ANDRÉPeter; SMITH, Kevin; TRONÇON, Remko. XMPP : the definitive guide : building real-time applications with jabber technologies. 1st ed. 
+//Sebastopol : O'Reilly, 2009. 287 s. ISBN 978-059-6521-264.
+//http://aleph.lib.vutbr.cz/F/IL1GQQAYAIGCMGP8BV3HGGF8I8FAND7T3FMKSUUI4CC6GMSIJM-26487?func=full-set-set&set_number=004268&set_entry=000004&format=999
+    @BOOK{Saint,
+      author =       "Peter Saint-André and Kevin Smith and Remko Troncon",
+      title =        "XMPP : the definitive guide : building real-time applications with jabber technologies",
+      edition =      "1",
+      address =      "Sebastopol",
+      publisher =    "O'Reilly",
+      year =         "2009",
+      pages =        "287",
+      note =         "ISBN~978-059-6521-264",
+    }
+
+//http://aleph.lib.vutbr.cz/F/IL1GQQAYAIGCMGP8BV3HGGF8I8FAND7T3FMKSUUI4CC6GMSIJM-29913?func=full-set-set&set_number=004297&set_entry=000012&format=999
+//MOORE, Dana; WRIGHT, William. Jabber developer's handbook. Indianapolis : Sams Publishing, 2004. 487 s. ISBN 06-723-2536-5.
+    @BOOK{Moore,
+      author =       "Dana Moore and Wiliam Wright",
+      title =        "Jabber developer's handbook",
+      edition =      "1",
+      address =      "Indianapolis",
+      publisher =    "Sams Publishing",
+      year =         "2004",
+      pages =        "487",
+      note =         "ISBN~06-723-2536-5",
+    }
+
+//http://aleph.lib.vutbr.cz/F/IL1GQQAYAIGCMGP8BV3HGGF8I8FAND7T3FMKSUUI4CC6GMSIJM-47382?func=full-set-set&set_number=004391&set_entry=000001&format=999
+//KOSEK, Jiøí. XML pro ka¾dého : podrobný prùvodce. 1. vyd. Praha : Grada, 2000. 163 s. ISBN 80-716-9860-1.
+    @BOOK{Kosek,
+      author =       "Jiøí Kosek",
+      title =        "XML pro ka¾dého : podrobný prùvodce",
+      edition =      "1",
+      address =      "Praha",
+      publisher =    "Grada",
+      year =         "2000",
+      pages =        "163",
+      note =         "ISBN~80-716-9860-1",
+    }
+
+Saint-Andre, P.: Extensible Messaging and Presence Protocol (XMPP): Core [online].
+http://tools.ietf.org/html/rfc3920, 2004-10 [cit. 2010-05-17].
+
+  @MISC{Rfc3920,
+      author =       "Peter Saint-André",  
+      title =        "Extensible Messaging and Presence Protocol (XMPP): Core",
+      howpublished=  "[online]",
+      url =          "{http://tools.ietf.org/html/rfc3920}",
+      note =         "{10-2004, [cit. \today]}",
+   }
+
+  @MISC{Rfc3921,
+      author =       "Peter Saint-André",  
+      title =        "Extensible Messaging and Presence Protocol (XMPP): Instant Messaging and Presence",
+      howpublished=  "[online]",
+      url =          "{http://tools.ietf.org/html/rfc3921}",
+      note =         "{10-2004, [cit. \today]}",
+   }
+
+  @MISC{Xep0060,
+      author =       "Peter Millard and Peter Saint-Andre and Ralph Meijer",  
+      title =        "XEP-0060: Publish-Subscribe",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0060.html}",
+      note =         "{12-07-2010, [cit. \today]}",
+   }
+
+  @MISC{Xep0163,
+      author =       "Peter Saint-Andre and Kevin Smith",  
+      title =        "XEP-0163: Personal Eventing Protocol",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0163.html}",
+      note =         "{12-07-2010, [cit. \today]}",
+   }
+
+  @MISC{Xep0080,
+      author =       "Joe Hildebrand and Peter Saint-Andre",  
+      title =        "XEP-0080: User Location",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0080.html}",
+      note =         "{15-09-2009, [cit. \today]}",
+   }
+
+  @MISC{Xep0092,
+      author =       "Peter Saint-Andre",  
+      title =        "XEP-0092: Software Version",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0092.html}",
+      note =         "{2-15-2007, [cit. \today]}",
+   }
+
+  @MISC{Xep0107,
+      author =       "Peter Saint-Andre and Ralph Meijer",  
+      title =        "XEP-0107: User Mood",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0107.html}",
+      note =         "{29-10-2008, [cit. \today]}",
+   }
+
+  @MISC{Xep0108,
+      author =       "Ralph Meijer and Peter Saint-Andre",  
+      title =        "XEP-0108: User Activity",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0108.html}",
+      note =         "{29-10-2008, [cit. \today]}",
+   }
+
+  @MISC{Xep0118,
+      author =       "Peter Saint-Andre",  
+      title =        "XEP-0118: User Tune",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0118.html}",
+      note =         "{30-01-2008, [cit. \today]}",
+   }
+
+  @MISC{Xep0115,
+      author =       "Joe Hildebrand and Peter Saint-Andre and Remko Tronçon and Jacek Konieczny",  
+      title =        "XEP-0115: Entity Capabilities",
+      howpublished=  "[online]",
+      url =          "{http://xmpp.org/extensions/xep-0115.html}",
+      note =         "{02-26-2008, [cit. \today]}",
+   }
+
+  @MISC{Xml5th,
+      author =       "{Kolektiv autorù}",  
+      title =        "Extensible Markup Language (XML) 1.0",
+      howpublished=  "[online]",
+      edition =      "5",
+      url =          "{http://www.w3.org/TR/2008/REC-xml-20081126/}",
+      note =         "26-11-2008, [cit. \today]",
+   }
+
+  @MISC{Schroter,
+      author =       "Jakob Schröter",  
+      title =        "Gloox API Dokumentace",
+      howpublished=  "[online]",
+      url =          "{http://camaya.net/api/gloox-1.0/index.html}",
+      note =         "31-11-2009 , [cit. \today]",
+   }
+
+  @MISC{Ejabberd,
+      author =       "{WWW Stránky}",  
+      title =        "Ejabberd the Erlang Jabber/XMPP deamon community site",
+      howpublished=  "[online]",
+      url =          "{http://www.ejabberd.im/}",
+      note =         "2010, [cit. \today]",
+   }
+
+  @MISC{Openfire,
+      author =       "{WWW Stránky}",  
+      title =        "Openfire is a real time collaboration server",
+      howpublished=  "[online]",
+      url =          "{http://www.igniterealtime.org/projects/openfire/}",
+      note =         "2010, [cit. \today]",
+   }
+
+  @MISC{Jabberd2,
+      author =       "{WWW Stránky - Matthias Wimmer}",  
+      title =        "Jabberd2 - XMPP Server",
+      howpublished=  "[online]",
+      url =          "{http://codex.xiaoka.com/wiki/jabberd2:start}",
+      note =         "2010, [cit. \today]",
+   }
+
+  @MISC{Jabberd14,
+      author =       "{WWW Stránky}",  
+      title =        "Jabberd14 the original Jabber server implementation",
+      howpublished=  "[online]",
+      url =          "{http://jabberd.org/}",
+      note =         "2010, [cit. \today]",
+   }
+
+  @MISC{Prosody,
+      author =       "{WWW Stránky}",  
+      title =        "Prosody a study in simplicity",
+      howpublished=  "[online]",
+      url =          "{http://prosody.im/}",
+      note =         "2010, [cit. \today]",
+   }
+
+  @MISC{Tigase,
+      author =       "{WWW Stránky}",  
+      title =        "Tigase is the website of the Tigase XMPP/Jabber Server",
+      howpublished=  "[online]",
+      url =          "{http://www.tigase.org/}",
+      note =         "2010, [cit. \today]",
+   }
+   @MISC{fitWeb,
+      author =       "Z. Rábová and P. Hanáèek and P. Peringer and P. Pøikryl and B. Køena",  
+      title =        "U¾iteèné rady pro psaní odborného textu [online]",
+      publisher =    "FIT VUT v Brnì",
+      year =         "2008-11-01 [cit. 2008-11-28]",
+      howpublished=  "{\tt http://www.fit.vutbr.cz/info/statnice/psani\_textu.html}",
+   }
+
+    @BOOK{IIS,
+      author =       "Tomá¹ Hru¹ka",
+      title =        "Informaèní systémy : IIS/PIS",
+      address =      "Brno",
+      publisher =    "Fakulta informaèních technologií",
+      year =         "2008",
+      pages =        "14733",
+    }

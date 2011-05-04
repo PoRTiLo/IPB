@@ -1,0 +1,205 @@
+\hypertarget{classActivity}{
+\section{Activity Class Reference}
+\label{classActivity}\index{Activity@{Activity}}
+}
+
+
+{\ttfamily \#include $<$activity.h$>$}
+
+Inheritance diagram for Activity:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classActivity}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classActivity_a93db22f748fdf5110d4718a8cd8b5512}{Activity} (const Tag $\ast$tag)
+\item 
+virtual \hyperlink{classActivity_a4622df19c79b9dcd7b8c0074200447a0}{$\sim$Activity} ()
+\item 
+\hypertarget{classActivity_a2afb82fb326c8d3d590e011ce63cbc11}{
+std::string {\bfseries activity} (void)}
+\label{classActivity_a2afb82fb326c8d3d590e011ce63cbc11}
+
+\item 
+\hypertarget{classActivity_adf61214159fcace0d5fb41b59c3b0ec4}{
+void {\bfseries activity} (const std::string activity)}
+\label{classActivity_adf61214159fcace0d5fb41b59c3b0ec4}
+
+\item 
+\hypertarget{classActivity_a72e092be85236159d2fbca432108d707}{
+std::string {\bfseries spec} (void)}
+\label{classActivity_a72e092be85236159d2fbca432108d707}
+
+\item 
+\hypertarget{classActivity_a6b33c7b7e36e56f9fa03955d5544d931}{
+void {\bfseries spec} (const std::string spec)}
+\label{classActivity_a6b33c7b7e36e56f9fa03955d5544d931}
+
+\item 
+\hypertarget{classActivity_a018a725931038e5ea4ae9620646cc077}{
+std::string {\bfseries text} (void)}
+\label{classActivity_a018a725931038e5ea4ae9620646cc077}
+
+\item 
+\hypertarget{classActivity_a01e31fca6adb2bf25a3a756c4c58b88e}{
+void {\bfseries text} (const std::string text)}
+\label{classActivity_a01e31fca6adb2bf25a3a756c4c58b88e}
+
+\item 
+virtual void \hyperlink{classActivity_a853ec90fa8746a4e86955fcd645746d2}{parserTag} (const Tag $\ast$tag)
+\item 
+virtual void \hyperlink{classActivity_add2145e0f4811f67f15009a92d7acfa5}{clear} (void)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classActivity_ab21189c4956f253d99cd50d5a582050a}{
+std::string {\bfseries m\_\-activity}}
+\label{classActivity_ab21189c4956f253d99cd50d5a582050a}
+
+\item 
+\hypertarget{classActivity_a6f3a2f7de6db0e428baef440343cf34e}{
+std::string {\bfseries m\_\-spec}}
+\label{classActivity_a6f3a2f7de6db0e428baef440343cf34e}
+
+\item 
+\hypertarget{classActivity_a615902775c3e51e9555c68ddb667c6a0}{
+std::string {\bfseries m\_\-text}}
+\label{classActivity_a615902775c3e51e9555c68ddb667c6a0}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std::string {\bfseries m\_\-activityTab} \mbox{[}11\mbox{]}\mbox{[}13\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementace rozsireni XEP-\/108: User \hyperlink{classActivity}{Activity} 
+
+Definition at line 16 of file activity.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classActivity_a93db22f748fdf5110d4718a8cd8b5512}{
+\index{Activity@{Activity}!Activity@{Activity}}
+\index{Activity@{Activity}!Activity@{Activity}}
+\subsubsection[{Activity}]{\setlength{\rightskip}{0pt plus 5cm}Activity::Activity (
+\begin{DoxyParamCaption}
+\item[{const Tag $\ast$}]{ tag}
+\end{DoxyParamCaption}
+)}}
+\label{classActivity_a93db22f748fdf5110d4718a8cd8b5512}
+Constructs a new object from the given Tag. 
+\begin{DoxyParams}{Parameters}
+\item[{\em tag}]A Tag to parse. \end{DoxyParams}
+
+
+Definition at line 4 of file activity.cc.
+
+\hypertarget{classActivity_a4622df19c79b9dcd7b8c0074200447a0}{
+\index{Activity@{Activity}!$\sim$Activity@{$\sim$Activity}}
+\index{$\sim$Activity@{$\sim$Activity}!Activity@{Activity}}
+\subsubsection[{$\sim$Activity}]{\setlength{\rightskip}{0pt plus 5cm}virtual Activity::$\sim$Activity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classActivity_a4622df19c79b9dcd7b8c0074200447a0}
+Virtual destructor. 
+
+Definition at line 36 of file activity.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classActivity_add2145e0f4811f67f15009a92d7acfa5}{
+\index{Activity@{Activity}!clear@{clear}}
+\index{clear@{clear}!Activity@{Activity}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void Activity::clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classActivity_add2145e0f4811f67f15009a92d7acfa5}
+Vymazani elementu m\_\-id a m\_\-jid. 
+
+Implements \hyperlink{classExtension_a68a97599590365a07cb65b7146527de5}{Extension}.
+
+
+
+Definition at line 80 of file activity.cc.
+
+\hypertarget{classActivity_a853ec90fa8746a4e86955fcd645746d2}{
+\index{Activity@{Activity}!parserTag@{parserTag}}
+\index{parserTag@{parserTag}!Activity@{Activity}}
+\subsubsection[{parserTag}]{\setlength{\rightskip}{0pt plus 5cm}void Activity::parserTag (
+\begin{DoxyParamCaption}
+\item[{const Tag $\ast$}]{ tag}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classActivity_a853ec90fa8746a4e86955fcd645746d2}
+Rozparsrovani xml zpravy. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em }]$\ast$tag xml zprava. \end{DoxyParams}
+
+
+Implements \hyperlink{classExtension_a934ee9dd373d61a41ea98f919e9abcbd}{Extension}.
+
+
+
+Definition at line 46 of file activity.cc.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classActivity_abe196e495d5f4f0f1876b8908bc53081}{
+\index{Activity@{Activity}!m\_\-activityTab@{m\_\-activityTab}}
+\index{m\_\-activityTab@{m\_\-activityTab}!Activity@{Activity}}
+\subsubsection[{m\_\-activityTab}]{\setlength{\rightskip}{0pt plus 5cm}const std::string Activity::m\_\-activityTab\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classActivity_abe196e495d5f4f0f1876b8908bc53081}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {{"doing_chores","buying_groceries", "cleaning", "cooking", "doing_maintenance",
+       "doing_the_dishes", "doing_the_laundry", "gardening", "running_an_errand", "walk
+      ing_the_dog"},
+                                             {"drinking"," having_a_beer", "havin
+      g_coffee", "having_tea"},
+                                             {"eating", "having_a_snack", "having
+      _breakfast", "having_dinner", "having_lunch"},
+                                             {"exercising", "cycling", "dancing",
+       "hiking", "jogging", "playing_sports", "running", "skiing", "swimming", "working
+      _out"},
+                                             {"grooming", "at_the_spa", "brushing
+      _teeth", "getting_a_haircut", "shaving", "taking_a_bath", "taking_a_shower"},
+                                             {"having_appointment"}, 
+                                             {"inactive", "day_off", "hanging_out
+      ", "hiding", "on_vacation", "praying", "scheduled_holiday", "sleeping", "thinking
+      "},
+                                             {"relaxing",  "fishing", "gaming", "
+      going_out", "partying", "reading", "rehearsing", "shopping", "smoking", "socializ
+      ing", "sunbathing", "watching_tv", "watching_a_movie"},
+                                             {"talking", "in_real_life", "on_the_
+      phone", "on_video_phone"},
+                                             {"traveling", "commuting", "cycling"
+      , "driving", "in_a_car"," on_a_bus","on_a_plane", "on_a_train", "on_a_trip", "wal
+      king"},
+                                             {"working", "coding", "in_a_meeting"
+      , "studying"," writing"}
+ }
+\end{DoxyCode}
+
+
+Definition at line 21 of file activity.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{activity_8h}{activity.h}\item 
+activity.cc\end{DoxyCompactItemize}

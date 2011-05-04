@@ -1,0 +1,351 @@
+\hypertarget{classBot}{
+\section{Bot Class Reference}
+\label{classBot}\index{Bot@{Bot}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classBot_ad3caff7fae06ebc75208758e11ee96ca}{Bot} ()
+\item 
+\hyperlink{classBot_a7e4d85945814c609d30130174bf57882}{Bot} (string login, string pass)
+\item 
+\hyperlink{classBot_a4163b0f6c91f94cbeb3145eeda8cd361}{$\sim$Bot} ()
+\item 
+void \hyperlink{classBot_acaf1de36b89e953cc6c9d8dd7f5a1350}{setLogin} (string login)
+\item 
+void \hyperlink{classBot_aa087635f92b0d5cdd63309217f426f0a}{setPass} (string pass)
+\item 
+\hypertarget{classBot_a668dad772f6d907459b94a79d4eda0f0}{
+string {\bfseries getLogin} ()}
+\label{classBot_a668dad772f6d907459b94a79d4eda0f0}
+
+\item 
+string \hyperlink{classBot_ae1fd92d41017a1ac754ca2ea5672e837}{getPass} ()
+\item 
+bool \hyperlink{classBot_acf50989223abde938fc015305a14a980}{run} ()
+\item 
+virtual void \hyperlink{classBot_aad1be105cd750c68b71972fab2dee745}{onDisconnect} (ConnectionError)
+\item 
+virtual void \hyperlink{classBot_ae00144b9d91d4b24ce206e88cada5de7}{onConnect} ()
+\item 
+virtual bool \hyperlink{classBot_ae58a92ec530bc62e3010308bd520a74f}{onTLSConnect} (const CertInfo \&info)
+\item 
+\hypertarget{classBot_a245cc6c9f9df8817e92c9a08fda1433e}{
+virtual void {\bfseries onResourceBindError} (ResourceBindError)}
+\label{classBot_a245cc6c9f9df8817e92c9a08fda1433e}
+
+\item 
+\hypertarget{classBot_a07c898997af1a63120d9f20f45c659d3}{
+virtual void {\bfseries onSessionCreateError} (SessionCreateError error)}
+\label{classBot_a07c898997af1a63120d9f20f45c659d3}
+
+\item 
+\hypertarget{classBot_a87373d105d7dc3c8c5cff2b2ed06383a}{
+virtual void {\bfseries handleItemSubscribed} (const JID \&jid)}
+\label{classBot_a87373d105d7dc3c8c5cff2b2ed06383a}
+
+\item 
+\hypertarget{classBot_a89edf827c5a2fa8fc22bde8b75dcb1be}{
+virtual void {\bfseries handleItemAdded} (const JID \&jid)}
+\label{classBot_a89edf827c5a2fa8fc22bde8b75dcb1be}
+
+\item 
+\hypertarget{classBot_a6e5060ee48472413dfed3dfb84c3d20d}{
+virtual void {\bfseries handleItemUnsubscribed} (const JID \&jid)}
+\label{classBot_a6e5060ee48472413dfed3dfb84c3d20d}
+
+\item 
+\hypertarget{classBot_a6eeac59b6ea7a4a52256874b58e072a7}{
+virtual void {\bfseries handleItemRemoved} (const JID \&jid)}
+\label{classBot_a6eeac59b6ea7a4a52256874b58e072a7}
+
+\item 
+\hypertarget{classBot_a38fe52b899f5eb99c12a555728ab7df9}{
+virtual void {\bfseries handleItemUpdated} (const JID \&jid)}
+\label{classBot_a38fe52b899f5eb99c12a555728ab7df9}
+
+\item 
+\hypertarget{classBot_af350006e8c887cc7c0f20f71e49d8a84}{
+virtual void {\bfseries handleRoster} (const Roster \&roster)}
+\label{classBot_af350006e8c887cc7c0f20f71e49d8a84}
+
+\item 
+\hypertarget{classBot_aba30911c417ebb2effd79cded20a0b8d}{
+virtual void {\bfseries handleRosterError} (const IQ \&)}
+\label{classBot_aba30911c417ebb2effd79cded20a0b8d}
+
+\item 
+\hypertarget{classBot_a3a0fe7dc3507fbc8f77320df7e099067}{
+virtual void {\bfseries handleRosterPresence} (const RosterItem \&item, const std::string \&resource, Presence::PresenceType presence, const std::string \&msg)}
+\label{classBot_a3a0fe7dc3507fbc8f77320df7e099067}
+
+\item 
+virtual void \hyperlink{classBot_ad88d08d22a123e47dd78fc364e0182e4}{handleSelfPresence} (const RosterItem \&item, const std::string \&resources, Presence::PresenceType presence, const std::string \&msg)
+\item 
+\hypertarget{classBot_a2f354257d06774aae9caf3942ea74ed6}{
+virtual bool {\bfseries handleSubscriptionRequest} (const JID \&jid, const std::string \&)}
+\label{classBot_a2f354257d06774aae9caf3942ea74ed6}
+
+\item 
+\hypertarget{classBot_ac0576c0cad473b4506a67e728666c313}{
+virtual bool {\bfseries handleUnsubscriptionRequest} (const JID \&jid, const std::string \&)}
+\label{classBot_ac0576c0cad473b4506a67e728666c313}
+
+\item 
+\hypertarget{classBot_a601b1f75964445f9a48611186086042c}{
+virtual void {\bfseries handleNonrosterPresence} (const Presence \&presence)}
+\label{classBot_a601b1f75964445f9a48611186086042c}
+
+\item 
+\hypertarget{classBot_a7e6cb82c8f63c1fc3d3125752bbfe930}{
+virtual void {\bfseries handleMessage} (const Message \&message, MessageSession $\ast$)}
+\label{classBot_a7e6cb82c8f63c1fc3d3125752bbfe930}
+
+\item 
+\hypertarget{classBot_a10e94a2ac1ce8db98ce89c61375611b8}{
+virtual void {\bfseries handleLog} (LogLevel level, LogArea area, const std::string \&message)}
+\label{classBot_a10e94a2ac1ce8db98ce89c61375611b8}
+
+\item 
+\hypertarget{classBot_ae5c375106d9733bfe780edde4f016d87}{
+virtual void {\bfseries handleVCard} (const JID \&jid, const VCard $\ast$v)}
+\label{classBot_ae5c375106d9733bfe780edde4f016d87}
+
+\item 
+\hypertarget{classBot_ad643fdd35a8060ce4b09228f12597cb3}{
+virtual void {\bfseries handleVCardResult} (VCardContext context, const JID \&jid, StanzaError se)}
+\label{classBot_ad643fdd35a8060ce4b09228f12597cb3}
+
+\item 
+\hypertarget{classBot_acb923ca8286b780365c7f24a0c074abf}{
+void {\bfseries end} ()}
+\label{classBot_acb923ca8286b780365c7f24a0c074abf}
+
+\item 
+\hypertarget{classBot_a0a11810f509b0113f57835ab74ae10c6}{
+virtual void {\bfseries handleDiscoInfo} (const JID \&, const Disco::Info \&, int)}
+\label{classBot_a0a11810f509b0113f57835ab74ae10c6}
+
+\item 
+\hypertarget{classBot_aa7c7e69464b2878a5319ed89492f9aa5}{
+virtual void {\bfseries handleDiscoItems} (const JID \&, const Disco::Items \&, int)}
+\label{classBot_aa7c7e69464b2878a5319ed89492f9aa5}
+
+\item 
+\hypertarget{classBot_a800f81d6e8a1788343818277ad54fbbf}{
+virtual void {\bfseries handleDiscoError} (const JID \&, const Error $\ast$, int)}
+\label{classBot_a800f81d6e8a1788343818277ad54fbbf}
+
+\item 
+\hypertarget{classBot_a2eae5769db23d4a333a26ee166e64da0}{
+virtual bool {\bfseries handleIq} (const IQ \&iq)}
+\label{classBot_a2eae5769db23d4a333a26ee166e64da0}
+
+\item 
+\hypertarget{classBot_a5900106dac0370335e46b9363707f8c5}{
+virtual void {\bfseries handleIqID} (const IQ \&iq, int context)}
+\label{classBot_a5900106dac0370335e46b9363707f8c5}
+
+\item 
+\hypertarget{classBot_a9b4c7098db22a7c8f77ef975f7374a18}{
+virtual void {\bfseries handlePresence} (const Presence \&presence)}
+\label{classBot_a9b4c7098db22a7c8f77ef975f7374a18}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classBot_a8e5ebc10d5572ca45ae87a5bb22afcb7}{
+string {\bfseries login}}
+\label{classBot_a8e5ebc10d5572ca45ae87a5bb22afcb7}
+
+\item 
+\hypertarget{classBot_ac2b5aeb49dad078f99ba60e0a154b631}{
+string {\bfseries pass}}
+\label{classBot_ac2b5aeb49dad078f99ba60e0a154b631}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 68 of file bot.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classBot_ad3caff7fae06ebc75208758e11ee96ca}{
+\index{Bot@{Bot}!Bot@{Bot}}
+\index{Bot@{Bot}!Bot@{Bot}}
+\subsubsection[{Bot}]{\setlength{\rightskip}{0pt plus 5cm}Bot::Bot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classBot_ad3caff7fae06ebc75208758e11ee96ca}
+Konstruktor bezparametricky. Heslo a login budou vyplneny defaultnimi udaji (DEF\_\-LOGIN, DEF\_\-PASS). 
+
+Definition at line 17 of file bot.cc.
+
+\hypertarget{classBot_a7e4d85945814c609d30130174bf57882}{
+\index{Bot@{Bot}!Bot@{Bot}}
+\index{Bot@{Bot}!Bot@{Bot}}
+\subsubsection[{Bot}]{\setlength{\rightskip}{0pt plus 5cm}Bot::Bot (
+\begin{DoxyParamCaption}
+\item[{string}]{ login, }
+\item[{string}]{ pass}
+\end{DoxyParamCaption}
+)}}
+\label{classBot_a7e4d85945814c609d30130174bf57882}
+Konstruktor. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]login plne jmeno pro prihlaseni se do site \item[\mbox{\tt[in]} {\em $<$string$>$}]pass heslo pro prihlaseni \end{DoxyParams}
+
+
+Definition at line 23 of file bot.cc.
+
+\hypertarget{classBot_a4163b0f6c91f94cbeb3145eeda8cd361}{
+\index{Bot@{Bot}!$\sim$Bot@{$\sim$Bot}}
+\index{$\sim$Bot@{$\sim$Bot}!Bot@{Bot}}
+\subsubsection[{$\sim$Bot}]{\setlength{\rightskip}{0pt plus 5cm}Bot::$\sim$Bot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classBot_a4163b0f6c91f94cbeb3145eeda8cd361}
+Destruktor. 
+
+Definition at line 29 of file bot.cc.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classBot_ae1fd92d41017a1ac754ca2ea5672e837}{
+\index{Bot@{Bot}!getPass@{getPass}}
+\index{getPass@{getPass}!Bot@{Bot}}
+\subsubsection[{getPass}]{\setlength{\rightskip}{0pt plus 5cm}string Bot::getPass (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classBot_ae1fd92d41017a1ac754ca2ea5672e837}
+Vrati prihlasovaci heslo. \begin{DoxyReturn}{Returns}
+$<$string$>$ prihlasovaci heslo 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file bot.cc.
+
+\hypertarget{classBot_ad88d08d22a123e47dd78fc364e0182e4}{
+\index{Bot@{Bot}!handleSelfPresence@{handleSelfPresence}}
+\index{handleSelfPresence@{handleSelfPresence}!Bot@{Bot}}
+\subsubsection[{handleSelfPresence}]{\setlength{\rightskip}{0pt plus 5cm}void Bot::handleSelfPresence (
+\begin{DoxyParamCaption}
+\item[{const RosterItem \&}]{ item, }
+\item[{const std::string \&}]{ resources, }
+\item[{Presence::PresenceType}]{ presence, }
+\item[{const std::string \&}]{ msg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classBot_ad88d08d22a123e47dd78fc364e0182e4}
+Odchytava presenci odesilanou od bota (od nas k nekomu). 
+
+Definition at line 163 of file bot.cc.
+
+\hypertarget{classBot_ae00144b9d91d4b24ce206e88cada5de7}{
+\index{Bot@{Bot}!onConnect@{onConnect}}
+\index{onConnect@{onConnect}!Bot@{Bot}}
+\subsubsection[{onConnect}]{\setlength{\rightskip}{0pt plus 5cm}void Bot::onConnect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classBot_ae00144b9d91d4b24ce206e88cada5de7}
+Pripojeno. 
+
+Definition at line 108 of file bot.cc.
+
+\hypertarget{classBot_aad1be105cd750c68b71972fab2dee745}{
+\index{Bot@{Bot}!onDisconnect@{onDisconnect}}
+\index{onDisconnect@{onDisconnect}!Bot@{Bot}}
+\subsubsection[{onDisconnect}]{\setlength{\rightskip}{0pt plus 5cm}void Bot::onDisconnect (
+\begin{DoxyParamCaption}
+\item[{ConnectionError}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classBot_aad1be105cd750c68b71972fab2dee745}
+Odpojeni klienta bota od servu. 
+\begin{DoxyParams}{Parameters}
+\item[{\em $<$ConnectionError$>$}]\end{DoxyParams}
+
+
+Definition at line 103 of file bot.cc.
+
+\hypertarget{classBot_ae58a92ec530bc62e3010308bd520a74f}{
+\index{Bot@{Bot}!onTLSConnect@{onTLSConnect}}
+\index{onTLSConnect@{onTLSConnect}!Bot@{Bot}}
+\subsubsection[{onTLSConnect}]{\setlength{\rightskip}{0pt plus 5cm}bool Bot::onTLSConnect (
+\begin{DoxyParamCaption}
+\item[{const CertInfo \&}]{ info}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classBot_ae58a92ec530bc62e3010308bd520a74f}
+Bezpecne pripojeni. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$CertInfo$>$}]\&info Informace o certifikatu. \end{DoxyParams}
+
+
+Definition at line 111 of file bot.cc.
+
+\hypertarget{classBot_acf50989223abde938fc015305a14a980}{
+\index{Bot@{Bot}!run@{run}}
+\index{run@{run}!Bot@{Bot}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}bool Bot::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classBot_acf50989223abde938fc015305a14a980}
+Vytvoreni klienta, pripojeni se k servu, prihlasi se k odberu logu. Inicializace a pripojeni k databazi. 
+
+Definition at line 47 of file bot.cc.
+
+\hypertarget{classBot_acaf1de36b89e953cc6c9d8dd7f5a1350}{
+\index{Bot@{Bot}!setLogin@{setLogin}}
+\index{setLogin@{setLogin}!Bot@{Bot}}
+\subsubsection[{setLogin}]{\setlength{\rightskip}{0pt plus 5cm}void Bot::setLogin (
+\begin{DoxyParamCaption}
+\item[{string}]{ login}
+\end{DoxyParamCaption}
+)}}
+\label{classBot_acaf1de36b89e953cc6c9d8dd7f5a1350}
+Nastaveni prihlasovaciho jmena JID. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$String$>$}]login prihlasovaci jmeno \end{DoxyParams}
+
+
+Definition at line 31 of file bot.cc.
+
+\hypertarget{classBot_aa087635f92b0d5cdd63309217f426f0a}{
+\index{Bot@{Bot}!setPass@{setPass}}
+\index{setPass@{setPass}!Bot@{Bot}}
+\subsubsection[{setPass}]{\setlength{\rightskip}{0pt plus 5cm}void Bot::setPass (
+\begin{DoxyParamCaption}
+\item[{string}]{ pass}
+\end{DoxyParamCaption}
+)}}
+\label{classBot_aa087635f92b0d5cdd63309217f426f0a}
+Nastaveni prihlasovaciho hesla. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]pass helso pro uzivatelsky ucet \end{DoxyParams}
+
+
+Definition at line 35 of file bot.cc.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bot_8h}{bot.h}\item 
+bot.cc\end{DoxyCompactItemize}

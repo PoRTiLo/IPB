@@ -1,0 +1,159 @@
+\hypertarget{func_8h}{
+\section{func.h File Reference}
+\label{func_8h}\index{func.h@{func.h}}
+}
+
+
+Soubor vsemoznych funkci.  
+
+
+{\ttfamily \#include $<$signal.h$>$}\par
+{\ttfamily \#include $<$sys/types.h$>$}\par
+{\ttfamily \#include $<$unistd.h$>$}\par
+{\ttfamily \#include $<$iostream$>$}\par
+{\ttfamily \#include $<$string$>$}\par
+{\ttfamily \#include $<$sstream$>$}\par
+{\ttfamily \#include $<$pthread.h$>$}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{func_8h_ad0c8899b495b8d1aee987d9bc2474c10}{checkSignal} (int numSignal)
+\item 
+\hypertarget{func_8h_a8e3b6518146e5b047fa2613456f4bd41}{
+void {\bfseries initSignal} ()}
+\label{func_8h_a8e3b6518146e5b047fa2613456f4bd41}
+
+\item 
+\hypertarget{func_8h_a63cab98f5e84aa7ba76c82c96b97fe0c}{
+void {\bfseries signalTerm} ()}
+\label{func_8h_a63cab98f5e84aa7ba76c82c96b97fe0c}
+
+\item 
+\hypertarget{func_8h_aca1b04bf894085c9fa916069a5cd3e49}{
+void {\bfseries initThread} ()}
+\label{func_8h_aca1b04bf894085c9fa916069a5cd3e49}
+
+\item 
+\hypertarget{func_8h_acb80f1d6aa0939dd2047cc3d6b5b3602}{
+void $\ast$ {\bfseries thread} (void $\ast$mThread)}
+\label{func_8h_acb80f1d6aa0939dd2047cc3d6b5b3602}
+
+\item 
+\hypertarget{func_8h_a80f1fd9fd322940a38bd96c73e6f772f}{
+std::string {\bfseries numToStr} (const int number)}
+\label{func_8h_a80f1fd9fd322940a38bd96c73e6f772f}
+
+\item 
+\hypertarget{func_8h_aab2fc50429009dc5bc10e2916591f9f3}{
+std::string {\bfseries numToStr} (const unsigned int number)}
+\label{func_8h_aab2fc50429009dc5bc10e2916591f9f3}
+
+\item 
+\hypertarget{func_8h_aa615902cc37d9bea201fc1ad7bfe4b1f}{
+std::string {\bfseries numToStr} (const short int number)}
+\label{func_8h_aa615902cc37d9bea201fc1ad7bfe4b1f}
+
+\item 
+\hypertarget{func_8h_a92374d3dcf57dfc93e69903351bd9a4e}{
+std::string {\bfseries numToStr} (const float number)}
+\label{func_8h_a92374d3dcf57dfc93e69903351bd9a4e}
+
+\item 
+\hypertarget{func_8h_ac9c101f45e835bc4833e4da73cb29006}{
+float {\bfseries stringToFloat} (const std::string str)}
+\label{func_8h_ac9c101f45e835bc4833e4da73cb29006}
+
+\item 
+\hypertarget{func_8h_aa4b11247dffe76e0fd5569ae9f5dc32f}{
+int {\bfseries stringToInt} (const std::string str)}
+\label{func_8h_aa4b11247dffe76e0fd5569ae9f5dc32f}
+
+\item 
+\hypertarget{func_8h_a96012f5802509d6a00c03afa1a95a5d3}{
+short int {\bfseries stringToShortInt} (const std::string str)}
+\label{func_8h_a96012f5802509d6a00c03afa1a95a5d3}
+
+\item 
+\hypertarget{func_8h_add040cd8b3e66e7b5154fa62bf916764}{
+unsigned int {\bfseries stringToUnsignedInt} (const std::string str)}
+\label{func_8h_add040cd8b3e66e7b5154fa62bf916764}
+
+\item 
+std::string \hyperlink{func_8h_a19dd6753c77c5d1529b9dc47274dc012}{presenceString} (const int presence)
+\item 
+std::string \hyperlink{func_8h_a3d5d3fad21b019f1df74380aabcc9552}{messageSubtype} (const int subtype)
+\item 
+\hypertarget{func_8h_a102d0efa3b0a72d31869572f92755bd2}{
+std::string {\bfseries boolToString} (std::string str)}
+\label{func_8h_a102d0efa3b0a72d31869572f92755bd2}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{func_8h_a64f7c0f2d6f83ed25c1fddb9499c7d07}{
+bool {\bfseries f\_\-global}}
+\label{func_8h_a64f7c0f2d6f83ed25c1fddb9499c7d07}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Soubor vsemoznych funkci. 
+
+Definition in file \hyperlink{func_8h_source}{func.h}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{func_8h_ad0c8899b495b8d1aee987d9bc2474c10}{
+\index{func.h@{func.h}!checkSignal@{checkSignal}}
+\index{checkSignal@{checkSignal}!func.h@{func.h}}
+\subsubsection[{checkSignal}]{\setlength{\rightskip}{0pt plus 5cm}void checkSignal (
+\begin{DoxyParamCaption}
+\item[{int}]{ numSignal}
+\end{DoxyParamCaption}
+)}}
+\label{func_8h_ad0c8899b495b8d1aee987d9bc2474c10}
+Ukonci beh programu. 
+
+Definition at line 13 of file func.cc.
+
+\hypertarget{func_8h_a3d5d3fad21b019f1df74380aabcc9552}{
+\index{func.h@{func.h}!messageSubtype@{messageSubtype}}
+\index{messageSubtype@{messageSubtype}!func.h@{func.h}}
+\subsubsection[{messageSubtype}]{\setlength{\rightskip}{0pt plus 5cm}std::string messageSubtype (
+\begin{DoxyParamCaption}
+\item[{const int}]{ subtype}
+\end{DoxyParamCaption}
+)}}
+\label{func_8h_a3d5d3fad21b019f1df74380aabcc9552}
+Prevod typu zpravy na text. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$inst$>$}]subtype Typ zpravy. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$string$>$ Textova reprezentace typu zpravy. 
+\end{DoxyReturn}
+
+
+Definition at line 117 of file func.cc.
+
+\hypertarget{func_8h_a19dd6753c77c5d1529b9dc47274dc012}{
+\index{func.h@{func.h}!presenceString@{presenceString}}
+\index{presenceString@{presenceString}!func.h@{func.h}}
+\subsubsection[{presenceString}]{\setlength{\rightskip}{0pt plus 5cm}std::string presenceString (
+\begin{DoxyParamCaption}
+\item[{const int}]{ presence}
+\end{DoxyParamCaption}
+)}}
+\label{func_8h_a19dd6753c77c5d1529b9dc47274dc012}
+Prevod typu presence na text. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$int$>$}]presence Typ presence. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$string$>$ Textove reprezentace typu presence. 
+\end{DoxyReturn}
+
+
+Definition at line 135 of file func.cc.
+

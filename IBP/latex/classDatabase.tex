@@ -1,0 +1,623 @@
+\hypertarget{classDatabase}{
+\section{Database Class Reference}
+\label{classDatabase}\index{Database@{Database}}
+}
+
+
+{\ttfamily \#include $<$database.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDatabase_a4703c80e6969d33565ea340f768fdadf}{Database} ()
+\item 
+\hyperlink{classDatabase_a174f34007549b594df14306f1520238e}{Database} (std::string hostaddr, std::string dbname, std::string user, std::string password, std::string connectTimeout, std::string port)
+\item 
+\hyperlink{classDatabase_a84d399a2ad58d69daab9b05330e1316d}{$\sim$Database} ()
+\item 
+void \hyperlink{classDatabase_a65c7d2cc56b627d6bb9ab4be25dad2dc}{start} ()
+\item 
+char $\ast$ \hyperlink{classDatabase_a0be1ba1393e19becbeffed6b15fcfe91}{getTime} ()
+\item 
+bool \hyperlink{classDatabase_a4b48b0e706c1017b6ef0a4015b53080b}{createTable} (const std::string nameTable, const std::string dataTable)
+\item 
+std::string \hyperlink{classDatabase_a3199eea5fdae26872668a43f345841fd}{convertBinary} (std::string message)
+\item 
+std::string \hyperlink{classDatabase_a491ca397cd5339ddc2474e64e1b66b00}{convertXML} (std::string message)
+\item 
+void \hyperlink{classDatabase_ab313dba2c4a1ba81b6e81f0342e76f1f}{insertTableActivity} (\hyperlink{classActivity}{Activity} $\ast$activity)
+\item 
+void \hyperlink{classDatabase_a23060c24f9d5fcfb85d302e30882b62d}{insertTableTune} (\hyperlink{classTune}{Tune} $\ast$tune)
+\item 
+void \hyperlink{classDatabase_a77052db1584364171f640ac6e17532bf}{insertTableMood} (\hyperlink{classMood}{Mood} $\ast$mood)
+\item 
+void \hyperlink{classDatabase_ac5e578fc33954b0cb1e52c2d95d3ca0b}{insertTableGeoloc} (\hyperlink{classGeoloc}{Geoloc} $\ast$geoloc)
+\item 
+void \hyperlink{classDatabase_a1bc61aab7507950d0cca002b05693fd1}{insertTableVCard} (const VCard $\ast$v, std::string jidBare)
+\item 
+void \hyperlink{classDatabase_ae3d08a778ad3e3bb916b9a0710e17591}{insertTableUser} (std::string user)
+\item 
+void \hyperlink{classDatabase_adf308c272ed2354c9b4b0adec7e7514c}{insertTableDebug} (int level, int area, const std::string message)
+\item 
+void \hyperlink{classDatabase_a91c467c7d88fa73d47f90b00810639ce}{insertTableXML} (int level, int area, std::string message)
+\item 
+void \hyperlink{classDatabase_a9d4abee71fe85d95e34537212a2b1860}{insertTableMessage} (const std::string jid, const std::string msg, const std::string subject, const std::string thread, const std::string subtype)
+\item 
+void \hyperlink{classDatabase_ac224d84f32afe5b4700339b4ed1cbcba}{insertTablePresence} (const std::string jid, const std::string msg, const std::string name, const std::string resource, const std::string presence, const int priority, const std::string nameSW, const std::string versionSW, const std::string osSW)
+\item 
+void \hyperlink{classDatabase_a23e89aa424f735e5510760e6dcb5e7ae}{insertTablePresence} (const std::string jid, const std::string msg, const std::string name, const std::string resource, const std::string presence)
+\item 
+void \hyperlink{classDatabase_a277f3480f7ac16380ea0195d2a3d1c14}{updateTableStatus} (const std::string jidBare)
+\item 
+bool \hyperlink{classDatabase_af70354123caedcc69d3ce905e04c35ff}{updateTableResource} (const std::string jidBare, const std::string presence, const std::string status, const std::string resource, const int priority)
+\item 
+bool \hyperlink{classDatabase_a808c8a5de4206ca72a69a122b8832811}{updateTableResource} (const std::string jidBare, const std::string presence, const std::string status, const std::string resource, const int priority, std::string ver)
+\item 
+void \hyperlink{classDatabase_a9abb11cd73e399d8f872ed6a19ff1d0c}{updateTableResource} (const std::string jidBare, const std::string presence, const std::string status, const std::string resource)
+\item 
+void \hyperlink{classDatabase_a3d21c62cf45f895d5bea438b1279370d}{updateTableResource} (std::string jidBare, std::string resource, std::string nameSW, std::string versionSW, std::string osSW)
+\item 
+bool \hyperlink{classDatabase_ae80a2a2b6a33748bee20b62780f43fc3}{updateTableResource} (\hyperlink{classSwVersion}{SwVersion} $\ast$swversion)
+\item 
+\hypertarget{classDatabase_ae59c31d44f6b09b22edc7173f0d7f18d}{
+void {\bfseries exitError} ()}
+\label{classDatabase_ae59c31d44f6b09b22edc7173f0d7f18d}
+
+\item 
+\hypertarget{classDatabase_a5d733ffa13f136481e3dbdabc9b9ce99}{
+std::string {\bfseries printUser} () const }
+\label{classDatabase_a5d733ffa13f136481e3dbdabc9b9ce99}
+
+\item 
+\hypertarget{classDatabase_a84791e2489f1aace2bfba61e6e5fdd77}{
+void {\bfseries clearResourceTable} (void)}
+\label{classDatabase_a84791e2489f1aace2bfba61e6e5fdd77}
+
+\item 
+\hypertarget{classDatabase_af8cc000733b73f596f49a0c4a65637ff}{
+std::string {\bfseries listToString} (gloox::StringList units)}
+\label{classDatabase_af8cc000733b73f596f49a0c4a65637ff}
+
+\item 
+void \hyperlink{classDatabase_a94ac4a7584707bfd40643e437e7471a8}{initListVer} (void)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classDatabase_a15b316cae6fa42bd196fe02604d6885f}{
+std::map$<$ std::string, std::string $>$ {\bfseries listVer}}
+\label{classDatabase_a15b316cae6fa42bd196fe02604d6885f}
+
+\item 
+\hypertarget{classDatabase_a5d3b8a26bb76c91209970d278cb0faec}{
+std::multimap$<$ std::string, std::string $>$ {\bfseries mapVer}}
+\label{classDatabase_a5d3b8a26bb76c91209970d278cb0faec}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::string \hyperlink{classDatabase_a73a3ea4197118649af11db64a0905f26}{m\_\-hostaddr}
+\item 
+\hypertarget{classDatabase_a70b977fa3e19a4246e7db483dcd8761d}{
+std::string {\bfseries m\_\-dbname}}
+\label{classDatabase_a70b977fa3e19a4246e7db483dcd8761d}
+
+\item 
+\hypertarget{classDatabase_a3c452d6af7dbb3a1d43a0af8a52925ca}{
+std::string {\bfseries m\_\-user}}
+\label{classDatabase_a3c452d6af7dbb3a1d43a0af8a52925ca}
+
+\item 
+\hypertarget{classDatabase_a3162a928df727ca310429e7e1898ce2e}{
+std::string {\bfseries m\_\-password}}
+\label{classDatabase_a3162a928df727ca310429e7e1898ce2e}
+
+\item 
+\hypertarget{classDatabase_a011133e8aee26f47cecc85bf23c4172f}{
+std::string {\bfseries m\_\-connectTimeout}}
+\label{classDatabase_a011133e8aee26f47cecc85bf23c4172f}
+
+\item 
+\hypertarget{classDatabase_a694c89f3fbedd3ca436a77879839a741}{
+std::string {\bfseries m\_\-connInfo}}
+\label{classDatabase_a694c89f3fbedd3ca436a77879839a741}
+
+\item 
+\hypertarget{classDatabase_a00d646c476f717ca940a96dd246e198d}{
+std::string {\bfseries m\_\-port}}
+\label{classDatabase_a00d646c476f717ca940a96dd246e198d}
+
+\item 
+\hypertarget{classDatabase_ab85622620a91d68830ee429f0cea4eb9}{
+char {\bfseries sTime} \mbox{[}80\mbox{]}}
+\label{classDatabase_ab85622620a91d68830ee429f0cea4eb9}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Poskytuje rozhrani pro praci s databazi POSTGRESQL verze 8.4. 
+
+Definition at line 48 of file database.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDatabase_a4703c80e6969d33565ea340f768fdadf}{
+\index{Database@{Database}!Database@{Database}}
+\index{Database@{Database}!Database@{Database}}
+\subsubsection[{Database}]{\setlength{\rightskip}{0pt plus 5cm}Database::Database (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a4703c80e6969d33565ea340f768fdadf}
+Konstruktor. 
+
+Definition at line 5 of file database.cc.
+
+\hypertarget{classDatabase_a174f34007549b594df14306f1520238e}{
+\index{Database@{Database}!Database@{Database}}
+\index{Database@{Database}!Database@{Database}}
+\subsubsection[{Database}]{\setlength{\rightskip}{0pt plus 5cm}Database::Database (
+\begin{DoxyParamCaption}
+\item[{std::string}]{ hostaddr, }
+\item[{std::string}]{ dbname, }
+\item[{std::string}]{ user, }
+\item[{std::string}]{ password, }
+\item[{std::string}]{ connectTimeout, }
+\item[{std::string}]{ port}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a174f34007549b594df14306f1520238e}
+Konstruktor. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$std::string$>$}]hostaddr Adresa servru databaze. \item[\mbox{\tt[in]} {\em $<$std::string$>$}]dbname Jmeno databaze. \item[\mbox{\tt[in]} {\em $<$std::string$>$}]user Uzivatelsek jemno vlastnika databaze. \item[\mbox{\tt[in]} {\em $<$std::string$>$}]password Heslo pro pripojeni do databaze. \item[\mbox{\tt[in]} {\em $<$std::string$>$}]connectTimeout Cas pro ukonceni pripojeni pokud se to nepovede. \item[\mbox{\tt[in]} {\em $<$std::string$>$}]port Port pripojeni. \end{DoxyParams}
+
+
+Definition at line 17 of file database.cc.
+
+\hypertarget{classDatabase_a84d399a2ad58d69daab9b05330e1316d}{
+\index{Database@{Database}!$\sim$Database@{$\sim$Database}}
+\index{$\sim$Database@{$\sim$Database}!Database@{Database}}
+\subsubsection[{$\sim$Database}]{\setlength{\rightskip}{0pt plus 5cm}Database::$\sim$Database (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classDatabase_a84d399a2ad58d69daab9b05330e1316d}
+Destruktor. 
+
+Definition at line 182 of file database.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDatabase_a3199eea5fdae26872668a43f345841fd}{
+\index{Database@{Database}!convertBinary@{convertBinary}}
+\index{convertBinary@{convertBinary}!Database@{Database}}
+\subsubsection[{convertBinary}]{\setlength{\rightskip}{0pt plus 5cm}std::string Database::convertBinary (
+\begin{DoxyParamCaption}
+\item[{std::string}]{ message}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a3199eea5fdae26872668a43f345841fd}
+Prevod binarniho obrazku na retezec. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]message binarkni data \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$string$>$ ASCII znaky 
+\end{DoxyReturn}
+
+
+Definition at line 506 of file database.cc.
+
+\hypertarget{classDatabase_a491ca397cd5339ddc2474e64e1b66b00}{
+\index{Database@{Database}!convertXML@{convertXML}}
+\index{convertXML@{convertXML}!Database@{Database}}
+\subsubsection[{convertXML}]{\setlength{\rightskip}{0pt plus 5cm}std::string Database::convertXML (
+\begin{DoxyParamCaption}
+\item[{std::string}]{ message}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a491ca397cd5339ddc2474e64e1b66b00}
+Prevod retezec na retezec s escape znaky pro format databaze. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]message puvodni retezec \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$string$>$ retezec s pridanymi znaky pro ulozeni do Db 
+\end{DoxyReturn}
+
+
+Definition at line 520 of file database.cc.
+
+\hypertarget{classDatabase_a4b48b0e706c1017b6ef0a4015b53080b}{
+\index{Database@{Database}!createTable@{createTable}}
+\index{createTable@{createTable}!Database@{Database}}
+\subsubsection[{createTable}]{\setlength{\rightskip}{0pt plus 5cm}bool Database::createTable (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ nameTable, }
+\item[{const std::string}]{ dataTable}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a4b48b0e706c1017b6ef0a4015b53080b}
+Vytvoreni tabulky. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$const}]std::string$>$ nameTable Jmeno tabulky, ktera bude vytvorena. \item[\mbox{\tt[in]} {\em $<$const}]std::string$>$ dataTable Data pro vytvoreni tabulky, jmena a typy sloupcu. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$<$bool$>$ true Tabulka vytvorena. false Tabulka neni vutvorena, mozna jiz existuje. 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file database.cc.
+
+\hypertarget{classDatabase_a0be1ba1393e19becbeffed6b15fcfe91}{
+\index{Database@{Database}!getTime@{getTime}}
+\index{getTime@{getTime}!Database@{Database}}
+\subsubsection[{getTime}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ Database::getTime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a0be1ba1393e19becbeffed6b15fcfe91}
+Nastaveni promenne sTime aktualnim casem. Format YYYY-\/MM-\/DD HH:MM:SS. 
+
+Definition at line 493 of file database.cc.
+
+\hypertarget{classDatabase_a94ac4a7584707bfd40643e437e7471a8}{
+\index{Database@{Database}!initListVer@{initListVer}}
+\index{initListVer@{initListVer}!Database@{Database}}
+\subsubsection[{initListVer}]{\setlength{\rightskip}{0pt plus 5cm}void Database::initListVer (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a94ac4a7584707bfd40643e437e7471a8}
+Naplneni listu uzivateli 
+
+Definition at line 456 of file database.cc.
+
+\hypertarget{classDatabase_ab313dba2c4a1ba81b6e81f0342e76f1f}{
+\index{Database@{Database}!insertTableActivity@{insertTableActivity}}
+\index{insertTableActivity@{insertTableActivity}!Database@{Database}}
+\subsubsection[{insertTableActivity}]{\setlength{\rightskip}{0pt plus 5cm}void Database::insertTableActivity (
+\begin{DoxyParamCaption}
+\item[{{\bf Activity} $\ast$}]{ activity}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_ab313dba2c4a1ba81b6e81f0342e76f1f}
+Vlozeni dat do tabulky ACTIVITY. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$Activity$\ast$$>$}]ativity objekt obsahujici dat pro databazi. \end{DoxyParams}
+
+
+Definition at line 534 of file database.cc.
+
+\hypertarget{classDatabase_adf308c272ed2354c9b4b0adec7e7514c}{
+\index{Database@{Database}!insertTableDebug@{insertTableDebug}}
+\index{insertTableDebug@{insertTableDebug}!Database@{Database}}
+\subsubsection[{insertTableDebug}]{\setlength{\rightskip}{0pt plus 5cm}void Database::insertTableDebug (
+\begin{DoxyParamCaption}
+\item[{int}]{ level, }
+\item[{int}]{ area, }
+\item[{const std::string}]{ message}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_adf308c272ed2354c9b4b0adec7e7514c}
+Vlozeni logovych informaci. Id cilso = informace slovy. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$int$>$}]level \item[\mbox{\tt[in]} {\em $<$inta$>$}]area \item[\mbox{\tt[in]} {\em $<$string$>$}]message Data vlozena do tabulky. \end{DoxyParams}
+
+
+Definition at line 699 of file database.cc.
+
+\hypertarget{classDatabase_ac5e578fc33954b0cb1e52c2d95d3ca0b}{
+\index{Database@{Database}!insertTableGeoloc@{insertTableGeoloc}}
+\index{insertTableGeoloc@{insertTableGeoloc}!Database@{Database}}
+\subsubsection[{insertTableGeoloc}]{\setlength{\rightskip}{0pt plus 5cm}void Database::insertTableGeoloc (
+\begin{DoxyParamCaption}
+\item[{{\bf Geoloc} $\ast$}]{ geoloc}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_ac5e578fc33954b0cb1e52c2d95d3ca0b}
+Vlozeni dat do tabulky GEOLOC. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$Geoloc$\ast$$>$}]geoloc objekt obsahujici dat pro databazi. \end{DoxyParams}
+
+
+Definition at line 600 of file database.cc.
+
+\hypertarget{classDatabase_a9d4abee71fe85d95e34537212a2b1860}{
+\index{Database@{Database}!insertTableMessage@{insertTableMessage}}
+\index{insertTableMessage@{insertTableMessage}!Database@{Database}}
+\subsubsection[{insertTableMessage}]{\setlength{\rightskip}{0pt plus 5cm}void Database::insertTableMessage (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ jid, }
+\item[{const std::string}]{ msg, }
+\item[{const std::string}]{ subject, }
+\item[{const std::string}]{ thread, }
+\item[{const std::string}]{ subtype}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a9d4abee71fe85d95e34537212a2b1860}
+Vlozeni zprav do tabulky MESSAGE 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]jid uzivatelske jmeno adresata \item[\mbox{\tt[in]} {\em $<$string$>$}]msg text zpravy \item[\mbox{\tt[in]} {\em $<$string$>$}]subject predmet zpravy \item[\mbox{\tt[in]} {\em $<$string$>$}]thread vlakno \item[\mbox{\tt[in]} {\em $<$string$>$}]subtype typ zpravy \end{DoxyParams}
+
+
+Definition at line 737 of file database.cc.
+
+\hypertarget{classDatabase_a77052db1584364171f640ac6e17532bf}{
+\index{Database@{Database}!insertTableMood@{insertTableMood}}
+\index{insertTableMood@{insertTableMood}!Database@{Database}}
+\subsubsection[{insertTableMood}]{\setlength{\rightskip}{0pt plus 5cm}void Database::insertTableMood (
+\begin{DoxyParamCaption}
+\item[{{\bf Mood} $\ast$}]{ mood}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a77052db1584364171f640ac6e17532bf}
+Vlozeni dat do tabulky MOOD. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$Mood$\ast$$>$}]mood objekt obsahujici dat pro databazi. \end{DoxyParams}
+
+
+Definition at line 555 of file database.cc.
+
+\hypertarget{classDatabase_a23e89aa424f735e5510760e6dcb5e7ae}{
+\index{Database@{Database}!insertTablePresence@{insertTablePresence}}
+\index{insertTablePresence@{insertTablePresence}!Database@{Database}}
+\subsubsection[{insertTablePresence}]{\setlength{\rightskip}{0pt plus 5cm}void Database::insertTablePresence (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ jid, }
+\item[{const std::string}]{ msg, }
+\item[{const std::string}]{ name, }
+\item[{const std::string}]{ resource, }
+\item[{const std::string}]{ presence}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a23e89aa424f735e5510760e6dcb5e7ae}
+Vlozeni informaci o zmenen statusu uzivatele do tabulky presence. Zmena stavu je na Unavailable. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]jid uzivatelsek jemno. \item[\mbox{\tt[in]} {\em $<$string$>$}]msg podrobnejsi popis statusu. \item[\mbox{\tt[in]} {\em $<$string$>$}]name jmeno uzivatele. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource uzivatele. \item[\mbox{\tt[in]} {\em $<$string$>$}]presence presence. \end{DoxyParams}
+
+
+Definition at line 772 of file database.cc.
+
+\hypertarget{classDatabase_ac224d84f32afe5b4700339b4ed1cbcba}{
+\index{Database@{Database}!insertTablePresence@{insertTablePresence}}
+\index{insertTablePresence@{insertTablePresence}!Database@{Database}}
+\subsubsection[{insertTablePresence}]{\setlength{\rightskip}{0pt plus 5cm}void Database::insertTablePresence (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ jid, }
+\item[{const std::string}]{ msg, }
+\item[{const std::string}]{ name, }
+\item[{const std::string}]{ resource, }
+\item[{const std::string}]{ presence, }
+\item[{const int}]{ priority, }
+\item[{const std::string}]{ nameSW, }
+\item[{const std::string}]{ versionSW, }
+\item[{const std::string}]{ osSW}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_ac224d84f32afe5b4700339b4ed1cbcba}
+Vlozeni informaci o zmenen statusu uzivatele do tabulky presence. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]jid uzivatelsek jmeno. \item[\mbox{\tt[in]} {\em $<$string$>$}]msg podrobnejsi popis statusu. \item[\mbox{\tt[in]} {\em $<$string$>$}]name jmeno uzivatele. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource uzivatele. \item[\mbox{\tt[in]} {\em $<$string$>$}]presence presence. \item[\mbox{\tt[in]} {\em $<$int$>$}]priority priorita daneho resource. \item[\mbox{\tt[in]} {\em $<$string$>$}]nameSw jmeno programu. \item[\mbox{\tt[in]} {\em $<$string$>$}]versionSw verze software. \item[\mbox{\tt[in]} {\em $<$string$>$}]osSw nazev operacniho systemu, ktery uzivatel pouziva. \end{DoxyParams}
+
+
+Definition at line 755 of file database.cc.
+
+\hypertarget{classDatabase_a23060c24f9d5fcfb85d302e30882b62d}{
+\index{Database@{Database}!insertTableTune@{insertTableTune}}
+\index{insertTableTune@{insertTableTune}!Database@{Database}}
+\subsubsection[{insertTableTune}]{\setlength{\rightskip}{0pt plus 5cm}void Database::insertTableTune (
+\begin{DoxyParamCaption}
+\item[{{\bf Tune} $\ast$}]{ tune}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a23060c24f9d5fcfb85d302e30882b62d}
+Vlozeni dat do tabulky TUNE. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$Tune$\ast$$>$}]tune objekt obsahujici dat pro databazi. \end{DoxyParams}
+
+
+Definition at line 577 of file database.cc.
+
+\hypertarget{classDatabase_ae3d08a778ad3e3bb916b9a0710e17591}{
+\index{Database@{Database}!insertTableUser@{insertTableUser}}
+\index{insertTableUser@{insertTableUser}!Database@{Database}}
+\subsubsection[{insertTableUser}]{\setlength{\rightskip}{0pt plus 5cm}void Database::insertTableUser (
+\begin{DoxyParamCaption}
+\item[{std::string}]{ user}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_ae3d08a778ad3e3bb916b9a0710e17591}
+Vlozeni uzivatele do tabulky user. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$std::string$>$}]user Jmeno uziovatele, JID. \end{DoxyParams}
+
+
+Definition at line 672 of file database.cc.
+
+\hypertarget{classDatabase_a1bc61aab7507950d0cca002b05693fd1}{
+\index{Database@{Database}!insertTableVCard@{insertTableVCard}}
+\index{insertTableVCard@{insertTableVCard}!Database@{Database}}
+\subsubsection[{insertTableVCard}]{\setlength{\rightskip}{0pt plus 5cm}void Database::insertTableVCard (
+\begin{DoxyParamCaption}
+\item[{const VCard $\ast$}]{ v, }
+\item[{std::string}]{ jidBare}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a1bc61aab7507950d0cca002b05693fd1}
+Vlozeni dat do tabulky VCARD. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$VCard$>$}]v \end{DoxyParams}
+
+
+Definition at line 639 of file database.cc.
+
+\hypertarget{classDatabase_a91c467c7d88fa73d47f90b00810639ce}{
+\index{Database@{Database}!insertTableXML@{insertTableXML}}
+\index{insertTableXML@{insertTableXML}!Database@{Database}}
+\subsubsection[{insertTableXML}]{\setlength{\rightskip}{0pt plus 5cm}void Database::insertTableXML (
+\begin{DoxyParamCaption}
+\item[{int}]{ level, }
+\item[{int}]{ area, }
+\item[{std::string}]{ message}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a91c467c7d88fa73d47f90b00810639ce}
+Vlozeni logovych informaci. Id cilso = informace slovy. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$int$>$}]level \item[\mbox{\tt[in]} {\em $<$inta$>$}]area \item[\mbox{\tt[in]} {\em $<$string$>$}]message Data vlozena do tabulky. \end{DoxyParams}
+
+
+Definition at line 718 of file database.cc.
+
+\hypertarget{classDatabase_a65c7d2cc56b627d6bb9ab4be25dad2dc}{
+\index{Database@{Database}!start@{start}}
+\index{start@{start}!Database@{Database}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void Database::start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a65c7d2cc56b627d6bb9ab4be25dad2dc}
+Inicializace a pripojeni k databazi. 
+
+Definition at line 485 of file database.cc.
+
+\hypertarget{classDatabase_a3d21c62cf45f895d5bea438b1279370d}{
+\index{Database@{Database}!updateTableResource@{updateTableResource}}
+\index{updateTableResource@{updateTableResource}!Database@{Database}}
+\subsubsection[{updateTableResource}]{\setlength{\rightskip}{0pt plus 5cm}void Database::updateTableResource (
+\begin{DoxyParamCaption}
+\item[{std::string}]{ jidBare, }
+\item[{std::string}]{ resource, }
+\item[{std::string}]{ nameSW, }
+\item[{std::string}]{ versionSW, }
+\item[{std::string}]{ osSW}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a3d21c62cf45f895d5bea438b1279370d}
+Aktualizace tabulky resource. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]jidBare uzivatelksy ucet. \item[\mbox{\tt[in]} {\em $<$string$>$}]nameSW nazev programu. \item[\mbox{\tt[in]} {\em $<$string$>$}]versionSw verze programu. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource. \item[\mbox{\tt[in]} {\em $<$string$>$}]osSW operacni system. \end{DoxyParams}
+
+
+Definition at line 840 of file database.cc.
+
+\hypertarget{classDatabase_ae80a2a2b6a33748bee20b62780f43fc3}{
+\index{Database@{Database}!updateTableResource@{updateTableResource}}
+\index{updateTableResource@{updateTableResource}!Database@{Database}}
+\subsubsection[{updateTableResource}]{\setlength{\rightskip}{0pt plus 5cm}bool Database::updateTableResource (
+\begin{DoxyParamCaption}
+\item[{{\bf SwVersion} $\ast$}]{ swversion}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_ae80a2a2b6a33748bee20b62780f43fc3}
+Aktualizace tabulky resource. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$SwVersion$\ast$$>$}]swversion informace o software klienta. \end{DoxyParams}
+
+
+Definition at line 856 of file database.cc.
+
+\hypertarget{classDatabase_af70354123caedcc69d3ce905e04c35ff}{
+\index{Database@{Database}!updateTableResource@{updateTableResource}}
+\index{updateTableResource@{updateTableResource}!Database@{Database}}
+\subsubsection[{updateTableResource}]{\setlength{\rightskip}{0pt plus 5cm}bool Database::updateTableResource (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ jidBare, }
+\item[{const std::string}]{ presence, }
+\item[{const std::string}]{ status, }
+\item[{const std::string}]{ resource, }
+\item[{const int}]{ priority}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_af70354123caedcc69d3ce905e04c35ff}
+Aktualizace tabulky resource. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]jidBare uzivatelksy ucet. \item[\mbox{\tt[in]} {\em $<$string$>$}]presence presence. \item[\mbox{\tt[in]} {\em $<$string$>$}]status status. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource. \item[\mbox{\tt[in]} {\em $<$int$>$}]priority priorita \end{DoxyParams}
+
+
+Definition at line 911 of file database.cc.
+
+\hypertarget{classDatabase_a808c8a5de4206ca72a69a122b8832811}{
+\index{Database@{Database}!updateTableResource@{updateTableResource}}
+\index{updateTableResource@{updateTableResource}!Database@{Database}}
+\subsubsection[{updateTableResource}]{\setlength{\rightskip}{0pt plus 5cm}bool Database::updateTableResource (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ jidBare, }
+\item[{const std::string}]{ presence, }
+\item[{const std::string}]{ status, }
+\item[{const std::string}]{ resource, }
+\item[{const int}]{ priority, }
+\item[{std::string}]{ ver}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a808c8a5de4206ca72a69a122b8832811}
+Aktualizace tabulky resource. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]jidBare uzivatelksy ucet. \item[\mbox{\tt[in]} {\em $<$string$>$}]presence presence. \item[\mbox{\tt[in]} {\em $<$string$>$}]status status. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource. \item[\mbox{\tt[in]} {\em $<$int$>$}]priority priorita. \item[\mbox{\tt[in]} {\em $<$string$>$}]ver zakododvane informace o schopnostech klienta, podpore a tak. \end{DoxyParams}
+
+
+Definition at line 875 of file database.cc.
+
+\hypertarget{classDatabase_a9abb11cd73e399d8f872ed6a19ff1d0c}{
+\index{Database@{Database}!updateTableResource@{updateTableResource}}
+\index{updateTableResource@{updateTableResource}!Database@{Database}}
+\subsubsection[{updateTableResource}]{\setlength{\rightskip}{0pt plus 5cm}void Database::updateTableResource (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ jidBare, }
+\item[{const std::string}]{ presence, }
+\item[{const std::string}]{ status, }
+\item[{const std::string}]{ resource}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a9abb11cd73e399d8f872ed6a19ff1d0c}
+Aktualizace tabulky resource. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]jidBare uzivatelksy ucet. \item[\mbox{\tt[in]} {\em $<$string$>$}]presence presence. \item[\mbox{\tt[in]} {\em $<$string$>$}]status status. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource. \end{DoxyParams}
+
+
+Definition at line 947 of file database.cc.
+
+\hypertarget{classDatabase_a277f3480f7ac16380ea0195d2a3d1c14}{
+\index{Database@{Database}!updateTableStatus@{updateTableStatus}}
+\index{updateTableStatus@{updateTableStatus}!Database@{Database}}
+\subsubsection[{updateTableStatus}]{\setlength{\rightskip}{0pt plus 5cm}void Database::updateTableStatus (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ jidBare}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a277f3480f7ac16380ea0195d2a3d1c14}
+Akrualizace stavu tabulky status. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]jidbare uzivatelksy ucet \end{DoxyParams}
+
+
+Definition at line 790 of file database.cc.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classDatabase_a73a3ea4197118649af11db64a0905f26}{
+\index{Database@{Database}!m\_\-hostaddr@{m\_\-hostaddr}}
+\index{m\_\-hostaddr@{m\_\-hostaddr}!Database@{Database}}
+\subsubsection[{m\_\-hostaddr}]{\setlength{\rightskip}{0pt plus 5cm}std::string {\bf Database::m\_\-hostaddr}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classDatabase_a73a3ea4197118649af11db64a0905f26}
+Odstraneni tabulky z databaze. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$const}]std::string$>$ nameTable Jmeno tabulky odebirane z databaze. Smazani vsech tabulek. \end{DoxyParams}
+
+
+Definition at line 150 of file database.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{database_8h}{database.h}\item 
+database.cc\end{DoxyCompactItemize}

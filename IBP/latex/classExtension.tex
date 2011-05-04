@@ -1,0 +1,186 @@
+\hypertarget{classExtension}{
+\section{Extension Class Reference}
+\label{classExtension}\index{Extension@{Extension}}
+}
+
+
+{\ttfamily \#include $<$extension.h$>$}
+
+Inheritance diagram for Extension:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classExtension}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classExtension_af0020afe7f1fb2526ada94896579d9b4}{Extension} (const Tag $\ast$tag)
+\item 
+virtual \hyperlink{classExtension_aac1049b89a95d8a2a2db62e29bb014ca}{$\sim$Extension} ()
+\item 
+std::string \hyperlink{classExtension_a92bcf7ea4ef0dc778e87f1ccc8c27351}{id} (void)
+\item 
+void \hyperlink{classExtension_a52a571a900cfedb14453f10831d408d7}{id} (const std::string id)
+\item 
+JID \hyperlink{classExtension_a47d1a1c66961799083e274e6bd5f8b7e}{jid} (void) const 
+\item 
+void \hyperlink{classExtension_a6bf36c4c9ed39270fc85b22c5b42ea6b}{jid} (const std::string jid)
+\item 
+virtual void \hyperlink{classExtension_a934ee9dd373d61a41ea98f919e9abcbd}{parserTag} (const Tag $\ast$tag)=0
+\item 
+virtual void \hyperlink{classExtension_a68a97599590365a07cb65b7146527de5}{clear} (void)=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classExtension_a1f8606d4bb02a963bbba84ce0715e853}{
+std::string {\bfseries m\_\-id}}
+\label{classExtension_a1f8606d4bb02a963bbba84ce0715e853}
+
+\item 
+\hypertarget{classExtension_a480e27b749148f8de33f147647df83cc}{
+JID {\bfseries m\_\-jid}}
+\label{classExtension_a480e27b749148f8de33f147647df83cc}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementace rozsireni. Trida z ktere vechna implementovana rozsireni dedi. 
+
+Definition at line 21 of file extension.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classExtension_af0020afe7f1fb2526ada94896579d9b4}{
+\index{Extension@{Extension}!Extension@{Extension}}
+\index{Extension@{Extension}!Extension@{Extension}}
+\subsubsection[{Extension}]{\setlength{\rightskip}{0pt plus 5cm}Extension::Extension (
+\begin{DoxyParamCaption}
+\item[{const Tag $\ast$}]{ tag}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classExtension_af0020afe7f1fb2526ada94896579d9b4}
+Konstruktor. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em Tag$\ast$$>$}]tag k rozparsrovani. \end{DoxyParams}
+
+
+Definition at line 34 of file extension.h.
+
+\hypertarget{classExtension_aac1049b89a95d8a2a2db62e29bb014ca}{
+\index{Extension@{Extension}!$\sim$Extension@{$\sim$Extension}}
+\index{$\sim$Extension@{$\sim$Extension}!Extension@{Extension}}
+\subsubsection[{$\sim$Extension}]{\setlength{\rightskip}{0pt plus 5cm}virtual Extension::$\sim$Extension (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classExtension_aac1049b89a95d8a2a2db62e29bb014ca}
+Virtualni destructor. 
+
+Definition at line 40 of file extension.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classExtension_a68a97599590365a07cb65b7146527de5}{
+\index{Extension@{Extension}!clear@{clear}}
+\index{clear@{clear}!Extension@{Extension}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Extension::clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classExtension_a68a97599590365a07cb65b7146527de5}
+Vymazani elementu m\_\-id a m\_\-jid. 
+
+Implemented in \hyperlink{classActivity_add2145e0f4811f67f15009a92d7acfa5}{Activity}, \hyperlink{classGeoloc_a83844d55e0b53be3131a6fcfceb3dbb9}{Geoloc}, \hyperlink{classMood_aa6f1f32d31e93be36244c0e83747649e}{Mood}, \hyperlink{classSwVersion_a2083d816b33f6274af03074c6ac21c5e}{SwVersion}, and \hyperlink{classTune_a73858a32b6ef862874896d398ead716a}{Tune}.
+
+\hypertarget{classExtension_a52a571a900cfedb14453f10831d408d7}{
+\index{Extension@{Extension}!id@{id}}
+\index{id@{id}!Extension@{Extension}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}void Extension::id (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classExtension_a52a571a900cfedb14453f10831d408d7}
+Nastaveni id. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em }]id identifikace elementu. \end{DoxyParams}
+
+
+Definition at line 52 of file extension.h.
+
+\hypertarget{classExtension_a92bcf7ea4ef0dc778e87f1ccc8c27351}{
+\index{Extension@{Extension}!id@{id}}
+\index{id@{id}!Extension@{Extension}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}std::string Extension::id (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classExtension_a92bcf7ea4ef0dc778e87f1ccc8c27351}
+Vraci id rozsireni. \begin{DoxyReturn}{Returns}
+$<$string$>$ identifikace elementu. 
+\end{DoxyReturn}
+
+
+Definition at line 46 of file extension.h.
+
+\hypertarget{classExtension_a6bf36c4c9ed39270fc85b22c5b42ea6b}{
+\index{Extension@{Extension}!jid@{jid}}
+\index{jid@{jid}!Extension@{Extension}}
+\subsubsection[{jid}]{\setlength{\rightskip}{0pt plus 5cm}void Extension::jid (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ jid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classExtension_a6bf36c4c9ed39270fc85b22c5b42ea6b}
+Nastaveni JID uzivatele. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]jid uzivatele. \end{DoxyParams}
+
+
+Definition at line 64 of file extension.h.
+
+\hypertarget{classExtension_a47d1a1c66961799083e274e6bd5f8b7e}{
+\index{Extension@{Extension}!jid@{jid}}
+\index{jid@{jid}!Extension@{Extension}}
+\subsubsection[{jid}]{\setlength{\rightskip}{0pt plus 5cm}JID Extension::jid (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classExtension_a47d1a1c66961799083e274e6bd5f8b7e}
+Vraci uzivatelske jmeno klienta. \begin{DoxyReturn}{Returns}
+$<$JID$>$ jid uzivatele. 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file extension.h.
+
+\hypertarget{classExtension_a934ee9dd373d61a41ea98f919e9abcbd}{
+\index{Extension@{Extension}!parserTag@{parserTag}}
+\index{parserTag@{parserTag}!Extension@{Extension}}
+\subsubsection[{parserTag}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Extension::parserTag (
+\begin{DoxyParamCaption}
+\item[{const Tag $\ast$}]{ tag}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classExtension_a934ee9dd373d61a41ea98f919e9abcbd}
+Rozparsrovani xml tagu 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$Tag$\ast$$>$}]tag xml element. \end{DoxyParams}
+
+
+Implemented in \hyperlink{classActivity_a853ec90fa8746a4e86955fcd645746d2}{Activity}, \hyperlink{classGeoloc_aee41efc57fd8fce9c46c72d447c46830}{Geoloc}, \hyperlink{classMood_a400302483e741c6e3b2359e303abb7b0}{Mood}, \hyperlink{classSwVersion_a3941095835fe5625aab29bef5e644f21}{SwVersion}, and \hyperlink{classTune_a4e47d003fec9e363b82567e4608dfa4a}{Tune}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{extension_8h}{extension.h}\end{DoxyCompactItemize}

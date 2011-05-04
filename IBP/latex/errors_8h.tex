@@ -1,0 +1,121 @@
+\hypertarget{errors_8h}{
+\section{errors.h File Reference}
+\label{errors_8h}\index{errors.h@{errors.h}}
+}
+
+
+Trida implementujici chybove hlaseni.  
+
+
+{\ttfamily \#include $<$ctime$>$}\par
+{\ttfamily \#include $<$iostream$>$}\par
+{\ttfamily \#include $<$fstream$>$}\par
+{\ttfamily \#include $<$cstdlib$>$}\par
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries errors} \{ \par
+{\bfseries COK} =  0, 
+{\bfseries INFO}, 
+{\bfseries CHELP}, 
+{\bfseries CREGFOUND}, 
+\par
+{\bfseries WARNING}, 
+{\bfseries WMOREPAR}, 
+{\bfseries ERROR}, 
+{\bfseries EREGCOMP}, 
+\par
+{\bfseries EREGNOTFOUND}, 
+{\bfseries ENOCONNECT}, 
+{\bfseries END}, 
+{\bfseries UNKNOWN}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{errors_8h_a583262335a0ae29624ec6f3a428e1653}{printErrors} (enum errors N)
+\item 
+void \hyperlink{errors_8h_a61bed6378b9bfe6b5828b641aac6dd1c}{printErrors} (enum errors N, enum errors IN)
+\item 
+void \hyperlink{errors_8h_a40e13b52e3821ab0d86848ce9828e72c}{printErrors} (enum errors N, enum errors IN, FILE $\ast$outstream)
+\item 
+void \hyperlink{errors_8h_a80f8f8ffbfc9f98355d1216d781b84d8}{getErrors} (enum errors N)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Trida implementujici chybove hlaseni. 
+
+Definition in file \hyperlink{errors_8h_source}{errors.h}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{errors_8h_a80f8f8ffbfc9f98355d1216d781b84d8}{
+\index{errors.h@{errors.h}!getErrors@{getErrors}}
+\index{getErrors@{getErrors}!errors.h@{errors.h}}
+\subsubsection[{getErrors}]{\setlength{\rightskip}{0pt plus 5cm}void getErrors (
+\begin{DoxyParamCaption}
+\item[{enum errors}]{ N}
+\end{DoxyParamCaption}
+)}}
+\label{errors_8h_a80f8f8ffbfc9f98355d1216d781b84d8}
+Rozhodne o typu chyby. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$enum}]errors$>$ N \end{DoxyParams}
+
+
+Definition at line 48 of file errors.cc.
+
+\hypertarget{errors_8h_a61bed6378b9bfe6b5828b641aac6dd1c}{
+\index{errors.h@{errors.h}!printErrors@{printErrors}}
+\index{printErrors@{printErrors}!errors.h@{errors.h}}
+\subsubsection[{printErrors}]{\setlength{\rightskip}{0pt plus 5cm}void printErrors (
+\begin{DoxyParamCaption}
+\item[{enum errors}]{ N, }
+\item[{enum errors}]{ IN}
+\end{DoxyParamCaption}
+)}}
+\label{errors_8h_a61bed6378b9bfe6b5828b641aac6dd1c}
+Vytiskne chybova hlaseni. \mbox{[}in\mbox{]} $<$enum errors$>$=\char`\"{}\char`\"{}$>$ N 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$enum}]errors$>$ IN \end{DoxyParams}
+
+
+Definition at line 78 of file errors.cc.
+
+\hypertarget{errors_8h_a40e13b52e3821ab0d86848ce9828e72c}{
+\index{errors.h@{errors.h}!printErrors@{printErrors}}
+\index{printErrors@{printErrors}!errors.h@{errors.h}}
+\subsubsection[{printErrors}]{\setlength{\rightskip}{0pt plus 5cm}void printErrors (
+\begin{DoxyParamCaption}
+\item[{enum errors}]{ N, }
+\item[{enum errors}]{ IN, }
+\item[{FILE $\ast$}]{ outstream}
+\end{DoxyParamCaption}
+)}}
+\label{errors_8h_a40e13b52e3821ab0d86848ce9828e72c}
+Vytiskne chybove hlaseni. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$enum}]errors$>$ N \item[\mbox{\tt[in]} {\em $<$enum}]errors$>$ IN \item[\mbox{\tt[in]} {\em $<$FILE$>$}]oustream \end{DoxyParams}
+
+
+Definition at line 82 of file errors.cc.
+
+\hypertarget{errors_8h_a583262335a0ae29624ec6f3a428e1653}{
+\index{errors.h@{errors.h}!printErrors@{printErrors}}
+\index{printErrors@{printErrors}!errors.h@{errors.h}}
+\subsubsection[{printErrors}]{\setlength{\rightskip}{0pt plus 5cm}void printErrors (
+\begin{DoxyParamCaption}
+\item[{enum errors}]{ N}
+\end{DoxyParamCaption}
+)}}
+\label{errors_8h_a583262335a0ae29624ec6f3a428e1653}
+Vytiskne chybove hlaseni. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$enum}]errors$>$ N \end{DoxyParams}
+
+
+Definition at line 74 of file errors.cc.
+

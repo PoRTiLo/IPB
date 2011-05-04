@@ -1,0 +1,229 @@
+\hypertarget{classMood}{
+\section{Mood Class Reference}
+\label{classMood}\index{Mood@{Mood}}
+}
+
+
+{\ttfamily \#include $<$mood.h$>$}
+
+Inheritance diagram for Mood:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMood}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMood_a74f0b05200196aee6441e8598087cf38}{Mood} (const Tag $\ast$tag)
+\item 
+virtual \hyperlink{classMood_af05d0232e98c33d209a723e8e052bc91}{$\sim$Mood} ()
+\item 
+std::string \hyperlink{classMood_ab230f6ab2c1cf243fcc9e2427b143991}{mood} (void)
+\item 
+void \hyperlink{classMood_afc40b3cb1ac6f77a2cb4d064cd10e476}{mood} (const std::string mood)
+\item 
+std::string \hyperlink{classMood_aa327ec8f5f43d29f8156bfba98b6fcf2}{text} (void)
+\item 
+void \hyperlink{classMood_a6ec49730046bc12e82743e618630a5f8}{text} (const std::string text)
+\item 
+virtual void \hyperlink{classMood_a400302483e741c6e3b2359e303abb7b0}{parserTag} (const Tag $\ast$tag)
+\item 
+virtual void \hyperlink{classMood_aa6f1f32d31e93be36244c0e83747649e}{clear} (void)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMood_a85e0b4f37c020a8381366b34123ce587}{
+std::string {\bfseries m\_\-mood}}
+\label{classMood_a85e0b4f37c020a8381366b34123ce587}
+
+\item 
+\hypertarget{classMood_a413c21b292450f8cc3b0f58f05f59547}{
+std::string {\bfseries m\_\-text}}
+\label{classMood_a413c21b292450f8cc3b0f58f05f59547}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std::string {\bfseries m\_\-moodTab} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Trida reprezentujici XEP-\/0107: User \hyperlink{classMood}{Mood} 
+
+Definition at line 16 of file mood.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classMood_a74f0b05200196aee6441e8598087cf38}{
+\index{Mood@{Mood}!Mood@{Mood}}
+\index{Mood@{Mood}!Mood@{Mood}}
+\subsubsection[{Mood}]{\setlength{\rightskip}{0pt plus 5cm}Mood::Mood (
+\begin{DoxyParamCaption}
+\item[{const Tag $\ast$}]{ tag}
+\end{DoxyParamCaption}
+)}}
+\label{classMood_a74f0b05200196aee6441e8598087cf38}
+Constructs a new object from the given Tag. 
+\begin{DoxyParams}{Parameters}
+\item[{\em tag}]A Tag to parse. \end{DoxyParams}
+
+
+Definition at line 8 of file mood.cc.
+
+\hypertarget{classMood_af05d0232e98c33d209a723e8e052bc91}{
+\index{Mood@{Mood}!$\sim$Mood@{$\sim$Mood}}
+\index{$\sim$Mood@{$\sim$Mood}!Mood@{Mood}}
+\subsubsection[{$\sim$Mood}]{\setlength{\rightskip}{0pt plus 5cm}virtual Mood::$\sim$Mood (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{classMood_af05d0232e98c33d209a723e8e052bc91}
+Virtual destructor. 
+
+Definition at line 35 of file mood.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classMood_aa6f1f32d31e93be36244c0e83747649e}{
+\index{Mood@{Mood}!clear@{clear}}
+\index{clear@{clear}!Mood@{Mood}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void Mood::clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classMood_aa6f1f32d31e93be36244c0e83747649e}
+Vymazani atributu. 
+
+Implements \hyperlink{classExtension_a68a97599590365a07cb65b7146527de5}{Extension}.
+
+
+
+Definition at line 38 of file mood.cc.
+
+\hypertarget{classMood_afc40b3cb1ac6f77a2cb4d064cd10e476}{
+\index{Mood@{Mood}!mood@{mood}}
+\index{mood@{mood}!Mood@{Mood}}
+\subsubsection[{mood}]{\setlength{\rightskip}{0pt plus 5cm}void Mood::mood (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ mood}
+\end{DoxyParamCaption}
+)}}
+\label{classMood_afc40b3cb1ac6f77a2cb4d064cd10e476}
+Nastaveni hodnoty moodu. \mbox{[}in\mbox{]}$<$string$>$ mood hodnota modu. 
+
+Definition at line 20 of file mood.cc.
+
+\hypertarget{classMood_ab230f6ab2c1cf243fcc9e2427b143991}{
+\index{Mood@{Mood}!mood@{mood}}
+\index{mood@{mood}!Mood@{Mood}}
+\subsubsection[{mood}]{\setlength{\rightskip}{0pt plus 5cm}std::string Mood::mood (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{classMood_ab230f6ab2c1cf243fcc9e2427b143991}
+Vrati hodnotu modu. \begin{DoxyReturn}{Returns}
+$<$string$>$. 
+\end{DoxyReturn}
+
+
+Definition at line 14 of file mood.cc.
+
+\hypertarget{classMood_a400302483e741c6e3b2359e303abb7b0}{
+\index{Mood@{Mood}!parserTag@{parserTag}}
+\index{parserTag@{parserTag}!Mood@{Mood}}
+\subsubsection[{parserTag}]{\setlength{\rightskip}{0pt plus 5cm}void Mood::parserTag (
+\begin{DoxyParamCaption}
+\item[{const Tag $\ast$}]{ tag}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classMood_a400302483e741c6e3b2359e303abb7b0}
+Rozparsrovani prichozi zpravy. 
+\begin{DoxyParams}{Parameters}
+\item[{\em }]tag xml zparva. \end{DoxyParams}
+
+
+Implements \hyperlink{classExtension_a934ee9dd373d61a41ea98f919e9abcbd}{Extension}.
+
+
+
+Definition at line 43 of file mood.cc.
+
+\hypertarget{classMood_aa327ec8f5f43d29f8156bfba98b6fcf2}{
+\index{Mood@{Mood}!text@{text}}
+\index{text@{text}!Mood@{Mood}}
+\subsubsection[{text}]{\setlength{\rightskip}{0pt plus 5cm}std::string Mood::text (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{classMood_aa327ec8f5f43d29f8156bfba98b6fcf2}
+Vrati hodnotu text. \begin{DoxyReturn}{Returns}
+$<$string$>$ text hodnota textu. 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file mood.cc.
+
+\hypertarget{classMood_a6ec49730046bc12e82743e618630a5f8}{
+\index{Mood@{Mood}!text@{text}}
+\index{text@{text}!Mood@{Mood}}
+\subsubsection[{text}]{\setlength{\rightskip}{0pt plus 5cm}void Mood::text (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ text}
+\end{DoxyParamCaption}
+)}}
+\label{classMood_a6ec49730046bc12e82743e618630a5f8}
+Nastavi doplnujici text. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em }]text hodnota textu. \end{DoxyParams}
+
+
+Definition at line 32 of file mood.cc.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classMood_a110791200b2f61f50d059d0bf045c005}{
+\index{Mood@{Mood}!m\_\-moodTab@{m\_\-moodTab}}
+\index{m\_\-moodTab@{m\_\-moodTab}!Mood@{Mood}}
+\subsubsection[{m\_\-moodTab}]{\setlength{\rightskip}{0pt plus 5cm}const std::string Mood::m\_\-moodTab\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classMood_a110791200b2f61f50d059d0bf045c005}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ { "afraid","amazed","amorous","angry","annoyed","anxious","aroused","ashamed","b
+      ored","brave","calm","cautious",
+                                      "cold","confident","confused","contemplativ
+      e","contented","cranky","crazy","creative","curious","dejected","depressed","disa
+      ppointed","disgusted",
+                                      "dismayed","distracted","embarrassed","envi
+      ous","excited","flirtatious","frustrated","grateful","grieving","grumpy","guilty"
+      ,"happy","hopeful","hot",
+                                      "humbled","humiliated","hungry","hurt","hur
+      t","impressed","in_awe","in_love","indignant","interested","intoxicated","invinci
+      ble","jealous","lonely",
+                                      "lost","lucky","mean","moody","nervous",   "
+      neutral","offended","outraged","playful","proud","relaxed","relieved","remorseful
+      ","restless",  "sad",
+                                      "sarcastic","satisfied","serious","shocked"
+      ,"shy","sick","sleepy","spontaneous","stressed","strong","surprised",   "thankful
+      ","thirsty","tired","undefined","weak","worried"}
+\end{DoxyCode}
+
+
+Definition at line 21 of file mood.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mood_8h}{mood.h}\item 
+\hyperlink{mood_8cc}{mood.cc}\end{DoxyCompactItemize}
