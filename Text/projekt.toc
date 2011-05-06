@@ -14,14 +14,14 @@
 \contentsline {section}{\numberline {4.1}Architektura}{25}{section.4.1}
 \contentsline {section}{\numberline {4.2}Datab\'aze}{26}{section.4.2}
 \contentsline {section}{\numberline {4.3}Robot}{28}{section.4.3}
-\contentsline {chapter}{\numberline {5}Pokra\v cov\'an\IeC {\'\i } pr\'ace}{30}{chapter.5}
-\contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{31}{chapter.6}
-\contentsline {section}{\numberline {6.1}Manu\'aln\IeC {\'\i } rozbor dat}{31}{section.6.1}
-\contentsline {chapter}{\numberline {7}Z\'av\v er}{32}{chapter.7}
-\contentsline {chapter}{\numberline {A}Obsah CD}{35}{appendix.A}
-\contentsline {chapter}{\numberline {B}Manual}{36}{appendix.B}
-\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{37}{appendix.C}
-\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k zkratek}{38}{appendix.D}
-\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{40}{appendix.E}
-\contentsline {chapter}{\numberline {F}N\'avrh datab\'aze}{45}{appendix.F}
-\contentsline {chapter}{\numberline {G}P\v rehled klient\r u a jejich roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{46}{appendix.G}
+\contentsline {chapter}{\numberline {5}Pokra\v cov\'an\IeC {\'\i } pr\'ace}{31}{chapter.5}
+\contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{33}{chapter.6}
+\contentsline {section}{\numberline {6.1}Manu\'aln\IeC {\'\i } rozbor dat}{33}{section.6.1}
+\contentsline {chapter}{\numberline {7}Z\'av\v er}{34}{chapter.7}
+\contentsline {chapter}{\numberline {A}Obsah CD}{38}{appendix.A}
+\contentsline {chapter}{\numberline {B}Manual}{39}{appendix.B}
+\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{40}{appendix.C}
+\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k zkratek}{41}{appendix.D}
+\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{42}{appendix.E}
+\contentsline {chapter}{\numberline {F}N\'avrh datab\'aze}{47}{appendix.F}
+\contentsline {chapter}{\numberline {G}P\v rehled klient\r u a jejich roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{48}{appendix.G}

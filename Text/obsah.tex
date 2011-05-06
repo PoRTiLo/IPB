@@ -22,15 +22,10 @@ Obsah \textbf{tøetí} kapitoly je zamìøen na popis procesu data mining. Zabývá se
 
 Implementaèní èást této práce je popsána kapitolou \textbf{ètvrtou}. Je èlenìna na oddíly, které odpovídají vybraným èástem architektury této práce. Elementy architektury, které jsou popsány vlastní podkapitolou, jsou roz¹íøeny o zjednodu¹ený návrh struktury v podobì grafických schémat.
 
-Kapitola \textbf{pátá}.
+Kapitola \textbf{pátá} se zamý¹lí nad roz¹íøeními robota a nad dal¹ím pokraèováním této práce. Výsledky získané touto prací jsou prezentovány v kapitole \textbf{¹esté}. Je zde ukázán model pou¾ívaný programem RapidMiner pro dobývání znalostí. Konkrétnì jde o shlukování u¾ivatelù sítì Jabber do skupin podle èasu stráveném v samotné síti a jejich stavu. Výsledky jsou pøedstaveny pomocí rùzných grafických entit, a»  u¾ v podobì diagramu nebo grafu, který je transformovaný do dvourozmìrného prostoru.
 
-Kapitola \textbf{¹está}.
+Nemalý informativní obsah tvoøí i \textbf{pøílohy}. V první øadì to je slovník zkratek, shrnující slovní spojení z celého tohoto dokumentu. Následuje podrobnìj¹í popis základních entit stanzy a pøehled prùbìhu roz¹íøení. V dal¹í èásti je ukázán kompletní návrh databáze, který doplòuje základní popis ze ètvrté kapitole.
 
-\textbf{Pøílohy}.
-
-
-%\section{Musíme mít co øíci}
-%\section{Musíme psát strukturovanì} 
 
 \chapter{XMPP}
 
@@ -590,7 +585,7 @@ Dal¹ím oddílem, prezentovaným na obrázku \ref{picArchitektura} pod názvem \texti
 \end{center}
 \end{figure}
 
-Poslední èástí je \textit{u¾ivatelské rozhraní}, které je implementováno pomocí webových slu¾eb. Jako pøíklad lze uvést slu¾bu, která zobrazuje status u¾ivatele na webové stránce. U¾ivatel pouze musí vlastnit Jabber úèet a mít pøidaného tohoto robota do seznamu kontaktù.
+Poslední èástí je \textit{u¾ivatelské rozhraní}, které je implementováno pomocí webových slu¾eb. Jako pøíklad lze uvést slu¾bu, která zobrazuje status u¾ivatele na webové stránce. U¾ivatel pouze musí vlastnit Jabber úèet a mít pøidaného tohoto robota do seznamu kontaktù. Od ka¾dého u¾ivatele, je¾ má tohoto robota pøidaného do svého seznamù kontaktù, je sbírána ve¹kerá sí»ová aktivita. Mo¾nosti, které mu nabízí u¾ivatelské rozhraní v podobì webové prezentace tudí¾ zále¾í pouze na datech, které sám do sítì rozesílá. Jsou--li podporována v¹echna zde implementována roz¹íøení, která jsou uvedená v kapitole druhé, je mo¾né vyu¾ít jejich slu¾eb prostøednictvím internetových stránek. Jako dal¹í pøíklad lze uvést zobrazení aktuálního umístìní u¾ivatele na mapách od firmy google, dle informací poskytnutých prostøednictvím dokumentu User Geoloc \cite{Xep0080}.
 
 %Architektura této práce je rozdìlena na pìt èástí. celkove bych doplnil pred 4.1. podkapitolu architektura.  Do ktere bych nakreslil obrazek (neco jako priloha). A k tomu bych popsal jak jednotlive casti komunikuji. (ty casti, ktere stoji za rec bych popsal do samostatnych podkapitol)
 
@@ -643,15 +638,30 @@ Základní èást, kterou je mo¾né pova¾ovat za jádro aplikace, je tøída \textit{Bot
 
 %\section{Jiné produkty}
   
-%\subsection*{Roz¹íøení}
-%==zpravy, odpovida reaguje na to a na to
+\subsection*{Pøíkazy}
+K dal¹ím schopnostem robota, tedy kromì sbírání dat a jejich následného ukládání do databáze, patøí reagovat na vybrané zprávy. Tyto zprávy jsou pøijímány pouze od u¾ivatelù, kteøí byli zaèlenìní do seznamu kontaktù tohoto robota. Základní pøíkaz, který nesmí chybìt u ¾ádné aplikace, je získání nápovìdy. V první øadì informuje o verzi robota a jeho základních vlastnostech. Dále je odeslán struèný ale výsti¾ný seznam pøíkazù i s jejich vysvìtlením.
 
+Pøehled základních zpráv a jejich vysvìtlení je prezentováno v tabulce \ref{tabPrikazy}.  
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{ l  l   } 
+\rowcolor[gray]{0.9}
+\textbf{pøíkaz} 	& \textbf{vysvìtlení}\\
+help			&   Available\\
+history		&   Away\\
+tune			&   Away\\
+geoloc		&   Away\\
+mood			&   Away\\
+activity		&   Away\\
+\ldots		& \ldots\\ \hline
+\end{tabular}
+\caption{Pøehled pøíkazù pro robota.}
+\label{tabPrikazy}
+\end{center} 
+\end{table}
+Kde první sloupec znaèí pøíkaz, který není závislý na velikosti písmen, a druhý jej krátce a výsti¾nì popisuje. V pøípadì, ¾e u¾ivatel nemá ¾ádný údaj v databázi potøebný k vyhodnocení dotazu, je zaslána pouze informativní zpráva, které vzniklý problém vysvìtluje. V této èásti robota je skryt velký potenciál pro dal¹í vývoj. Více informací je uvedeno v následující kapitole, která je celá vìnována mo¾ným roz¹íøením a pokraèováním této práce.
 
 %==pouziti castecneho komentovani podle stylu doxygenu, makefile
-%\subsection*{gloox}
-%Gloox je stabilní Jabber/XMPP knihovna vydávána pod licencí GNU GPL. Je urèena pro vývoj klienta a komponent. Jeliko¾ je psána v ANSCI C++ je mo¾né ji oznaèit jako multiplatformní\footnote{Linux, Windows, Mac OS X, Symbian/Nokia S60, FreeBSD}.
-
-%Pomocí knihovny gloox je psán bot v této práci. Byla vybrána na základì po¾adavku psaní programu v jazyce C/C++ a operaèním systému Linux. V porovnání s jinými knihovnami pro jazyk C nebo C++ disponuje lep¹í podporou a dokumentací. Gloox plnì podporuje standart XMPP Core \cite{Rfc3920} a z vìt¹í èásti i standard XMPP IM \cite{Rfc3921}. Dodateènì je plnì podporováno kolem tøiceti XEP standardù napøíklad vcard--temp \cite{Xep0054} a dal¹í.
 %\section{Architektura}
 %--robot plus databaze
 %--rapidminer--spusteni davkove/vlastni algoritmus v PHP
@@ -660,21 +670,29 @@ Základní èást, kterou je mo¾né pova¾ovat za jádro aplikace, je tøída \textit{Bot
 
 \chapter{Pokraèování práce}
 
-V souèasné uspìchané dobì plné moderních technologií, je dùle¾ité být informován a s tím spojená snaha vèas informovat i své okolí. Díky protokolu XMPP a real--time komunikaèní sítì jsou tyto potøeby snadno øe¹itelné. Slu¾ba, jako je prezentování vlastního statusu v klientovi prostøednictvím elementu presence, jsou pova¾ovány za samozøejmost. 
-=inovovat pgormam
+V souèasné dobì, která je velmi uspìchaná a plná moderních technologií, je velmi dùle¾ité být informován. S tímto také souvisí snaha poskytovat informace svému okolí. Díky protokolu XMPP a real--time komunikaèních sítí je uspokojení potøeb, jako je získávání informací a jejich zpìtné poskytování v oblasti elektronické komunikace, snadno øe¹itelné. Existuje rozsáhlé mno¾ství rùzných sociálních sítí a mno¾ností funkcí, které jsou u¾ivatelùm nabízeny. Poskytované slu¾by sociálními sítìmi jsou vyu¾ívané ve znaèném mno¾ství. Slu¾by, jako jsou prezentování vlastního statusu v klientovi prostøednictvím elementu presence, jsou ji¾ pova¾ovány za samozøejmost. Tato funkènost je nabízena u v¹ech tzv \uv{instant messaging} slu¾eb. Jabber jde v této èásti je¹tì dál a díky protokolùm \textit{User Mood} \cite{Xep0107} a \textit{User Activity} \cite{Xep0108} je mo¾né sdìlit nejen svou náladu ale také informace o aktuálnì provádìné èinnosti. 
 
-= dalsi zjitovane udaje, jako co by to obnasel, rizika
-= 
+Jedno z mo¾ných roz¹íøení by se právì mohlo týkat roz¹íøených statusù. Vìt¹ina slu¾eb, které jsou dostupné na internetu a jsou podporované rùznými servery, poskytuje pouze informace o aktuálním stavu klienta. Pomocí vý¹e uvedených standardù by mo¾né k základní webové prezentaci statusu pøipojit i informace roz¹íøené. Také zapojení standardu \textit{Entity Capabilities} \cite{Xep0115}, který je popsán na konci druhé kapitoly, by mohlo pøinést nové pokroèilej¹í informace. Konkrétnì to je samotná podpora IM aplikací v oblasti dal¹ích XEP dokumentù. Nezasvìcený u¾ivatel by tímto velice jednoduchým roz¹íøením dokázal zjistit seznam slu¾eb podporovaných jeho IM programem. A» u¾ by ¹lo o seznam funkcí, které jsou pouze pøijímány, nebo výèet roz¹íøení, které doká¾e od ostatních u¾ivatelù také pøijímat. Jako pøíklad lze uvést zji¹tìní schopnosti, a» u¾ pøíjímání nebo odesílání informací o pøehrávané hudbì, popsané dokumentem \textit{User Tune} \cite{Xep0118}.
 
-Diskutujte mo¾né pokraèování práce.
+Dal¹í bod, kterým by se dalo zabývat se také týká webové prezentace. Nyní v¹ak jde ji¾ konkrétnì o robota vytvoøeného k úèelu této práce. Informace potøebné k zobrazení aktuálního stavu klienta na internetové stránce, jsou ulo¾eny v databázi v tabulce status. Tato tabulka je automaticky generována z obsahu jiné entity, která obsahuje údaje o v¹ech pøipojení daného u¾ivatele. V¹e pracuje správnì a¾ do té chvíle, kdy u¾ivatel svou IM aplikaci neukonèí korektnì. Nastává situace, kdy na server není zaslána zpráva, která informuje o zmìnì statusu. Díky tomuto neoèekávanému ukonèení klienta se u¾ivatel stále tváøí, jako by byl pøipojen i kdy¾ ji¾ není, a zdrojová tabulka se v této chvíli stává neaktuální. Navrhované øe¹ení této situace vyu¾ívá roz¹íøení \textit{XMPP ping} \cite{Xep0199}. Díky nìmu¾ by se mìlo dát zjistit, zda je u¾ivatel stále dostupný nebo ji¾ nikoliv.
 
-mozne pokracovani prace bych dal jako samostatnou kapitolu nebo
-potkapitolu (je nutne o tom napsat aspon 1.5 stranky textu, protoze je
-to jeden bod zadani)
+V oddílu robota by bylo mo¾né zapracovat na èásti, která se zaobírá pøíkazy zaslané ze strany u¾ivatele. S tímto roz¹íøení úzce souvisí rozèlenìní u¾ivatelù do jednotlivých skupin. Ka¾dá takováto èást seznamu kontaktù by vlastnila rùzná práva, která by se stala základem pro poskytování konkrétních slu¾eb. Zaøazení do tìchto skupin by mohlo probíhat pøi ¾ádosti o poèáteèní autorizaci, která by obsahovala zprávu s pøesnì definovaným øetìzcem. Funkce, která je ji¾ uvedena vý¹e a to v podobì roz¹íøení webové prezentace, by také mohla být poskytována prostøednictvím robota. Konkrétnì se jedná o zji¹tìní podporovaných a» ji¾ pøijímaných nebo odesílaných roz¹íøení. U¾ivatel by pouze poslal robotovi striktnì pøeddefinovanou zprávu a jako odpovìï by obdr¾el seznam podporovaných funkcí.
+
+V èásti zabývající se dolováním z dat se jistì nachází mnoho mo¾ností k pokraèování a roz¹iøování její vlastností.
+
+%Jak vyplývá s vý¹e uvedeného odstavce existuje mnoho mo¾ných roz¹íøení, které nabízí tato práce. Jestli¾e by se srovnal pomìr mezi poskytnutými osobními údaji v sociální sítí facebook a údaji v síti Jabber, první zmiòovaný èasto vyhrává na plné èáøe. Lze si polo¾it otázku zda není mo¾né vyu¾ít informace zveøejnìné v sociálních sítí i do sítì komunikaèní. Jako pøíklad lze uvést obrázek, kterým se lidé prezentují. Na ji¾ zmiòovaném facebooku má skoro ka¾dý její u¾ivatel zveøejnìnou fotografii, za úèelem lep¹í prezentace své osobnosti. Naproti tomu poèet obrázkù zastoupených, a» u¾ v podobì log nebo ikon v síti Jabber, je miziví. Propojení tìchto informací by mohlo být podmìtem pro tvorbu vlastní prezentaèní stránky, shrnující nejzajímavìj¹í údaje.
 
 
-POKACOVANI
-=tridit lidi do podskupin v kotakt listu, napriklad podle zpravy zaslene s dotazem k autorizaci=: kazda skupina by mohla mit jin prava, jine dotazy an sluzby...mozne rozsirit o ruzne sluzby, ktere poskytuji server, podle dotazu....
+
+
+
+
+%=inovovat pgormam
+
+%= dalsi zjitovane udaje, jako co by to obnasel, rizika
+%= 
+
+
 \chapter{Vyhodnocení výsledkù}
 
 \section{Manuální rozbor dat}
@@ -683,4 +701,5 @@ POKACOVANI
 
 
 \chapter{Závìr}
+zminit tohel http://xmpp.org/xmpp-protocols/rfcs/, ze vysko nove rfc o xmpp core a xmpp im, zminit ze se to vydalo pozde, tudiz nejsou zahrnuty do teto prace, dopsat do rozsireni
 %=========================================================================
