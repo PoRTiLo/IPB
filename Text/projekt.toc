@@ -1,5 +1,5 @@
 \select@language {czech}
-\contentsline {chapter}{\numberline {1}\'Uvod}{3}{chapter.1}
+\contentsline {chapter}{\numberline {1}\'Uvod}{2}{chapter.1}
 \contentsline {chapter}{\numberline {2}XMPP}{4}{chapter.2}
 \contentsline {section}{\numberline {2.1}Architektura}{4}{section.2.1}
 \contentsline {section}{\numberline {2.2}XML}{7}{section.2.2}
@@ -11,19 +11,17 @@
 \contentsline {section}{\numberline {3.3}Shlukov\'an\IeC {\'\i }}{20}{section.3.3}
 \contentsline {section}{\numberline {3.4}Programy}{23}{section.3.4}
 \contentsline {chapter}{\numberline {4}Implementace}{25}{chapter.4}
-\contentsline {section}{\numberline {4.1}Datab\'aze}{25}{section.4.1}
-\contentsline {section}{\numberline {4.2}Robot}{27}{section.4.2}
-\contentsline {chapter}{\numberline {5}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{30}{chapter.5}
-\contentsline {section}{\numberline {5.1}Manu\'aln\IeC {\'\i } rozbor dat}{30}{section.5.1}
-\contentsline {chapter}{\numberline {6}Z\'av\v er}{31}{chapter.6}
-\contentsline {chapter}{\numberline {A}Obsah CD}{34}{appendix.A}
-\contentsline {chapter}{\numberline {B}Manual}{35}{appendix.B}
-\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{36}{appendix.C}
-\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k zkratek}{37}{appendix.D}
-\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{39}{appendix.E}
-\contentsline {section}{\numberline {E.1}Iq}{39}{section.E.1}
-\contentsline {section}{\numberline {E.2}Message}{39}{section.E.2}
-\contentsline {section}{\numberline {E.3}Presence}{40}{section.E.3}
-\contentsline {section}{\numberline {E.4}P\v rehled pr\r ub\v ehu roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{41}{section.E.4}
-\contentsline {chapter}{\numberline {F}N\'avrh datab\'aze}{44}{appendix.F}
-\contentsline {chapter}{\numberline {G}P\v rehled klient\r u a jejich roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{45}{appendix.G}
+\contentsline {section}{\numberline {4.1}Architektura}{25}{section.4.1}
+\contentsline {section}{\numberline {4.2}Datab\'aze}{26}{section.4.2}
+\contentsline {section}{\numberline {4.3}Robot}{28}{section.4.3}
+\contentsline {chapter}{\numberline {5}Pokra\v cov\'an\IeC {\'\i } pr\'ace}{30}{chapter.5}
+\contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{31}{chapter.6}
+\contentsline {section}{\numberline {6.1}Manu\'aln\IeC {\'\i } rozbor dat}{31}{section.6.1}
+\contentsline {chapter}{\numberline {7}Z\'av\v er}{32}{chapter.7}
+\contentsline {chapter}{\numberline {A}Obsah CD}{35}{appendix.A}
+\contentsline {chapter}{\numberline {B}Manual}{36}{appendix.B}
+\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{37}{appendix.C}
+\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k zkratek}{38}{appendix.D}
+\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{40}{appendix.E}
+\contentsline {chapter}{\numberline {F}N\'avrh datab\'aze}{45}{appendix.F}
+\contentsline {chapter}{\numberline {G}P\v rehled klient\r u a jejich roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{46}{appendix.G}
