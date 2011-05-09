@@ -3,17 +3,6 @@
  *@brief Trida implementujici komunikaci mezi robotem a databazi.
  */
 
-//TODO:zkontrolovat obsahy tabulky VCARD
-//		:pridat ID, kazdy radek jedn ID, pridat CAS, cim novejsi cas tim aktualnijsu VCARD
-//		:pridat automatikcy uzivatele kdyz se prida do kontaktu
-//		:zmena udaju->vytvoreni stejneho uzivatele ale s vyssim cislem ->historie zmen
-
-//		:vytvorit tabulku lidi v kontaktlistu, pokud neni vytvorena
-//		:automaticky pridat lidi co se zaregistruji do kontakt listu
-//		:pridali se nekdo znovu, zaregistrovat pod stejnyma udajema ale vyssi cislo
-//
-//		:predelat listVer na protected a ne public
-
 #ifndef DATABASE_H__
 #define DATABASE_H__
 
@@ -357,6 +346,16 @@ class Database
 		 */
 		bool updateTableResource( SwVersion* swversion );
 
+/////////////////////////////////// SELECT METODY////////////////////////////////////////////////////////////////////////////////////
+
+		std::string select( std::string selcect, std::string jid ) const;
+		std::string printTune(std::string jid ) const;
+		std::string printGeoloc(std::string jid ) const;
+		std::string printMood(std::string jid ) const;
+		std::string printActivity(std::string jid ) const;
+		std::string printVCard(std::string jid ) const;
+		std::string printHistory(std::string jid ) const;
+		std::string printUser() const; 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -367,7 +366,6 @@ class Database
 		void exitError();
 
 
-		std::string printUser() const; 
 
 
 		void clearResourceTable( void );

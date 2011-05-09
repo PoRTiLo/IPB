@@ -16,6 +16,9 @@
 //#include <ncurses.h>
 #include <pthread.h>
 
+#include "const.h"
+#include "connect.h"
+
 extern bool f_global;
 /**
  * Ukonci beh programu.
@@ -58,4 +61,7 @@ std::string presenceString( const int presence );
 std::string messageSubtype( const int subtype );
 
 std::string boolToString( std::string str );
+
+int command( const std::string msg, const std::string jid );
+
 #endif //FUNC_H__

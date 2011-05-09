@@ -394,25 +394,180 @@ void Database::dropAll() {
 }
 */
 
-std::string Database::printUser() const {
+std::string Database::select( std::string query, std::string jid ) const {
 
+	std::string result = " ";
+	std::string ret = " ";
+
+	if( query == COMMAND_USER && jid == ADMIN_JID )
+		result = printUser();
+	else if( query == COMMAND_TUNE )
+		result = printTune(jid);
+	else if( query == COMMAND_GEOLOC )
+		result = printGeoloc(jid);
+	else if( query == COMMAND_MOOD )
+		result = printMood(jid);
+	else if( query == COMMAND_ACTIVITY )
+		result = printActivity(jid);
+	else if( query == COMMAND_VCARD )
+		result = printVCard(jid);
+	else if( query == COMMAND_HISTORY )
+		result = printHistory(jid);
+	else if( query == COMMAND_HELP )
+		result = HELP_ECHO;
+	else if( query == COMMAND_HALLO )
+		result = COMMAND_HALLO;
+	else if( query == COMMAND_INFO )
+		result = INFO;
+	else
+		ret = "";
+
+	if( result == "" )
+		ret = NO_SUPPORT;
+	else if( ret != "")
+		ret = result;
+
+	return ret;
+}
+
+std::string Database::printHistory( std::string jid ) const {
+
+	PGresult* presult;
+	std::string query =  "SELECT presence, priority, message, namesw, date FROM presence where fromj = '" + jid + "' ORDER BY date DESC LIMIT 12;";
+	presult = PQexec(this->m_psql, query.c_str());
+	
+	int nTuples = PQntuples(presult);
+	int i = 0;
+	if( nTuples <= 0 )
+		return "";
+
+	std::string result;
+
+	for( ; i < nTuples; i++ )
+		result += "\n" + std::string( PQgetvalue(presult,i , 4)) + ",  " + std::string( PQgetvalue(presult,i , 0)) + " - " + std::string( PQgetvalue(presult,i , 1)) +  " - " + std::string( PQgetvalue(presult,i , 2)) + " - " + std::string( PQgetvalue(presult, i, 3) );
+	PQclear(presult);
+
+	return result;
+}
+
+std::string Database::printVCard( std::string jid ) const {
+
+	PGresult* presult;
+	std::string query =  "SELECT family, given, nickname, title, dateadd FROM vcard where jid = '" + jid + "' ORDER BY id DESC LIMIT 1;";
+	presult = PQexec(this->m_psql, query.c_str());
+	
+	int nTuples = PQntuples(presult);
+	int i = 0;
+	if( nTuples <= 0 )
+		return "";
+
+	std::string result;
+
+	for( ; i < nTuples; i++ )
+		result += "\n" + std::string( PQgetvalue(presult,i , 4)) + ",  : " + std::string( PQgetvalue(presult,i , 0)) + " - " + std::string( PQgetvalue(presult,i , 1)) +  " - " + std::string( PQgetvalue(presult,i , 2)) + " - " + std::string( PQgetvalue(presult, i, 3) );
+	PQclear(presult);
+
+	return result;
+}
+
+std::string Database::printActivity( std::string jid ) const {
+
+	PGresult* presult;
+	std::string query =  "SELECT activity, spec, time, text FROM activity where jidbare = '" + jid + "' ORDER BY id DESC LIMIT 12;";
+	presult = PQexec(this->m_psql, query.c_str());
+	
+	int nTuples = PQntuples(presult);
+	int i = 0;
+	if( nTuples <= 0 )
+		return "";
+
+	std::string result;
+
+	for( ; i < nTuples; i++ )
+		result += "\n" + std::string( PQgetvalue(presult,i , 2)) + ", Activity : " + std::string( PQgetvalue(presult,i , 0)) + " - " + std::string( PQgetvalue(presult,i , 1)) +  " - " + std::string( PQgetvalue(presult,i , 3));
+	PQclear(presult);
+
+	return result;
+}
+
+std::string Database::printMood( std::string jid ) const {
+
+	PGresult* presult;
+	std::string query =  "SELECT mood, text , time FROM mood where jidbare = '" + jid + "' AND mood != '' ORDER BY id DESC LIMIT 12;";
+	std::cout<<query<<std::endl;
+	presult = PQexec(this->m_psql, query.c_str());
+	
+	int nTuples = PQntuples(presult);
+
+	int i = 0;
+	if( nTuples <= 0 )
+		return "";
+
+	std::string result;
+	for( ; i < nTuples; i++ )
+		result += "\n" + std::string( PQgetvalue(presult,i , 2)) + ", Mood : " + std::string( PQgetvalue(presult,i , 0)) + " - " + std::string( PQgetvalue(presult,i , 1));
+
+	PQclear(presult);
+
+	return result;
+}
+
+std::string Database::printGeoloc(std::string jid) const {
+
+	PGresult* presult;
+	std::string query =  "SELECT lat, lon , time FROM geoloc where jidbare = '" + jid + "' AND lat != 0 AND lon != 0 ORDER BY id DESC LIMIT 12;";
+	presult = PQexec(this->m_psql, query.c_str());
+
+	int i = 0;
+	int nTuples = PQntuples(presult);
+
+	if( nTuples <= 0 )
+		return "";
+
+	std::string result;
+	for( ; i < nTuples; i++ )
+		result += "\n" + std::string( PQgetvalue(presult,i , 2)) + ", Lat : " + std::string( PQgetvalue(presult,i , 0)) + ", Lon : " + std::string( PQgetvalue(presult,i , 1)); 
+
+	PQclear(presult);
+
+	return result;
+}
+
+
+std::string Database::printTune(std::string jid) const {
+
+	PGresult* presult;
+	std::string query =  "SELECT artist, source, title , time FROM tune where jidbare = '" + jid + "' AND artist !='' AND title !=''	ORDER BY id DESC LIMIT 12;";
+	presult = PQexec(this->m_psql, query.c_str());
+	
+	int i = 0;
+	int nTuples = PQntuples(presult);
+
+	if( nTuples <= 0 )
+		return "";
+
+	std::string result;
+	for( ; i < nTuples; i++ )
+	{
+		result += "\n" + std::string( PQgetvalue(presult,i , 3)) + " - " + std::string( PQgetvalue(presult,i , 0)) + " : " + std::string( PQgetvalue(presult,i , 1)) 
+				+ " = " + std::string( PQgetvalue(presult,i , 2)); 
+	}
+
+	PQclear(presult);
+
+	return result;
+}
+
+std::string Database::printUser() const {
 	
 	PGresult* presult;
 	presult = PQexec(this->m_psql, "SELECT jidbare FROM userjid;");
 	
-
-	int nFields = PQnfields(presult);
 	int nTuples = PQntuples(presult);
 
 	std::string result;
-	std::stringstream ss;
-	std::string back;
 	for( int i = 0; i < nTuples; i++ )
-	{
-		ss << PQgetvalue(presult,i , 0);
-		ss >> back;
-		result += " - " + std::string( PQgetvalue(presult,i , 0)) + "\n";
-	}
+		result += "\n - " + std::string( PQgetvalue(presult,i , 0));
 
 	PQclear(presult);
 

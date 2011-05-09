@@ -56,7 +56,6 @@
 #include "mood.h"
 #include "activity.h"
 
-//#include "tunehandler.h"
 using namespace gloox;
 using namespace std;
 

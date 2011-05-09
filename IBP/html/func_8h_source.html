@@ -62,35 +62,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00016"></a>00016 <span class="comment">//#include &lt;ncurses.h&gt;</span>
 <a name="l00017"></a>00017 <span class="preprocessor">#include &lt;pthread.h&gt;</span>
 <a name="l00018"></a>00018 
-<a name="l00019"></a>00019 <span class="keyword">extern</span> <span class="keywordtype">bool</span> f_global;
-<a name="l00024"></a>00024 <span class="keywordtype">void</span> checkSignal( <span class="keywordtype">int</span> numSignal );
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="keywordtype">void</span> initSignal();
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="keywordtype">void</span> signalTerm();
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="keywordtype">void</span> initThread();
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="keywordtype">void</span> *thread(<span class="keywordtype">void</span> *mThread);
-<a name="l00033"></a>00033 
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="const_8h.html" title="Soubor konstant pro dotazy v jazyce SQL.">const.h</a>&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="connect_8h.html" title="Soubor constant potrebnych pro pripojeni k databazi nebo k Jabber uctu robota.">connect.h</a>&quot;</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="keyword">extern</span> <span class="keywordtype">bool</span> f_global;
+<a name="l00027"></a>00027 <span class="keywordtype">void</span> checkSignal( <span class="keywordtype">int</span> numSignal );
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="keywordtype">void</span> initSignal();
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="keywordtype">void</span> signalTerm();
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="keywordtype">void</span> initThread();
 <a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="comment">//std::string getPassTerminal();</span>
+<a name="l00035"></a>00035 <span class="keywordtype">void</span> *thread(<span class="keywordtype">void</span> *mThread);
 <a name="l00036"></a>00036 
-<a name="l00037"></a>00037 std::string numToStr( <span class="keyword">const</span> <span class="keywordtype">int</span> number ); 
-<a name="l00038"></a>00038 std::string numToStr( <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> number ); 
-<a name="l00039"></a>00039 std::string numToStr( <span class="keyword">const</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> number ); 
-<a name="l00040"></a>00040 std::string numToStr( <span class="keyword">const</span> <span class="keywordtype">float</span> number ); 
-<a name="l00041"></a>00041 <span class="keywordtype">float</span> stringToFloat( <span class="keyword">const</span> std::string str );
-<a name="l00042"></a>00042 <span class="keywordtype">int</span> stringToInt( <span class="keyword">const</span> std::string str );
-<a name="l00043"></a>00043 <span class="keywordtype">short</span> <span class="keywordtype">int</span> stringToShortInt( <span class="keyword">const</span> std::string str );
-<a name="l00044"></a>00044 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> stringToUnsignedInt( <span class="keyword">const</span> std::string str );
-<a name="l00045"></a>00045 
-<a name="l00051"></a>00051 std::string presenceString( <span class="keyword">const</span> <span class="keywordtype">int</span> presence );
-<a name="l00052"></a>00052    
-<a name="l00058"></a>00058 std::string messageSubtype( <span class="keyword">const</span> <span class="keywordtype">int</span> subtype );
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060 std::string boolToString( std::string str );
-<a name="l00061"></a>00061 <span class="preprocessor">#endif //FUNC_H__</span>
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="comment">//std::string getPassTerminal();</span>
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 std::string numToStr( <span class="keyword">const</span> <span class="keywordtype">int</span> number ); 
+<a name="l00041"></a>00041 std::string numToStr( <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> number ); 
+<a name="l00042"></a>00042 std::string numToStr( <span class="keyword">const</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> number ); 
+<a name="l00043"></a>00043 std::string numToStr( <span class="keyword">const</span> <span class="keywordtype">float</span> number ); 
+<a name="l00044"></a>00044 <span class="keywordtype">float</span> stringToFloat( <span class="keyword">const</span> std::string str );
+<a name="l00045"></a>00045 <span class="keywordtype">int</span> stringToInt( <span class="keyword">const</span> std::string str );
+<a name="l00046"></a>00046 <span class="keywordtype">short</span> <span class="keywordtype">int</span> stringToShortInt( <span class="keyword">const</span> std::string str );
+<a name="l00047"></a>00047 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> stringToUnsignedInt( <span class="keyword">const</span> std::string str );
+<a name="l00048"></a>00048 
+<a name="l00054"></a>00054 std::string presenceString( <span class="keyword">const</span> <span class="keywordtype">int</span> presence );
+<a name="l00055"></a>00055    
+<a name="l00061"></a>00061 std::string messageSubtype( <span class="keyword">const</span> <span class="keywordtype">int</span> subtype );
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063 std::string boolToString( std::string str );
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 <span class="keywordtype">int</span> command( <span class="keyword">const</span> std::string msg, <span class="keyword">const</span> std::string jid );
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 <span class="preprocessor">#endif //FUNC_H__</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -107,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed May 4 2011 18:53:27 for IBP by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Sat May 7 2011 20:45:12 for IBP by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

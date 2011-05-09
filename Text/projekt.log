@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  7 MAY 2011 00:25
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  9 MAY 2011 19:01
 entering extended mode
  %&-line parsing enabled.
 **projekt
@@ -952,7 +952,7 @@ File: il2cmss.fd 1997/02/13 CsLaTeX font definitions
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.22 
+l.20 
       [2
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
@@ -970,20 +970,20 @@ l.42
       [4
 
 ] (./struktura.tex) (./jabinfo.tex) [5] [6]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 111.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 112.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 111.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 112.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [7]
-Overfull \hbox (5.14116pt too wide) in paragraph at lines 127--130
+Overfull \hbox (5.14116pt too wide) in paragraph at lines 128--131
 []\IL2/cmr/m/n/10.95 První pr-vek, který bude cha-rak-te-ri-zo-ván je ozna-èen 
 an-g-lic-kým vý-ra-zem \IL2/cmr/m/it/10.95 message \IL2/cmr/m/n/10.95 (zpráva).
 
@@ -997,13 +997,13 @@ Kapitola 3.
 \c@definice=\count171
  (./datamining.tex) [14] [15] [16] [17]
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 408.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 410.
  [18] [19] (./statistika.tex)
 [20] [21] [22] [23] [24]
 Kapitola 4.
 [25
 
-] <drawing.png, id=566, 526.96875pt x 274.02374pt>
+] <drawing.png, id=565, 526.96875pt x 274.02374pt>
 File: drawing.png Graphic file (type png)
  <use drawing.png>
 [26 <./drawing.png>] (./DatabaseSmall.tex) [27] [28] (./Robotsmall.tex)
@@ -1049,31 +1049,20 @@ P\v {r}\'{\i }loha E.
 
 ] [43] (./stanza.tex) [44] [45] [46]
 P\v {r}\'{\i }loha F.
-(./Database1.tex) [47
+(./Database1.tex)) [47
 
-]
-P\v {r}\'{\i }loha G.
-LaTeX Font Info:    Font shape `IL2/cmtt/bx/n' in size <6> not available
-(Font)              Font shape `IL2/cmtt/m/n' tried instead on input line 281.
-
-Overfull \hbox (0.53485pt too wide) in paragraph at lines 342--343
-[][] 
- []
-
-) [48
-
-] [49] (./projekt.aux)
+] (./projekt.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 18934 strings out of 495027
- 297618 string characters out of 1181420
- 532522 words of memory out of 3000000
- 21292 multiletter control sequences out of 15000+50000
- 27414 words of font info for 75 fonts, out of 3000000 for 9000
+ 18924 strings out of 495027
+ 297514 string characters out of 1181420
+ 532384 words of memory out of 3000000
+ 21288 multiletter control sequences out of 15000+50000
+ 27118 words of font info for 74 fonts, out of 3000000 for 9000
  38 hyphenation exceptions out of 8191
  47i,11n,68p,1424b,1551s stack positions out of 5000i,500n,10000p,200000b,50000s
  </home/portilo/.texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk>{/usr/s
@@ -1094,11 +1083,10 @@ sr/share/texmf-texlive/fonts/type1/public/cs/csr6.pfb></usr/share/texmf-texlive
 /csr8.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csr9.pfb></usr/share/
 texmf-texlive/fonts/type1/public/cs/csss8.pfb></usr/share/texmf-texlive/fonts/t
 ype1/public/cs/csti10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/cstt1
-0.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/cstt8.pfb></usr/share/tex
-mf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on projekt.pdf (53 pages, 527272 bytes).
+0.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on projekt.pdf (51 pages, 509404 bytes).
 PDF statistics:
- 993 PDF objects out of 1000 (max. 8388607)
- 339 named destinations out of 1000 (max. 500000)
+ 976 PDF objects out of 1000 (max. 8388607)
+ 334 named destinations out of 1000 (max. 500000)
  236 words of extra memory for PDF output out of 10000 (max. 10000000)
 

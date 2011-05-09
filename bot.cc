@@ -1,15 +1,4 @@
 /*TODO
-PRESENCE - dodelat delayTime, neco o zpozdeni
-			- SHOW - podle RFC podporuje - away, chat, dnd, normal, xa
-			- ID
-			- ERRORS
-         - jinak kompletni
-MESSAGE -
-IQ -
-VLASTNI - poznamky do databaze
-
-//kontolovat zda jsou lidi z kontakt listu, treb au messageHandler
-//podivat s ena konverzi cisel, zda a co se stane pokud to nini cislo, vytvorit soubor s funkcema
 //napoveda-mozno implementvat XHTML tagy:)
 */
 #include "bot.h"
@@ -44,61 +33,53 @@ string Bot::getPass() {
 	return this->pass;
 }
 
-	bool Bot::run() {
+bool Bot::run() {
 
-		signalTerm();
+	signalTerm();
+	JID jid(this->login);
+	j = new Client(jid, pass);
+	j->registerConnectionListener(this);
+	j->registerMessageHandler(this);
+	j->rosterManager()->registerRosterListener(this);
+	j->disco()->registerDiscoHandler(this);
+	j->disco()->setVersion("JabInfo", "0.1.2", "UBUNTU"); //zaobrazi se v infu, nazev, verze, system
+	j->disco()->setIdentity( "client", "bot" );
+	j->disco()->addFeature( "http://jabber.org/protocol/tune+notify");
+	j->disco()->addFeature( "http://jabber.org/protocol/pubsub");
+	j->disco()->addFeature( "http://jabber.org/protocol/pubsub#event");
+	j->disco()->addFeature( "http://jabber.org/protocol/mood+notify");
+	j->disco()->addFeature( "http://jabber.org/protocol/geoloc+notify");
+	j->disco()->addFeature( "http://jabber.org/protocol/activity+notify");
 
-		JID jid(this->login);
-		j = new Client(jid, pass);
-		j->registerConnectionListener(this);
-		j->registerMessageHandler(this);
-		j->rosterManager()->registerRosterListener(this);
-		j->disco()->registerDiscoHandler(this);
-		j->disco()->setVersion("Pokus", "0.0.2", "UBUNTU"); //zaobrazi se v infu, nazev, verze, system
-		j->disco()->setIdentity( "client", "bot" );
-		j->disco()->addFeature( "http://jabber.org/protocol/tune+notify");
-		j->disco()->addFeature( "http://jabber.org/protocol/pubsub");
-		j->disco()->addFeature( "http://jabber.org/protocol/pubsub#event");
-		j->disco()->addFeature( "http://jabber.org/protocol/mood+notify");
-		j->disco()->addFeature( "http://jabber.org/protocol/geoloc+notify");
-		j->disco()->addFeature( "http://jabber.org/protocol/activity+notify");
+	j->registerStanzaExtension( new PubSub::Event(NULL) );
+	j->setPresence( Presence::Available, 5 );   //Nastaveni statusuvailable
+	j->registerPresenceHandler( this );
+	j->registerIqHandler(this, ExtVersion);
+	j->registerIqHandler(this, ExtDiscoItems );
+	j->registerIqHandler(this, ExtDiscoInfo);
+	j->logInstance().registerLogHandler(LogLevelDebug, LogAreaAll, this);
+	StringList ca;
+	ca.push_back( "/pathto/cacert.crt" );
+	j->setCACerts(ca);
+	m_vManager = new VCardManager(j);
+	database = new Database();
+	database->start();
 
-//       		j->registerStanzaExtension( new Disco::Info(NULL) );
-  //     		j->registerStanzaExtension( new Disco::Items(NULL) );
-    //   		j->registerStanzaExtension( new SoftwareVersion(NULL) );
-
-
-		j->registerStanzaExtension( new PubSub::Event(NULL) );
-		j->setPresence( Presence::Available, 5 );   //Nastaveni statusuvailable
-		j->registerPresenceHandler( this );
-		j->registerIqHandler(this, ExtVersion);
-		j->registerIqHandler(this, ExtDiscoItems );
-		j->registerIqHandler(this, ExtDiscoInfo);
-		j->logInstance().registerLogHandler(LogLevelDebug, LogAreaAll, this);
-		StringList ca;
-		ca.push_back( "/pathto/cacert.crt" );
-		j->setCACerts(ca);
-		m_vManager = new VCardManager(j);
-		database = new Database();
-		database->start();
-
-		//swVersion = new SwVersion();
-		j->connect(false);  //kontrola spojeni se servrem
-		while(true)
+	j->connect(false);  //kontrola spojeni se servrem
+	while(true)
+	{
+		j->recv();
+		if( f_global == true )
 		{
-			j->recv();
-			if( f_global == true )
-			{
-				end();
-				break;
-			}
-
+			end();
+			break;
 		}
-	
-		delete(m_vManager);
-		delete(j);
-		delete(database);
 	}
+	
+	delete(m_vManager);
+	delete(j);
+	delete(database);
+}
 
 void Bot::onDisconnect( ConnectionError ) {
 	printf("onDisconecct \n"); 
@@ -182,11 +163,8 @@ void Bot::handleNonrosterPresence( const Presence& presence ) {
 void Bot::handleMessage( const Message& msg, MessageSession * /*session=0*/ )	{
 	
 	const PubSub::Event* pse = msg.findExtension<PubSub::Event>( ExtPubSubEvent );
-
 	JID jid(msg.from());
-	JID to_jid(msg.tag()->findAttribute("to"));
-
-	if(pse)
+	if( pse )
 	{
 		if(pse->type() == gloox::PubSub::EventItems)
 		{
@@ -197,58 +175,51 @@ void Bot::handleMessage( const Message& msg, MessageSession * /*session=0*/ )	{
 				Geoloc* geoloc = new Geoloc( p_tag );
 				geoloc->jid(jid.full());
 				database->insertTableGeoloc(geoloc);
-//				cout<<"http://jabber.org/protocol/geoloc"<<endl;
 			}
 			else if( p_str == "http://jabber.org/protocol/tune" )
 			{
 				Tune* tune = new Tune( p_tag );
 				tune->jid(jid.full());
 				database->insertTableTune(tune);
-//				cout<<"http://jabber.org/protocol/tune"<<endl;
 			}
 			else if( p_str == "http://jabber.org/protocol/mood" )
 			{
 				Mood* mood = new Mood( p_tag );
 				mood->jid(jid.full());
 				database->insertTableMood(mood);
-//				cout<<"http://jabber.org/protocol/mood"<<endl;
 			}
 			else if( p_str == "http://jabber.org/protocol/activity" )
 			{
 				Activity* activity = new Activity( p_tag );
 				activity->jid(jid.full());
 				database->insertTableActivity(activity);
-//				cout<<"http://jabber.org/protocol/activity"<<endl;
 			}
 		}
 	}
 	else if( !msg.body().empty() )
 	{
 		database->insertTableMessage( jid.bare().c_str(),  msg.body().c_str(),  msg.subject().c_str(), msg.thread().c_str(), messageSubtype(msg.subtype()).c_str() );
-		if( msg.body() == QUIT && (jid.bare() == "pidgin@localhost" || jid.bare() == "portilo@jabbim.cz") )
-			j->disconnect();
-		else if( msg.body() == "USER" && (jid.bare() == "pidgin@localhost" || jid.bare() == "portilo@jabbim.cz") )
+		int comm = command( msg.body(), jid.bare());
+		if( comm == 1 )
 		{
-			Message mess( gloox::Message::Chat, msg.from(), database->printUser() );
+			if( msg.body() == COMMAND_USER )
+			{
+				Message mess( gloox::Message::Chat, msg.from(), database->printUser() );
+				j->send( mess );
+			}
+			else if( msg.body() == COMMAND_RECONNECT )
+				end();
+		}
+		else if( comm == 2)
+		{
+			Message mess( gloox::Message::Chat, msg.from(), NO_RIGHT);
 			j->send( mess );
 		}
-		else if( msg.body() == HALLO )
+		else if( comm == 3 )
 		{
-			Message mess( gloox::Message::Chat, msg.from(), "ahoj");
-			j->send( mess);
+			Message mess( gloox::Message::Chat, msg.from(), database->select(msg.body(), msg.from().bare()));
+			j->send( mess );
 		}
-		//else if( msg.body() == "remove")
-		//	j->rosterManager()->remove( msg.from() );
-		else
-		{
-
-			Message mess( gloox::Message::Chat, msg.from(), HELP_ECHO);
-			j->send( mess);
-		}
-	}
-	else
-	{
-
 	}
 }
 		

@@ -17,6 +17,7 @@
 \contentsline {chapter}{\numberline {5}Pokra\v cov\'an\IeC {\'\i } pr\'ace}{31}{chapter.5}
 \contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{33}{chapter.6}
 \contentsline {section}{\numberline {6.1}Manu\'aln\IeC {\'\i } rozbor dat}{33}{section.6.1}
+\contentsline {section}{\numberline {6.2}...}{33}{section.6.2}
 \contentsline {chapter}{\numberline {7}Z\'av\v er}{34}{chapter.7}
 \contentsline {chapter}{\numberline {A}Obsah CD}{38}{appendix.A}
 \contentsline {chapter}{\numberline {B}Manual}{39}{appendix.B}
@@ -24,4 +25,3 @@
 \contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k zkratek}{41}{appendix.D}
 \contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{42}{appendix.E}
 \contentsline {chapter}{\numberline {F}N\'avrh datab\'aze}{47}{appendix.F}
-\contentsline {chapter}{\numberline {G}P\v rehled klient\r u a jejich roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{48}{appendix.G}

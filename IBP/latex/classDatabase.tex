@@ -59,14 +59,39 @@ void \hyperlink{classDatabase_a3d21c62cf45f895d5bea438b1279370d}{updateTableReso
 \item 
 bool \hyperlink{classDatabase_ae80a2a2b6a33748bee20b62780f43fc3}{updateTableResource} (\hyperlink{classSwVersion}{SwVersion} $\ast$swversion)
 \item 
-\hypertarget{classDatabase_ae59c31d44f6b09b22edc7173f0d7f18d}{
-void {\bfseries exitError} ()}
-\label{classDatabase_ae59c31d44f6b09b22edc7173f0d7f18d}
+\hypertarget{classDatabase_a321fd8c09dea22cc061b61ebd5667c66}{
+std::string {\bfseries select} (std::string selcect, std::string jid) const }
+\label{classDatabase_a321fd8c09dea22cc061b61ebd5667c66}
+
+\item 
+\hypertarget{classDatabase_aacf248f2eefaf9630d5a3330f63a680f}{
+std::string {\bfseries printTune} (std::string jid) const }
+\label{classDatabase_aacf248f2eefaf9630d5a3330f63a680f}
+
+\item 
+\hypertarget{classDatabase_aa7fdaaa4cc61eabaa81178b3689dbd74}{
+std::string {\bfseries printGeoloc} (std::string jid) const }
+\label{classDatabase_aa7fdaaa4cc61eabaa81178b3689dbd74}
+
+\item 
+\hypertarget{classDatabase_aba1e91da98b40211c14a4eea15974548}{
+std::string {\bfseries printMood} (std::string jid) const }
+\label{classDatabase_aba1e91da98b40211c14a4eea15974548}
+
+\item 
+\hypertarget{classDatabase_a13d3f6d42ed491909ca9963bfb4ea68e}{
+std::string {\bfseries printActivity} (std::string jid) const }
+\label{classDatabase_a13d3f6d42ed491909ca9963bfb4ea68e}
 
 \item 
 \hypertarget{classDatabase_a5d733ffa13f136481e3dbdabc9b9ce99}{
 std::string {\bfseries printUser} () const }
 \label{classDatabase_a5d733ffa13f136481e3dbdabc9b9ce99}
+
+\item 
+\hypertarget{classDatabase_ae59c31d44f6b09b22edc7173f0d7f18d}{
+void {\bfseries exitError} ()}
+\label{classDatabase_ae59c31d44f6b09b22edc7173f0d7f18d}
 
 \item 
 \hypertarget{classDatabase_a84791e2489f1aace2bfba61e6e5fdd77}{
@@ -139,7 +164,7 @@ char {\bfseries sTime} \mbox{[}80\mbox{]}}
 \subsection{Detailed Description}
 Poskytuje rozhrani pro praci s databazi POSTGRESQL verze 8.4. 
 
-Definition at line 48 of file database.h.
+Definition at line 37 of file database.h.
 
 
 
@@ -189,7 +214,7 @@ Definition at line 17 of file database.cc.
 \label{classDatabase_a84d399a2ad58d69daab9b05330e1316d}
 Destruktor. 
 
-Definition at line 182 of file database.h.
+Definition at line 171 of file database.h.
 
 
 
@@ -211,7 +236,7 @@ $<$string$>$ ASCII znaky
 \end{DoxyReturn}
 
 
-Definition at line 506 of file database.cc.
+Definition at line 630 of file database.cc.
 
 \hypertarget{classDatabase_a491ca397cd5339ddc2474e64e1b66b00}{
 \index{Database@{Database}!convertXML@{convertXML}}
@@ -230,7 +255,7 @@ $<$string$>$ retezec s pridanymi znaky pro ulozeni do Db
 \end{DoxyReturn}
 
 
-Definition at line 520 of file database.cc.
+Definition at line 644 of file database.cc.
 
 \hypertarget{classDatabase_a4b48b0e706c1017b6ef0a4015b53080b}{
 \index{Database@{Database}!createTable@{createTable}}
@@ -263,7 +288,7 @@ Definition at line 94 of file database.cc.
 \label{classDatabase_a0be1ba1393e19becbeffed6b15fcfe91}
 Nastaveni promenne sTime aktualnim casem. Format YYYY-\/MM-\/DD HH:MM:SS. 
 
-Definition at line 493 of file database.cc.
+Definition at line 617 of file database.cc.
 
 \hypertarget{classDatabase_a94ac4a7584707bfd40643e437e7471a8}{
 \index{Database@{Database}!initListVer@{initListVer}}
@@ -276,7 +301,7 @@ Definition at line 493 of file database.cc.
 \label{classDatabase_a94ac4a7584707bfd40643e437e7471a8}
 Naplneni listu uzivateli 
 
-Definition at line 456 of file database.cc.
+Definition at line 580 of file database.cc.
 
 \hypertarget{classDatabase_ab313dba2c4a1ba81b6e81f0342e76f1f}{
 \index{Database@{Database}!insertTableActivity@{insertTableActivity}}
@@ -292,7 +317,7 @@ Vlozeni dat do tabulky ACTIVITY.
 \item[\mbox{\tt[in]} {\em $<$Activity$\ast$$>$}]ativity objekt obsahujici dat pro databazi. \end{DoxyParams}
 
 
-Definition at line 534 of file database.cc.
+Definition at line 658 of file database.cc.
 
 \hypertarget{classDatabase_adf308c272ed2354c9b4b0adec7e7514c}{
 \index{Database@{Database}!insertTableDebug@{insertTableDebug}}
@@ -310,7 +335,7 @@ Vlozeni logovych informaci. Id cilso = informace slovy.
 \item[\mbox{\tt[in]} {\em $<$int$>$}]level \item[\mbox{\tt[in]} {\em $<$inta$>$}]area \item[\mbox{\tt[in]} {\em $<$string$>$}]message Data vlozena do tabulky. \end{DoxyParams}
 
 
-Definition at line 699 of file database.cc.
+Definition at line 823 of file database.cc.
 
 \hypertarget{classDatabase_ac5e578fc33954b0cb1e52c2d95d3ca0b}{
 \index{Database@{Database}!insertTableGeoloc@{insertTableGeoloc}}
@@ -326,7 +351,7 @@ Vlozeni dat do tabulky GEOLOC.
 \item[\mbox{\tt[in]} {\em $<$Geoloc$\ast$$>$}]geoloc objekt obsahujici dat pro databazi. \end{DoxyParams}
 
 
-Definition at line 600 of file database.cc.
+Definition at line 724 of file database.cc.
 
 \hypertarget{classDatabase_a9d4abee71fe85d95e34537212a2b1860}{
 \index{Database@{Database}!insertTableMessage@{insertTableMessage}}
@@ -346,7 +371,7 @@ Vlozeni zprav do tabulky MESSAGE
 \item[\mbox{\tt[in]} {\em $<$string$>$}]jid uzivatelske jmeno adresata \item[\mbox{\tt[in]} {\em $<$string$>$}]msg text zpravy \item[\mbox{\tt[in]} {\em $<$string$>$}]subject predmet zpravy \item[\mbox{\tt[in]} {\em $<$string$>$}]thread vlakno \item[\mbox{\tt[in]} {\em $<$string$>$}]subtype typ zpravy \end{DoxyParams}
 
 
-Definition at line 737 of file database.cc.
+Definition at line 861 of file database.cc.
 
 \hypertarget{classDatabase_a77052db1584364171f640ac6e17532bf}{
 \index{Database@{Database}!insertTableMood@{insertTableMood}}
@@ -362,7 +387,7 @@ Vlozeni dat do tabulky MOOD.
 \item[\mbox{\tt[in]} {\em $<$Mood$\ast$$>$}]mood objekt obsahujici dat pro databazi. \end{DoxyParams}
 
 
-Definition at line 555 of file database.cc.
+Definition at line 679 of file database.cc.
 
 \hypertarget{classDatabase_a23e89aa424f735e5510760e6dcb5e7ae}{
 \index{Database@{Database}!insertTablePresence@{insertTablePresence}}
@@ -382,7 +407,7 @@ Vlozeni informaci o zmenen statusu uzivatele do tabulky presence. Zmena stavu je
 \item[\mbox{\tt[in]} {\em $<$string$>$}]jid uzivatelsek jemno. \item[\mbox{\tt[in]} {\em $<$string$>$}]msg podrobnejsi popis statusu. \item[\mbox{\tt[in]} {\em $<$string$>$}]name jmeno uzivatele. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource uzivatele. \item[\mbox{\tt[in]} {\em $<$string$>$}]presence presence. \end{DoxyParams}
 
 
-Definition at line 772 of file database.cc.
+Definition at line 896 of file database.cc.
 
 \hypertarget{classDatabase_ac224d84f32afe5b4700339b4ed1cbcba}{
 \index{Database@{Database}!insertTablePresence@{insertTablePresence}}
@@ -406,7 +431,7 @@ Vlozeni informaci o zmenen statusu uzivatele do tabulky presence.
 \item[\mbox{\tt[in]} {\em $<$string$>$}]jid uzivatelsek jmeno. \item[\mbox{\tt[in]} {\em $<$string$>$}]msg podrobnejsi popis statusu. \item[\mbox{\tt[in]} {\em $<$string$>$}]name jmeno uzivatele. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource uzivatele. \item[\mbox{\tt[in]} {\em $<$string$>$}]presence presence. \item[\mbox{\tt[in]} {\em $<$int$>$}]priority priorita daneho resource. \item[\mbox{\tt[in]} {\em $<$string$>$}]nameSw jmeno programu. \item[\mbox{\tt[in]} {\em $<$string$>$}]versionSw verze software. \item[\mbox{\tt[in]} {\em $<$string$>$}]osSw nazev operacniho systemu, ktery uzivatel pouziva. \end{DoxyParams}
 
 
-Definition at line 755 of file database.cc.
+Definition at line 879 of file database.cc.
 
 \hypertarget{classDatabase_a23060c24f9d5fcfb85d302e30882b62d}{
 \index{Database@{Database}!insertTableTune@{insertTableTune}}
@@ -422,7 +447,7 @@ Vlozeni dat do tabulky TUNE.
 \item[\mbox{\tt[in]} {\em $<$Tune$\ast$$>$}]tune objekt obsahujici dat pro databazi. \end{DoxyParams}
 
 
-Definition at line 577 of file database.cc.
+Definition at line 701 of file database.cc.
 
 \hypertarget{classDatabase_ae3d08a778ad3e3bb916b9a0710e17591}{
 \index{Database@{Database}!insertTableUser@{insertTableUser}}
@@ -438,7 +463,7 @@ Vlozeni uzivatele do tabulky user.
 \item[\mbox{\tt[in]} {\em $<$std::string$>$}]user Jmeno uziovatele, JID. \end{DoxyParams}
 
 
-Definition at line 672 of file database.cc.
+Definition at line 796 of file database.cc.
 
 \hypertarget{classDatabase_a1bc61aab7507950d0cca002b05693fd1}{
 \index{Database@{Database}!insertTableVCard@{insertTableVCard}}
@@ -455,7 +480,7 @@ Vlozeni dat do tabulky VCARD.
 \item[\mbox{\tt[in]} {\em $<$VCard$>$}]v \end{DoxyParams}
 
 
-Definition at line 639 of file database.cc.
+Definition at line 763 of file database.cc.
 
 \hypertarget{classDatabase_a91c467c7d88fa73d47f90b00810639ce}{
 \index{Database@{Database}!insertTableXML@{insertTableXML}}
@@ -473,7 +498,7 @@ Vlozeni logovych informaci. Id cilso = informace slovy.
 \item[\mbox{\tt[in]} {\em $<$int$>$}]level \item[\mbox{\tt[in]} {\em $<$inta$>$}]area \item[\mbox{\tt[in]} {\em $<$string$>$}]message Data vlozena do tabulky. \end{DoxyParams}
 
 
-Definition at line 718 of file database.cc.
+Definition at line 842 of file database.cc.
 
 \hypertarget{classDatabase_a65c7d2cc56b627d6bb9ab4be25dad2dc}{
 \index{Database@{Database}!start@{start}}
@@ -486,63 +511,7 @@ Definition at line 718 of file database.cc.
 \label{classDatabase_a65c7d2cc56b627d6bb9ab4be25dad2dc}
 Inicializace a pripojeni k databazi. 
 
-Definition at line 485 of file database.cc.
-
-\hypertarget{classDatabase_a3d21c62cf45f895d5bea438b1279370d}{
-\index{Database@{Database}!updateTableResource@{updateTableResource}}
-\index{updateTableResource@{updateTableResource}!Database@{Database}}
-\subsubsection[{updateTableResource}]{\setlength{\rightskip}{0pt plus 5cm}void Database::updateTableResource (
-\begin{DoxyParamCaption}
-\item[{std::string}]{ jidBare, }
-\item[{std::string}]{ resource, }
-\item[{std::string}]{ nameSW, }
-\item[{std::string}]{ versionSW, }
-\item[{std::string}]{ osSW}
-\end{DoxyParamCaption}
-)}}
-\label{classDatabase_a3d21c62cf45f895d5bea438b1279370d}
-Aktualizace tabulky resource. 
-\begin{DoxyParams}{Parameters}
-\item[\mbox{\tt[in]} {\em $<$string$>$}]jidBare uzivatelksy ucet. \item[\mbox{\tt[in]} {\em $<$string$>$}]nameSW nazev programu. \item[\mbox{\tt[in]} {\em $<$string$>$}]versionSw verze programu. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource. \item[\mbox{\tt[in]} {\em $<$string$>$}]osSW operacni system. \end{DoxyParams}
-
-
-Definition at line 840 of file database.cc.
-
-\hypertarget{classDatabase_ae80a2a2b6a33748bee20b62780f43fc3}{
-\index{Database@{Database}!updateTableResource@{updateTableResource}}
-\index{updateTableResource@{updateTableResource}!Database@{Database}}
-\subsubsection[{updateTableResource}]{\setlength{\rightskip}{0pt plus 5cm}bool Database::updateTableResource (
-\begin{DoxyParamCaption}
-\item[{{\bf SwVersion} $\ast$}]{ swversion}
-\end{DoxyParamCaption}
-)}}
-\label{classDatabase_ae80a2a2b6a33748bee20b62780f43fc3}
-Aktualizace tabulky resource. 
-\begin{DoxyParams}{Parameters}
-\item[\mbox{\tt[in]} {\em $<$SwVersion$\ast$$>$}]swversion informace o software klienta. \end{DoxyParams}
-
-
-Definition at line 856 of file database.cc.
-
-\hypertarget{classDatabase_af70354123caedcc69d3ce905e04c35ff}{
-\index{Database@{Database}!updateTableResource@{updateTableResource}}
-\index{updateTableResource@{updateTableResource}!Database@{Database}}
-\subsubsection[{updateTableResource}]{\setlength{\rightskip}{0pt plus 5cm}bool Database::updateTableResource (
-\begin{DoxyParamCaption}
-\item[{const std::string}]{ jidBare, }
-\item[{const std::string}]{ presence, }
-\item[{const std::string}]{ status, }
-\item[{const std::string}]{ resource, }
-\item[{const int}]{ priority}
-\end{DoxyParamCaption}
-)}}
-\label{classDatabase_af70354123caedcc69d3ce905e04c35ff}
-Aktualizace tabulky resource. 
-\begin{DoxyParams}{Parameters}
-\item[\mbox{\tt[in]} {\em $<$string$>$}]jidBare uzivatelksy ucet. \item[\mbox{\tt[in]} {\em $<$string$>$}]presence presence. \item[\mbox{\tt[in]} {\em $<$string$>$}]status status. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource. \item[\mbox{\tt[in]} {\em $<$int$>$}]priority priorita \end{DoxyParams}
-
-
-Definition at line 911 of file database.cc.
+Definition at line 609 of file database.cc.
 
 \hypertarget{classDatabase_a808c8a5de4206ca72a69a122b8832811}{
 \index{Database@{Database}!updateTableResource@{updateTableResource}}
@@ -563,7 +532,63 @@ Aktualizace tabulky resource.
 \item[\mbox{\tt[in]} {\em $<$string$>$}]jidBare uzivatelksy ucet. \item[\mbox{\tt[in]} {\em $<$string$>$}]presence presence. \item[\mbox{\tt[in]} {\em $<$string$>$}]status status. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource. \item[\mbox{\tt[in]} {\em $<$int$>$}]priority priorita. \item[\mbox{\tt[in]} {\em $<$string$>$}]ver zakododvane informace o schopnostech klienta, podpore a tak. \end{DoxyParams}
 
 
-Definition at line 875 of file database.cc.
+Definition at line 999 of file database.cc.
+
+\hypertarget{classDatabase_ae80a2a2b6a33748bee20b62780f43fc3}{
+\index{Database@{Database}!updateTableResource@{updateTableResource}}
+\index{updateTableResource@{updateTableResource}!Database@{Database}}
+\subsubsection[{updateTableResource}]{\setlength{\rightskip}{0pt plus 5cm}bool Database::updateTableResource (
+\begin{DoxyParamCaption}
+\item[{{\bf SwVersion} $\ast$}]{ swversion}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_ae80a2a2b6a33748bee20b62780f43fc3}
+Aktualizace tabulky resource. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$SwVersion$\ast$$>$}]swversion informace o software klienta. \end{DoxyParams}
+
+
+Definition at line 980 of file database.cc.
+
+\hypertarget{classDatabase_a3d21c62cf45f895d5bea438b1279370d}{
+\index{Database@{Database}!updateTableResource@{updateTableResource}}
+\index{updateTableResource@{updateTableResource}!Database@{Database}}
+\subsubsection[{updateTableResource}]{\setlength{\rightskip}{0pt plus 5cm}void Database::updateTableResource (
+\begin{DoxyParamCaption}
+\item[{std::string}]{ jidBare, }
+\item[{std::string}]{ resource, }
+\item[{std::string}]{ nameSW, }
+\item[{std::string}]{ versionSW, }
+\item[{std::string}]{ osSW}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_a3d21c62cf45f895d5bea438b1279370d}
+Aktualizace tabulky resource. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]jidBare uzivatelksy ucet. \item[\mbox{\tt[in]} {\em $<$string$>$}]nameSW nazev programu. \item[\mbox{\tt[in]} {\em $<$string$>$}]versionSw verze programu. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource. \item[\mbox{\tt[in]} {\em $<$string$>$}]osSW operacni system. \end{DoxyParams}
+
+
+Definition at line 964 of file database.cc.
+
+\hypertarget{classDatabase_af70354123caedcc69d3ce905e04c35ff}{
+\index{Database@{Database}!updateTableResource@{updateTableResource}}
+\index{updateTableResource@{updateTableResource}!Database@{Database}}
+\subsubsection[{updateTableResource}]{\setlength{\rightskip}{0pt plus 5cm}bool Database::updateTableResource (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{ jidBare, }
+\item[{const std::string}]{ presence, }
+\item[{const std::string}]{ status, }
+\item[{const std::string}]{ resource, }
+\item[{const int}]{ priority}
+\end{DoxyParamCaption}
+)}}
+\label{classDatabase_af70354123caedcc69d3ce905e04c35ff}
+Aktualizace tabulky resource. 
+\begin{DoxyParams}{Parameters}
+\item[\mbox{\tt[in]} {\em $<$string$>$}]jidBare uzivatelksy ucet. \item[\mbox{\tt[in]} {\em $<$string$>$}]presence presence. \item[\mbox{\tt[in]} {\em $<$string$>$}]status status. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource. \item[\mbox{\tt[in]} {\em $<$int$>$}]priority priorita \end{DoxyParams}
+
+
+Definition at line 1035 of file database.cc.
 
 \hypertarget{classDatabase_a9abb11cd73e399d8f872ed6a19ff1d0c}{
 \index{Database@{Database}!updateTableResource@{updateTableResource}}
@@ -582,7 +607,7 @@ Aktualizace tabulky resource.
 \item[\mbox{\tt[in]} {\em $<$string$>$}]jidBare uzivatelksy ucet. \item[\mbox{\tt[in]} {\em $<$string$>$}]presence presence. \item[\mbox{\tt[in]} {\em $<$string$>$}]status status. \item[\mbox{\tt[in]} {\em $<$string$>$}]resource resource. \end{DoxyParams}
 
 
-Definition at line 947 of file database.cc.
+Definition at line 1071 of file database.cc.
 
 \hypertarget{classDatabase_a277f3480f7ac16380ea0195d2a3d1c14}{
 \index{Database@{Database}!updateTableStatus@{updateTableStatus}}
@@ -598,7 +623,7 @@ Akrualizace stavu tabulky status.
 \item[\mbox{\tt[in]} {\em $<$string$>$}]jidbare uzivatelksy ucet \end{DoxyParams}
 
 
-Definition at line 790 of file database.cc.
+Definition at line 914 of file database.cc.
 
 
 
@@ -613,7 +638,7 @@ Odstraneni tabulky z databaze.
 \item[\mbox{\tt[in]} {\em $<$const}]std::string$>$ nameTable Jmeno tabulky odebirane z databaze. Smazani vsech tabulek. \end{DoxyParams}
 
 
-Definition at line 150 of file database.h.
+Definition at line 139 of file database.h.
 
 
 

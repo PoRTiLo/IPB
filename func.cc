@@ -163,3 +163,16 @@ std::string boolToString( std::string str ) {
 	else
 		return "FALSE";
 }
+
+int command( const std::string msg, const std::string jid ) {
+
+	std::string admin = ADMIN_JID;
+	std::string command = COMMAND;
+
+	if( (admin.find(jid)!= std::string::npos) && (command.find(msg) != std::string::npos) )
+		return 1;
+	else if( command.find(msg) != std::string::npos )
+		return 2;
+	else
+		return 3;
+}

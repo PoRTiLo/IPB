@@ -87,10 +87,20 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a9abb11cd73e399d8f872ed6a19ff1d0c">updateTableResource</a> (const std::string jidBare, const std::string presence, const std::string status, const std::string resource)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#a3d21c62cf45f895d5bea438b1279370d">updateTableResource</a> (std::string jidBare, std::string resource, std::string nameSW, std::string versionSW, std::string osSW)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDatabase.html#ae80a2a2b6a33748bee20b62780f43fc3">updateTableResource</a> (<a class="el" href="classSwVersion.html">SwVersion</a> *swversion)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae59c31d44f6b09b22edc7173f0d7f18d"></a><!-- doxytag: member="Database::exitError" ref="ae59c31d44f6b09b22edc7173f0d7f18d" args="()" -->
-void&nbsp;</td><td class="memItemRight" valign="bottom"><b>exitError</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a321fd8c09dea22cc061b61ebd5667c66"></a><!-- doxytag: member="Database::select" ref="a321fd8c09dea22cc061b61ebd5667c66" args="(std::string selcect, std::string jid) const " -->
+std::string&nbsp;</td><td class="memItemRight" valign="bottom"><b>select</b> (std::string selcect, std::string jid) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aacf248f2eefaf9630d5a3330f63a680f"></a><!-- doxytag: member="Database::printTune" ref="aacf248f2eefaf9630d5a3330f63a680f" args="(std::string jid) const " -->
+std::string&nbsp;</td><td class="memItemRight" valign="bottom"><b>printTune</b> (std::string jid) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7fdaaa4cc61eabaa81178b3689dbd74"></a><!-- doxytag: member="Database::printGeoloc" ref="aa7fdaaa4cc61eabaa81178b3689dbd74" args="(std::string jid) const " -->
+std::string&nbsp;</td><td class="memItemRight" valign="bottom"><b>printGeoloc</b> (std::string jid) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba1e91da98b40211c14a4eea15974548"></a><!-- doxytag: member="Database::printMood" ref="aba1e91da98b40211c14a4eea15974548" args="(std::string jid) const " -->
+std::string&nbsp;</td><td class="memItemRight" valign="bottom"><b>printMood</b> (std::string jid) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13d3f6d42ed491909ca9963bfb4ea68e"></a><!-- doxytag: member="Database::printActivity" ref="a13d3f6d42ed491909ca9963bfb4ea68e" args="(std::string jid) const " -->
+std::string&nbsp;</td><td class="memItemRight" valign="bottom"><b>printActivity</b> (std::string jid) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d733ffa13f136481e3dbdabc9b9ce99"></a><!-- doxytag: member="Database::printUser" ref="a5d733ffa13f136481e3dbdabc9b9ce99" args="() const " -->
 std::string&nbsp;</td><td class="memItemRight" valign="bottom"><b>printUser</b> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae59c31d44f6b09b22edc7173f0d7f18d"></a><!-- doxytag: member="Database::exitError" ref="ae59c31d44f6b09b22edc7173f0d7f18d" args="()" -->
+void&nbsp;</td><td class="memItemRight" valign="bottom"><b>exitError</b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84791e2489f1aace2bfba61e6e5fdd77"></a><!-- doxytag: member="Database::clearResourceTable" ref="a84791e2489f1aace2bfba61e6e5fdd77" args="(void)" -->
 void&nbsp;</td><td class="memItemRight" valign="bottom"><b>clearResourceTable</b> (void)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8cc000733b73f596f49a0c4a65637ff"></a><!-- doxytag: member="Database::listToString" ref="af8cc000733b73f596f49a0c4a65637ff" args="(gloox::StringList units)" -->
@@ -125,7 +135,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>Poskytuje rozhrani pro praci s databazi POSTGRESQL verze 8.4. </p>
 
-<p>Definition at line <a class="el" href="database_8h_source.html#l00048">48</a> of file <a class="el" href="database_8h_source.html">database.h</a>.</p>
+<p>Definition at line <a class="el" href="database_8h_source.html#l00037">37</a> of file <a class="el" href="database_8h_source.html">database.h</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a4703c80e6969d33565ea340f768fdadf"></a><!-- doxytag: member="Database::Database" ref="a4703c80e6969d33565ea340f768fdadf" args="()" -->
 <div class="memitem">
@@ -228,7 +238,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
 <div class="memdoc">
 <p>Destruktor. </p>
 
-<p>Definition at line <a class="el" href="database_8h_source.html#l00182">182</a> of file <a class="el" href="database_8h_source.html">database.h</a>.</p>
+<p>Definition at line <a class="el" href="database_8h_source.html#l00171">171</a> of file <a class="el" href="database_8h_source.html">database.h</a>.</p>
 
 </div>
 </div>
@@ -257,7 +267,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>&lt;string&gt; ASCII znaky </dd></dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00506">506</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00630">630</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -285,7 +295,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>&lt;string&gt; retezec s pridanymi znaky pro ulozeni do Db </dd></dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00520">520</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00644">644</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -343,7 +353,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
 <div class="memdoc">
 <p>Nastaveni promenne sTime aktualnim casem. Format YYYY-MM-DD HH:MM:SS. </p>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00493">493</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00617">617</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -364,7 +374,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
 <div class="memdoc">
 <p>Naplneni listu uzivateli </p>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00456">456</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00580">580</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -391,7 +401,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00534">534</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00658">658</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -435,7 +445,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00699">699</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00823">823</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -462,7 +472,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00600">600</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00724">724</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -520,7 +530,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00737">737</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00861">861</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -547,7 +557,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00555">555</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00679">679</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -605,7 +615,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00772">772</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00896">896</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -691,7 +701,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00755">755</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00879">879</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -718,7 +728,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00577">577</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00701">701</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -745,7 +755,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00672">672</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00796">796</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -781,7 +791,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00639">639</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00763">763</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -825,7 +835,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00718">718</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00842">842</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -845,150 +855,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
 <div class="memdoc">
 <p>Inicializace a pripojeni k databazi. </p>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00485">485</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3d21c62cf45f895d5bea438b1279370d"></a><!-- doxytag: member="Database::updateTableResource" ref="a3d21c62cf45f895d5bea438b1279370d" args="(std::string jidBare, std::string resource, std::string nameSW, std::string versionSW, std::string osSW)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Database::updateTableResource </td>
-          <td>(</td>
-          <td class="paramtype">std::string&nbsp;</td>
-          <td class="paramname"> <em>jidBare</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&nbsp;</td>
-          <td class="paramname"> <em>resource</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&nbsp;</td>
-          <td class="paramname"> <em>nameSW</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&nbsp;</td>
-          <td class="paramname"> <em>versionSW</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&nbsp;</td>
-          <td class="paramname"> <em>osSW</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Aktualizace tabulky resource. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>jidBare uzivatelksy ucet. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>nameSW nazev programu. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>versionSw verze programu. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>resource resource. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>osSW operacni system. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00840">840</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae80a2a2b6a33748bee20b62780f43fc3"></a><!-- doxytag: member="Database::updateTableResource" ref="ae80a2a2b6a33748bee20b62780f43fc3" args="(SwVersion *swversion)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Database::updateTableResource </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classSwVersion.html">SwVersion</a> *&nbsp;</td>
-          <td class="paramname"> <em>swversion</em></td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Aktualizace tabulky resource. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;SwVersion*&gt;</em>&nbsp;</td><td>swversion informace o software klienta. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00856">856</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af70354123caedcc69d3ce905e04c35ff"></a><!-- doxytag: member="Database::updateTableResource" ref="af70354123caedcc69d3ce905e04c35ff" args="(const std::string jidBare, const std::string presence, const std::string status, const std::string resource, const int priority)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Database::updateTableResource </td>
-          <td>(</td>
-          <td class="paramtype">const std::string&nbsp;</td>
-          <td class="paramname"> <em>jidBare</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string&nbsp;</td>
-          <td class="paramname"> <em>presence</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string&nbsp;</td>
-          <td class="paramname"> <em>status</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string&nbsp;</td>
-          <td class="paramname"> <em>resource</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&nbsp;</td>
-          <td class="paramname"> <em>priority</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Aktualizace tabulky resource. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>jidBare uzivatelksy ucet. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>presence presence. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>status status. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>resource resource. </td></tr>
-    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;int&gt;</em>&nbsp;</td><td>priority priorita </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00911">911</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00609">609</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -1053,7 +920,150 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00875">875</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00999">999</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae80a2a2b6a33748bee20b62780f43fc3"></a><!-- doxytag: member="Database::updateTableResource" ref="ae80a2a2b6a33748bee20b62780f43fc3" args="(SwVersion *swversion)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Database::updateTableResource </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSwVersion.html">SwVersion</a> *&nbsp;</td>
+          <td class="paramname"> <em>swversion</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Aktualizace tabulky resource. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;SwVersion*&gt;</em>&nbsp;</td><td>swversion informace o software klienta. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00980">980</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3d21c62cf45f895d5bea438b1279370d"></a><!-- doxytag: member="Database::updateTableResource" ref="a3d21c62cf45f895d5bea438b1279370d" args="(std::string jidBare, std::string resource, std::string nameSW, std::string versionSW, std::string osSW)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Database::updateTableResource </td>
+          <td>(</td>
+          <td class="paramtype">std::string&nbsp;</td>
+          <td class="paramname"> <em>jidBare</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&nbsp;</td>
+          <td class="paramname"> <em>resource</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&nbsp;</td>
+          <td class="paramname"> <em>nameSW</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&nbsp;</td>
+          <td class="paramname"> <em>versionSW</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&nbsp;</td>
+          <td class="paramname"> <em>osSW</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Aktualizace tabulky resource. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>jidBare uzivatelksy ucet. </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>nameSW nazev programu. </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>versionSw verze programu. </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>resource resource. </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>osSW operacni system. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00964">964</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af70354123caedcc69d3ce905e04c35ff"></a><!-- doxytag: member="Database::updateTableResource" ref="af70354123caedcc69d3ce905e04c35ff" args="(const std::string jidBare, const std::string presence, const std::string status, const std::string resource, const int priority)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Database::updateTableResource </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&nbsp;</td>
+          <td class="paramname"> <em>jidBare</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&nbsp;</td>
+          <td class="paramname"> <em>presence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&nbsp;</td>
+          <td class="paramname"> <em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&nbsp;</td>
+          <td class="paramname"> <em>resource</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&nbsp;</td>
+          <td class="paramname"> <em>priority</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Aktualizace tabulky resource. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>jidBare uzivatelksy ucet. </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>presence presence. </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>status status. </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;string&gt;</em>&nbsp;</td><td>resource resource. </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>&lt;int&gt;</em>&nbsp;</td><td>priority priorita </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="database_8cc_source.html#l01035">1035</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -1104,7 +1114,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00947">947</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l01071">1071</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -1131,7 +1141,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8cc_source.html#l00790">790</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
+<p>Definition at line <a class="el" href="database_8cc_source.html#l00914">914</a> of file <a class="el" href="database_8cc_source.html">database.cc</a>.</p>
 
 </div>
 </div>
@@ -1154,7 +1164,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="database_8h_source.html#l00150">150</a> of file <a class="el" href="database_8h_source.html">database.h</a>.</p>
+<p>Definition at line <a class="el" href="database_8h_source.html#l00139">139</a> of file <a class="el" href="database_8h_source.html">database.h</a>.</p>
 
 </div>
 </div>
@@ -1177,7 +1187,7 @@ char&nbsp;</td><td class="memItemRight" valign="bottom"><b>sTime</b> [80]</td></
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed May 4 2011 18:53:28 for IBP by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Sat May 7 2011 20:45:13 for IBP by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

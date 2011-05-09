@@ -5,8 +5,20 @@
 
 
 #pragma once
-#define QUIT "quit"
-#define HALLO "caok"
+
+#define ADMIN_JID "pidgin@localhost, portilo@jabbim.cz"
+#define COMMAND_RECONNECT "RECONNECT"
+#define COMMAND_HALLO "caok"
+#define COMMAND_INFO "INFO"
+#define COMMAND_HELP "HELP"
+#define COMMAND_USER "USER"
+#define COMMAND_TUNE "TUNE"
+#define COMMAND_GEOLOC "GEOLOC"
+#define COMMAND_MOOD "MOOD"
+#define COMMAND_ACTIVITY "ACTIVITY"
+#define COMMAND_VCARD "VCARD"
+#define COMMAND_HISTORY "HISTORY"
+#define COMMAND "USER, RECONNECT"
 
 //dotazy
 #define DB_C_T "Create table "
@@ -211,11 +223,22 @@
 
 #define DB_DEF_ACTIVITY "INSERT INTO activity ( jidBare, time, nodeId, activity, spec, text) VALUES ("
 
-#define HELP_ECHO " Program vznika jako bakalarska prace. \n"\
-			" Jednoltive prikazy vraci udaje na zaklade nasbiranych informaci, tedy co je prijimano a od Vas vysilano\n"\
-			" Zakladni prikazy : INFO   - zakladni informace \n"\
-			"                  : VCARD  - vcard \n"\
-			"                  : GEOLOC - geolokace \n"\
-			"                  : TUNE   - co prave poslocuham \n"\
-			"            a dalsi......\n"\
-			" DODELAT :)"     
+#define HELP_ECHO " \n"\
+			" Jednoltive prikazy vraci udaje na zaklade nasbiranych informaci, tedy co je od Vas prijimano. Pokud existuji data v databazi je vypsano poslednic 10 zaznamu.\n"\
+			" Zakladni prikazy : \n"\
+			"                  : INFO		- zakladni informace\n"\
+			"                  : VCARD   	- vcard \n"\
+			"                  : GEOLOC	- geolokace \n"\
+			"                  : TUNE		- co prave poslouchate \n"\
+			"                  : MOOD    	- aktualni nadala \n"\
+			"                  : ACTIVITY	- aktualni cinnost \n"\
+			"                  : HISTORY	- historie statusu \n"\
+			"                  : HELP   	- tato napoveda \n"\
+			"\n"\
+			" To jsou vsechny volne dostupne prikazy :)"
+
+#define INFO " Program vznika jako soucast bakalarska prace. Pro jakekoliv dotazy piste na portilo@jabbim.cz\n"
+
+#define NO_SUPPORT "Zadna data z pozadovaneho rozsireni nejsou ulozena v databazi."
+
+#define NO_RIGHT "Nemate dostatecna prava pro provedeni tohoto prikazu!"

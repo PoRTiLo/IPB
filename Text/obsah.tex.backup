@@ -5,20 +5,20 @@
 
 \chapter{Úvod}
 
-V souèasné dobì k nejroz¹íøenìj¹ím psaným dorozumívacím prostøedkùm jsou øazeny real--time komunikaèní sítì. Samozøejmì tento jev je k vidìní a¾ konce minulého desetiletí. Psaná komunikace je ji¾ nìkolik století vyu¾ívána jako prostøedek k dorozumívání se mezi lidmi. Za toto období pro¹la výrazným pokrokovým vývojem, proto u ni lze nalézt mnoho èasových milníkù, které ji výraznì ovlivnily. Jako pøíklad jednoho z prvních komunikaèních kanálù lze uvést bì¾ce, kteøí èasto nesli zprávy na vzdálenosti nìkolika kilometrù. 
+V souèasné dobì jsou øazeny k nejroz¹íøenìj¹ím psaným dorozumívacím prostøedkùm real--time komunikaèní sítì. Samozøejmì je tento jev k vidìní a¾ koncem minulého desetiletí. Psaná komunikace je ji¾ nìkolik století vyu¾ívána jako prostøedek k dorozumívání lidí mezi sebou. Za toto období pro¹la výrazným pokrokovým vývojem, proto u ni lze nalézt mnoho èasových mezníkù, které ji výraznì ovlivnily. Jako pøíklad jednoho z prvních komunikaèních kanálù lze uvést posly, kteøí èasto nesly zprávy na vzdálenosti nìkolika kilometrù. 
 %Pro pøenos zpráv se také obvykle vyu¾ívalo ptactvo, pøedev¹ím holubi. 
 Dal¹ím výrazným prvkem ve vývoji dorozumívacích prostøedkù bylo zavedení po¹ty a objevení telegrafu.
 
-Pøíchodem internetu nastal v komunikaci zásadní zlom. Postupným roz¹íøením pokrytí a dostupnosti této technologie zaèalo vznikat mnoho nových komunikaèních prostøedkù. Pøíkladem mohou být elektronické zprávy, RSS zprávy nebo real--time komunikaèní sítì. Právì poslední zmínìná metoda za¾ívala v moderní dobì velký rùst v oblasti popularity, a» u¾ v podobì ICQ protokolu nebo dnes velmi roz¹íøené sociální síti facebook. Jedna z hlavních výhod tìchto slu¾eb, napøíklad v porovnáním s klasickou po¹tou, je jejich rychlost doruèení. Naproti bì¾né elektronické po¹tì jsou u¾ivatele informováni o stavu pøíjemce zprávy. Real--time komunikaèní prostøedky nabízejí slu¾by, kterými je mo¾né zjistit zda se pøíjemce zprávy nachází u dorozumívacího zaøízení. Díky této schopnosti je u¾ivateli umo¾nìno zasílat zprávy a obratem na nì oèekávat odpovìdi.
+Pøíchodem internetu nastal v komunikaci zásadní zlom. Postupným roz¹íøením pokrytí a dostupnosti této technologie zaèalo vznikat mnoho nových komunikaèních prostøedkù. Pøíkladem mohou být elektronické zprávy, RSS zprávy nebo real--time komunikaèní sítì. Právì poslední zmínìná metoda za¾ívala v moderní dobì velký rùst v oblasti popularity, a» u¾ v podobì ICQ protokolu nebo dnes velmi roz¹íøené sociální síti Facebook. Jedna z hlavních výhod tìchto slu¾eb, napøíklad v porovnáním s klasickou po¹tou, je jejich rychlost doruèení. Naproti bì¾né elektronické po¹tì jsou u¾ivatele informováni o stavu pøíjemce zprávy. Real--time komunikaèní prostøedky nabízejí slu¾by, kterými je mo¾né zjistit zda se pøíjemce zprávy nachází u dorozumívacího zaøízení. Díky této schopnosti je u¾ivateli umo¾nìno zasílat zprávy a obratem na nì oèekávat odpovìdi.
 
-S pøibývajícími elektronickými daty, na poli a» u¾ vìdních nebo praktických oborù, pøichází potøeba je uchovávat. K tìmto úèelùm slou¾í databáze, které se svou strukturou zamìøují pøedev¹ím na snadnou kontrolu dat, vyhledávání a jejich analyzování. S rostoucím obsahem se ale ulo¾ené informace stávají pouze daty bez významu. Proto vnikla nová disciplína nazvaná \textit{data mining}, která si klade za cíl znovunalezení \uv{ztracených} informací (na první pohled neviditelných) nebo nalezení informací úplnì nových.
+S pøibývajícími elektronickými daty, na poli a» u¾ vìdních nebo praktických oborù, pøichází potøeba tyto informace uchovávat. K tìmto úèelùm slou¾í databáze, které se svou strukturou zamìøují pøedev¹ím na snadnou kontrolu dat, vyhledávání a jejich analyzování. S rostoucím obsahem se ale ulo¾ené informace stávají pouze daty bez významu. Proto vnikla nová disciplína nazvaná \textit{data mining}, která si klade za cíl znovunalezení \uv{ztracených} informací (na první pohled neviditelných) nebo nalezení informací úplnì nových.
 
-Pøedmìtem této bakaláøské práce bylo seznámení se s problematikou komunikace probíhající pøes Jabber sí». Konkrétním cílem bylo vytvoøení jednoduchého Jabber klienta, který by byl schopen získávat statistická data. Nashromá¾dìná data by dále slou¾ila pro pozdìj¹í analýzu a grafickou reprezentaci informací z nich získaných. Tedy cílem této práce je získat neznámé informace z real--time komunikaèní sítì Jabber. 
+Pøedmìtem této bakaláøské práce je seznámení se s problematikou komunikace probíhající pøes Jabber sí». Konkrétním cílem je vytvoøení jednoduchého Jabber klienta, který by byl schopen získávat statistická data. Nashromá¾dìná data jsou dále vyu¾ita pro pozdìj¹í analýzu a grafickou reprezentaci informací z nich získaných. Hlavním cílem této práce je získat neznámé informace z real--time komunikaèní sítì Jabber. 
 
-Bakaláøská práce je rozdìlena do ¹esti kapitol.
+Bakaláøská práce je tvoøena z ¹esti kapitol.
 Kapitola \textbf{druhá} je tvoøena popisem protokolu XMPP, na kterém je postavena real--time komunikaèní slu¾ba Jabber. Je zde popsána architektura sítì a základní stavební kameny XMPP protokolu, které jsou vyu¾ívány sítí Jabber jako nástroj k zprostøedkování jednotlivých slu¾eb. V závìru tohoto oddílu je vìnována èást vybraným standardùm, které roz¹iøují základní XMPP protokoly. Jsou zde uvedena pouze ta roz¹íøení, která byla po konzultaci s vedoucím práce, oznaèena za relevantní k této práci.
 
-Obsah \textbf{tøetí} kapitoly je zamìøen na popis procesu data mining. Zabývá se zaèlenìním této metody do komplexnìj¹ího procesu, který je nazýván získávání znalostí z databází. Dal¹í souèást této kapitoly se zabývá nezbytnými kroky, pøi kterých jsou data, získaná z Jabber komunikace, transformována. Pøi tomto procesu jsou data pøevedena do vhodné podoby pro data minig. Následuje èást, kterou jsou popsány vybrané metody dolování dat a také je zde podrobnì rozebrán algoritmus \textit{k}--means. Tento algoritmus je vyu¾it pro samotné dolováni dat, které je zprostøedkováno aplikací RapidMiner. Popis tohoto programu a dal¹ích vybraných nástrojù uzavírá tøetí kapitolu.
+Obsah \textbf{tøetí} kapitoly je zamìøen na popis procesu data mining. Zabývá se zaèlenìním této metody do komplexnìj¹ího procesu, který je nazýván získávání znalostí z databází. Dal¹í souèást této kapitoly se zabývá nezbytnými kroky transformace dat, která jsou získána z Jabber komunikace. Pøi tomto procesu jsou data pøevedena do vhodné podoby pro data minig. Následuje èást, kterou jsou popsány vybrané metody dolování dat a také je zde podrobnì rozebrán algoritmus \textit{k}--means. Tento algoritmus je vyu¾it pro samotné dolováni dat, které je zprostøedkováno aplikací RapidMiner. Popis tohoto programu a dal¹ích vybraných nástrojù uzavírá tøetí kapitolu.
 
 Implementaèní èást této práce je popsána kapitolou \textbf{ètvrtou}. Je èlenìna na oddíly, které odpovídají vybraným èástem architektury této práce. Elementy architektury, které jsou popsány vlastní podkapitolou, jsou roz¹íøeny o zjednodu¹ený návrh struktury v podobì grafických schémat.
 
@@ -38,7 +38,7 @@ Jako bezpeènostní prvky jsou zde podporovány SASL, TLS a GPG. XMPP protokol je p
 
 
 \section{Architektura}
-Dobøe navr¾ená internetová technologie je tvoøena správnì fungujícími komponenty, které mezi sebou doká¾í vytvoøit spojení a následnì zapoèít komunikaci. Pro popis Jabber architektury v této práci bylo èerpáno z \cite{Adams,Saint}. Tato struktura se nejvíce podobá struktuøe posílání e--mailù. Hlavní pøedností Jabber sítì je, tak jako u elektronické po¹ty, její decentralizace. V pøípadì Jabberu je decentralizace chápána jako mo¾nost provozovat vlastní server, na rozdíl od jiných komunikaèních systémù jako je napøíklad facebook, kde existuje pouze jediný poskytovatel slu¾by. V pøípadì serveru je kladen dùraz na spolehlivost a roz¹iøitelnost a u klienta na u¾ivatele. Ka¾dý server pracuje samostatnì, co¾ znamená, ¾e chod ani výpadek jiné datové stanice ¾ádným zpùsobem jeho bìh neovlivní. V pøípadì výpadku jiného serveru bude nedostupný pouze seznam kontaktù a slu¾eb, které registrovaným u¾ivatelùm poskytoval. 
+Dobøe navr¾ená internetová technologie je tvoøena správnì fungujícími komponenty, které mezi sebou doká¾í vytvoøit spojení a následnì zapoèít komunikaci. Pro popis Jabber architektury v této práci bylo èerpáno z \cite{Adams,Saint}. Tato struktura se nejvíce podobá struktuøe posílání e--mailù. Hlavní pøedností Jabber sítì je, tak jako u elektronické po¹ty, její decentralizace. V pøípadì Jabberu je decentralizace chápána jako mo¾nost provozovat vlastní server, na rozdíl od jiných komunikaèních systémù jako je napøíklad Facebook, kde existuje pouze jediný poskytovatel slu¾by. V pøípadì serveru je kladen dùraz na spolehlivost a roz¹iøitelnost a u klienta na u¾ivatele. Ka¾dý server pracuje samostatnì, co¾ znamená, ¾e chod ani výpadek jiné datové stanice ¾ádným zpùsobem jeho bìh neovlivní. V pøípadì výpadku jiného serveru bude nedostupný pouze seznam kontaktù a slu¾eb, které registrovaným u¾ivatelùm poskytoval. 
 
 Obrázek \ref{pic4} znázoròující distribuovanou architekturu Jabberu byl pøevzat z \cite{Adams} a doplnìn o názvy jednotlivých komponent. Komunikace dvou Jabber klientù probíhá za úèasti jejich serverù a sítì, která je spojuje. Spojení mezi nimi bývá èasto ¹ifrováno.
 \begin{figure}[ht]
@@ -585,7 +585,7 @@ Dal¹ím oddílem, prezentovaným na obrázku \ref{picArchitektura} pod názvem \texti
 \end{center}
 \end{figure}
 
-Poslední èástí je \textit{u¾ivatelské rozhraní}, které je implementováno pomocí webových slu¾eb. Jako pøíklad lze uvést slu¾bu, která zobrazuje status u¾ivatele na webové stránce. U¾ivatel pouze musí vlastnit Jabber úèet a mít pøidaného tohoto robota do seznamu kontaktù.
+Poslední èástí je \textit{u¾ivatelské rozhraní}, které je implementováno pomocí webových slu¾eb. Jako pøíklad lze uvést slu¾bu, která zobrazuje status u¾ivatele na webové stránce. U¾ivatel pouze musí vlastnit Jabber úèet a mít pøidaného tohoto robota do seznamu kontaktù. Od ka¾dého u¾ivatele, je¾ má tohoto robota pøidaného do svého seznamù kontaktù, je sbírána ve¹kerá sí»ová aktivita. Mo¾nosti, které mu nabízí u¾ivatelské rozhraní v podobì webové prezentace tudí¾ zále¾í pouze na datech, které sám do sítì rozesílá. Jsou--li podporována v¹echna zde implementována roz¹íøení, která jsou uvedená v kapitole druhé, je mo¾né vyu¾ít jejich slu¾eb prostøednictvím internetových stránek. Jako dal¹í pøíklad lze uvést zobrazení aktuálního umístìní u¾ivatele na mapách od firmy google, dle informací poskytnutých prostøednictvím dokumentu User Geoloc \cite{Xep0080}.
 
 %Architektura této práce je rozdìlena na pìt èástí. celkove bych doplnil pred 4.1. podkapitolu architektura.  Do ktere bych nakreslil obrazek (neco jako priloha). A k tomu bych popsal jak jednotlive casti komunikuji. (ty casti, ktere stoji za rec bych popsal do samostatnych podkapitol)
 
@@ -638,15 +638,31 @@ Základní èást, kterou je mo¾né pova¾ovat za jádro aplikace, je tøída \textit{Bot
 
 %\section{Jiné produkty}
   
-%\subsection*{Roz¹íøení}
-%==zpravy, odpovida reaguje na to a na to
+\subsection*{Pøíkazy}
+K dal¹ím schopnostem robota, tedy kromì sbírání dat a jejich následného ukládání do databáze, patøí reagovat na vybrané zprávy. Tyto zprávy jsou pøijímány pouze od u¾ivatelù, kteøí byli zaèlenìní do seznamu kontaktù tohoto robota. Základní pøíkaz, který nesmí chybìt u ¾ádné aplikace, je získání nápovìdy. V první øadì informuje o verzi robota a jeho základních vlastnostech. Dále je odeslán struèný ale výsti¾ný seznam pøíkazù i s jejich vysvìtlením.
 
+Pøehled základních zpráv a jejich vysvìtlení je prezentováno v tabulce \ref{tabPrikazy}.  
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{ l  l   } 
+\rowcolor[gray]{0.9}
+\textbf{pøíkaz} 	& \textbf{vysvìtlení}\\
+HELP			&   Pøehled pøíkazù a jejich popis.\\
+INFO			&   Popis aplikace.\\
+HISTORY		&   Výpis posledních 10 zmìn statusù.\\
+TUNE			&   Výpis o pøehrávané hudbì.\\
+GEOLOC		&   Výpis o geografické poloze.\\
+MOOD			&   Výpis o aktuální náladì.\\
+ACTIVITY		&   Výpis o aktuální èinnosti.\\
+VCARD			&   Základní obsah VCard\\ \hline
+\end{tabular}
+\caption{Pøehled pøíkazù pro robota.}
+\label{tabPrikazy}
+\end{center} 
+\end{table}
+Kde první sloupec znaèí pøíkaz, který rozli¹uje velká a malá písmena, a druhý jej krátce a výsti¾nì popisuje. V pøípadì, ¾e u¾ivatel nemá ¾ádný údaj v databázi potøebný k vyhodnocení dotazu, je zaslána pouze informativní zpráva, které vzniklý problém vysvìtluje. V této èásti robota je skryt velký potenciál pro dal¹í vývoj. Více informací je uvedeno v následující kapitole, která je celá vìnována mo¾ným roz¹íøením a pokraèováním této práce.
 
 %==pouziti castecneho komentovani podle stylu doxygenu, makefile
-%\subsection*{gloox}
-%Gloox je stabilní Jabber/XMPP knihovna vydávána pod licencí GNU GPL. Je urèena pro vývoj klienta a komponent. Jeliko¾ je psána v ANSCI C++ je mo¾né ji oznaèit jako multiplatformní\footnote{Linux, Windows, Mac OS X, Symbian/Nokia S60, FreeBSD}.
-
-%Pomocí knihovny gloox je psán bot v této práci. Byla vybrána na základì po¾adavku psaní programu v jazyce C/C++ a operaèním systému Linux. V porovnání s jinými knihovnami pro jazyk C nebo C++ disponuje lep¹í podporou a dokumentací. Gloox plnì podporuje standart XMPP Core \cite{Rfc3920} a z vìt¹í èásti i standard XMPP IM \cite{Rfc3921}. Dodateènì je plnì podporováno kolem tøiceti XEP standardù napøíklad vcard--temp \cite{Xep0054} a dal¹í.
 %\section{Architektura}
 %--robot plus databaze
 %--rapidminer--spusteni davkove/vlastni algoritmus v PHP
@@ -655,17 +671,19 @@ Základní èást, kterou je mo¾né pova¾ovat za jádro aplikace, je tøída \textit{Bot
 
 \chapter{Pokraèování práce}
 
-V souèasné dobì, která je velmi uspìchaná a plná moderních technologií, je velmi dùle¾ité být informován. S tímto také souvisí snaha poskytovat informace svému okolí. Díky protokolu XMPP a real--time komunikaèních sítí je uspokojení potøeb, jako je získávání informací a jejich zpìtné poskytování v oblasti elektronické komunikace, snadno øe¹itelné. Existuje rozsáhlé mno¾ství rùzných sociálních sítí a mno¾ností funkcí, které jsou u¾ivatelùm nabízeny. Poskytované slu¾by sociálními sítìmi jsou vyu¾ívané ve znaèném mno¾ství. Slu¾by, jako jsou prezentování vlastního statusu v klientovi prostøednictvím elementu presence, jsou ji¾ pova¾ovány za samozøejmost. Tato funkènost je nabízena u v¹ech tzv \uv{instant messaging} slu¾eb. Jabber jde v této èásti je¹tì dál a díky protokolùm \textit{User Mood} \cite{Xep0107} a \textit{User Activity} \cite{Xep0108} je mo¾né sdìlit nejen svou náladu ale také informace o aktuálnì provádìné èinnosti. 
+V souèasné dobì, která je velmi uspìchaná a plná moderních technologií, je velmi dùle¾ité být informován. S tímto také souvisí snaha poskytovat informace svému okolí. Díky protokolu XMPP a real--time komunikaèních sítí je uspokojení potøeb, jako je získávání informací a jejich zpìtné poskytování v oblasti elektronické komunikace, snadno øe¹itelné. Existuje rozsáhlé mno¾ství rùzných sociálních sítí a funkcí, které jsou u¾ivatelùm nabízeny. Poskytované slu¾by sociálními sítìmi jsou vyu¾ívané ve znaèném mno¾ství. Slu¾by, jako jsou prezentování vlastního statusu v klientovi prostøednictvím elementu presence, jsou ji¾ pova¾ovány za samozøejmost. Tato funkènost je nabízena u v¹ech tzv \uv{instant messaging} slu¾eb. Jabber jde v této oblasti je¹tì dál a díky protokolùm \textit{User Mood} \cite{Xep0107} a \textit{User Activity} \cite{Xep0108} je mo¾né sdìlit nejen svou náladu ale také informace o aktuálnì provádìné èinnosti. 
 
-Jedno z mo¾ných roz¹íøení by se právì mohlo týkat roz¹íøených statusù. Vìt¹ina slu¾eb, které jsou dostupné na internetu a jsou podporované rùznými servery, poskytuje pouze informace o aktuálním stavu klienta. Pomocí vý¹e uvedených standardù by mo¾né k základní webové prezentaci statusu pøipojit i informace roz¹íøené. Také zapojení standardu \textit{Entity Capabilities} \cite{Xep0115}, který je popsán na konci druhé kapitoly, by mohlo pøinést nové pokroèilej¹í informace. Konkrétnì to je samotná podpora IM aplikací v oblasti dal¹ích XEP dokumentù. Nezasvìcený u¾ivatel by tímto velice jednoduchým roz¹íøením dokázal zjistit seznam slu¾eb podporovaných jeho IM programem. A» u¾ by ¹lo o seznam funkcí, které jsou pouze pøijímány, nebo výèet roz¹íøení, které doká¾e od ostatních u¾ivatelù také pøijímat. Jako pøíklad lze uvést zji¹tìní schopnosti, a» u¾ pøíjímání nebo odesílání informací o pøehrávané hudbì, popsané dokumentem \textit{User Tune} \cite{Xep0118}.
+Vìt¹ina slu¾eb, které jsou dostupné na internetu a jsou podporované rùznými servery, poskytuje pouze informace o aktuálním stavu klienta. Pomocí vý¹e uvedených standardù by bylo mo¾né k základní webové prezentaci statusu pøipojit i informace roz¹íøené. Také zapojení standardu \textit{Entity Capabilities} \cite{Xep0115}, který je popsán na konci druhé kapitoly, by mohlo pøinést nové pokroèilej¹í, u¾iteèné informace. Konkrétnì to je samotná podpora IM aplikací v oblasti dal¹ích XEP dokumentù. Nezasvìcený u¾ivatel by tímto velice jednoduchým roz¹íøením dokázal zjistit seznam slu¾eb podporovaných jeho IM programem. A» u¾ by ¹lo o seznam funkcí, které jsou pouze pøijímány, nebo výèet roz¹íøení, které doká¾e od ostatních u¾ivatelù také pøijímat. Jako pøíklad lze uvést zji¹tìní schopnosti, a» u¾ pøíjímání nebo odesílání informací o pøehrávané hudbì, popsané dokumentem \textit{User Tune} \cite{Xep0118}.
 
 Dal¹í bod, kterým by se dalo zabývat se také týká webové prezentace. Nyní v¹ak jde ji¾ konkrétnì o robota vytvoøeného k úèelu této práce. Informace potøebné k zobrazení aktuálního stavu klienta na internetové stránce, jsou ulo¾eny v databázi v tabulce status. Tato tabulka je automaticky generována z obsahu jiné entity, která obsahuje údaje o v¹ech pøipojení daného u¾ivatele. V¹e pracuje správnì a¾ do té chvíle, kdy u¾ivatel svou IM aplikaci neukonèí korektnì. Nastává situace, kdy na server není zaslána zpráva, která informuje o zmìnì statusu. Díky tomuto neoèekávanému ukonèení klienta se u¾ivatel stále tváøí, jako by byl pøipojen i kdy¾ ji¾ není, a zdrojová tabulka se v této chvíli stává neaktuální. Navrhované øe¹ení této situace vyu¾ívá roz¹íøení \textit{XMPP ping} \cite{Xep0199}. Díky nìmu¾ by se mìlo dát zjistit, zda je u¾ivatel stále dostupný nebo ji¾ nikoliv.
 
 V oddílu robota by bylo mo¾né zapracovat na èásti, která se zaobírá pøíkazy zaslané ze strany u¾ivatele. S tímto roz¹íøení úzce souvisí rozèlenìní u¾ivatelù do jednotlivých skupin. Ka¾dá takováto èást seznamu kontaktù by vlastnila rùzná práva, která by se stala základem pro poskytování konkrétních slu¾eb. Zaøazení do tìchto skupin by mohlo probíhat pøi ¾ádosti o poèáteèní autorizaci, která by obsahovala zprávu s pøesnì definovaným øetìzcem. Funkce, která je ji¾ uvedena vý¹e a to v podobì roz¹íøení webové prezentace, by také mohla být poskytována prostøednictvím robota. Konkrétnì se jedná o zji¹tìní podporovaných a» ji¾ pøijímaných nebo odesílaných roz¹íøení. U¾ivatel by pouze poslal robotovi striktnì pøeddefinovanou zprávu a jako odpovìï by obdr¾el seznam podporovaných funkcí.
 
-V èásti zabývající se dolováním z dat se jistì nachází mnoho mo¾ností k pokraèování a roz¹iøování její vlastností.
+V mìsíci bøezen, tohoto roku, vy¹la nová verze základních dokumentù RFC. V této práci, ji¾ ale z tìchto standardù nejsou zahrnuty ¾ádné zmìny. V dobì vydání se toti¾ práce dostával do koneèné fáze vývoje. Proto zmìny pøinesené novými protokoly by takté¾ mohly být uplatnìny pøi pøípadném pokraèování této práce.
 
-%Jak vyplývá s vý¹e uvedeného odstavce existuje mnoho mo¾ných roz¹íøení, které nabízí tato práce. Jestli¾e by se srovnal pomìr mezi poskytnutými osobními údaji v sociální sítí facebook a údaji v síti Jabber, první zmiòovaný èasto vyhrává na plné èáøe. Lze si polo¾it otázku zda není mo¾né vyu¾ít informace zveøejnìné v sociálních sítí i do sítì komunikaèní. Jako pøíklad lze uvést obrázek, kterým se lidé prezentují. Na ji¾ zmiòovaném facebooku má skoro ka¾dý její u¾ivatel zveøejnìnou fotografii, za úèelem lep¹í prezentace své osobnosti. Naproti tomu poèet obrázkù zastoupených, a» u¾ v podobì log nebo ikon v síti Jabber, je miziví. Propojení tìchto informací by mohlo být podmìtem pro tvorbu vlastní prezentaèní stránky, shrnující nejzajímavìj¹í údaje.
+%Také v èásti zabývající se dolováním z dat se jistì nachází mnoho mo¾ností k pokraèování a roz¹iøování její vlastností.
+
+%Jak vyplývá s vý¹e uvedeného odstavce existuje mnoho mo¾ných roz¹íøení, které nabízí tato práce. Jestli¾e by se srovnal pomìr mezi poskytnutými osobními údaji v sociální sítí Facebook a údaji v síti Jabber, první zmiòovaný èasto vyhrává na plné èáøe. Lze si polo¾it otázku zda není mo¾né vyu¾ít informace zveøejnìné v sociálních sítí i do sítì komunikaèní. Jako pøíklad lze uvést obrázek, kterým se lidé prezentují. Na ji¾ zmiòovaném Facebooku má skoro ka¾dý její u¾ivatel zveøejnìnou fotografii, za úèelem lep¹í prezentace své osobnosti. Naproti tomu poèet obrázkù zastoupených, a» u¾ v podobì log nebo ikon v síti Jabber, je miziví. Propojení tìchto informací by mohlo být podmìtem pro tvorbu vlastní prezentaèní stránky, shrnující nejzajímavìj¹í údaje.
 
 
 
