@@ -678,7 +678,7 @@ V mìsíci bøezen, tohoto roku, vy¹la nová verze základních dokumentù RFC. V této 
 
 \chapter{Vyhodnocení výsledkù}
 
-Pátá kapitola se zamìøuje na vyhodnocení výsledkù a prezentaci zji¹tìných informací., které byly získán 
+Pátá kapitola se zamìøuje na vyhodnocení výsledkù a prezentaci zji¹tìných informací. 
 Vyhodnocení a» ji¾ ruènímu nebo pomocí aplikací
 
 \section{Manuální rozbor dat}
@@ -688,9 +688,9 @@ Snad nejvìt¹í problém pøi sbírání dat, je tvoøen díky aplikacím, které jsou vyu¾
 
 Samotný sbìr informací zapoèal ji¾ minulého roku v mìsíci prosinec. V této dobì v¹ak je¹tì nebyla implementována v¹echna roz¹íøení  a formát i obsah vybraných tabulek byl pozdìji modifikován. Základní informace o stavu u¾ivatele, uchovávaných v tabulce presence, ji¾ ale výraznou zmìnou nepro¹ly a tudí¾ jsou sbírány od samého poèátku bìhu aplikace. V obsahu této entity pouze nejsou zahrnuty vybrané dny, kdy byl klient mimo provoz. 
 
-Databáze uchovává informace pouze o poètu kolem 40 u¾ivatelù. Tento fakt výraznì ovlivnil pøesnost a velikost nasbíraných dat. Takté¾ malé mno¾ství podpory roz¹íøených statusù ze strany u¾ivatelù a jejich aplikací, znaènì ovlivnilo obsah databáze. A» u¾ do poètu záznamù nebo umístìní informací do správných entit. S tímto takté¾ úzce souvisí roz¹íøení User Tune, jeho¾ nesprávné pou¾ití je popsáno v závìreèné èásti druhé kapitoly.
+Databáze uchovává informace pouze o poètu kolem 40 u¾ivatelù. Tento fakt výraznì ovlivnil pøesnost a rozsah nasbíraných dat. Takté¾ malé mno¾ství podpory roz¹íøených statusù ze strany u¾ivatelù a jejich aplikací, znaènì ovlivnilo obsah databáze. A» u¾ do poètu záznamù nebo umístìní informací do správných entit. S tímto takté¾ úzce souvisí roz¹íøení User Tune, jeho¾ nesprávné pou¾ití je popsáno v závìreèné èásti druhé kapitoly.
 
-Za dobu nìco pøes 4 mìsíce bylo nasbíráno pøes....konkretni cisla... 
+Za dobu, která pøesahuje 4 mìsíce, bylo nasbíráno pøes....konkretni cisla... 
 
 %--popst jak jsem data prochael rucne, tedy manualni dataming, pocet zazanmu, delka behu programu, velikost datatabze, pocet uzivatelu...
 
