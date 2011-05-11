@@ -1,5 +1,0 @@
-kile(19649)/kdecore (KLibrary) findLibraryInternal: plugins should not have a 'lib' prefix: "libkonsolepart.so"
-kile(19649)/kdecore (services) KMimeTypeFactory::parseMagic: Now parsing  "/usr/share/mime/magic"
-kile(19649)/kdecore (services) KMimeTypeFactory::parseMagic: Now parsing  "/home/portilo/.local/share/mime/magic"
-QStatusBar::insertWidget: Index out of range (4), appending widget
-kile(19649)/kdecore (KConfigSkeleton) KCoreConfigSkeleton::writeConfig:
