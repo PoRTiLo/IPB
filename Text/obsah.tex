@@ -20,11 +20,11 @@ Kapitola \textbf{druhá} je tvoøena popisem protokolu XMPP, na kterém je postaven
 
 Obsah \textbf{tøetí} kapitoly je zamìøen na popis procesu data mining. Zabývá se zaèlenìním této metody do komplexnìj¹ího procesu, který je nazýván získávání znalostí z databází. Dal¹í souèást této kapitoly se zabývá nezbytnými kroky transformace dat, která jsou získána z Jabber komunikace. Pøi tomto procesu jsou data pøevedena do vhodné podoby pro data minig. Následuje èást, kterou jsou popsány vybrané metody dolování dat a také je zde podrobnì rozebrán algoritmus \textit{k}--means. Tento algoritmus je vyu¾it pro samotné dolováni dat, které je zprostøedkováno aplikací RapidMiner. Popis tohoto programu a dal¹ích vybraných nástrojù uzavírá tøetí kapitolu.
 
-Implementaèní èást této práce je popsána kapitolou \textbf{ètvrtou}. Je èlenìna na oddíly, které odpovídají vybraným èástem architektury této práce. Elementy architektury, které jsou popsány vlastní podkapitolou, jsou roz¹íøeny o zjednodu¹ený návrh struktury v podobì grafických schémat.
+Implementaèní èást této práce je popsána kapitolou \textbf{ètvrtou}. Je èlenìna na oddíly, které odpovídají vybraným èástem architektury této práce. Elementy architektury, které jsou popsány vlastní podkapitolou, jsou roz¹íøeny o zjednodu¹ený návrh struktury v podobì grafických schémat. Závìr této kapitoly se zamý¹lí nad roz¹íøeními robota a nad dal¹ím pokraèováním této práce. 
 
-Kapitola \textbf{pátá} se zamý¹lí nad roz¹íøeními robota a nad dal¹ím pokraèováním této práce. Výsledky získané touto prací jsou prezentovány v kapitole \textbf{¹esté}. Je zde ukázán model pou¾ívaný programem RapidMiner pro dobývání znalostí. Konkrétnì jde o shlukování u¾ivatelù sítì Jabber do skupin podle èasu stráveném v samotné síti a jejich stavu. Výsledky jsou pøedstaveny pomocí rùzných grafických entit, a»  u¾ v podobì diagramu nebo grafu, který je transformovaný do dvourozmìrného prostoru.
+Výsledky získané touto prací jsou prezentovány v kapitole \textbf{páté}. Je zde ukázán model pou¾ívaný programem RapidMiner pro dobývání znalostí. Konkrétnì jde o shlukování u¾ivatelù sítì Jabber do skupin podle èasu stráveném v samotné síti a jejich stavu. Výsledky jsou pøedstaveny pomocí rùzných grafických entit, a»  u¾ v podobì diagramu nebo grafu, který je transformovaný do dvourozmìrného prostoru.
 
-Nemalý informativní obsah tvoøí i \textbf{pøílohy}. V první øadì to je slovník zkratek, shrnující slovní spojení z celého tohoto dokumentu. Následuje podrobnìj¹í popis základních entit stanzy a pøehled prùbìhu roz¹íøení. V dal¹í èásti je ukázán kompletní návrh databáze, který doplòuje základní popis ze ètvrté kapitole.
+Nemalý informativní obsah tvoøí i \textbf{pøílohy}. V první øadì to je slovník zkratek, shrnující slovní spojení z celého tohoto dokumentu. Následuje podrobnìj¹í popis základních entit stanzy a pøehled prùbìhu roz¹íøení. V dal¹í èásti je ukázán kompletní návrh databáze, který doplòuje základní popis ze ètvrté kapitole. Pøehled pøíkazù, na které robot vytvoøený v této práci reaguje, je ukázán v poslední èásti pøíloh.
 
 
 \chapter{XMPP}
@@ -568,20 +568,23 @@ Obsahem ètvrté kapitoly je popis praktické èásti této práce. Jsou zde charakteri
 
 Cílem této práce je dolování dat z Jabberu. Jak ji¾ bylo døíve napsáno, Jabber je real--time sí»ová slu¾ba díky ní¾ mohou její u¾ivatelé komunikovat, informovat nebo sdílet svùj status s jinými u¾ivateli. Celá tato vzájemná komunikace skrývá rozsáhlé mno¾ství informací o klientech dané sítì. V¹echna tato navzájem vymìnìná nebo poskytnutá data následnì poslou¾í jako zdroj samotnému dolování. Pro jejich uskladnìní je vyu¾ita databáze, jejich¾ strukturální návrh prezentuje obrázek \ref{picDatabase}. 
 
-Tøetí èást této kapitoly je zamìøena na Jabber klienta neboli robota, který je implementován v jazyce C++ pouze s konzolovým rozhraním. Robot v této práci hraje roli pasivního u¾ivatele, který informace pouze pøijímá. Ve vybraných pøípadech doká¾e u¾ivatele ze svého seznamu kontaktù vyzvat k zaslání odpovìdi s informacemi na odpovìï, o kterou ¾ádal. Struktura samotného robota je popsána ní¾e a reprezentována obrázkem \ref{picRobot}. V èásti o Jabber robotovi jsou také uvedeny informace o knihovnì \textit{gloox}, kterou je zprostøedkovány v¹echny nále¾itosti Jabber komunikace.
+Tøetí èást této kapitoly je zamìøena na Jabber klienta neboli robota, který je implementován v jazyce C++ pouze s konzolovým rozhraním. Robot v této práci hraje roli pasivního u¾ivatele, který informace pouze pøijímá. Ve vybraných pøípadech doká¾e u¾ivatele ze svého seznamu kontaktù vyzvat k zaslání odpovìdi s informacemi na odpovìï, o kterou ¾ádal. Struktura samotného robota je popsána ní¾e a reprezentována obrázkem \ref{picRobot}. V èásti o Jabber robotovi jsou také uvedeny informace o knihovnì \textit{gloox}, kterou jsou zprostøedkovány v¹echny nále¾itosti Jabber komunikace.
+
+Poslední podkapitola této èásti je vìnována pøípadnému pokraèování této práce.
 
 \section{Architektura}
 Ji¾ ze samotného zadání a názvu této práce je zøejmé, ¾e je tøeba celý proces rozèlenit na men¹í elementy. Vhodnou dekompozicí vzniklo pìt jednotlivých ucelených prvkù, které
 jsou prezentovány schématem na obrázku \ref{picArchitektura}. Konkrétnì to jsou, zleva: \textit{XMPP server}, \textit{robot}, \textit{databáze}, \textit{data mining} a \textit{u¾ivatelské rozhraní}. Vzájemná výmìna informací mezi jednotlivými èástmi je zobrazena pomocí ¹ipek, které urèují smìr komunikace.
 
-
-První èást schématu, která je nazvaná XMPP sí», prezentuje obrázek \ref{picArchitektura}. Tento oddíl je obecnì popsána v druhé kapitole. Vztah a vzájemná komunikace s robotem probíhá pomocí internetové sítì, kdy XMPP sí» souhrnnì reprezentuje jednotlivé prvky, jako jsou Jabber servery, u¾ivatele a jejich klienty. Jak je patrné, výmìna informací mezi tìmito èástmi  probíhá obousmìrnì. Druhý element schématu \textit{robot}, je charakterizován v podkapitole ní¾e, kde je podrobnì popsán návrh jeho struktury. Jsou zde zdùraznìny jeho základní vlastnosti a schopnosti. Dal¹ím blokem je \textit{databáze}, která reprezentuje datové úlo¾i¹tì. Do nìho¾ jsou za pomocí jednosmìrného kanálu ukládána data, která jsou získávána z toku informací proudícími mezi robotem a XMPP sítí. Pøehled vybraných jednotlivých tabulek a jejich atributù je mo¾né nalézt v následující kapitole, která se zabývá návrhem databáze.
+%První èást schématu, která je nazvaná XMPP sí», prezentuje obrázek \ref{picArchitektura}. Tento oddíl je obecnì popsána v druhé kapitole.
+V levé èásti obrázku \ref{picArchitektura} je blok XMPP sí», který prezentuje zdroj dat. Fungování XMPP sítì je detailnì popsáno ve druhé kapitole.
+Vztah a vzájemná komunikace s robotem probíhá pomocí internetové sítì, kdy XMPP sí» souhrnnì reprezentuje jednotlivé prvky, jako jsou Jabber servery, u¾ivatele a jejich klienty. Jak je patrné, výmìna informací mezi tìmito èástmi  probíhá obousmìrnì. Druhý element schématu \textit{robot}, je charakterizován v podkapitole ní¾e, kde je podrobnì popsán návrh jeho struktury. Jsou zde zdùraznìny jeho základní vlastnosti a schopnosti. Dal¹ím blokem je \textit{databáze}, která reprezentuje datové úlo¾i¹tì. Do nìho¾ jsou za pomocí jednosmìrného kanálu ukládána data, která jsou získávána z toku informací proudícími mezi robotem a XMPP sítí. Pøehled vybraných jednotlivých tabulek a jejich atributù je mo¾né nalézt v následující kapitole, která se zabývá návrhem databáze.
 
 Dal¹ím oddílem, prezentovaným na obrázku \ref{picArchitektura} pod názvem \textit{data mining skript}, je skript, který provádí samotný data minig. Jako první jsou vybraná data z databáze transformována do vhodného formátu pro dolováni z dat. Tato èást je podrobnì popsána ve tøetí kapitole, v oddílu zabývajícím se transformací dat. Pøeformátovaná data jsou pøedána programu RapidMineru, kterým za pomocí algoritmu \textit{k}--means je provádìn data mining.
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[scale=.5]{drawing.png}
+\includegraphics[scale=.6]{drawing1.pdf}
 \caption{Struktura architektury bakaláøské práce.}
  \label{picArchitektura}
 \end{center}
@@ -641,29 +644,9 @@ Základní èást, kterou je mo¾né pova¾ovat za jádro aplikace, je tøída \textit{Bot
 %\section{Jiné produkty}
   
 \subsection*{Pøíkazy}
-K dal¹ím schopnostem robota, tedy kromì sbírání dat a jejich následného ukládání do databáze, patøí reagovat na vybrané zprávy. Tyto zprávy jsou pøijímány pouze od u¾ivatelù, kteøí byli zaèlenìní do seznamu kontaktù tohoto robota. Základní pøíkaz, který nesmí chybìt u ¾ádné aplikace, je získání nápovìdy. V první øadì informuje o verzi robota a jeho základních vlastnostech. Dále je odeslán struèný ale výsti¾ný seznam pøíkazù i s jejich vysvìtlením.
+K dal¹ím schopnostem robota, tedy kromì sbírání dat a jejich následného ukládání do databáze, patøí reagovat na vybrané zprávy. Tyto zprávy jsou pøijímány pouze od u¾ivatelù, kteøí byli zaèlenìni do seznamu kontaktù tohoto robota. Základní pøíkaz, který nesmí chybìt u ¾ádné aplikace, je získání nápovìdy. V první øadì informuje o verzi robota a jeho základních vlastnostech. Dále je odeslán struèný, ale výsti¾ný seznam pøíkazù i s jejich vysvìtlením. Pøi zaslání zprávy s neznámým pøíkazem robotovi, je u¾ivateli vrácen struèný seznam kompatibilních pøíkazù. Pøehled tìchto pøíkazù se nachází v pøíloze \ref{EPrikazy}
 
-Pøehled základních zpráv a jejich vysvìtlení je prezentováno v tabulce \ref{tabPrikazy}.  
-\begin{table}[ht]
-\begin{center}
-\begin{tabular}{ l  l   } 
-\rowcolor[gray]{0.9}
-\textbf{pøíkaz} 	& \textbf{vysvìtlení}\\
-HELP			&   Pøehled pøíkazù a jejich popis.\\
-INFO			&   Popis aplikace.\\
-HISTORY		&   Výpis posledních 10 zmìn statusù.\\
-TUNE			&   Výpis o pøehrávané hudbì.\\
-GEOLOC		&   Výpis o geografické poloze.\\
-MOOD			&   Výpis o aktuální náladì.\\
-ACTIVITY		&   Výpis o aktuální èinnosti.\\
-VCARD			&   Základní obsah VCard\\ \hline
-\end{tabular}
-\caption{Pøehled pøíkazù pro robota.}
-\label{tabPrikazy}
-\end{center} 
-\end{table}
-Kde první sloupec znaèí pøíkaz, který rozli¹uje velká a malá písmena, a druhý jej krátce a výsti¾nì popisuje. V pøípadì, ¾e u¾ivatel nemá ¾ádný údaj v databázi potøebný k vyhodnocení dotazu, je zaslána pouze informativní zpráva, které vzniklý problém vysvìtluje. V této èásti robota je skryt velký potenciál pro dal¹í vývoj. Více informací je uvedeno v následující kapitole, která je celá vìnována mo¾ným roz¹íøením a pokraèováním této práce.
-
+V této èásti robota je skryt velký potenciál pro dal¹í vývoj. Více informací je uvedeno v následující podkapitole, která je celá vìnována mo¾ným roz¹íøením a pokraèováním této práce.
 %==pouziti castecneho komentovani podle stylu doxygenu, makefile
 %\section{Architektura}
 %--robot plus databaze
@@ -671,9 +654,11 @@ Kde první sloupec znaèí pøíkaz, který rozli¹uje velká a malá písmena, a druhý je
 %--webova implementace prezentuje vysledky
 
 
-\chapter{Pokraèování práce}
+\section{Pokraèování práce}
 
-V souèasné dobì, která je velmi uspìchaná a plná moderních technologií, je velmi dùle¾ité být informován. S tímto také souvisí snaha poskytovat informace svému okolí. Díky protokolu XMPP a real--time komunikaèních sítí je uspokojení potøeb, jako je získávání informací a jejich zpìtné poskytování v oblasti elektronické komunikace, snadno øe¹itelné. Existuje rozsáhlé mno¾ství rùzných sociálních sítí a funkcí, které jsou u¾ivatelùm nabízeny. Poskytované slu¾by sociálními sítìmi jsou vyu¾ívané ve znaèném mno¾ství. Slu¾by, jako jsou prezentování vlastního statusu v klientovi prostøednictvím elementu presence, jsou ji¾ pova¾ovány za samozøejmost. Tato funkènost je nabízena u v¹ech tzv \uv{instant messaging} slu¾eb. Jabber jde v této oblasti je¹tì dál a díky protokolùm \textit{User Mood} \cite{Xep0107} a \textit{User Activity} \cite{Xep0108} je mo¾né sdìlit nejen svou náladu ale také informace o aktuálnì provádìné èinnosti. 
+Obsah této podkapitoly je zamìøen na mo¾nosti roz¹íøení robota sbírajícího data. Také jsou zde popsány mo¾né zmìny, které se týkají u¾ivatelského rozhraní. V závìru jsou shrnuta dal¹í roz¹íøení.
+
+%V souèasné dobì, která je velmi uspìchaná a plná moderních technologií, je velmi dùle¾ité být informován. S tímto také souvisí snaha poskytovat informace svému okolí. Díky protokolu XMPP a real--time komunikaèních sítí je uspokojení potøeb, jako je získávání informací a jejich zpìtné poskytování v oblasti elektronické komunikace, snadno øe¹itelné. Existuje rozsáhlé mno¾ství rùzných sociálních sítí a funkcí, které jsou u¾ivatelùm nabízeny. Poskytované slu¾by sociálními sítìmi jsou vyu¾ívané ve znaèném mno¾ství. Slu¾by, jako jsou prezentování vlastního statusu v klientovi prostøednictvím elementu presence, jsou ji¾ pova¾ovány za samozøejmost. Tato funkènost je nabízena u v¹ech tzv \uv{instant messaging} slu¾eb. Jabber jde v této oblasti je¹tì dál a díky protokolùm \textit{User Mood} \cite{Xep0107} a \textit{User Activity} \cite{Xep0108} je mo¾né sdìlit nejen svou náladu ale také informace o aktuálnì provádìné èinnosti. 
 
 %Jedno z mo¾ných roz¹íøení by se právì mohlo týkat roz¹íøených statusù. 
 Vìt¹ina slu¾eb, které jsou dostupné na internetu a jsou podporované rùznými servery, poskytuje pouze informace o aktuálním stavu klienta. Pomocí vý¹e uvedených standardù by bylo mo¾né pøipojit k základní webové prezentaci statusu i informace roz¹íøené. Také zapojení standardu \textit{Entity Capabilities} \cite{Xep0115}, který je popsán na konci druhé kapitoly, by mohlo pøinést nové pokroèilej¹í, u¾iteèné informace. Konkrétnì je to samotná podpora IM aplikací v oblasti dal¹ích XEP dokumentù. Nezasvìcený u¾ivatel by tímto velice jednoduchým roz¹íøením dokázal zjistit seznam slu¾eb podporovaných jeho IM programem. A» u¾ by se jednalo o seznam funkcí, které jsou pouze pøijímány, nebo výèet roz¹íøení, k jejich odbìru je zaregistrován. Jako pøíklad lze uvést zji¹tìní schopnosti, a» u¾ pøíjímání nebo odesílání informací o pøehrávané hudbì, popsané dokumentem \textit{User Tune} \cite{Xep0118}.
@@ -691,23 +676,27 @@ V mìsíci bøezen, tohoto roku, vy¹la nová verze základních dokumentù RFC. V této 
 %Jak vyplývá s vý¹e uvedeného odstavce existuje mnoho mo¾ných roz¹íøení, které nabízí tato práce. Jestli¾e by se srovnal pomìr mezi poskytnutými osobními údaji v sociální sítí Facebook a údaji v síti Jabber, první zmiòovaný èasto vyhrává na plné èáøe. Lze si polo¾it otázku zda není mo¾né vyu¾ít informace zveøejnìné v sociálních sítí i do sítì komunikaèní. Jako pøíklad lze uvést obrázek, kterým se lidé prezentují. Na ji¾ zmiòovaném Facebooku má skoro ka¾dý její u¾ivatel zveøejnìnou fotografii, za úèelem lep¹í prezentace své osobnosti. Naproti tomu poèet obrázkù zastoupených, a» u¾ v podobì log nebo ikon v síti Jabber, je miziví. Propojení tìchto informací by mohlo být podmìtem pro tvorbu vlastní prezentaèní stránky, shrnující nejzajímavìj¹í údaje.
 
 
-
-
-
-
-%=inovovat pgormam
-
-%= dalsi zjitovane udaje, jako co by to obnasel, rizika
-%= 
-
-
 \chapter{Vyhodnocení výsledkù}
 
+Pátá kapitola se zamìøuje na vyhodnocení výsledkù a prezentaci zji¹tìných informací. 
+Vyhodnocení a» ji¾ ruènímu nebo pomocí aplikací
+
 \section{Manuální rozbor dat}
-%--charakter dat, jaka data jsem nasbiral
+Data, která jsou získaná z Jabbber komunikace, jsou ulo¾ena v databázi PostgreSQL. V prùbìhu celého vývoje této práce byl obsah databáze dùkladnì kontrolován a pøípadné problémy øe¹eny v nejbli¾¹ím mo¾ném termínu. I tak se ale v databázi nachází nìkolik chyb, které pøi následné analýze doká¾í mírnì znepøesnit výsledky. Jako pøíklad lze uvést zaznamenávání roz¹íøeného statusu o geografické poloze do tabulky Geoloc. V pøípadì, ¾e u¾ivatel souèasnì pou¾ívá pouze jedno pøipojení je v¹e v poøádku. Men¹í kolize nastala v pøípadì, kdy bylo více souèasných pøipojení. Ka¾dé rozesílalo své stejné informace a tím se v jeden èas v databázi objevila redundantní data. Tato nepøesnost byla po manuálním rozboru dat objevena a vyøe¹ena pomocí èasových razítek.
+
+Snad nejvìt¹í problém pøi sbírání dat, je tvoøen díky aplikacím, které jsou vyu¾ívány u¾ivateli. Jejich neúplná implementace XEP dokumentù a vzájemná nepøesná komunikace s jinými programy tvoøí velké mno¾ství matoucích dat, která se takté¾ nacházejí v databázi. Tento problém se v nejvìt¹í míøe objevuje v tabulce Tune, jejím¾ cílem je uchování informací o hudbì, kterou u¾ivatelé poslouchají. Podle dokumentu User Tune \cite{Xep0118}, by po skonèení pøehrávání hudby mìl klient rozeslat do \uv{svìta} zprávu, její¾ obsah, nesoucí informace o právì pøehrávané hudbì, bude prázdný. Tím je sdìleno ukonèení pøehrávání hudby. V mnoha pøípadech se, ale takto nedìje. Zpráva obsahující informace o poslední pøehrávané hudbì je to co u¾ivatel roze¹le jako poslední. Tudí¾ z analýzy dat obsa¾ených v databázi je mylnì pøedpokládáno, ¾e u¾ivatel hudbu stále poslouchá.
+
+Samotný sbìr informací zapoèal ji¾ minulého roku v mìsíci prosinec. V této dobì v¹ak je¹tì nebyla implementována v¹echna roz¹íøení  a formát i obsah vybraných tabulek byl pozdìji modifikován. Základní informace o stavu u¾ivatele, uchovávaných v tabulce presence, ji¾ ale výraznou zmìnou nepro¹ly a tudí¾ jsou sbírány od samého poèátku bìhu aplikace. V obsahu této entity pouze nejsou zahrnuty vybrané dny, kdy byl klient mimo provoz. 
+
+Databáze uchovává informace pouze o poètu kolem 40 u¾ivatelù. Tento fakt výraznì ovlivnil pøesnost a rozsah nasbíraných dat. Takté¾ malé mno¾ství podpory roz¹íøených statusù ze strany u¾ivatelù a jejich aplikací, znaènì ovlivnilo obsah databáze. A» u¾ do poètu záznamù nebo umístìní informací do správných entit. S tímto takté¾ úzce souvisí roz¹íøení User Tune, jeho¾ nesprávné pou¾ití je popsáno v závìreèné èásti druhé kapitoly.
+
+Za dobu, která pøesahuje 4 mìsíce, bylo nasbíráno pøes....konkretni cisla... 
+
 %--popst jak jsem data prochael rucne, tedy manualni dataming, pocet zazanmu, delka behu programu, velikost datatabze, pocet uzivatelu...
-%//problem s daty v databazi, spatne nastevene progrmay klientu, kdy si klient nastavi at program siri tune a on ho siri porad a i kdy zuz hudba nehraje, porad stejny
-\section{...}
+
+
+\section{Programové vyhodnocení}
+
 
 \chapter{Závìr}
 %zminit tohel http://xmpp.org/xmpp-protocols/rfcs/, ze vysko nove rfc o xmpp core a xmpp im, zminit ze se to vydalo pozde, tudiz nejsou zahrnuty do teto prace, dopsat do rozsireni

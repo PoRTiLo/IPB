@@ -53,6 +53,8 @@
 \usepackage[pdftex]{graphicx}
  
 
+\renewcommand\lstlistingname{Pøíklad}
+\renewcommand\lstlistlistingname{Pøíklady}
 \def\lstlistingname{Pøíklad}
 \lstset{ %
 language=XML,                   % the language of the code
@@ -144,7 +146,7 @@ commentstyle=\color{gray}\upshape
   %author.title.p=Bc., %titul pred jmenem (nepovinne)
   %author.title.a=PhD, %titul za jmenem (nepovinne)
   %Ustav
-  department=UPSY, % doplnte prislusnou zkratku: UPSY/UIFS/UITS/UPGM
+  department=UPGM, % doplnte prislusnou zkratku: UPSY/UIFS/UITS/UPGM
   %Skolitel
   supervisor= Jozef Mlích, %jmeno prijmeni skolitele
   supervisor.title.p=Ing.,   %titul pred jmenem (nepovinne)
@@ -191,8 +193,10 @@ Uvedl jsem v¹echny literární prameny a publikace, ze kterých jsem èerpal.}
   \tableofcontents
   
   % Seznam obrazku a tabulek (pokud prace obsahuje velke mnozstvi obrazku, tak se to hodi)
-  % \listoffigures
+   \listoffigures
   % \listoftables 
+  \lstlistoflistings
+
 
   % Text prace
   % ----------------------------------------------

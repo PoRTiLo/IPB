@@ -9,7 +9,7 @@
 \item [Base64] --- pøevedení binárních dat pomocí znakù ASCII.
 \item [GPG] (GNU Privacy Guard) --- slou¾í k podepisování a kontrolu podpisu rùzných dat.
 \item [ID3v1] --- datový formát obsahující informace o skladbì.
-\item [IM slu¾by] (Instant messaging) ---  umo¾òují posílat zprávy a chatovat mezi u¾ivateli.% a poskytují dal¹í funkce. 
+\item [IM slu¾by] (Instant messaging) ---  umo¾òují posílat zprávy a komunikovat mezi u¾ivateli.% a poskytují dal¹í funkce. 
 \item [Jabber] --- viz XMPP.
 \item [JEP] (Jabber Enhancement Proposal) --- star¹í název pro XEP.
 \item [JID] (Jabber ID) --- jednoznaèný identifikátor v síti Jabber.
@@ -201,7 +201,7 @@ Pøestane--li u¾ivatel \textit{user} poslouchat/vysílat informace o pøehrávané hu
 Server informuje v¹echny úèastníky odbìru zprávou, která má polo¾ku \textit{tune} prázdnou. Tak jak to prezentuje pøíklad \ref{picSPep5}.
 
 \begin{figure}[h]
-\lstset{language=Xml ,caption={Server informuje klienty o ukonèení ¹íøení roz¹íøeného statusu u¾ivatele \textit{user@jabbim.com}.},label=picSPep5}
+\lstset{language=Xml ,caption={Server informuje klienty o ukonèení ¹íøení roz¹íøeného statusu.},label=picSPep5}
 \begin{lstlisting}
       <message from="user@jabbim.com"
                to="jabinfo@jabbim.com/bot">
@@ -225,6 +225,29 @@ Server informuje v¹echny úèastníky odbìru zprávou, která má polo¾ku \textit{tune
  \label{Edatabase}
 \end{center}
 \end{figure}
+
+\chapter{Pøehled pøíkazù robota}\label{EPrikazy}
+Pøehled základních zpráv obsahující pøíkazy pro robota a jejich vysvìtlení je prezentováno v tabulce \ref{tabPrikazy}. Kde první sloupec znaèí pøíkaz, který rozli¹uje velká a malá písmena, a druhý jej krátce a výsti¾nì popisuje. V pøípadì, ¾e u¾ivatel nemá ¾ádný údaj v databázi potøebný k vyhodnocení dotazu, je zaslána pouze informativní zpráva, které vzniklý problém vysvìtluje. 
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{ l  l   } 
+\rowcolor[gray]{0.9}
+\textbf{pøíkaz} 	& \textbf{vysvìtlení}\\
+HELP			&   Pøehled pøíkazù a jejich popis.\\
+INFO			&   Popis aplikace.\\
+HISTORY		&   Výpis posledních 10 zmìn statusù.\\
+TUNE			&   Výpis o pøehrávané hudbì.\\
+GEOLOC		&   Výpis o geografické poloze.\\
+MOOD			&   Výpis o aktuální náladì.\\
+ACTIVITY		&   Výpis o aktuální èinnosti.\\
+VCARD			&   Základní obsah VCard\\ \hline
+\end{tabular}
+\caption{Pøehled pøíkazù pro robota.}
+\label{tabPrikazy}
+\end{center} 
+\end{table}
+
 % \chapter{Pøehled klientù a jejich roz¹íøení}\label{Eklient}
 % 
 % 

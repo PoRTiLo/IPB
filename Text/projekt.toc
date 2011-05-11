@@ -1,27 +1,28 @@
 \select@language {czech}
-\contentsline {chapter}{\numberline {1}\'Uvod}{2}{chapter.1}
-\contentsline {chapter}{\numberline {2}XMPP}{4}{chapter.2}
-\contentsline {section}{\numberline {2.1}Architektura}{4}{section.2.1}
-\contentsline {section}{\numberline {2.2}XML}{7}{section.2.2}
-\contentsline {section}{\numberline {2.3}Stanza}{8}{section.2.3}
-\contentsline {section}{\numberline {2.4}Roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{10}{section.2.4}
-\contentsline {chapter}{\numberline {3}Data mining}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}Transformace dat}{16}{section.3.1}
-\contentsline {section}{\numberline {3.2}Metody dolovan\IeC {\'\i } dat}{19}{section.3.2}
-\contentsline {section}{\numberline {3.3}Shlukov\'an\IeC {\'\i }}{20}{section.3.3}
-\contentsline {section}{\numberline {3.4}Programy}{23}{section.3.4}
-\contentsline {chapter}{\numberline {4}Implementace}{25}{chapter.4}
-\contentsline {section}{\numberline {4.1}Architektura}{25}{section.4.1}
-\contentsline {section}{\numberline {4.2}Datab\'aze}{26}{section.4.2}
-\contentsline {section}{\numberline {4.3}Robot}{28}{section.4.3}
-\contentsline {chapter}{\numberline {5}Pokra\v cov\'an\IeC {\'\i } pr\'ace}{31}{chapter.5}
-\contentsline {chapter}{\numberline {6}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{33}{chapter.6}
-\contentsline {section}{\numberline {6.1}Manu\'aln\IeC {\'\i } rozbor dat}{33}{section.6.1}
-\contentsline {section}{\numberline {6.2}...}{33}{section.6.2}
-\contentsline {chapter}{\numberline {7}Z\'av\v er}{34}{chapter.7}
-\contentsline {chapter}{\numberline {A}Obsah CD}{38}{appendix.A}
-\contentsline {chapter}{\numberline {B}Manual}{39}{appendix.B}
-\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{40}{appendix.C}
-\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k zkratek}{41}{appendix.D}
-\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{42}{appendix.E}
-\contentsline {chapter}{\numberline {F}N\'avrh datab\'aze}{47}{appendix.F}
+\contentsline {chapter}{\numberline {1}\'Uvod}{4}{chapter.1}
+\contentsline {chapter}{\numberline {2}XMPP}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}Architektura}{6}{section.2.1}
+\contentsline {section}{\numberline {2.2}XML}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}Stanza}{10}{section.2.3}
+\contentsline {section}{\numberline {2.4}Roz\v s\IeC {\'\i }\v ren\IeC {\'\i }}{12}{section.2.4}
+\contentsline {chapter}{\numberline {3}Data mining}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Transformace dat}{18}{section.3.1}
+\contentsline {section}{\numberline {3.2}Metody dolovan\IeC {\'\i } dat}{21}{section.3.2}
+\contentsline {section}{\numberline {3.3}Shlukov\'an\IeC {\'\i }}{22}{section.3.3}
+\contentsline {section}{\numberline {3.4}Programy}{25}{section.3.4}
+\contentsline {chapter}{\numberline {4}Implementace}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}Architektura}{27}{section.4.1}
+\contentsline {section}{\numberline {4.2}Datab\'aze}{28}{section.4.2}
+\contentsline {section}{\numberline {4.3}Robot}{30}{section.4.3}
+\contentsline {section}{\numberline {4.4}Pokra\v cov\'an\IeC {\'\i } pr\'ace}{32}{section.4.4}
+\contentsline {chapter}{\numberline {5}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{34}{chapter.5}
+\contentsline {section}{\numberline {5.1}Manu\'aln\IeC {\'\i } rozbor dat}{34}{section.5.1}
+\contentsline {section}{\numberline {5.2}Programov\'e vyhodnocen\IeC {\'\i }}{35}{section.5.2}
+\contentsline {chapter}{\numberline {6}Z\'av\v er}{36}{chapter.6}
+\contentsline {chapter}{\numberline {A}Obsah CD}{40}{appendix.A}
+\contentsline {chapter}{\numberline {B}Manual}{41}{appendix.B}
+\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{42}{appendix.C}
+\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k zkratek}{43}{appendix.D}
+\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{44}{appendix.E}
+\contentsline {chapter}{\numberline {F}N\'avrh datab\'aze}{49}{appendix.F}
+\contentsline {chapter}{\numberline {G}P\v rehled p\v r\IeC {\'\i }kaz\r u robota}{50}{appendix.G}
