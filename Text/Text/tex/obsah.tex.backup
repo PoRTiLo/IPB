@@ -1,0 +1,135 @@
+
+\chapter{Úvod}
+
+\section{Musíme mít co øíci}
+
+\section{Musíme vìdìt, komu to chceme øíci}
+
+\section{Musíme si dokonale promyslet obsah}
+
+\section{Musíme psát strukturovanì} 
+
+
+\chapter{XMPP}
+Pro usnadnìní a lep¹í pochopení budou v následující kapitole rozebrány základní stavební kameny protokolu Extensible Messaging and Presence Protocol (XMPP). Samotný protokol je datován do roku 2004 
+(bøezen), kdy na nìj byl pøejmenován jabber. Pùvodní projekt jabber byl vytvoøen roku 1998 autorem Jeremie Miller, je¾ ho zalo¾il na popud nesvobodných uzavøených IM slu¾eb. Mel mít tøi základní 
+vlastnsoti -jednduchost a srozumitelnost pro implementaci, jednodu¹e roz¹iøitelný a otevøený. Základní vlastnosti a výhody klientù a servrù budou popsány ní¾e. Roku 1999, 4.ledna vytvoøil první server se jménem jabber. Komunita vývojaøù 
+se chopila ainiciativy a napsala klienty pro ruzné platformy (Linux, Macintosh, Windows), kteøí dokázali se servrem komunikovat. Roku.... byl pøidán mezi RFC (request of comments - ¾ádost o komentáøe) 
+dokumenty. Základní normy jsou RFC 3920 (obecná specifikace protokolu) a RFC 3921 (samotný instant messaging a obrazení stavu). Dal¹í zdokumentovaná ros¹íøení jsou vydávána v podobì tzv. XEP 
+(XMPP Extension Protocol) dokumnetù, star¹ím jménem JEP (Jabber Enhancement Proposal). Dne¹ní poèet tìchto norem se blí¾í k èíslu 300. Ka¾dý XEP obsahuje status, stav vývoje (schaválení), ve kterém 
+se nachází. XMPP protkol je postaven na obecném znaèkovacím jazyce XML, proto vlastnosti popsané v kapitole ........ platí i pro tento protokol.
+
+\begin{enumerate}
+\item ==znakova sada
+\end{enumerate}
+
+\section{Jabber}
+Dnes známý jako komunikaèní platforma zalo¾ená na protokolu XMPP. Vzdálenì jej lze pøirovnat k dnes ji¾ na slávì upadajícímu software ICQ (I Seek You) vyu¾ívající protokol 
+OSCAR (Open System CommunicAtion in Realtime - otevøený systém pro komunikaci v reálném èase).
+
+\section{XML}
+Jazyk XML (eXtensible Markup Language), metajazyk pro deklaraci strukturovaných dat, je jádrem protokolu XMPP. Samotný jazyk vznikl roz¹íøením metajazyka SGML, je¾ slou¾í pro deklaraci rùzných 
+typù dokumentù. Základní vlastností je jednoduchá definice vlastních znaèek (tagù). Dokument XML se skládá z elementù, je¾ mù¾eme navzájem zanoøovat. Vyznaèujeme je pomocí znaèek - poèáteèní a 
+ukonèovací.
+.................................
+\begin{enumerate}
+ \item obrazek struktura XML stream...
+\end{enumerate}
+
+Základní jednotkou komunikace je stanza. Obsahuje 3 elementy message, presence a iq, je¾ ka¾dý má svùj jednoznaèný význam.
+
+\section{Message}
+\section{IQ}
+\section{presence}
+\begin{center}
+\begin{tikzpicture}[thick]
+ \node at ( 0,2) [shape=circle,draw=blue!50] {};
+ \node at ( 0,1) [shape=circle,draw, fill=blue!20] {};
+ \node at ( 0,0) [shape=circle,draw] {};
+ \node at ( 1,1) [shape=rectangle,draw] {};
+ \node at (-1,1) [shape=rectangle,draw] {};
+\end{tikzpicture}
+
+
+
+
+
+
+
+\end{center}
+
+\subsection*{Klient}
+\setlength{\unitlength}{4144sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(1207,1568)(1830,-2083)
+\put(1845,-689){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}+-----+}}}}}
+
+\end{picture}%
+\subsection*{Server}
+obrazek distribuovana architektura
+
++--------+\\
+| Jabber |\\
+| client |     +--------+\\
++--------+     |        |\\
+    |          | Jabber |      +..................+\\
+    +----------| server |      :                  :\\
+               |        |      :                  :\\
+               +--------+      :                  :\\
+                   |           :     Internet     :\\
+                   +-----------:                  :-----------+\\
+                               :                  :           |\\
+                               :                  :       +--------+\\
+                               :                  :       |        |\\
+                               :                  :       | Jabber |\\
+                               +..................:       | server |--------+\\
+                                                          |        |        |\\
+                                                          +--------+    +--------+\\
+                                                                        | Jabber |\\
+                                                                        | client |\\
+                                                                        +--------+ \\
+\section{Knihovny}
+Jabber je realizován jako otevøený XML standart pro instant messaging formát, proto existuje mnoho programovacích jazykù, kterým je práce s ním 
+usnadnìna pomocí knihovny. Mezi nejznámìj¹í patøí C (iksemel, libstrophe, Loudmoutn), C++ (gloox, Iris), JAVA (JabberBeans, Smack, JSO, Feridian, Emite, minijingle), 
+.NET (Jabber-Net, agsXMPP SDK), Python (JabberPy, PyXMPP, SleekXMPP, Twisted Words), Ruby (XMPP4R, Jabber4R, Jabber::Simple, Jabber::Bot), 
+Perl (Net-Jabber) nìkteré ní¾e budou lehce rozebrány a vyzdvi¾eny jejich hlavní pøednosti.
+\subsection*{iksemel}
+\subsection*{JabberBeans}
+\subsection*{Jabber-Net}
+\subsection*{JabberPy}
+
+
+\chapter{Dataming}
+\section{Metody dolovani dat}
+\section{Dolovani znalosti z databazi}
+
+
+
+
+
+
+\chapter{Developer}
+
+\section{Cile}
+
+\section{Slepa ulicka}
+
+\section{knihivna, jazyk}
+
+\section{Jine produkty}
+
+
+\chapter{Nikdy to nebude naprosto dokonalé}
+
+
+\chapter{Typografické a~jazykové zásady}
+
+\section{Co to je normovaná stránka?}
+
+\chapter{Závìr}

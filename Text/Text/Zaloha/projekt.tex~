@@ -1,0 +1,147 @@
+%============================================================================
+% tento soubor pouzijte jako zaklad
+% (c) 2008 Michal Bidlo
+% E-mail: bidlom AT fit vutbr cz
+%============================================================================
+% kodovaní: iso-8859-2 (zmena prikazem iconv, recode nebo cstocs)
+%----------------------------------------------------------------------------
+% zpracování: make, make pdf, make desky, make clean
+% připomínky posílejte na e-mail: bidlom AT fit.vutbr.cz
+% vim: set syntax=tex encoding=latin2:
+%============================================================================
+\documentclass[cover]{fitthesis} % odevzdani do wisu - odkazy, na ktere se da klikat
+%\documentclass[cover,print]{fitthesis} % pro tisk - na odkazy se neda klikat
+%\documentclass[english,print]{fitthesis} % pro tisk - na odkazy se neda klikat
+%      \documentclass[english]{fitthesis}
+% * Je-li prace psana v anglickem jazyce, je zapotrebi u tridy pouzit 
+%   parametr english nasledovne:
+%      \documentclass[english]{fitthesis}
+% * Neprejete-li si vysazet na prvni strane dokumentu desky, zruste 
+%   parametr cover
+
+% zde zvolime kodovani, ve kterem je napsan text prace
+% "latin2" pro iso8859-2 nebo "cp1250" pro windows-1250, "utf8" pro "utf-8"
+%\usepackage{ucs}
+\usepackage[utf-8]{inputenc}
+\usepackage[T1, IL2]{fontenc}
+\usepackage{url}
+\DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}}
+
+%zde muzeme vlozit vlastni balicky
+\usepackage{amsmath}
+ %  \usepackage{amsfonts}   % if you want the fonts
+   \usepackage{amssymb}    % if you want extra symbols
+%\usepackage{latexsym}
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,petri}
+
+\usepackage{pnets}
+\usepackage{pstricks}
+\usepackage{colortbl}
+\usepackage{subfigure}
+% =======================================================================
+% balíček "hyperref" vytváří klikací odkazy v pdf, pokud tedy použijeme pdflatex
+% problém je, že balíček hyperref musí být uveden jako poslední, takže nemůže
+% být v šabloně
+\ifWis
+\ifx\pdfoutput\undefined % nejedeme pod pdflatexem
+\else
+  \usepackage{color}
+  \usepackage[unicode,colorlinks,hyperindex,plainpages=false,pdftex]{hyperref}
+  \definecolor{links}{rgb}{0.4,0.5,0}
+  \definecolor{anchors}{rgb}{1,0,0}
+  \def\AnchorColor{anchors}
+  \def\LinkColor{links}
+  \def\pdfBorderAttrs{/Border [0 0 0] }  % bez okrajů kolem odkazů
+  \pdfcompresslevel=9
+\fi
+\fi
+\ifx\du\undefined
+  \newlength{\du}
+\fi
+\setlength{\du}{15\unitlength}
+
+%Informace o praci/projektu
+%---------------------------------------------------------------------------
+\projectinfo{
+  %Prace
+  project=BP,            %typ prace BP/SP/DP/DR
+  year=2011,             %rok
+  date=\today,           %datum odevzdani
+  %Nazev prace
+  title.cs={Datamining z jabberu},  %nazev prace v cestine
+  title.en={Datamining from Jabberu}, %nazev prace v anglictine
+  %Autor
+  author={Jaroslav Sendler},   %jmeno prijmeni autora
+  %author.title.p=Bc., %titul pred jmenem (nepovinne)
+  %author.title.a=PhD, %titul za jmenem (nepovinne)
+  %Ustav
+  department=UPSY, % doplnte prislusnou zkratku: UPSY/UIFS/UITS/UPGM
+  %Skolitel
+  supervisor= Jozef Mlích, %jmeno prijmeni skolitele
+  supervisor.title.p=Ing.,   %titul pred jmenem (nepovinne)
+  %supervisor.title.a={Ph.D.},    %titul za jmenem (nepovinne)
+  %Klicova slova, abstrakty, prohlaseni a podekovani je mozne definovat 
+  %bud pomoci nasledujicich parametru nebo pomoci vyhrazenych maker (viz dale)
+  %===========================================================================
+  %Klicova slova
+  keywords.cs={Jabber, XMPP, robot, data mining, dolování dat.}, %klicova slova v ceskem jazyce
+  keywords.en={Jabber, XMPP, robot, data mining.}, %klicova slova v anglickem jazyce
+  %Abstract
+  abstract.cs={Předmětem této bakalářské práce bylo seznámení se s problematikou komunikace přes Jabber síť, která zde byla rozebrána.
+Konkrétním cílem bylo vytvoření jednoduchého Jabberového klienta, který by byl schopen získávat statistická data. Nashromážděná data sloužila pro pozdější analýzu a grafickou reprezentaci informací z nich získaných.}, % abstrakt v ceskem jazyce
+  abstract.en={The objective of this thesis was acquaint oneself with problems of communication via Jabber network, which was also analyzed. The specific objective was to create a simple Jabber's client which would be able to obtain statistical data. The collected data was used for analysis and graphic representation of information.}, % abstrakt v anglickem jazyce
+  %Prohlaseni
+  declaration={Prohlašuji, že jsem tuto bakalářskou práci vypracoval samostatně pod vedením pana ...},
+  %Podekovani (nepovinne)
+  acknowledgment={Zde je možné uvést poděkování vedoucímu práce a těm, kteří poskytli odbornou pomoc.} % nepovinne
+}
+
+
+%Abstrakt (cesky, anglicky)
+\abstract[cs]{Předmětem této bakalářské práce bylo seznámení se s problematikou komunikace přes Jabber síť, která zde byla rozebrána.
+Konkrétním cílem bylo vytvoření jednoduchého Jabberového klienta, který by byl schopen získávat statistická data. Nashromážděná data sloužila pro pozdější analýzu a grafickou reprezentaci informací z nich získaných.}
+\abstract[en]{The objective of this thesis was acquaint oneself with problems of communication via Jabber network, which was also analyzed. The specific objective was to create a simple Jabber's client which would be able to obtain statistical data. The collected data was used for analysis and graphic representation of information.}
+
+%Klicova slova (cesky, anglicky)
+\keywords[cs]{Jabber, XMPP, robot, datamining, dolování dat.}
+\keywords[en]{Jabber, XMPP, robot, datamining.}
+
+%Prohlaseni
+\declaration{Prohlašuji, že jsem tuto bakalářskou práci vypracoval samostatně pod vedením pana Ing. Josefa Mlícha.
+Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.}
+
+%Podekovani (nepovinne)
+\acknowledgment{Tímto bych chtěl poděkovat mému vedoucímu bakalářské práce Ing. Josefovi Mlíchovi za ochotu a kladný přístup při konzultacích. Dále za poskytnutí hardware na němž běžel program a sbíral data.}
+
+\begin{document}
+  % Vysazeni titulnich stran
+  % ----------------------------------------------
+  \maketitle
+  % Obsah
+  % ----------------------------------------------
+  \tableofcontents
+  
+  % Seznam obrazku a tabulek (pokud prace obsahuje velke mnozstvi obrazku, tak se to hodi)
+  % \listoffigures
+  % \listoftables 
+
+  % Text prace
+  % ----------------------------------------------
+  \input{obsah} % viz. obsah.tex
+
+  % Pouzita literatura
+  % ----------------------------------------------
+\ifczech
+  \bibliographystyle{czechiso}
+\else 
+  \bibliographystyle{plain}
+%  \bibliographystyle{alpha}
+\fi
+  \begin{flushleft}
+  \bibliography{literatura} % viz. literatura.bib
+  \end{flushleft}
+  \appendix
+  
+  \input{prilohy} % viz. prilohy.tex
+\end{document}

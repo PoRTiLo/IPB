@@ -1,0 +1,213 @@
+%============================================================================
+% tento soubor pouzijte jako zaklad
+% (c) 2008 Michal Bidlo
+% E-mail: bidlom AT fit vutbr cz
+%============================================================================
+% kodovaní: iso-8859-2 (zmena prikazem iconv, recode nebo cstocs)
+%----------------------------------------------------------------------------
+% zpracování: make, make pdf, make desky, make clean
+% pøipomínky posílejte na e-mail: bidlom AT fit.vutbr.cz
+% vim: set syntax=tex encoding=latin2:
+%============================================================================
+\documentclass[cover]{fitthesis} % odevzdani do wisu - odkazy, na ktere se da klikat
+%\documentclass[cover,print]{fitthesis} % pro tisk - na odkazy se neda klikat
+%\documentclass[english,print]{fitthesis} % pro tisk - na odkazy se neda klikat
+%      \documentclass[english]{fitthesis}
+% * Je-li prace psana v anglickem jazyce, je zapotrebi u tridy pouzit 
+%   parametr english nasledovne:
+%      \documentclass[english]{fitthesis}
+% * Neprejete-li si vysazet na prvni strane dokumentu desky, zruste 
+%   parametr cover
+
+% zde zvolime kodovani, ve kterem je napsan text prace
+% "latin2" pro iso8859-2 nebo "cp1250" pro windows-1250, "utf8" pro "utf-8"
+%\usepackage{ucs}
+\usepackage[latin2]{inputenc}
+\usepackage[T1, IL2]{fontenc}
+\usepackage{url}
+\DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}}
+
+%zde muzeme vlozit vlastni balicky
+\usepackage{amsmath}
+ %  \usepackage{amsfonts}   % if you want the fonts
+   \usepackage{amssymb}    % if you want extra symbols
+%\usepackage{latexsym}
+
+\usepackage{pnets}
+\usepackage{pstricks}
+\usepackage{colortbl}
+\usepackage{subfigure}
+\usepackage{listings}
+\usepackage{lineno}
+\usepackage{algorithmic}
+\usepackage[chapter]{algorithm}
+\usepackage{tikz}
+\usetikzlibrary{automata}
+\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,petri}
+\usepackage{enumitem}
+\usepackage{scalefnt}
+\usepackage{pspicture}
+
+
+
+
+\def\lstlistingname{Pøíklad}
+\lstset{ %
+language=XML,                   % the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+                                % will be numbered
+numbersep=-10pt,                % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=tb,                       % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                % also try caption instead of title
+escapeinside={\%*}{*)},         % if you want to add a comment within your code
+morekeywords={*,..., fakulta},            % if you want to add more keywords to the set
+commentstyle=\color{gray}\upshape
+}
+
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  morekeywords={xmlns,version,type, fakulty, titul, to, from, id, node}% list your attributes here
+}
+
+\lstdefinelanguage{Algoritmus}
+{
+  mathescape=true,
+  numbers=none,
+  morestring=[b]",
+  %morestring=[s]{}{},
+  %morecomment=[s]{}{},
+  basicstyle=\footnotesize,
+  stringstyle=\color{black},
+  identifierstyle=\color{black}\bfseries,
+  keywordstyle=\color{cyan},
+  morekeywords={}% list your attributes here
+}
+
+% =======================================================================
+% balíèek "hyperref" vytváøí klikací odkazy v pdf, pokud tedy pou¾ijeme pdflatex
+% problém je, ¾e balíèek hyperref musí být uveden jako poslední, tak¾e nemù¾e
+% být v ¹ablonì
+\ifWis
+\ifx\pdfoutput\undefined % nejedeme pod pdflatexem
+\else
+  \usepackage{color}
+  \usepackage[unicode,colorlinks,hyperindex,plainpages=false,pdftex]{hyperref}
+  \definecolor{links}{rgb}{0.4,0.5,0}
+  \definecolor{anchors}{rgb}{1,0,0}
+  \def\AnchorColor{anchors}
+  \def\LinkColor{links}
+  \def\pdfBorderAttrs{/Border [0 0 0] }  % bez okrajù kolem odkazù
+  \pdfcompresslevel=9
+\fi
+\fi
+\ifx\du\undefined
+  \newlength{\du}
+\fi
+\setlength{\du}{15\unitlength}
+
+%Informace o praci/projektu
+%---------------------------------------------------------------------------
+\projectinfo{
+  %Prace
+  project=BP,            %typ prace BP/SP/DP/DR
+  year=2011,             %rok
+  date=\today,           %datum odevzdani
+  %Nazev prace
+  title.cs={Datamining z jabberu},  %nazev prace v cestine
+  title.en={Datamining from Jabber}, %nazev prace v anglictine
+  %Autor
+  author={Jaroslav Sendler},   %jmeno prijmeni autora
+  %author.title.p=Bc., %titul pred jmenem (nepovinne)
+  %author.title.a=PhD, %titul za jmenem (nepovinne)
+  %Ustav
+  department=UPSY, % doplnte prislusnou zkratku: UPSY/UIFS/UITS/UPGM
+  %Skolitel
+  supervisor= Jozef Mlích, %jmeno prijmeni skolitele
+  supervisor.title.p=Ing.,   %titul pred jmenem (nepovinne)
+  %supervisor.title.a={Ph.D.},    %titul za jmenem (nepovinne)
+  %Klicova slova, abstrakty, prohlaseni a podekovani je mozne definovat 
+  %bud pomoci nasledujicich parametru nebo pomoci vyhrazenych maker (viz dale)
+  %===========================================================================
+  %Klicova slova
+  keywords.cs={Jabber, XMPP, robot, data mining, dolování dat, transformace dat, RapidMiner.}, %klicova slova v ceskem jazyce
+  keywords.en={Jabber, XMPP, robot, data mining, data transformation, RapidMiner.}, %klicova slova v anglickem jazyce
+  %Abstract
+  abstract.cs={Pøedmìtem této bakaláøské práce bylo nastudování problematikou komunikace pøes Jabber sí», která zde byla rozebrána.
+Konkrétním cílem bylo vytvoøení jednoduchého Jabberového klienta, který by byl schopen získávat statistická data. Nashromá¾dìná data slou¾ila pro pozdìj¹í analýzu a grafickou reprezentaci informací z nich získaných.}, % abstrakt v ceskem jazyce
+  abstract.en={The objective of this thesis was acquaint oneself with problems of communication via Jabber network, which was also analyzed. The specific objective was to create a simple Jabber's client which would be able to obtain statistical data. The collected data was used for analysis and graphic representation of information.}, % abstrakt v anglickem jazyce
+  %Prohlaseni
+  declaration={Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana ...},
+  %Podekovani (nepovinne)
+  acknowledgment={Zde je mo¾né uvést podìkování vedoucímu práce a tìm, kteøí poskytli odbornou pomoc.} % nepovinne
+}
+
+
+%Abstrakt (cesky, anglicky)
+\abstract[cs]{Pøedmìtem této bakaláøské práce bylo seznámení se s problematikou komunikace pøes Jabber sí», která zde byla rozebrána.
+Konkrétním cílem bylo vytvoøení jednoduchého Jabber klienta, který by byl schopen získávat statistická data. Nashromá¾dìná data slou¾ila pro pozdìj¹í analýzu a grafickou reprezentaci informací z nich získaných.}
+\abstract[en]{The objective of this thesis was acquaint oneself with problems of communication via Jabber network, which was also analyzed. The specific objective was to create a simple Jabber's client which would be able to obtain statistical data. The collected data was used for analysis and graphic representation of information.}
+
+%Klicova slova (cesky, anglicky)
+\keywords[cs]{Jabber, XMPP, robot, datamining, dolování dat, RapidMiner.}
+\keywords[en]{Jabber, XMPP, robot, datamining, RapidMiner.}
+
+%Prohlaseni
+\declaration{Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana Ing. Jozefa Mlícha.
+Uvedl jsem v¹echny literární prameny a publikace, ze kterých jsem èerpal.}
+
+%Podekovani (nepovinne)
+\acknowledgment{Tímto bych chtìl podìkovat mému vedoucímu bakaláøské práce Ing. Jozefovi Mlíchovi za ochotu a kladný pøístup pøi konzultacích. Dále za poskytnutí hardware na nìm¾ bì¾el program a sbíral data.}
+
+\begin{document}
+  % Vysazeni titulnich stran
+  % ----------------------------------------------
+  \maketitle
+  % Obsah
+  % ----------------------------------------------
+  \tableofcontents
+  
+  % Seznam obrazku a tabulek (pokud prace obsahuje velke mnozstvi obrazku, tak se to hodi)
+  % \listoffigures
+  % \listoftables 
+
+  % Text prace
+  % ----------------------------------------------
+  \input{obsah} % viz. obsah.tex
+
+  % Pouzita literatura
+  % ----------------------------------------------
+\ifczech
+  \bibliographystyle{czechiso}
+\else 
+  \bibliographystyle{plain}
+%  \bibliographystyle{alpha}
+\fi
+  \begin{flushleft}
+  \bibliography{literatura} % viz. literatura.bib
+  \end{flushleft}
+  \appendix
+  
+  \input{prilohy} % viz. prilohy.tex
+\end{document}

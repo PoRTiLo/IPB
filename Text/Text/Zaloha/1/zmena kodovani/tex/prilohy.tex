@@ -1,0 +1,93 @@
+%\chapter{Obsah CD}
+%\chapter{Manual}
+%\chapter{Konfigraèní soubor}
+%\chapter{RelaxNG Schéma konfiguraèního soboru}
+%\chapter{Plakat}
+
+
+\chapter{Struktura XMPP}
+
+\section*{IQ}
+\begin{table}[h]
+\begin{tabbing}
+ \textbf{\textless iq\textgreater}\= ELEMENT \+\\
+  \textbf{to} \\
+  \textbf{from} \\
+  \textbf{id} \\
+  \textbf{type}\= \+ \\
+   \textbf{='get'} \\
+   \textbf{='set'} \\
+   \textbf{='result'} \\
+   \textbf{='error'}\- \\
+   \textbf{NAMESPACE}\- \\
+\end{tabbing}\caption{Èást algoritmu \emph{Non maximal supression}}
+\label{tab1}
+\end{table}
+\newpage
+
+\section*{PRESENCE}
+\begin{table}[h]
+\begin{tabbing}
+ \textbf{\textless presence\textgreater}\= ELEMENT \+ \\
+  \textbf{to} \\
+  \textbf{from} \\
+  \textbf{id} \\
+  \textbf{type}\= \+ \\
+   \textbf{='available'} \\
+   \textbf{='unavailable'} \\
+   \textbf{='probe'} \\
+   \textbf{='subscribe'} \\
+   \textbf{='unsubcribe'} \\
+   \textbf{='subscribed'} \\
+   \textbf{='unsubcribed'} \\
+   \textbf{='error'} \-\\
+  \textbf{\textless show/\textgreater}\= \+ \\
+   \textbf{away} \\
+   \textbf{chat} \\
+   \textbf{dnd} \\
+   \textbf{normal} \\
+   \textbf{xa}\- \\
+  \textbf{\textless status/\textgreater} \\
+  \textbf{\textless priority/\textgreater} \\
+  \textbf{\textless error/\textgreater} \\
+  \textbf{NAMESPACE} \\
+\end{tabbing}\caption{Èást algoritmu \emph{Non maximal supression}}
+\label{tab1}
+\end{table}
+\newpage
+
+\section*{MESSAGE}
+\begin{table}[h]
+\begin{tabbing}
+ \textbf{\textless message\textgreater}\= ELEMENT \+ \\
+  \textbf{to} \\
+  \textbf{from} \\
+  \textbf{id} \\
+  \textbf{type}\= \+ \\
+   \textbf{='..'} \\
+   \textbf{='chat'} \\
+   \textbf{='groupchat'} \\
+   \textbf{='headline'} \\
+   \textbf{='error'} \- \\
+  \textbf{\textless body/\textgreater}\= \+ \\
+   \textbf{Offline} \\
+   \textbf{Delivered} \\
+   \textbf{Displayed} \\
+   \textbf{Composing}\- \\
+  \textbf{\textless subject/\textgreater} \\
+  \textbf{\textless thread/\textgreater} \\
+  \textbf{\textless error/\textgreater} \\
+  \textbf{\textless xi/\textgreater} \\
+  \textbf{NAMESPACE} \\
+\end{tabbing}\caption{Èást algoritmu \emph{Non maximal supression}}
+\end{table}
+
+\chapter{Slovnik pojmu}
+
+\begin{description}
+ \item[Stanza]
+ \item[Roster]
+ \item[Disco]
+ \item[VCard]
+\end{description}
+
