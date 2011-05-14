@@ -57,7 +57,7 @@ void Transform::connect() {
 std::vector<std::string> Transform::printUser() const {
 
 	PGresult* presult;
-	presult = PQexec(this->psql, "SELECT jidbare FROM userjid;");
+	presult = PQexec(this->psql, "SELECT jidbare FROM userJ;");
 	
 
 	int nTuples = PQntuples(presult);
@@ -86,7 +86,7 @@ int Transform::userToTabFirst(JID jid, const time_t timeLast) {
 	char dateE[80];
 	strftime(dateE, 79, "%Y-%m-%d %H:%M:%S", timeE);
 
-	std::string query = "Select date, presence from presence where fromj = '";
+	std::string query = "Select date, presence from pr where fromj = '";
 	query += jid.bare() + "' and date between '" + dateS + "' and '" + dateE + "';";
 	PGresult *presult1;
 	presult1 = PQexec(this->psql, query.c_str());
@@ -104,7 +104,6 @@ int Transform::userToTabFirst(JID jid, const time_t timeLast) {
 
 int* Transform::userToTab(int * vectorPresence, JID jid, std::string date ) {
 
-
 	const time_t timeStart =  stringToSecFirst(date);
 	struct tm*  timeS = localtime(&timeStart);
 	char dateS[80];
@@ -118,9 +117,9 @@ int* Transform::userToTab(int * vectorPresence, JID jid, std::string date ) {
    for(int r = 0; r < 289; r++)
   		vectorPresence[r] = '\0';
 
-std::cout<<jid.bare()<< " --- " << dateS <<std::endl;
+//std::cout<<jid.bare()<< " --- " << dateS <<std::endl;
 
-	std::string query = "Select date, presence, resource, priority from presence where fromj = '";
+	std::string query = "Select date, presence, resource, priority from pr where fromj = '";
 	query += jid.bare() + "' and date between '" + dateS + "' and '" + dateE + "';";
 	presult = PQexec(this->psql, query.c_str());
 	if(PQresultStatus(presult) == PGRES_TUPLES_OK)

@@ -1,33 +1,50 @@
 \chapter{Obsah CD}
-\chapter{Manual}
-\chapter{Konfigraèní soubor}
+\begin{figure}[h]
+\begin{verbatim}
+./doc/                 - programová dokumentace
+
+./src/jabinfo          - zdrojové soubory robota
+
+./src/transformation   - zdrojové soubory transformace
+
+./src/datamining       - zdrojové soubory data miningu
+
+./tex/                 - zdrojová data technické zprávy
+
+./www/                 - zdrojová data webové prezentace
+
+./bp-xsendl00.pdf      - technická zpráva
+
+./MANUAL               - manuál k programu jabinfo
+
+./README               - základní informace
+\end{verbatim}
+\end{figure} 
+
+%\chapter{Manual}
+%\chapter{Konfigraèní soubor}
 %\chapter{RelaxNG Schéma konfiguraèního soboru}
 %\chapter{Plakat}
 
 \chapter{Slovník zkratek}
 \begin{description}
+\item [Base64] --- pøevedení binárních dat pomocí znakù ASCII.
+\item [CSV] (Comma-separated values) --- souborový formát urèený pro výmìnu dat z tabulek.
 \item [GPG] (GNU Privacy Guard) --- slou¾í k podepisování a kontrolu podpisu rùzných dat.
-\item [IM slu¾by] (Instant messaging) ---  umo¾òují posílat zprávy a chatovat mezi u¾ivateli.% a poskytují dal¹í funkce. 
+\item [ID3v1] --- datový formát obsahující informace o skladbì.
+\item [IM slu¾by] (Instant messaging) ---  umo¾òují posílat zprávy a komunikovat mezi u¾ivateli.% a poskytují dal¹í funkce. 
+\item [Jabber] --- viz XMPP.
 \item [JEP] (Jabber Enhancement Proposal) --- star¹í název pro XEP.
 \item [JID] (Jabber ID) --- jednoznaèný identifikátor v síti Jabber.
 \item [SASL] (Simple Authentication and Security Layer) --- metoda slou¾ící ovìøování klientù na serverech.
+\item [Stanza] --- XML stream.
+\item [SQL] (Structured Query Language) ---  jazyk pou¾ívaný pro komunikaci s databázemi.
 \item [TLS] (Transport Layer Security) --- kryptografický protokol, poskytuje zabezpeèenou komunikaci na internetu.
+\item [TSQL] (Transact-SQL) --- jezyk pro temporální databáze.
+\item [vCard] ---  elektronická osobní vizitka.
 \item [XEP] (XMPP Extension Protocol) --- roz¹iøuje protokol RFC.
 \item [XML] (Extensible Markup Language) --- univerzální znaèkovací jazyk.
-\item [XMPP] --- dkshckdsjvlsdjvodsvjdfokj
-\item [jabber] --- dkshckdsjvlsdjvodsvjdfokj
-\item [presence] --- dkshckdsjvlsdjvodsvjdfokj
-\item [stanza] --- dkshckdsjvlsdjvodsvjdfokj
-\item [vCard] --- dkshckdsjvlsdjvodsvjdfokj
-\item [ID3v1] --- dkshckdsjvlsdjvodsvjdfokj
-\item [ID3v2] --- dkshckdsjvlsdjvodsvjdfokj
-\item [ASCII] --- dkshckdsjvlsdjvodsvjdfokj
-\item [utf-8] --- dkshckdsjvlsdjvodsvjdfokj
-\item [Base64] --- dkshckdsjvlsdjvodsvjdfokj
-\item [SQL] (Structured Query Language -- strukturovaný dotazovací jazyk) ---  pou¾ívaný dekla-
-rativní jazyk pro komunikaci s databázovými servery. Jeho historie sahá a¾ do doku
-1970 a poslední standard je z roku 2006.
-
+\item [XMPP] (Extensible Messaging and Presence Protocol) --- protokol pro doruèování zpráv.
 \end{description}
 
 \chapter{Stanza - základní schéma}\label{Estanza}
@@ -207,7 +224,7 @@ Pøestane--li u¾ivatel \textit{user} poslouchat/vysílat informace o pøehrávané hu
 Server informuje v¹echny úèastníky odbìru zprávou, která má polo¾ku \textit{tune} prázdnou. Tak jak to prezentuje pøíklad \ref{picSPep5}.
 
 \begin{figure}[h]
-\lstset{language=Xml ,caption={Server informuje klienty o ukonèení ¹íøení roz¹íøeného statusu u¾ivatele \textit{user@jabbim.com}.},label=picSPep5}
+\lstset{language=Xml ,caption={Server informuje klienty o ukonèení ¹íøení roz¹íøeného statusu.},label=picSPep5}
 \begin{lstlisting}
       <message from="user@jabbim.com"
                to="jabinfo@jabbim.com/bot">
@@ -231,122 +248,208 @@ Server informuje v¹echny úèastníky odbìru zprávou, která má polo¾ku \textit{tune
  \label{Edatabase}
 \end{center}
 \end{figure}
-\chapter{Pøehled klientù a jejich roz¹íøení}\label{Eklient}
 
+\chapter{Pøehled pøíkazù robota}\label{EPrikazy}
+Pøehled základních zpráv obsahující pøíkazy pro robota a jejich vysvìtlení je prezentováno v tabulce \ref{tabPrikazy}. Kde první sloupec znaèí pøíkaz, který rozli¹uje velká a malá písmena, a druhý jej krátce a výsti¾nì popisuje. V pøípadì, ¾e u¾ivatel nemá ¾ádný údaj v databázi potøebný k vyhodnocení dotazu, je zaslána pouze informativní zpráva, které vzniklý problém vysvìtluje. 
 
-%.
-%zrofj http://xmpp.org/xmpp-software/clients/
-%..sd.fsdf
 \begin{table}[ht]
-\subtable{
-\centering
-\renewcommand{\arraystretch}{1.2}
- {\tiny\tt
-\begin{tabular}{ l c c c c c c c c c c} 
+\begin{center}
+\begin{tabular}{ l  l   } 
 \rowcolor[gray]{0.9}
-\textbf{Klient}	&\textbf{OS} &\textbf{XEP--60}& \textbf{XEP--163}&\textbf{XEP--80} & \textbf{XEP--92} & \textbf{XEP--107} & \textbf{XEP--108} & \textbf{XEP--118}  & \textbf{XEP--} & \textbf{XEP--}\\
-Adium		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Agile Messenger & 		 & 		    & \\
-AQQ		& 		 & 		    & \\ 
-Ayttm		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-beejive		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Beem		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-BitlBee		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Bombus		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-BuddyMob	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Chatopus	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Citron		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Claros Chat	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-climm		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Coccinella	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Crosstalk	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Digsby		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-eM Client	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-emite		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Empathy		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Exodus		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Finch		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Gajim 		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Galaxium	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-glu		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-GNU Freetalk	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Gossip		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-iChat		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-iJab		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-IM+		& 		 & 		    & 		      & 		 & 		     & 			 &		\\ 
-imov Messenger	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-irssi-xmpp	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Jabbear		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Jabber Mix Client& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-jabber.el	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Jabbim		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Jabbim for Android& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Jabiru		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-JAJC		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Jappix		& 		 & 		    & 		      & 		 & 		     & 			 &		\\ \hline
-\end{tabular}} }
+\textbf{pøíkaz} 	& \textbf{vysvìtlení}\\
+HELP			&   Pøehled pøíkazù a jejich popis.\\
+INFO			&   Popis aplikace.\\
+HISTORY		&   Výpis posledních 10 zmìn statusù.\\
+TUNE			&   Výpis o pøehrávané hudbì.\\
+GEOLOC		&   Výpis o geografické poloze.\\
+MOOD			&   Výpis o aktuální náladì.\\
+ACTIVITY		&   Výpis o aktuální èinnosti.\\
+VCARD			&   Základní obsah VCard\\ \hline
+\end{tabular}
+\caption{Pøehled pøíkazù pro robota.}
+\label{tabPrikazy}
+\end{center} 
 \end{table}
 
 
 
-\begin{table}[ht]
+\begin{center}
+   \begin{landscape}
+        \begin{table}[htb]
 \subtable{
-\centering
-\renewcommand{\arraystretch}{1.2}
- {\tiny\tt
-\begin{tabular}{ l c c c c c c c c c c} 
+ \centering
+ \renewcommand{\arraystretch}{1.2}
+  {\tiny\tt
+\begin{tabular}{ >{\columncolor[gray]{.9}}l c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c} 
 \rowcolor[gray]{0.9}
-\textbf{Klient}	&\textbf{OS} &\textbf{XEP--60}& \textbf{XEP--163}&\textbf{XEP--80} & \textbf{XEP--92} & \textbf{XEP--107} & \textbf{XEP--108} & \textbf{XEP--118}  & \textbf{XEP--} & \textbf{XEP--}\\
+\textbf{-} &\textbf{1} 	& \textbf{2} & \textbf{3} & \textbf{4}& \textbf{5}& \textbf{6}& \textbf{7}& \textbf{8}& \textbf{9}& \textbf{10}& \textbf{11}& \textbf{12} & \textbf{13}& \textbf{14}&\textbf{15}&\textbf{16}&\textbf{17}&\textbf{18}&\textbf{19}&\textbf{20}&\textbf{21}&\textbf{22} & \textbf{22} & \textbf{23} & \textbf{24}& \textbf{25}& \textbf{26}& \textbf{27}& \textbf{28}& \textbf{29}& \textbf{30}&\textbf{31} & \textbf{32} & \textbf{33} & \textbf{34}& \textbf{35}& \textbf{36}& \textbf{37}& \textbf{38}& \textbf{39}&\textbf{40}&\textbf{41}\\
 
-JBuddy Messenger& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Jeti		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Jitsi (SIP Communicator)& 	 & 		    & 		      & 		 & 		     & 			 &		\\
-JWChat		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Kadu		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Kopete		& 		 & 		    & 		      &			 & 		     & 			 &		\\
-Lampiro		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-m-im		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-mcabber		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-mChat		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Miranda IM	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Monal IM	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-OctroTalk	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-OneTeam		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-OneTeam for iPhone& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Oyo		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Pandion		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Poezio		& 		 & 		    & 		      & 		 &      	     & 			 &		\\
-Pidgin		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Prodromus	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Psi		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Psi+		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Quiet Internet Pager (QIP)& 	 & 		    & 		      & 		 & 		     & 			 &		\\
-qutIM		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-saje		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-SamePlace	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Sim-IM		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Slimster	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-SoapBox Communicator& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Spark		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-SparkWeb	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Synapse		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Talkonaut	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Tigase Messenger& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Tigase Minichat	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Tkabber		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Tlen		& 		 & 		    & 		      & 		 & 		     & 			 &		\\ 
-Trillian	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-TrophyIM	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-V\&V Messenger	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Vacuum-IM	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Vayusphere	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-WTW		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Xabber		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-xmppchat	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Yambi		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
-Yaxim		& 		 & 		    & 		      & 		 & 		     & 			 &		\\ \hline
+1&-&22&31&70&23&28&31&37&55&54&64&14&52&32&34&54&44&27&23&19&29&23\\
+2&22&-&63&24&90&88&84&55&52&39&34&90&29&14&56&32&44&89&85&50&33&22\\
+3&31&63&-&26&63&66&64&57&55&47&42&60&45&22&79&34&44&66&63&57&36&38\\
+4&70&24&26&-&23&29&30&36&53&48&58&14&42&26&28&58&41&26&21&18&30&19\\
+5&23&90&63&23&-&90&85&60&49&42&34&88&32&17&55&30&42&86&86&49&34&23\\
+6&28&88&66&29&90&-&86&60&56&44&38&85&34&17&58&36&42&87&85&49&32&24\\
+7&31&84&64&30&85&86&-&59&53&49&43&81&31&22&56&32&42&86&83&51&34&25\\
+8&37&55&57&36&60&60&59&-&60&53&48&51&41&21&60&39&51&58&59&50&43&24\\
+9&55&52&55&53&49&56&53&60&-&58&58&43&53&26&55&52&63&56&52&47&43&26\\
+10&54&39&47&48&42&44&49&53&58&-&60&33&49&31&48&55&56&44&42&39&44&29\\
+11&64&34&42&58&34&38&43&48&58&60&-&26&48&35&44&55&46&38&34&31&44&29\\
+12&14&90&60&14&88&85&81&51&43&33&26&-&24&9&51&25&36&82&82&49&29&21\\
+13&52&29&45&42&32&34&31&41&53&49&48&24&-&29&45&56&53&37&29&29&40&30\\
+14&32&14&22&26&17&17&22&21&26&31&35&9&29&-&24&25&22&17&14&16&23&19\\
+15&34&56&79&28&55&58&56&60&55&48&44&51&45&24&-&37&49&59&56&59&39&44\\
+16&54&32&34&58&30&36&32&39&52&55&55&25&56&25&37&-&49&34&30&27&36&25\\
+17&44&44&44&41&42&42&42&51&63&56&46&36&53&22&49&49&-&49&46&38&49&25\\
+18&27&89&66&26&86&87&86&58&56&44&38&82&37&17&59&34&49&-&86&51&36&23\\
+19&23&85&63&21&86&85&83&59&52&42&34&82&29&14&56&30&46&86&-&51&36&25\\
+20&19&50&57&18&49&49&51&50&47&39&31&49&29&16&59&27&38&51&51&-&34&35\\
+21&29&33&36&30&34&32&34&43&43&44&44&29&40&23&39&36&49&36&36&34&-&26\\
+1&-&22&31&70&23&28&31&37&55&54&64&14&52&32&34&54&44&27&23&19&29&23\\
+2&22&-&63&24&90&88&84&55&52&39&34&90&29&14&56&32&44&89&85&50&33&22\\
+3&31&63&-&26&63&66&64&57&55&47&42&60&45&22&79&34&44&66&63&57&36&38\\
+4&70&24&26&-&23&29&30&36&53&48&58&14&42&26&28&58&41&26&21&18&30&19\\
+5&23&90&63&23&-&90&85&60&49&42&34&88&32&17&55&30&42&86&86&49&34&23\\
+6&28&88&66&29&90&-&86&60&56&44&38&85&34&17&58&36&42&87&85&49&32&24\\
+7&31&84&64&30&85&86&-&59&53&49&43&81&31&22&56&32&42&86&83&51&34&25\\
+8&37&55&57&36&60&60&59&-&60&53&48&51&41&21&60&39&51&58&59&50&43&24\\
+9&55&52&55&53&49&56&53&60&-&58&58&43&53&26&55&52&63&56&52&47&43&26\\
+10&54&39&47&48&42&44&49&53&58&-&60&33&49&31&48&55&56&44&42&39&44&29\\
+11&64&34&42&58&34&38&43&48&58&60&-&26&48&35&44&55&46&38&34&31&44&29\\
+12&14&90&60&14&88&85&81&51&43&33&26&-&24&9&51&25&36&82&82&49&29&21\\
+13&52&29&45&42&32&34&31&41&53&49&48&24&-&29&45&56&53&37&29&29&40&30\\
+14&32&14&22&26&17&17&22&21&26&31&35&9&29&-&24&25&22&17&14&16&23&19\\
+15&34&56&79&28&55&58&56&60&55&48&44&51&45&24&-&37&49&59&56&59&39&44\\
+16&54&32&34&58&30&36&32&39&52&55&55&25&56&25&37&-&49&34&30&27&36&25\\
+17&44&44&44&41&42&42&42&51&63&56&46&36&53&22&49&49&-&49&46&38&49&25\\
+18&27&89&66&26&86&87&86&58&56&44&38&82&37&17&59&34&49&-&86&51&36&23\\
+19&23&85&63&21&86&85&83&59&52&42&34&82&29&14&56&30&46&86&-&51&36&25\\
+20&19&50&57&18&49&49&51&50&47&39&31&49&29&16&59&27&38&51&51&-&34&35\\
+21&29&33&36&30&34&32&34&43&43&44&44&29&40&23&39&36&49&36&36&34&-&26\\
+22&23&22&38&19&23&24&25&24&26&29&29&21&30&19&44&25&25&23&25&35&26&-\\ \hline
 \end{tabular}} }
-\caption{Pøehled podporovaných roz¹íøení u jednotlivých klientù.}
-\label{tabEklient}
+\caption{Procentuální shoda jednotlivých u¾ivatelù.}
+\label{tabProcent}
 
-\end{table}
+        \end{table}
+   \end{landscape}
+\end{center}
+% \chapter{Pøehled klientù a jejich roz¹íøení}\label{Eklient}
+% 
+% 
+% %.
+% %zrofj http://xmpp.org/xmpp-software/clients/
+% %..sd.fsdf
+% \begin{table}[ht]
+% \subtable{
+% \centering
+% \renewcommand{\arraystretch}{1.2}
+%  {\tiny\tt
+% \begin{tabular}{ l c c c c c c c c c c} 
+% \rowcolor[gray]{0.9}
+% \textbf{Klient}	&\textbf{OS} &\textbf{XEP--60}& \textbf{XEP--163}&\textbf{XEP--80} & \textbf{XEP--92} & \textbf{XEP--107} & \textbf{XEP--108} & \textbf{XEP--118}  & \textbf{XEP--} & \textbf{XEP--}\\
+% Adium		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Agile Messenger & 		 & 		    & \\
+% AQQ		& 		 & 		    & \\ 
+% Ayttm		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% beejive		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Beem		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% BitlBee		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Bombus		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% BuddyMob	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Chatopus	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Citron		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Claros Chat	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% climm		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Coccinella	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Crosstalk	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Digsby		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% eM Client	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% emite		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Empathy		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Exodus		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Finch		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Gajim 		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Galaxium	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% glu		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% GNU Freetalk	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Gossip		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% iChat		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% iJab		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% IM+		& 		 & 		    & 		      & 		 & 		     & 			 &		\\ 
+% imov Messenger	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% irssi-xmpp	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Jabbear		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Jabber Mix Client& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% jabber.el	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Jabbim		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Jabbim for Android& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Jabiru		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% JAJC		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Jappix		& 		 & 		    & 		      & 		 & 		     & 			 &		\\ \hline
+% \end{tabular}} }
+% \end{table}
+% 
+% 
+% 
+% \begin{table}[ht]
+% \subtable{
+% \centering
+% \renewcommand{\arraystretch}{1.2}
+%  {\tiny\tt
+% \begin{tabular}{ l c c c c c c c c c c} 
+% \rowcolor[gray]{0.9}
+% \textbf{Klient}	&\textbf{OS} &\textbf{XEP--60}& \textbf{XEP--163}&\textbf{XEP--80} & \textbf{XEP--92} & \textbf{XEP--107} & \textbf{XEP--108} & \textbf{XEP--118}  & \textbf{XEP--} & \textbf{XEP--}\\
+% 
+% JBuddy Messenger& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Jeti		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Jitsi (SIP Communicator)& 	 & 		    & 		      & 		 & 		     & 			 &		\\
+% JWChat		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Kadu		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Kopete		& 		 & 		    & 		      &			 & 		     & 			 &		\\
+% Lampiro		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% m-im		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% mcabber		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% mChat		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Miranda IM	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Monal IM	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% OctroTalk	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% OneTeam		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% OneTeam for iPhone& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Oyo		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Pandion		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Poezio		& 		 & 		    & 		      & 		 &      	     & 			 &		\\
+% Pidgin		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Prodromus	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Psi		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Psi+		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Quiet Internet Pager (QIP)& 	 & 		    & 		      & 		 & 		     & 			 &		\\
+% qutIM		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% saje		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% SamePlace	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Sim-IM		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Slimster	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% SoapBox Communicator& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Spark		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% SparkWeb	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Synapse		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Talkonaut	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Tigase Messenger& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Tigase Minichat	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Tkabber		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Tlen		& 		 & 		    & 		      & 		 & 		     & 			 &		\\ 
+% Trillian	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% TrophyIM	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% V\&V Messenger	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Vacuum-IM	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Vayusphere	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% WTW		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Xabber		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% xmppchat	& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Yambi		& 		 & 		    & 		      & 		 & 		     & 			 &		\\
+% Yaxim		& 		 & 		    & 		      & 		 & 		     & 			 &		\\ \hline
+% \end{tabular}} }
+% \caption{Pøehled podporovaných roz¹íøení u jednotlivých klientù.}
+% \label{tabEklient}
+% 
+% \end{table}

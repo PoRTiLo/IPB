@@ -42,8 +42,8 @@
 #define UNAVALIABLE 0
 
 
-#define DATE_START "2011-05-07 12:02:20"
-#define DATE_END "2011-05-07 13:34:05"
+#define DATE_START "2010-12-08 12:02:20"
+#define DATE_END "2011-05-11 13:34:05"
 
 
 #endif // CONNECT_H__

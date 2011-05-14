@@ -12,17 +12,15 @@
 \contentsline {section}{\numberline {3.4}Programy}{25}{section.3.4}
 \contentsline {chapter}{\numberline {4}Implementace}{27}{chapter.4}
 \contentsline {section}{\numberline {4.1}Architektura}{27}{section.4.1}
-\contentsline {section}{\numberline {4.2}Datab\'aze}{28}{section.4.2}
-\contentsline {section}{\numberline {4.3}Robot}{30}{section.4.3}
+\contentsline {section}{\numberline {4.2}N\'avrh datab\'aze}{28}{section.4.2}
+\contentsline {section}{\numberline {4.3}N\'avrh robota}{30}{section.4.3}
 \contentsline {section}{\numberline {4.4}Pokra\v cov\'an\IeC {\'\i } pr\'ace}{32}{section.4.4}
 \contentsline {chapter}{\numberline {5}Vyhodnocen\IeC {\'\i } v\'ysledk\r u}{34}{chapter.5}
 \contentsline {section}{\numberline {5.1}Manu\'aln\IeC {\'\i } rozbor dat}{34}{section.5.1}
 \contentsline {section}{\numberline {5.2}Programov\'e vyhodnocen\IeC {\'\i }}{35}{section.5.2}
-\contentsline {chapter}{\numberline {6}Z\'av\v er}{36}{chapter.6}
-\contentsline {chapter}{\numberline {A}Obsah CD}{40}{appendix.A}
-\contentsline {chapter}{\numberline {B}Manual}{41}{appendix.B}
-\contentsline {chapter}{\numberline {C}Konfigra\v cn\IeC {\'\i } soubor}{42}{appendix.C}
-\contentsline {chapter}{\numberline {D}Slovn\IeC {\'\i }k zkratek}{43}{appendix.D}
-\contentsline {chapter}{\numberline {E}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{44}{appendix.E}
-\contentsline {chapter}{\numberline {F}N\'avrh datab\'aze}{49}{appendix.F}
-\contentsline {chapter}{\numberline {G}P\v rehled p\v r\IeC {\'\i }kaz\r u robota}{50}{appendix.G}
+\contentsline {chapter}{\numberline {6}Z\'av\v er}{38}{chapter.6}
+\contentsline {chapter}{\numberline {A}Obsah CD}{42}{appendix.A}
+\contentsline {chapter}{\numberline {B}Slovn\IeC {\'\i }k zkratek}{43}{appendix.B}
+\contentsline {chapter}{\numberline {C}Stanza - z\'akladn\IeC {\'\i } sch\'ema}{44}{appendix.C}
+\contentsline {chapter}{\numberline {D}N\'avrh datab\'aze}{49}{appendix.D}
+\contentsline {chapter}{\numberline {E}P\v rehled p\v r\IeC {\'\i }kaz\r u robota}{50}{appendix.E}

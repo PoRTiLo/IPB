@@ -3,44 +3,44 @@ The top-level auxiliary file: projekt.aux
 The style file: czechiso.bst
 Database file #1: literatura.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 140733193391032.
-You've used 28 entries,
+You've used 29 entries,
             3151 wiz_defined-function locations,
-            833 strings with 8754 characters,
-and the built_in function-call counts, 10643 in all, are:
-= -- 709
-> -- 332
+            838 strings with 8814 characters,
+and the built_in function-call counts, 10940 in all, are:
+= -- 730
+> -- 339
 < -- 10
-+ -- 156
-- -- 92
-* -- 555
-:= -- 1245
-add.period$ -- 56
-call.type$ -- 28
-change.case$ -- 132
++ -- 159
+- -- 94
+* -- 568
+:= -- 1281
+add.period$ -- 58
+call.type$ -- 29
+change.case$ -- 136
 chr.to.int$ -- 30
-cite$ -- 28
-duplicate$ -- 1055
-empty$ -- 1091
-format.name$ -- 105
-if$ -- 2304
+cite$ -- 29
+duplicate$ -- 1084
+empty$ -- 1123
+format.name$ -- 107
+if$ -- 2368
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 272
-newline$ -- 112
-num.names$ -- 56
-pop$ -- 677
+int.to.str$ -- 29
+missing$ -- 279
+newline$ -- 116
+num.names$ -- 58
+pop$ -- 697
 preamble$ -- 1
-purify$ -- 101
+purify$ -- 104
 quote$ -- 0
-skip$ -- 311
+skip$ -- 319
 stack$ -- 0
-substring$ -- 214
-swap$ -- 477
+substring$ -- 221
+swap$ -- 489
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 92
+type$ -- 96
 warning$ -- 0
-while$ -- 65
-width$ -- 30
-write$ -- 279
+while$ -- 67
+width$ -- 31
+write$ -- 288
