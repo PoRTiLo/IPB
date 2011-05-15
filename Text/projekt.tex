@@ -52,6 +52,7 @@
 \usepackage{epstopdf}
 \usepackage[pdftex]{graphicx}
 \usepackage{lscape}
+\usepackage{color}
 
 \renewcommand\lstlistingname{Pøíklad}
 \renewcommand\lstlistlistingname{Pøíklady}
@@ -155,8 +156,8 @@ commentstyle=\color{gray}\upshape
   %bud pomoci nasledujicich parametru nebo pomoci vyhrazenych maker (viz dale)
   %===========================================================================
   %Klicova slova
-  keywords.cs={Jabber, XMPP, robot, data mining, dolování dat, transformace dat, RapidMiner.}, %klicova slova v ceskem jazyce
-  keywords.en={Jabber, XMPP, robot, data mining, data transformation, RapidMiner.}, %klicova slova v anglickem jazyce
+  keywords.cs={Jabber, XMPP, robot, data mining, \textit{k}-means, shlukování, dolování dat, transformace dat, RapidMiner.}, %klicova slova v ceskem jazyce
+  keywords.en={Jabber, XMPP, robot, data mining, \textit{k}-means, clustering, data transformation, RapidMiner.}, %klicova slova v anglickem jazyce
   %Abstract
   abstract.cs={Pøedmìtem této bakaláøské práce bylo nastudování problematikou komunikace pøes Jabber sí», která zde byla rozebrána.
 Konkrétním cílem bylo vytvoøení jednoduchého Jabberového klienta, který by byl schopen získávat statistická data. Nashromá¾dìná data slou¾ila pro pozdìj¹í analýzu a grafickou reprezentaci informací z nich získaných.}, % abstrakt v ceskem jazyce
@@ -167,15 +168,14 @@ Konkrétním cílem bylo vytvoøení jednoduchého Jabberového klienta, který by byl s
   acknowledgment={Zde je mo¾né uvést podìkování vedoucímu práce a tìm, kteøí poskytli odbornou pomoc.} % nepovinne
 }
 
-
 %Abstrakt (cesky, anglicky)
 \abstract[cs]{Pøedmìtem této bakaláøské práce bylo seznámení se s problematikou komunikace pøes Jabber sí», která zde byla rozebrána.
 Konkrétním cílem bylo vytvoøení jednoduchého Jabber klienta, který by byl schopen získávat statistická data. Nashromá¾dìná data slou¾ila pro pozdìj¹í analýzu a grafickou reprezentaci informací z nich získaných.}
 \abstract[en]{The objective of this thesis was acquaint oneself with problems of communication via Jabber network, which was also analyzed. The specific objective was to create a simple Jabber's client which would be able to obtain statistical data. The collected data was used for analysis and graphic representation of information.}
 
 %Klicova slova (cesky, anglicky)
-\keywords[cs]{Jabber, XMPP, robot, datamining, dolování dat, RapidMiner.}
-\keywords[en]{Jabber, XMPP, robot, datamining, RapidMiner.}
+\keywords[cs]{Jabber, XMPP, robot, data mining, shlukování, \textit{k}-means, dolování z dat, transformace dat, RapidMiner.}
+\keywords[en]{Jabber, XMPP, robot, data mining, clustering, \textit{k}-means, data transformation, RapidMiner.}
 
 %Prohlaseni
 \declaration{Prohla¹uji, ¾e jsem tuto bakaláøskou práci vypracoval samostatnì pod vedením pana Ing. Jozefa Mlícha.
@@ -194,7 +194,7 @@ Uvedl jsem v¹echny literární prameny a publikace, ze kterých jsem èerpal.}
   
   % Seznam obrazku a tabulek (pokud prace obsahuje velke mnozstvi obrazku, tak se to hodi)
    \listoffigures
-  % \listoftables 
+   \listoftables 
   \lstlistoflistings
 
 
