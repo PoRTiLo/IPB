@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  15 MAY 2011 18:36
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  15 MAY 2011 19:09
 entering extended mode
  %&-line parsing enabled.
 **projekt
@@ -815,32 +815,32 @@ File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
  (./projekt.aux)
 \openout1 = `projekt.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for IL2/cmr/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 187.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 187.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for IL2/cmr/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 191.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 191.
 
 
 (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 191.
+LaTeX Font Info:    ... okay on input line 191.
 
 (/usr/share/texmf/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -856,7 +856,7 @@ LaTeX Font Info:    ... okay on input line 187.
 \everyMPtoPDFconversion=\toks40
 )
 \c@lstlisting=\count169
-Package hyperref Info: Link coloring ON on input line 187.
+Package hyperref Info: Link coloring ON on input line 191.
  (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -865,15 +865,15 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count170
 )
-LaTeX Info: Redefining \ref on input line 187.
-LaTeX Info: Redefining \pageref on input line 187.
+LaTeX Info: Redefining \ref on input line 191.
+LaTeX Info: Redefining \pageref on input line 191.
  (./projekt.out)
 (./projekt.out)
 \@outlinefile=\write4
 \openout4 = `projekt.out'.
 
 \AtBeginShipoutBox=\box47
-LaTeX Font Info:    Try loading font information for IL2+phv on input line 193.
+LaTeX Font Info:    Try loading font information for IL2+phv on input line 197.
 
  (/usr/share/texmf-texlive/tex/cslatex/base/il2phv.fd
 File: il2phv.fd 1998/12/27 CS Helvetica
@@ -896,49 +896,49 @@ Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 <fig/vut-zp2.pdf, id=112, 109.40875pt x 109.40875pt>
 File: fig/vut-zp2.pdf Graphic file (type pdf)
  <use fig/vut-zp2.pdf>
-Overfull \hbox (109.58464pt too wide) in paragraph at lines 193--193
+Overfull \hbox (109.58464pt too wide) in paragraph at lines 197--197
 [][] 
  []
 
 <fig/fit-zp2.pdf, id=113, 120.45pt x 120.45pt>
 File: fig/fit-zp2.pdf Graphic file (type pdf)
  <use fig/fit-zp2.pdf>
-Overfull \hbox (109.58464pt too wide) in paragraph at lines 193--193
+Overfull \hbox (109.58464pt too wide) in paragraph at lines 197--197
 [][] 
  []
 
 [2 <./fig/vut-zp2.pdf> <./fig/fit-zp2.pdf>]
-Overfull \hbox (47.40182pt too wide) in paragraph at lines 193--193
+Overfull \hbox (47.40182pt too wide) in paragraph at lines 197--197
 []  []
  []
 
 
-Overfull \hbox (87.30734pt too wide) in paragraph at lines 193--193
+Overfull \hbox (87.30734pt too wide) in paragraph at lines 197--197
   []
  []
 
 
-Overfull \hbox (87.30734pt too wide) in paragraph at lines 193--193
+Overfull \hbox (87.30734pt too wide) in paragraph at lines 197--197
   [] 
  []
 
 [3]
 
 LaTeX Font Warning: Font shape `IL2/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 193.
+(Font)              size <17.28> substituted on input line 197.
 
 
 LaTeX Font Warning: Font shape `IL2/cmr/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 193.
+(Font)              size <17.28> substituted on input line 197.
 
 [4]
 
 LaTeX Font Warning: Font shape `IL2/cmr/m/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 193.
+(Font)              size <17.28> substituted on input line 197.
 
 
 LaTeX Font Warning: Font shape `IL2/cmr/bx/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 193.
+(Font)              size <17.28> substituted on input line 197.
 
 [5] (./projekt.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 4.
@@ -957,7 +957,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.196    \listoffigures
+l.200    \listoffigures
                         [1
 
 
@@ -969,7 +969,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.197    \listoftables
+l.201    \listoftables
                        [2
 
 ] (./projekt.lot)
@@ -980,7 +980,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.198   \lstlistoflistings
+l.202   \lstlistoflistings
                            [3
 
 ] (./projekt.lol)
@@ -1131,7 +1131,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  18992 strings out of 495027
  298414 string characters out of 1181420
- 615441 words of memory out of 3000000
+ 615728 words of memory out of 3000000
  21324 multiletter control sequences out of 15000+50000
  29403 words of font info for 80 fonts, out of 3000000 for 9000
  38 hyphenation exceptions out of 8191
@@ -1157,7 +1157,7 @@ live/fonts/type1/public/cs/csss8.pfb></usr/share/texmf-texlive/fonts/type1/publ
 ic/cs/csti10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/cstt10.pfb></u
 sr/share/texmf-texlive/fonts/type1/public/cs/cstt8.pfb></usr/share/texmf-texliv
 e/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on projekt.pdf (56 pages, 1259220 bytes).
+Output written on projekt.pdf (56 pages, 1259483 bytes).
 PDF statistics:
  1163 PDF objects out of 1200 (max. 8388607)
  346 named destinations out of 1000 (max. 500000)
