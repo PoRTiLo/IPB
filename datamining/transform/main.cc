@@ -213,13 +213,15 @@ std::cout<<MAX(1,3) << "...." <<MIN(1,5);
 			t.matrix[row][usr] = (int)((count/154)*100 + 0.5);
 			t.matrix[usr][row] = (int)((count/154)*100 + 0.5);
 		}
+		std::cout << std::endl << vectorUser[row];
 	}
 
+		std::cout << std::endl << vectorUser[vectorUser.size()-1];
 	for( int i = 0; i < t.rows; i++ )
 	{
 		std::cout<<std::endl;
-		for( int num = 0; num < t.cols; num++)
-			std::cout << " " << t.matrix[i][num];
+		for( int num = 0; num < t.cols; num++);
+//			std::cout << " " << t.matrix[i][num];
 
 	}
 
