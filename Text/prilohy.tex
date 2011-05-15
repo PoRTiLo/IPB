@@ -40,7 +40,7 @@
 \item [Stanza] --- XML stream.
 \item [SQL] (Structured Query Language) ---  jazyk pou¾ívaný pro komunikaci s databázemi.
 \item [TLS] (Transport Layer Security) --- kryptografický protokol, poskytuje zabezpeèenou komunikaci na internetu.
-\item [TSQL] (Transact-SQL) --- jezyk pro temporální databáze.
+\item [TSQL] (Transact-SQL) --- jazyk pro temporální databáze.
 \item [vCard] ---  elektronická osobní vizitka.
 \item [XEP] (XMPP Extension Protocol) --- roz¹iøuje protokol RFC.
 \item [XML] (Extensible Markup Language) --- univerzální znaèkovací jazyk.
@@ -52,8 +52,7 @@
 Pøehled základních elementù, které jsou vyu¾ívány pøi Jabber komunikaci. Struktura jednotlivých èástí stanzy ukazuje pouze prvky relativní k této práci. Pomocí hranatých závorek je znázornìna mno¾ina, ze které musí být vybrán právì jeden prvek. Na místì uvozovek se oèekává jakákoliv povolená hodnota.
 
 
-\section*{Iq}\label{Eiq}
-
+\subsection*{Iq}\label{Eiq}
 \begin{figure}[h]
 \lstset{language=Xml ,caption={Popis elementu \textit{iq}.},label=picEiq}
 \begin{lstlisting}
@@ -65,7 +64,6 @@ Pøehled základních elementù, které jsou vyu¾ívány pøi Jabber komunikaci. Struktu
           </iq>
 \end{lstlisting}
 \end{figure}
-
 %\begin{table}[h]
 %\begin{center}
 %\begin{tabular}{ l  l  l  l } 
@@ -83,9 +81,7 @@ Pøehled základních elementù, které jsou vyu¾ívány pøi Jabber komunikaci. Struktu
 %\end{center} 
 %\end{table}
 
-
-\section*{Message}\label{Emessage}
-
+\subsection*{Message}\label{Emessage}
 \begin{figure}[h]
 \lstset{language=Xml ,caption={Popis elementu \textit{message}.},label=picMessageE}
 \begin{lstlisting}
@@ -104,8 +100,8 @@ Pøehled základních elementù, které jsou vyu¾ívány pøi Jabber komunikaci. Struktu
 \end{lstlisting}
 \end{figure}
 
-\section*{Presence}\label{Epresence}
-
+\newpage
+\subsection*{Presence}\label{Epresence}
 \begin{figure}[h]
 \lstset{language=Xml ,caption={Popis elementu \textit{presence}.},label=picPresenceE}
 \begin{lstlisting}
@@ -125,7 +121,7 @@ Pøehled základních elementù, které jsou vyu¾ívány pøi Jabber komunikaci. Struktu
 \end{figure}
 
 
-\newpage
+
 \section*{Pøehled prùbìhu roz¹íøení}\label{Erozsireni}
 
 Ukázka celého pøíkladu ¹íøení statusu pomocí roz¹íøení \textit{User Tune}. U¾ivatel \textit{user} poslouchá hudbu a informuje server zasláním zprávy zobrazené v pøíkladu \ref{picSPep1}.
@@ -158,7 +154,7 @@ Ukázka celého pøíkladu ¹íøení statusu pomocí roz¹íøení \textit{User Tune}. U¾iva
 \end{lstlisting}
 \end{figure}
 \newpage
-Server obdr¾í informace od klienta \textit{user} zprávu o pøehrávající hudbì. Pomocí elementu \textit{message} ji pøepo¹le v¹em u¾ivatelùm z kontakt listu u¾ivatele \textit{user}, kteøí jsou pro odbìr tìchto typù zpráv zaregistrováni. Tato struktura zprávy je prezentována na pøíkladu \ref{picSPep2}.
+Server obdr¾í informace od klienta \textit{user} prostøednictvím zprávy, její¾ obsah je naplnìn daty spojenými s pøehrávající hudbou. Pomocí elementu \textit{message} ji pøepo¹le v¹em u¾ivatelùm ze seznamu kontaktù u¾ivatele \textit{user}, kteøí se pro odbìr tìchto typù zpráv zaregistrovali. Struktura této zprávy je prezentována na pøíkladu \ref{picSPep2}.
 \begin{figure}[h]
 \lstset{language=Xml ,caption={Server informuje u¾ivatele podporující roz¹íøení o stavu \textit{user@jabbim.com}.},label=picSPep2}
 \begin{lstlisting}
@@ -180,9 +176,8 @@ Server obdr¾í informace od klienta \textit{user} zprávu o pøehrávající hudbì. Po
       </message>
 \end{lstlisting}
 \end{figure}
-
-Zpráva o pøehrávané hudbì je také pøeposlána v¹em otevøeným spojením u¾ivatele \textit{user}, ukázáno na pøíkladì \ref{picSPep3}.
-
+\newpage
+Zpráva o pøehrávané hudbì je také pøeposlána v¹em otevøeným spojením u¾ivatele \textit{user}, ukázáno na pøíkladu \ref{picSPep3}.
 \begin{figure}[h]
 \lstset{language=Xml ,caption={Server pøepo¹le informace o pøehrávané hudbì v¹em otevøeným spojením u¾ivatele \textit{user@jabbim.com}.},label=picSPep3}
 \begin{lstlisting}
@@ -204,9 +199,9 @@ Zpráva o pøehrávané hudbì je také pøeposlána v¹em otevøeným spojením u¾ivatele \
       </message>
 \end{lstlisting}
 \end{figure}
-\newpage
-Pøestane-li u¾ivatel \textit{user} poslouchat/vysílat informace o pøehrávané hudbì, provede to pomocí zprávy ukázané na pøíkladu \ref{picSPep4}. Zpráva typu \textit{iq}, ve které je polo¾ka \textit{tune} nesoucí informace o skladbì prázdná.
-\begin{figure}[h]
+
+Pøestane-li u¾ivatel \textit{user} poslouchat/vysílat informace o pøehrávané hudbì, provede to pomocí zprávy ukázané na pøíkladu \ref{picSPep4}. Zpráva typu \textit{iq}, ve které je polo¾ka \textit{tune}, nesoucí informace o skladbì, je prázdná.
+%\begin{figure}[h]
 \lstset{language=Xml ,caption={U¾ivatel ukonèil \uv{vysílaní} roz¹íøených zpráv o svém stavu.},label=picSPep4}
 \begin{lstlisting}
       <iq from="user@jabbim.com/prace" type="set" id="pub1">
@@ -219,11 +214,11 @@ Pøestane-li u¾ivatel \textit{user} poslouchat/vysílat informace o pøehrávané hud
          </pubsub>
       </iq>
 \end{lstlisting}
-\end{figure}
+%\end{figure}
 
 Server informuje v¹echny úèastníky odbìru zprávou, která má polo¾ku \textit{tune} prázdnou. Tak jak to prezentuje pøíklad \ref{picSPep5}.
 
-\begin{figure}[h]
+%\begin{figure}[h]
 \lstset{language=Xml ,caption={Server informuje klienty o ukonèení ¹íøení roz¹íøeného statusu.},label=picSPep5}
 \begin{lstlisting}
       <message from="user@jabbim.com"
@@ -237,7 +232,7 @@ Server informuje v¹echny úèastníky odbìru zprávou, která má polo¾ku \textit{tune
          </event>
       </message>
 \end{lstlisting}
-\end{figure}
+%\end{figure}
 
 \chapter{Návrh databáze}\label{EDatabase}
 
@@ -250,7 +245,7 @@ Server informuje v¹echny úèastníky odbìru zprávou, která má polo¾ku \textit{tune
 \end{figure}
 
 \chapter{Pøehled pøíkazù robota}\label{EPrikazy}
-Pøehled základních zpráv obsahující pøíkazy pro robota a jejich vysvìtlení je prezentováno v tabulce \ref{tabPrikazy}. Kde první sloupec znaèí pøíkaz, který rozli¹uje velká a malá písmena, a druhý jej krátce a výsti¾nì popisuje. V pøípadì, ¾e u¾ivatel nemá ¾ádný údaj v databázi potøebný k vyhodnocení dotazu, je zaslána pouze informativní zpráva, které vzniklý problém vysvìtluje. 
+Pøehled základních zpráv obsahující pøíkazy pro robota a jejich vysvìtlení je prezentováno v tabulce \ref{tabPrikazy}. Kde první sloupec znaèí pøíkaz, který rozli¹uje velká a malá písmena, a druhý jej krátce a výsti¾nì popisuje. V pøípadì, ¾e u¾ivatel nemá ¾ádný údaj v databázi potøebný k vyhodnocení dotazu, je zaslána pouze informativní zpráva, které vzniklý problém vysvìtluje. V pøípadì zaslání neznámého dotazu, je u¾ivateli automaticky odeslána zpráva s obsahem pøíkazu HELP. 
 
 \begin{table}[ht]
 \begin{center}
@@ -273,7 +268,7 @@ VCARD			&   Základní obsah VCard\\ \hline
 
 \chapter{Pøehled vztahù u¾ivatelù}\label{EVyhodnoceni}
 
-Tabulka \ref{ETabPrirazeni} prezentující vztah mezi u¾ivatelským JID a náhodnì pøiøazeným èíslem, které jej v této práci zastupuje. Klientské jednoznaèné identifikaèní názvy jsou zde zobrazeny bez èásti, která následuje za znakem zavináè, tedy bez názvu serveru. K tomuto kroku bylo pøistoupeno ke snaze zajistit aspoò minimální stupeò anonymity.
+Tabulkou \ref{ETabPrirazeni} je prezentován vztah mezi u¾ivatelským JID a náhodnì pøiøazeným èíslem, které jej v této práci zastupuje. Klientské jednoznaèné identifikaèní názvy jsou zde zobrazeny bez èásti, která následuje za znakem zavináè, tedy bez názvu serveru. K tomuto kroku bylo pøistoupeno ke snaze zajistit alespoò minimální stupeò anonymity.
 
 \begin{table}[ht]
 \begin{center}
@@ -307,7 +302,7 @@ miklik&21\\ \hline
 \end{center} 
 \end{table}
 
-Tabulka \ref{ETabProcent} nacházející se ní¾e plnì zobrazuje procentuální shodu mezi jednotlivými u¾ivateli. Èísla v prvním øádku a sloupci odpovídají pøiøazení prezentovanému v tabulce \ref{ETabPrirazeni}. Barevnì odli¹ené buòka tabulky vyzdvihují vìt¹í procentuální shodu ne¾ ostatní hodnoty. Pro barvu zelenou to je interval od 80\,\%--89\,\% a pro barvu èervenou 90\,\%--99\,\%.
+Tabulka \ref{ETabProcent}, která se nachází ní¾e, plnì zobrazuje procentuální shodu mezi jednotlivými u¾ivateli. Èísla v prvním øádku a sloupci odpovídají pøiøazení prezentovanému v tabulce \ref{ETabPrirazeni}. Barevnì odli¹ené buòky tabulky vyzdvihují vìt¹í procentuální shodu ne¾ jaká je u ostatních hodnot. Barvì zelené odpovídá interval od 80\,\%\,--\,89\,\% a pro barvu èervenou 90\,\%\,--\,99\,\%.
 \begin{center}
    \begin{landscape}
         \begin{table}[htb]
@@ -318,48 +313,48 @@ Tabulka \ref{ETabProcent} nacházející se ní¾e plnì zobrazuje procentuální shodu 
   {\tiny\tt
 \begin{tabular}{ >{\columncolor[gray]{.9}}l c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c} 
 \rowcolor[gray]{0.9}
-\textbf{-} &\textbf{1} 	& \textbf{2} & \textbf{3} & \textbf{4}& \textbf{5}& \textbf{6}& \textbf{7}& \textcolor{green}{8}& \textbf{9}& \textbf{10}& \textbf{11}& \textbf{12} & \textbf{13}& \textbf{14}&\textbf{15}&\textbf{16}&\textbf{17}&\textbf{18}&\textbf{19}&\textbf{20}&\textbf{21}&\textbf{22}  & \textbf{23} & \textbf{24}& \textbf{25}& \textbf{26}& \textbf{27}& \textbf{28}& \textbf{29}& \textbf{30}&\textbf{31} & \textbf{32} & \textbf{33} & \textbf{34}& \textbf{35}& \textbf{36}& \textbf{37}& \textbf{38}& \textbf{39}&\textbf{40}&\textbf{41}\\
-1&-&22&31&70&23&28&31&37&55&54&64&14&52&32&34&54&44&27&23&19&29&23&60&52&51&25&29&53&33&34&35&61&49&40&53&32&23&27&14&26&22\\
-2&22&-&63&24&\textcolor{red}{90}&\textcolor{green}{88}&\textcolor{green}{84}&55&52&39&34&\textcolor{red}{90}&29&14&56&32&44&\textcolor{green}{89}&\textcolor{green}{85}&50&33&22&31&36&43&36&29&34&53&61&60&33&29&25&49&\textcolor{green}{81}&\textcolor{green}{84}&48&\textcolor{red}{91}&77&\textcolor{red}{92}\\
-3&31&63&-&26&63&66&64&57&55&47&42&60&45&22&79&34&44&66&63&57&36&38&36&45&48&53&51&37&51&58&58&37&36&29&55&69&65&57&60&68&63\\
-4&70&24&26&-&23&29&30&36&53&48&58&14&42&26&28&58&41&26&21&18&30&19&45&42&42&21&23&51&33&36&36&55&42&36&47&29&23&23&15&25&21\\
-5&23&\textcolor{red}{90}&63&23&-&\textcolor{red}{90}&\textcolor{green}{85}&60&49&42&34&\textcolor{green}{88}&32&17&55&30&42&\textcolor{green}{86}&\textcolor{green}{86}&49&34&23&29&36&41&34&31&35&53&58&58&34&29&27&48&75&\textcolor{green}{82}&49&\textcolor{green}{88}&79&\textcolor{red}{91}\\
-6&28&\textcolor{green}{88}&66&29&\textcolor{red}{90}&-&\textcolor{green}{86}&60&56&44&38&\textcolor{green}{85}&34&17&58&36&42&\textcolor{green}{87}&\textcolor{green}{85}&49&32&24&34&37&42&34&31&34&51&57&56&38&34&31&51&77&\textcolor{green}{84}&49&\textcolor{green}{85}&\textcolor{green}{80}&\textcolor{green}{86}\\
-7&31&\textcolor{green}{84}&64&30&\textcolor{green}{85}&\textcolor{green}{86}&-&59&53&49&43&\textcolor{green}{81}&31&22&56&32&42&\textcolor{green}{86}&\textcolor{green}{83}&51&34&25&33&44&49&36&32&39&53&62&61&41&37&36&54&79&\textcolor{green}{82}&51&\textcolor{green}{81}&\textcolor{green}{80}&\textcolor{green}{83}\\
-8&37&55&57&36&60&60&59&-&60&53&48&51&41&21&60&39&51&58&59&50&43&24&41&42&51&34&33&42&60&66&66&50&42&31&55&60&55&56&51&58&54\\
-9&55&52&55&53&49&56&53&60&-&58&58&43&53&26&55&52&63&56&52&47&43&26&60&51&60&40&37&56&62&62&62&51&43&36&65&56&51&52&44&53&49\\
-10&54&39&47&48&42&44&49&53&58&-&60&33&49&31&48&55&56&44&42&39&44&29&58&61&62&42&45&61&44&46&47&59&54&47&66&50&45&45&34&48&41\\
-11&64&34&42&58&34&38&43&48&58&60&-&26&48&35&44&55&46&38&34&31&44&29&58&61&60&36&41&59&41&44&44&64&55&48&58&44&32&38&27&39&34\\
-12&14&\textcolor{red}{90}&60&14&\textcolor{green}{88}&\textcolor{green}{85}&\textcolor{green}{81}&51&43&33&26&-&24&9&51&25&36&\textcolor{green}{82}&\textcolor{green}{82}&49&29&21&24&29&34&32&27&26&47&54&53&27&24&23&42&73&\textcolor{green}{81}&46&\textcolor{red}{99}&75&\textcolor{green}{88}\\
-13&52&29&45&42&32&34&31&41&53&49&48&24&-&29&45&56&53&37&29&29&40&30&66&50&50&34&38&58&34&37&38&43&43&36&49&38&38&31&24&42&32\\
-14&32&14&22&26&17&17&22&21&26&31&35&9&29&-&24&25&22&17&14&16&23&19&26&42&32&19&25&27&15&16&16&24&25&26&25&20&16&16&10&21&15\\
-15&34&56&79&28&55&58&56&60&55&48&44&51&45&24&-&37&49&59&56&59&39&44&38&50&55&59&59&38&51&57&57&34&42&34&56&62&56&60&51&58&56\\
-16&54&32&34&58&30&36&32&39&52&55&55&25&56&25&37&-&49&34&30&27&36&25&58&47&48&32&33&58&33&38&38&53&48&38&56&41&34&29&25&38&32\\
-17&44&44&44&41&42&42&42&51&63&56&46&36&53&22&49&49&-&49&46&38&49&25&49&51&60&36&34&58&59&58&58&40&34&28&54&52&46&44&36&49&42\\
-18&27&\textcolor{green}{89}&66&26&\textcolor{green}{86}&\textcolor{green}{87}&\textcolor{green}{86}&58&56&44&38&\textcolor{green}{82}&37&17&59&34&49&-&\textcolor{green}{86}&51&36&23&36&43&49&36&31&38&55&64&64&36&31&29&52&\textcolor{green}{82}&\textcolor{green}{84}&49&\textcolor{green}{83}&\textcolor{green}{81}&\textcolor{green}{88}\\
-19&23&\textcolor{green}{85}&63&21&\textcolor{green}{86}&\textcolor{green}{85}&\textcolor{green}{83}&59&52&42&34&\textcolor{green}{82}&29&14&56&30&46&\textcolor{green}{86}&-&51&36&25&34&36&45&36&33&34&57&65&65&36&32&27&45&77&\textcolor{green}{83}&56&\textcolor{green}{82}&77&\textcolor{green}{86}\\
-20&19&50&57&18&49&49&51&50&47&39&31&49&29&16&59&27&38&51&51&-&34&35&27&40&44&52&42&27&49&51&51&30&36&36&44&52&51&51&49&51&52\\
-21&29&33&36&30&34&32&34&43&43&44&44&29&40&23&39&36&49&36&36&34&-&26&37&45&51&36&36&42&47&43&43&36&31&31&33&37&36&36&29&35&36\\
-22&23&22&38&19&23&24&25&24&26&29&29&21&30&19&44&25&25&23&25&35&26&-&26&30&31&70&57&25&23&23&23&25&44&36&27&26&24&35&21&26&25\\
-23&60&31&36&45&29&34&33&41&60&58&58&24&66&26&38&58&49&36&34&27&37&26&-&56&55&31&36&56&34&38&40&59&52&42&56&40&37&35&25&40&32\\
-24&52&36&45&42&36&37&44&42&51&61&61&29&50&42&50&47&51&43&36&40&45&30&56&-&69&45&44&49&43&47&48&51&47&47&55&47&34&37&30&44&36\\
-25&51&43&48&42&41&42&49&51&60&62&60&34&50&32&55&48&60&49&45&44&51&31&55&69&-&48&44&51&53&58&59&55&48&46&55&53&42&48&34&44&44\\
-26&25&36&53&21&34&34&36&34&40&42&36&32&34&19&59&32&36&36&36&52&36&70&31&45&48&-&66&31&37&38&38&34&50&40&39&39&35&45&33&36&38\\
-27&29&29&51&23&31&31&32&33&37&45&41&27&38&25&59&33&34&31&33&42&36&57&36&44&44&66&-&38&31&31&31&36&51&42&38&36&34&42&27&33&31\\
-28&53&34&37&51&35&34&39&42&56&61&59&26&58&27&38&58&58&38&34&27&42&25&56&49&51&31&38&-&43&40&40&54&49&43&59&40&43&35&27&42&33\\
-29&33&53&51&33&53&51&53&60&62&44&41&47&34&15&51&33&59&55&57&49&47&23&34&43&53&37&31&43&-&\textcolor{green}{80}&79&43&31&25&49&55&48&55&47&49&50\\
-30&34&61&58&36&58&57&62&66&62&46&44&54&37&16&57&38&58&64&65&51&43&23&38&47&58&38&31&40&\textcolor{green}{80}&-&\textcolor{red}{98}&45&36&29&52&65&56&54&55&58&59\\
-31&35&60&58&36&58&56&61&66&62&47&44&53&38&16&57&38&58&64&65&51&43&23&40&48&59&38&31&40&79&\textcolor{red}{98}&-&45&36&30&52&65&55&54&54&58&58\\
-32&61&33&37&55&34&38&41&50&51&59&64&27&43&24&34&53&40&36&36&30&36&25&59&51&55&34&36&54&43&45&45&-&65&51&63&41&32&37&27&35&33\\
-33&49&29&36&42&29&34&37&42&43&54&55&24&43&25&42&48&34&31&32&36&31&44&52&47&48&50&51&49&31&36&36&65&-&56&53&36&29&40&25&31&31\\
-34&40&25&29&36&27&31&36&31&36&47&48&23&36&26&34&38&28&29&27&36&31&36&42&47&46&40&42&43&25&29&30&51&56&-&49&29&27&33&23&29&29\\
-35&53&49&55&47&48&51&54&55&65&66&58&42&49&25&56&56&54&52&45&44&33&27&56&55&55&39&38&59&49&52&52&63&53&49&-&58&49&51&43&58&47\\
-36&32&\textcolor{green}{81}&69&29&75&77&79&60&56&50&44&73&38&20&62&41&52&\textcolor{green}{82}&77&52&37&26&40&47&53&39&36&40&55&65&65&41&36&29&58&-&77&51&73&\textcolor{green}{81}&78\\
-37&23&\textcolor{green}{84}&65&23&\textcolor{green}{82}&\textcolor{green}{84}&\textcolor{green}{82}&55&51&45&32&\textcolor{green}{81}&38&16&56&34&46&\textcolor{green}{84}&\textcolor{green}{83}&51&36&24&37&34&42&35&34&43&48&56&55&32&29&27&49&77&-&47&\textcolor{green}{81}&\textcolor{green}{82}&\textcolor{green}{84}\\
-38&27&48&57&23&49&49&51&56&52&45&38&46&31&16&60&29&44&49&56&51&36&35&35&37&48&45&42&35&55&54&54&37&40&33&51&51&47&-&46&49&49\\
-39&14&\textcolor{red}{91}&60&15&\textcolor{green}{88}&\textcolor{green}{85}&\textcolor{green}{81}&51&44&34&27&\textcolor{red}{99}&24&10&51&25&36&\textcolor{green}{83}&\textcolor{green}{82}&49&29&21&25&30&34&33&27&27&47&55&54&27&25&23&43&73&\textcolor{green}{81}&46&-&75&\textcolor{green}{89}\\
-40&26&77&68&25&79&\textcolor{green}{80}&\textcolor{green}{80}&58&53&48&39&75&42&21&58&38&49&\textcolor{green}{81}&77&51&35&26&40&44&44&36&33&42&49&58&58&35&31&29&58&\textcolor{green}{81}&\textcolor{green}{82}&49&75&-&79\\
-41&22&\textcolor{red}{92}&63&21&\textcolor{red}{91}&\textcolor{green}{86}&\textcolor{green}{83}&54&49&41&34&\textcolor{green}{88}&32&15&56&32&42&\textcolor{green}{88}&\textcolor{green}{86}&52&36&25&32&36&44&38&31&33&50&59&58&33&31&29&47&78&\textcolor{green}{84}&49&\textcolor{green}{89}&79&-\\ \hline
+\textbf{-} &\textbf{1} 	& \textbf{2} & \textbf{3} & \textbf{4}& \textbf{5}& \textbf{6}& \textbf{7}& \textbf{8}& \textbf{9}& \textbf{10}& \textbf{11}& \textbf{12} & \textbf{13}& \textbf{14}&\textbf{15}&\textbf{16}&\textbf{17}&\textbf{18}&\textbf{19}&\textbf{20}&\textbf{21}&\textbf{22}  & \textbf{23} & \textbf{24}& \textbf{25}& \textbf{26}& \textbf{27}& \textbf{28}& \textbf{29}& \textbf{30}&\textbf{31} & \textbf{32} & \textbf{33} & \textbf{34}& \textbf{35}& \textbf{36}& \textbf{37}& \textbf{38}& \textbf{39}&\textbf{40}&\textbf{41}\\
+\textbf{1}&-&22&31&70&23&28&31&37&55&54&64&14&52&32&34&54&44&27&23&19&29&23&60&52&51&25&29&53&33&34&35&61&49&40&53&32&23&27&14&26&22\\
+\textbf{2}&22&-&63&24&\textcolor{red}{90}&\textcolor{green}{88}&\textcolor{green}{84}&55&52&39&34&\textcolor{red}{90}&29&14&56&32&44&\textcolor{green}{89}&\textcolor{green}{85}&50&33&22&31&36&43&36&29&34&53&61&60&33&29&25&49&\textcolor{green}{81}&\textcolor{green}{84}&48&\textcolor{red}{91}&77&\textcolor{red}{92}\\
+\textbf{3}&31&63&-&26&63&66&64&57&55&47&42&60&45&22&79&34&44&66&63&57&36&38&36&45&48&53&51&37&51&58&58&37&36&29&55&69&65&57&60&68&63\\
+\textbf{4}&70&24&26&-&23&29&30&36&53&48&58&14&42&26&28&58&41&26&21&18&30&19&45&42&42&21&23&51&33&36&36&55&42&36&47&29&23&23&15&25&21\\
+\textbf{5}&23&\textcolor{red}{90}&63&23&-&\textcolor{red}{90}&\textcolor{green}{85}&60&49&42&34&\textcolor{green}{88}&32&17&55&30&42&\textcolor{green}{86}&\textcolor{green}{86}&49&34&23&29&36&41&34&31&35&53&58&58&34&29&27&48&75&\textcolor{green}{82}&49&\textcolor{green}{88}&79&\textcolor{red}{91}\\
+\textbf{6}&28&\textcolor{green}{88}&66&29&\textcolor{red}{90}&-&\textcolor{green}{86}&60&56&44&38&\textcolor{green}{85}&34&17&58&36&42&\textcolor{green}{87}&\textcolor{green}{85}&49&32&24&34&37&42&34&31&34&51&57&56&38&34&31&51&77&\textcolor{green}{84}&49&\textcolor{green}{85}&\textcolor{green}{80}&\textcolor{green}{86}\\
+\textbf{7}&31&\textcolor{green}{84}&64&30&\textcolor{green}{85}&\textcolor{green}{86}&-&59&53&49&43&\textcolor{green}{81}&31&22&56&32&42&\textcolor{green}{86}&\textcolor{green}{83}&51&34&25&33&44&49&36&32&39&53&62&61&41&37&36&54&79&\textcolor{green}{82}&51&\textcolor{green}{81}&\textcolor{green}{80}&\textcolor{green}{83}\\
+\textbf{8}&37&55&57&36&60&60&59&-&60&53&48&51&41&21&60&39&51&58&59&50&43&24&41&42&51&34&33&42&60&66&66&50&42&31&55&60&55&56&51&58&54\\
+\textbf{9}&55&52&55&53&49&56&53&60&-&58&58&43&53&26&55&52&63&56&52&47&43&26&60&51&60&40&37&56&62&62&62&51&43&36&65&56&51&52&44&53&49\\
+\textbf{10}&54&39&47&48&42&44&49&53&58&-&60&33&49&31&48&55&56&44&42&39&44&29&58&61&62&42&45&61&44&46&47&59&54&47&66&50&45&45&34&48&41\\
+\textbf{11}&64&34&42&58&34&38&43&48&58&60&-&26&48&35&44&55&46&38&34&31&44&29&58&61&60&36&41&59&41&44&44&64&55&48&58&44&32&38&27&39&34\\
+\textbf{12}&14&\textcolor{red}{90}&60&14&\textcolor{green}{88}&\textcolor{green}{85}&\textcolor{green}{81}&51&43&33&26&-&24&9&51&25&36&\textcolor{green}{82}&\textcolor{green}{82}&49&29&21&24&29&34&32&27&26&47&54&53&27&24&23&42&73&\textcolor{green}{81}&46&\textcolor{red}{99}&75&\textcolor{green}{88}\\
+\textbf{13}&52&29&45&42&32&34&31&41&53&49&48&24&-&29&45&56&53&37&29&29&40&30&66&50&50&34&38&58&34&37&38&43&43&36&49&38&38&31&24&42&32\\
+\textbf{14}&32&14&22&26&17&17&22&21&26&31&35&9&29&-&24&25&22&17&14&16&23&19&26&42&32&19&25&27&15&16&16&24&25&26&25&20&16&16&10&21&15\\
+\textbf{15}&34&56&79&28&55&58&56&60&55&48&44&51&45&24&-&37&49&59&56&59&39&44&38&50&55&59&59&38&51&57&57&34&42&34&56&62&56&60&51&58&56\\
+\textbf{16}&54&32&34&58&30&36&32&39&52&55&55&25&56&25&37&-&49&34&30&27&36&25&58&47&48&32&33&58&33&38&38&53&48&38&56&41&34&29&25&38&32\\
+\textbf{17}&44&44&44&41&42&42&42&51&63&56&46&36&53&22&49&49&-&49&46&38&49&25&49&51&60&36&34&58&59&58&58&40&34&28&54&52&46&44&36&49&42\\
+\textbf{18}&27&\textcolor{green}{89}&66&26&\textcolor{green}{86}&\textcolor{green}{87}&\textcolor{green}{86}&58&56&44&38&\textcolor{green}{82}&37&17&59&34&49&-&\textcolor{green}{86}&51&36&23&36&43&49&36&31&38&55&64&64&36&31&29&52&\textcolor{green}{82}&\textcolor{green}{84}&49&\textcolor{green}{83}&\textcolor{green}{81}&\textcolor{green}{88}\\
+\textbf{19}&23&\textcolor{green}{85}&63&21&\textcolor{green}{86}&\textcolor{green}{85}&\textcolor{green}{83}&59&52&42&34&\textcolor{green}{82}&29&14&56&30&46&\textcolor{green}{86}&-&51&36&25&34&36&45&36&33&34&57&65&65&36&32&27&45&77&\textcolor{green}{83}&56&\textcolor{green}{82}&77&\textcolor{green}{86}\\
+\textbf{20}&19&50&57&18&49&49&51&50&47&39&31&49&29&16&59&27&38&51&51&-&34&35&27&40&44&52&42&27&49&51&51&30&36&36&44&52&51&51&49&51&52\\
+\textbf{21}&29&33&36&30&34&32&34&43&43&44&44&29&40&23&39&36&49&36&36&34&-&26&37&45&51&36&36&42&47&43&43&36&31&31&33&37&36&36&29&35&36\\
+\textbf{22}&23&22&38&19&23&24&25&24&26&29&29&21&30&19&44&25&25&23&25&35&26&-&26&30&31&70&57&25&23&23&23&25&44&36&27&26&24&35&21&26&25\\
+\textbf{23}&60&31&36&45&29&34&33&41&60&58&58&24&66&26&38&58&49&36&34&27&37&26&-&56&55&31&36&56&34&38&40&59&52&42&56&40&37&35&25&40&32\\
+\textbf{24}&52&36&45&42&36&37&44&42&51&61&61&29&50&42&50&47&51&43&36&40&45&30&56&-&69&45&44&49&43&47&48&51&47&47&55&47&34&37&30&44&36\\
+\textbf{25}&51&43&48&42&41&42&49&51&60&62&60&34&50&32&55&48&60&49&45&44&51&31&55&69&-&48&44&51&53&58&59&55&48&46&55&53&42&48&34&44&44\\
+\textbf{26}&25&36&53&21&34&34&36&34&40&42&36&32&34&19&59&32&36&36&36&52&36&70&31&45&48&-&66&31&37&38&38&34&50&40&39&39&35&45&33&36&38\\
+\textbf{27}&29&29&51&23&31&31&32&33&37&45&41&27&38&25&59&33&34&31&33&42&36&57&36&44&44&66&-&38&31&31&31&36&51&42&38&36&34&42&27&33&31\\
+\textbf{28}&53&34&37&51&35&34&39&42&56&61&59&26&58&27&38&58&58&38&34&27&42&25&56&49&51&31&38&-&43&40&40&54&49&43&59&40&43&35&27&42&33\\
+\textbf{29}&33&53&51&33&53&51&53&60&62&44&41&47&34&15&51&33&59&55&57&49&47&23&34&43&53&37&31&43&-&\textcolor{green}{80}&79&43&31&25&49&55&48&55&47&49&50\\
+\textbf{30}&34&61&58&36&58&57&62&66&62&46&44&54&37&16&57&38&58&64&65&51&43&23&38&47&58&38&31&40&\textcolor{green}{80}&-&\textcolor{red}{98}&45&36&29&52&65&56&54&55&58&59\\
+\textbf{31}&35&60&58&36&58&56&61&66&62&47&44&53&38&16&57&38&58&64&65&51&43&23&40&48&59&38&31&40&79&\textcolor{red}{98}&-&45&36&30&52&65&55&54&54&58&58\\
+\textbf{32}&61&33&37&55&34&38&41&50&51&59&64&27&43&24&34&53&40&36&36&30&36&25&59&51&55&34&36&54&43&45&45&-&65&51&63&41&32&37&27&35&33\\
+\textbf{33}&49&29&36&42&29&34&37&42&43&54&55&24&43&25&42&48&34&31&32&36&31&44&52&47&48&50&51&49&31&36&36&65&-&56&53&36&29&40&25&31&31\\
+\textbf{34}&40&25&29&36&27&31&36&31&36&47&48&23&36&26&34&38&28&29&27&36&31&36&42&47&46&40&42&43&25&29&30&51&56&-&49&29&27&33&23&29&29\\
+\textbf{35}&53&49&55&47&48&51&54&55&65&66&58&42&49&25&56&56&54&52&45&44&33&27&56&55&55&39&38&59&49&52&52&63&53&49&-&58&49&51&43&58&47\\
+\textbf{36}&32&\textcolor{green}{81}&69&29&75&77&79&60&56&50&44&73&38&20&62&41&52&\textcolor{green}{82}&77&52&37&26&40&47&53&39&36&40&55&65&65&41&36&29&58&-&77&51&73&\textcolor{green}{81}&78\\
+\textbf{37}&23&\textcolor{green}{84}&65&23&\textcolor{green}{82}&\textcolor{green}{84}&\textcolor{green}{82}&55&51&45&32&\textcolor{green}{81}&38&16&56&34&46&\textcolor{green}{84}&\textcolor{green}{83}&51&36&24&37&34&42&35&34&43&48&56&55&32&29&27&49&77&-&47&\textcolor{green}{81}&\textcolor{green}{82}&\textcolor{green}{84}\\
+\textbf{38}&27&48&57&23&49&49&51&56&52&45&38&46&31&16&60&29&44&49&56&51&36&35&35&37&48&45&42&35&55&54&54&37&40&33&51&51&47&-&46&49&49\\
+\textbf{39}&14&\textcolor{red}{91}&60&15&\textcolor{green}{88}&\textcolor{green}{85}&\textcolor{green}{81}&51&44&34&27&\textcolor{red}{99}&24&10&51&25&36&\textcolor{green}{83}&\textcolor{green}{82}&49&29&21&25&30&34&33&27&27&47&55&54&27&25&23&43&73&\textcolor{green}{81}&46&-&75&\textcolor{green}{89}\\
+\textbf{40}&26&77&68&25&79&\textcolor{green}{80}&\textcolor{green}{80}&58&53&48&39&75&42&21&58&38&49&\textcolor{green}{81}&77&51&35&26&40&44&44&36&33&42&49&58&58&35&31&29&58&\textcolor{green}{81}&\textcolor{green}{82}&49&75&-&79\\
+\textbf{41}&22&\textcolor{red}{92}&63&21&\textcolor{red}{91}&\textcolor{green}{86}&\textcolor{green}{83}&54&49&41&34&\textcolor{green}{88}&32&15&56&32&42&\textcolor{green}{88}&\textcolor{green}{86}&52&36&25&32&36&44&38&31&33&50&59&58&33&31&29&47&78&\textcolor{green}{84}&49&\textcolor{green}{89}&79&-\\ \hline
 \end{tabular}} }
 \caption{Procentuální shoda jednotlivých u¾ivatelù.}
 \label{ETabProcent}

@@ -5,22 +5,22 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Rozebran\'a struktura Jabber ID.}}{9}{figure.2.2}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Proces dob\'yv\'an\IeC {\'\i } znalost\IeC {\'\i } z datab\'az\IeC {\'\i } podle knihy autora Fayyad \cite {Fayyad}.}}{17}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Srovn\'an\IeC {\'\i } v\'ypo\v ctu vzd\'alenost\IeC {\'\i } od bodu $x_{1}$ \cite {Berka}.}}{23}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Algoritmus \textit {k}-means zobrazen\'y pomoc\IeC {\'\i } kone\v cn\'eho automatu.}}{25}{figure.3.3}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Srovn\'an\IeC {\'\i } v\'ypo\v ctu vzd\'alenost\IeC {\'\i } od bodu $x_{1}$ \cite {Berka}.}}{22}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Algoritmus \textit {k}-means zobrazen\'y pomoc\IeC {\'\i } kone\v cn\'eho automatu.}}{24}{figure.3.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Struktura architektury bakal\'a\v rsk\'e pr\'ace.}}{29}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Vybran\'a \v c\'ast struktury datab\'aze.}}{30}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Vybran\'a \v c\'ast struktury robota.}}{32}{figure.4.3}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Struktura architektury bakal\'a\v rsk\'e pr\'ace.}}{28}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Vybran\'a \v c\'ast struktury datab\'aze.}}{29}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Vybran\'a \v c\'ast struktury robota.}}{31}{figure.4.3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Struktura procesu v n\'astroji RapidMiner.}}{37}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces V\'ysledn\'e shluky p\v revedeny do 3D prostoru.}}{37}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Struktura procesu v n\'astroji RapidMiner.}}{38}{figure.5.3}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Struktura procesu v n\'astroji RapidMiner.}}{35}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces V\'ysledn\'e shluky p\v revedeny do 3D prostoru.}}{35}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Pr\r ub\v eh status\r u shluk\r u podle \v casu.}}{36}{figure.5.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Uk\'azka \quotedblbase \v s\IeC {\'\i }\v ren\IeC {\'\i }\textquotedblleft \textit {User Tune}.}}{48}{figure.C.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {D.1}{\ignorespaces Struktura datab\'aze}}{51}{figure.D.1}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Uk\'azka \quotedblbase \v s\IeC {\'\i }\v ren\IeC {\'\i }\textquotedblleft \textit {User Tune}.}}{45}{figure.C.1}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {D.1}{\ignorespaces Struktura datab\'aze}}{48}{figure.D.1}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
