@@ -347,16 +347,16 @@ Práce je chránìna autorským zákonem a její u¾ití bez udìlení oprávnìní autorem j
 
 \mktxt{11}{BRNO \@year}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%MEEEEEEEEEEE
-\newpage
-\vspace{50mm}
-\hspace{10mm}
-\mktxt{50}{SEM VLOZTE }
-\vspace{50mm}
-\hspace{30mm}
-\mktxt{50}{ZADANI }
-\vspace{80mm}
-\hspace{30mm}
-\mktxt{60}{PRACE }
+% \newpage
+% \vspace{50mm}
+% \hspace{10mm}
+% \mktxt{50}{SEM VLOZTE }
+% \vspace{50mm}
+% \hspace{30mm}
+% \mktxt{50}{ZADANI }
+% \vspace{80mm}
+% \hspace{30mm}
+% \mktxt{60}{PRACE }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage\fontfamily{\familydefault}\selectfont%
 %=================================================================================
