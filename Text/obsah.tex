@@ -1,22 +1,22 @@
 % zkontoroovat u vsech xepu datum vyroby:D
 %=========================================================================
 
-\linenumbers
+
 
 \chapter{Úvod}
 
-V~souèasné dobì jsou øazeny k~nejroz¹íøenìj¹ím psaným dorozumívacím prostøedkùm real-time komunikaèní sítì. Samozøejmì je tento jev k~vidìní a¾ koncem minulého desetiletí. Psaná komunikace je ji¾ nìkolik století vyu¾ívána jako prostøedek k~dorozumívání lidí mezi sebou. Za toto období pro¹la výrazným pokrokovým vývojem, proto lze u~ní nalézt mnoho èasových mezníkù, které ji výraznì ovlivnily. Jako pøíklad jednoho z~prvních komunikaèních kanálù lze uvést posly, kteøí èasto nesly zprávy na vzdálenosti nìkolika kilometrù. 
+V~souèasné dobì jsou øazeny k~nejroz¹íøenìj¹ím psaným dorozumívacím prostøedkùm komunikaèní sítì pracující v~reálném èase. Samozøejmì je tento jev k~vidìní a¾ koncem minulého desetiletí. Psaná komunikace je ji¾ nìkolik století vyu¾ívána jako prostøedek k~dorozumívání lidí mezi sebou. Za toto období pro¹la výrazným pokrokovým vývojem, proto lze u~ní nalézt mnoho èasových mezníkù, které ji výraznì ovlivnily. Jako pøíklad jednoho z~prvních komunikaèních kanálù lze uvést posly, kteøí èasto nesly zprávy na vzdálenosti nìkolika kilometrù. 
 %Pro pøenos zpráv se také obvykle vyu¾ívalo ptactvo, pøedev¹ím holubi. 
 Dal¹ím výrazným prvkem ve vývoji dorozumívacích prostøedkù bylo zavedení po¹ty a~objevení telegrafu.
 
-Pøíchodem internetu nastal v~komunikaci zásadní zlom. Postupným roz¹íøením pokrytí a~dostupnosti této technologie zaèalo vznikat mnoho nových komunikaèních prostøedkù. Pøíkladem mohou být elektronické zprávy, RSS zprávy nebo real-time komunikaèní sítì. Právì poslední zmínìná metoda za¾ívala v~moderní dobì velký rùst v~oblasti popularity, a» u¾ v~podobì ICQ protokolu nebo dnes velmi roz¹íøené sociální síti Facebook. Jedna z~hlavních výhod tìchto slu¾eb, napøíklad v~porovnání s~klasickou po¹tou, je jejich rychlost doruèení. Naproti bì¾né elektronické po¹tì jsou u¾ivatele informováni o~stavu pøíjemce zprávy. Real-time komunikaèní prostøedky nabízejí slu¾by, kterými je mo¾né zjistit, zda se pøíjemce zprávy nachází u~dorozumívacího zaøízení. Díky této schopnosti je u¾ivateli umo¾nìno zasílat zprávy a~obratem na nì oèekávat odpovìdi.
+Pøíchodem internetu nastal v~komunikaci zásadní zlom. Postupným roz¹íøením pokrytí a~dostupnosti této technologie zaèalo vznikat mnoho nových komunikaèních prostøedkù. Pøíkladem mohou být elektronické zprávy, RSS zprávy nebo komunikaèní sítì, které pracují v~reálném èase. Právì poslední zmínìná metoda za¾ívala v~moderní dobì velký rùst v~oblasti popularity, a» u¾ v~podobì ICQ protokolu nebo dnes velmi roz¹íøené sociální síti Facebook. Jedna z~hlavních výhod tìchto slu¾eb, napøíklad v~porovnání s~klasickou po¹tou, je jejich rychlost doruèení. Naproti bì¾né elektronické po¹tì jsou u¾ivatele informováni o~stavu pøíjemce zprávy. Real-time komunikaèní prostøedky nabízejí slu¾by, kterými je mo¾né zjistit, zda se pøíjemce zprávy nachází u~dorozumívacího zaøízení. Díky této schopnosti je u¾ivateli umo¾nìno zasílat zprávy a~obratem na nì oèekávat odpovìdi.
 
 S~pøibývajícími elektronickými daty, na poli a» u¾ vìdních nebo praktických oborù, pøichází potøeba tyto informace uchovávat. K~tìmto úèelùm slou¾í databáze, které se svou strukturou zamìøují pøedev¹ím na snadnou kontrolu dat, vyhledávání a~jejich analyzování. S~rostoucím obsahem se ale ulo¾ené informace stávají pouze daty bez významu. Proto vnikla nová disciplína nazvaná \textit{data mining}, která si klade za cíl znovunalezení \uv{ztracených} informací (na první pohled neviditelných) nebo nalezení informací úplnì nových.
 
-Pøedmìtem této bakaláøské práce je seznámení se s~problematikou komunikace probíhající pøes Jabber sí». Konkrétním cílem je vytvoøení jednoduchého Jabber klienta, který by byl schopen získávat statistická data. Nashromá¾dìná data jsou dále vyu¾ita pro pozdìj¹í analýzu a~grafickou reprezentaci informací z~nich získaných. Hlavním cílem této práce je získat neznámé informace z~real-time komunikaèní sítì Jabber. 
+Pøedmìtem této bakaláøské práce je seznámení se s~problematikou komunikace probíhající pøes Jabber sí». Konkrétním cílem je vytvoøení jednoduchého Jabber klienta, který by byl schopen získávat statistická data. Nashromá¾dìná data jsou dále vyu¾ita pro pozdìj¹í analýzu a~grafickou reprezentaci informací z~nich získaných. Hlavním cílem této práce je získat neznámé informace z~komunikaèní sítì Jabber. 
 
 Technická zpráva je tvoøena z~¹esti kapitol.
-Kapitola \textbf{druhá} je tvoøena popisem protokolu XMPP, na kterém je postavena real-time komunikaèní slu¾ba Jabber. Je zde popsána architektura sítì a~základní stavební kameny XMPP protokolu, které jsou vyu¾ívány sítí Jabber jako nástroj k~zprostøedkování jednotlivých slu¾eb. V~závìru tohoto oddílu je vìnována èást vybraným standardùm, které roz¹iøují základní XMPP protokoly. Jsou zde uvedena pouze ta roz¹íøení, která byla po konzultaci s~vedoucím práce, oznaèena za relevantní k~této práci.
+Kapitola \textbf{druhá} je tvoøena popisem protokolu XMPP, na kterém je postavena komunikaèní slu¾ba Jabber pracující v~reálném èase. Je zde popsána architektura sítì a~základní stavební kameny XMPP protokolu, které jsou vyu¾ívány sítí Jabber jako nástroj k~zprostøedkování jednotlivých slu¾eb. V~závìru tohoto oddílu je vìnována èást vybraným standardùm, které roz¹iøují základní XMPP protokoly. Jsou zde uvedena pouze ta roz¹íøení, která byla po konzultaci s~vedoucím práce, oznaèena za relevantní k~této práci.
 
 Obsah \textbf{tøetí} kapitoly je zamìøen na popis procesu data mining. Zabývá se zaèlenìním této metody do komplexnìj¹ího procesu, který je nazýván získávání znalostí z~databází. Dal¹í souèást této kapitoly se zabývá nezbytnými kroky transformace dat, která jsou získána z~Jabber komunikace. Pøi tomto procesu jsou data pøevedena do vhodné podoby pro proces dolovaní z~dat. Následuje èást, kterou jsou popsány vybrané metody dolování dat a~také je zde podrobnì rozebrán algoritmus \textit{k}-means. Tento algoritmus je vyu¾it pro samotné dolování z~dat, které je zprostøedkováno aplikací RapidMiner. Popis tohoto programu a~dal¹ích vybraných nástrojù uzavírá tøetí kapitolu.
 
@@ -43,7 +43,7 @@ Dobøe navr¾ená internetová technologie je tvoøena správnì fungujícími komponenty
 Obrázek \ref{pic4} znázoròující distribuovanou architekturu Jabberu byl pøevzat z~\cite{Adams} a~doplnìn o~názvy jednotlivých komponent. Komunikace dvou Jabber klientù probíhá za úèasti jejich serverù a~sítì, která je spojuje. Spojení mezi nimi bývá èasto ¹ifrováno.
 \begin{figure}[ht]
 \begin{center}
-\input{struktura}
+\input{./pic/struktura}
 \caption{Distribuovaná architektura Jabber.}
  \label{pic4}
 \end{center}
@@ -58,7 +58,7 @@ Jabber ID (JID) je jednoznaèný virtuální identifikátor u¾ivatele na síti. V~pøíp
 Dal¹í vymo¾enost JabberID oproti e-mailové adrese je jeho mo¾nost pou¾ívat prakticky libovolné národní znaky u~doménových jmen a~u¾ivatelských úètù \cite{Saint}. 
 \begin{figure}[ht]
 \begin{center}
-\input{jabinfo}
+\input{./pic/jabinfo}
 \caption{Rozebraná struktura Jabber ID.}
  \label{picJabinfo}
 \end{center}
@@ -82,17 +82,17 @@ Server Jabber je systém spravující tok dat mezi jednotlivými komponentami, které
 V~tabulce \ref{tab4} jsou shrnuty informace o~serverech Jabberu. První sloupec tvoøí jméno, následuje programovací jazyk, v~nìm¾ je napsán. Vìt¹ina aplikací pro servery je vydávána pod licencí GPL\footnote{General Public License --- v¹eobecná veøejná licence GNU}. U~v¹ech aplikací byla zkoumána nejaktuálnìj¹í verze. Její èíslo lze naleznout ve tøetím sloupci. V¹echny servery lze provozovat na operaèním systému Linux a~Windows. Na platformì Mac OS mohou být pou¾ity v¹echny zde jmenované vyjma jabberd2. Pìt z~¹esti zde pøedstavených programù pro server Jabber jsou stále vyvíjeny, tedy kromì jabberd14. Hlavním úèelem tabulky je prezentovat dùle¾ité vlastnosti serverù v~oblasti podpory roz¹íøených statusù. Jedná se o~standardy \textit{pubsub}\footnote{Publish-Subscribe} (XEP-0060) \cite{Xep0060} a~o~jeho verzi, která je více zamìøena na u¾ivatele \textit{pep}\footnote{Personal Eventing Protocol} (XEP-0163) \cite{Xep0163}. Obì tato roz¹íøení tvoøí nezbytnou základnu pro \textit{roz¹íøené statusy} a~proto je jejich podpora jak u~serverù, tak klientù vy¾adována. Podrobnìji toto téma bude rozebráno v~nìkteré následující podkapitole.
 
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 \begin{tabular}{ l  c  c  c  c } 
 \rowcolor[gray]{0.9}
-\textbf{Server} & \textbf{Jazyk}  & \textbf{Verze} & \textbf{XEP-0060} 			& \textbf{XEP-0163}\\
-ejabberd	& Erlang/ Top     & 2.1.6          & ANO					& ANO\\
-Openfire	& java            & 3.6.4          & ANO					& ANO\\
-jabbred2    	& c               & 2.2.11         & NE						& NE\\
-jabbred14	& c, c++          & 1.6.1.1        & ANO					& NE\\
-Prosody	    	& lua             & 0.7.0          & NE 					& ANO\\
-Tigase		& java            & 5.0.0          & ANO					& ANO\\ \hline
+\textbf{Server}	& \textbf{Jazyk}  & \textbf{Verze} & \textbf{XEP-0060}	& \textbf{XEP-0163}\\
+ejabberd				& Erlang/ Top     & 2.1.6          & ANO						& ANO\\
+Openfire				& java            & 3.6.4          & ANO						& ANO\\
+jabbred2				& c               & 2.2.11         & NE						& NE\\
+jabbred14			& c, c++          & 1.6.1.1        & ANO						& NE\\
+Prosody	   		& lua             & 0.7.0          & NE 						& ANO\\
+Tigase				& java            & 5.0.0          & ANO						& ANO\\ \hline
 \end{tabular}
 \caption{Pøehled Jabber serverù.}
 \label{tab4}
@@ -106,7 +106,7 @@ Jazyk XML (eXtensible Markup Language) \cite{Xml5th}, metajazyk pro deklaraci st
 
 Ukázka mo¾né struktury dokumentu psaného jazykem XML je zobrazena na pøíkladu \ref{picXML}. Standardnì je pøedpokládáno, ¾e je psán v~kódování UTF-8 \cite{Kosek}, ale je-li jako v~tomto pøípadì pou¾ito jiné, musí být konkrétní kódování uvedeno na jeho poèátku. V~opaèném pøípadì nemusí být obsah správnì zobrazen. Na zaèátku dokumentu se také uvádí verze XML, ve které je dokument psán (1. øádek pøíkladu). Následuje koøenový element, který je uzavøen na samotném konci dokumentu. 4. øádek prezentuje mo¾nost pou¾ití prázdného elementu, který obsahuje jeden atribut s~názvem zkratky fakulty. Velký význam zde mají úhlové závorky. Jsou jimi z~obou stran obaleny v¹echny elementy. 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \lstset{language=XML ,caption={Ukázka základního XML dokumentu.},label=picXML}
 \begin{lstlisting}
             <?xml version="1.0" encoding="iso-8859-2"?>
@@ -131,7 +131,7 @@ Je to základní metoda pro rychlý pøenos informací z~místa na místo. Zprávy jsou 
  
 Základní pou¾ití struktury elementu \textit{message} je prezentováno na pøíkladu \ref{picMessage}. Na prvním øádku je uveden atribut, znaèící odesílatele. Druhý øádek obsahuje JID klienta, který zprávy pøijímá. Následuje informace o~typu zprávy a~poté je uveden element \textit{body} nesoucí samotný obsah.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \lstset{language=Xml ,caption={Pou¾ití elementu \textit{message}.},label=picMessage}
 \begin{lstlisting}
                   <message from="user@jabbim.com"
@@ -147,7 +147,7 @@ Dal¹í èástí stanzy je poskytována struktura  pro \textit{request-response} (¾ádo
 
 Pøíklad \ref{picIq} znázoròuje základní pou¾ití elementu \textit{iq}. U¾ivatel \textit{user} posílá dotaz na získání seznamu kontaktu (øádek 5.).
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \lstset{language=Xml ,caption={Pou¾ití elementu \textit{iq}.},label=picIq}
 \begin{lstlisting}
                   <iq from="user@jabbim.com/doma"
@@ -168,7 +168,7 @@ Poslední a~pro tuto práci nejdùle¾itìj¹í prvek stanzy je \textit{presence}. V~pø
 Existuje nìkolik základních stavù statusù, které reprezentují aktuální dosa¾itelnost u¾ivatele. Tento jev je vyjádøen pomocí elementu \textit{show}, který disponuje ètyømi mo¾nostmi. První oznamuje, ¾e je u¾ivatel k~dispozici a~schopen aktivní komunikace. Druhá èasto se vyskytující mo¾nost naznaèuje, ¾e je subjekt krátkou dobu pryè od svého IM klienta. Tento a~dal¹í dva stavy, popsané dále, jsou èasto zmìnìny bez lidského zásahu (pomocí PC nebo jiného zaøízení) prostøednictvím funkce známé jako \uv{auto-away}. Poslední dva stavy charakterizují del¹í èasové období neèinnosti. Tato oznámení o~zmìnì stavu u¾ivatele jsou èasto zasílána pouze kontaktùm, které se nacházejí v~re¾imu online. Tato optimalizace pøispívá ke sní¾ení sí»ového provozu, jeliko¾ presence v~reálném èase pøi komunikaci vyu¾ívá velké mno¾ství ¹íøky pásma.
 
 Základní pou¾ití \textit{presence} je zobrazeno v~pøíkladu \ref{picPresence}. Kontakt \textit{jabinfo@jabbim.com/bot} (1. øádek) posílá informace o~svém stavu (øádek è. 2) a~svùj status (è. 3).
-\begin{figure}[h]
+\begin{figure}[ht]
 \lstset{language=Xml ,caption={Pou¾ití elementu \textit{presence}.},label=picPresence}
 \begin{lstlisting}
                   <presence from="jabinfo@jabbim.com/bot"
@@ -189,7 +189,7 @@ V¹echna tato roz¹íøení by mohla být pøidána pøímo do statusu viz pøíklad \ref{pi
 
 Základ pøenosu informací zaèíná na stranì klienta, který chce v¹echny ve svém roster listu (seznam kontaktù), informovat o~statusu. Za¹le zprávu obalenou v~elementu \textit{iq} serveru. Ukázka této zprávy je prezentována na pøíkladu \ref{picPep}, který znázoròuje zaslání informace o~druhu hudby, kterou v~danou chvíli u¾ivatel poslouchá. Vyu¾ívá k~tomu roz¹íøení User Tune, definovaném na øádku èíslo 5. Základ zprávy oznamující zaèátek vysílání informací o~roz¹íøených statusech je v¾dy stejný. Li¹í se pouze øádkem 3. a~obsahem elementu item v~pøíkladu \ref{picPep}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \lstset{language=Xml ,caption={Zaèátku vysílání roz¹íøeného statusu.},label=picPep}
 \begin{lstlisting}
        <iq from='user@jabbim.com' type='set' id='pub1'>
@@ -208,7 +208,7 @@ V~pøípadì úspì¹ného pøijetí \textit{iq} zprávy serverem, ka¾dý, kdo se zaregistr
 \subsubsection*{Podporované vlastnosti}
 Jednotlivá roz¹íøení protokolu XMPP jsou nepovinná, a~proto nemusí být ve v¹ech klientských aplikacích podporována. Pro zji¹tìní podporovaných roz¹íøení se pou¾ívá XEP-0115 Entity Capabilities \cite{Xep0115}. Toto roz¹íøení výraznì sni¾uje poèet a~velikost komunikací a~pøenosù zpráv mezi u¾ivateli. Dotazem zobrazeným na pøíkladu \ref{picCap} je zji¹tìna schopnost jednotlivých klientù, kterou následnì server vyu¾ije pro správné smìrování roz¹íøených statusù. V¹echny zde zmiòované roz¹íøení a~protokoly z~této kapitoly je mo¾né u~ka¾dého klienta (seznam klientù obsahuje tabulka v~pøíloze \ref{Erozsireni}) vyèíst z~atributu \textit{ver} (druhá èást u~atributu node), který je vypoèítán ze v¹ech podporovaných protokolù klienta, viz \cite{Xep0115}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \lstset{language=XML ,caption={Dotaz na podporované protokoly.},label=picCap}
 \begin{lstlisting}
   <iq from="user@jabbim.com" id="disco1"
@@ -238,14 +238,9 @@ Podpora vý¹e popsaných roz¹íøení v~aplikacích je pomìrnì malá.
 Napøíklad v~pøedcházející zmiòované èásti o~poslouchané hudbì, pøi stavu, kdy program toto roz¹íøení nepodporuje, je posíláno pomocí normální presence. Jméno skladatele, alba a~dal¹í podrobnosti jsou shrnuty do statusu, tudí¾ jsou doruèeny v¹em u¾ivatelùm ze seznamu kontaktù.
 
 
-
-
-
-
 \chapter{Data mining}
 
-Tøetí kapitola se zabývá procesem dobývání znalostí z~databází. Popisuje jej jako disciplínu, která vznikla za úèelem vytì¾ení informací z~dat, která jsou v~nepøeberném mno¾ství ukládána v~databázích. Díky velikosti dne¹ních diskù, objem ukládaných dat neustále roste. S~tím také úzce souvisí zvìt¹ující se pomìr nepotøebných a~za¹umìlých dat vùèi u¾iteèným informacím. V~této kapitole jsou mimo jiné popsány metody pou¾ívané k~dolování z~dat, které jsou relevantní k~této práci.
-%Jak kdysi øekl øekl anglický filozof Bacon: \uv{ve znalostech je síla}%Anglický filozof Bacon kdysi øekl, ¾e ve znalostech je síla (Knowledge itself is a power.
+Tøetí kapitola se zabývá procesem dobývání znalostí z~databází. Popisuje jej jako disciplínu, která vznikla za úèelem vytì¾ení informací z~dat, která jsou v~nepøeberném mno¾ství ukládána v~databázích. Díky velikosti dne¹ních diskù objem ukládaných dat neustále roste. S~tím také úzce souvisí zvìt¹ující se pomìr nepotøebných a~za¹umìlých dat vùèi u¾iteèným informacím. V~této kapitole jsou mimo jiné popsány metody pou¾ívané k~dolování z~dat, které jsou relevantní k~této práci.
 
 Na zaèátku kapitoly je rozebrán pojem získávání znalostí databází, jeho¾ jednu podstatnou èást tvoøí samotný data mining. Dále je vysvìtlena základní terminologie, pro kterou bylo èerpáno z~\cite{IIS}. 
 Cílem první podkapitoly je pøiblí¾ení zpùsobu, jakým byla data ulo¾ená v~databázi a~následnì pøipravena k~samotnému dolování z~dat.
@@ -276,15 +271,15 @@ Grafické znázornìní definice \ref{KDD} je popsáno schématem na obrázku \ref{picF
 
 \begin{figure}[ht]
 \begin{center}
-\input{datamining}
+\input{./pic/datamining}
 \caption{Proces dobývání znalostí z~databází podle knihy autora Fayyad \cite{Fayyad}.}
  \label{picFayyad}
 \end{center}
 \end{figure}
 
-Vzhledem k~obrázku \ref{picFayyad}, který prezentuje jednotlivé kroky získávání znalostí z~databází, budou dále tyto procesy popsány. Prvním èást v~KDD je tvoøena výchozími daty, které slou¾í jako zdroj pro ostatní fáze. Samotný popis získávání tìchto dat je popsán v~pøedcházející kapitole. Procesu selekce dat, je kladen za cíl, vybrat co mo¾ná \uv{neju¾iteènìj¹í} mno¾inu dat a~tím i~zmen¹it její celkový objem. V~této èásti získávání znalostí se pøi vybírání dat bere ohled na to, jak se jednotlivá data vztahují ke konkrétnímu u¾ivateli. Následující proces nazvaný transformace se zabývá pøevedením dat do vhodného formátu pro samotné dolování informací. Tato èást je popsána v~následují podkapitole, kde hlavní úlohu pøi transformaci je èas. Vybrané metody pro dolování dat jako je napøíklad shlukování a~dal¹í, jsou takté¾ v~této práci popsány ní¾e.
+Vzhledem k~obrázku \ref{picFayyad}, který prezentuje jednotlivé kroky získávání znalostí z~databází, budou dále tyto procesy popsány. První èást v~KDD je tvoøena výchozími daty, které slou¾í jako zdroj pro ostatní fáze. Samotný popis získávání tìchto dat je popsán v~pøedcházející kapitole. Procesu selekce dat je kladen za cíl vybrat co mo¾ná \uv{neju¾iteènìj¹í} mno¾inu dat a~tím i~zmen¹it její celkový objem. V~této èásti získávání znalostí se pøi vybírání dat bere ohled na to, jak se jednotlivá data vztahují ke konkrétnímu u¾ivateli. Následující proces nazvaný transformace se zabývá pøevedením dat do vhodného formátu pro samotné dolování informací. Tato èást je popsána v~následují podkapitole, kde hlavní úlohu pøi transformaci je èas. Vybrané metody pro dolování dat jako je napøíklad shlukování a~dal¹í, jsou takté¾ v~této práci popsány ní¾e.
 
-Získávání znalostí z~databází je proces slo¾en z~nìkolika krokù vedoucích od surových dat k~formì nových poznatkù. Iterativní proces je slo¾en, tak jak je prezentováno v~\cite{Han}, z~následujících krokù:
+Získávání znalostí z~databází je proces slo¾en z~nìkolika krokù vedoucích od surových dat k~formì nových poznatkù. Iterativní proces je slo¾en, jak je prezentováno v~\cite{Han}, z~následujících krokù:
 
 \begin{itemize}
    \item {
@@ -347,14 +342,14 @@ Data Mining je proces objevování znalostí, který pou¾ívá rùzné analytické nástro
 % }
 % \end{definice}
 % 
-% Informace lze chápat jako data, která byla obohacena o sémantiku (význam), jsou tedy ji¾ zpracovaná a interpretována u¾ivatelem. Znalosti, jsou øazeny do stejné kategorie jako informace, ale jejich interpretace bývá je¹tì slo¾itìj¹í. Èasto bývají tvoøeny shluky informací, proto jsou reprezentovány jako odvozené informace. Podle studijní opory \cite{IIS} jsou znalosti informace, které jsou zaøazeny do souvislostí.
+% Informace lze chápat jako data, která byla obohacena o sémantiku (význam), jsou tedy ji¾ zpracovaná a interpretována u¾ivatelem. Znalosti jsou øazeny do stejné kategorie jako informace, ale jejich interpretace bývá je¹tì slo¾itìj¹í. Èasto bývají tvoøeny shluky informací, proto jsou reprezentovány jako odvozené informace. Podle studijní opory \cite{IIS} jsou znalosti informace, které jsou zaøazeny do souvislostí.
 
 
 
 \section{Transformace dat}\label{TransformaceDat}
-Transformace dat tvoøí tøetí èást z~celkového procesu dobývání znalostí z~databází. Ne¾ se data dostala do tohoto stavu, bylo na nich provedeno nìkolik krokù, ve kterých byla upravována. V~první fázi byla sbírána Jabber komunikace, která je popsána v~první kapitole. Druhá fáze byla zamìøena na zú¾ení výsledné mno¾iny, a~proto byla vybrána jen relevantní data. I~pøes tyto kroky relaèní databáze obsahuje velké mno¾ství dat, která se nenachází ve stavu, aby mohla být pou¾ita jako zdroj pro data mining. Jak bude popsáno v~následující podkapitole vìt¹ina metod pro dolování dat pracuje pouze s~daty, která obsahují kvantitativní promìnné. Za tímto úèelem je potøeba v¹echny atributy tabulky z~databáze, které mají být nadále pou¾ívány, pøevést na mìøitelné hodnoty.  
+Transformace dat tvoøí tøetí èást z~celkového procesu dobývání znalostí z~databází. Ne¾ se data dostala do tohoto stavu, bylo na nich provedeno nìkolik krokù, ve kterých byla upravována. V~první fázi byla sbírána Jabber komunikace, která je popsána v~první kapitole. Druhá fáze byla zamìøena na zú¾ení výsledné mno¾iny, a~proto byla vybrána jen relevantní data. I~pøes tyto kroky relaèní databáze obsahuje velké mno¾ství dat, která se nenachází ve stavu, aby mohla být pou¾ita jako zdroj pro data mining. Jak bude popsáno v~následující podkapitole, vìt¹ina metod pro dolování dat pracuje pouze s~daty, která obsahují kvantitativní promìnné. Za tímto úèelem je potøeba v¹echny atributy tabulky z~databáze, které mají být nadále pou¾ívány, pøevést na mìøitelné hodnoty.  
 
-V~této práci se bude pracovat s~atributy nesoucí informace o~jak aktuálních tak minulých stavech u¾ivatelù, kteøí si pøidali úèet \textit{jabInfo@jabbim.com} do svého seznamu kontaktù. A~tak byla jejich ka¾dá zmìna statusu ulo¾ena do databáze. Z~dùvodu neèíselného hodnoty stavù, jako je napøíklad available, away a~dal¹í, je tøeba provést jejich transformaci na kvantitativní hodnoty. Proces byl proveden pomocí bijektivního zobrazení. Kde zobrazení je podle \cite{IIS} funkce s~definièním oborem $S$ a~oborem hodnot $T$, která je nazývána binární relace $f \subseteq S \times T$. V~této relaci se nevyskytují dvì rùzné dvojice ($s$,$t_1$) a~($s$,$t_2$), kde $s \in S$ a~$t_1$, $t_2 \in T$. Prvky $t_1$ a~$t_2$ jsou rùzné. Z~toho vyplývá, ¾e ka¾dému prvku $s$ z~mno¾iny $S$ je pøiøazen jednoznaènì právì jeden prvek $t \in T$. Tuto definici je mo¾né zapsat ve tvaru:
+V~této práci se bude pracovat s~atributy nesoucí informace o~jak aktuálních, tak minulých stavech u¾ivatelù, kteøí si pøidali úèet \textit{jabInfo@jabbim.com} do svého seznamu kontaktù. A~tak byla jejich ka¾dá zmìna statusu ulo¾ena do databáze. Z~dùvodu neèíselné hodnoty stavù, jako je napøíklad available, away a~dal¹í, je tøeba provést jejich transformaci na kvantitativní hodnoty. Proces byl proveden pomocí bijektivního zobrazení. Kde zobrazení je podle \cite{IIS} funkce s~definièním oborem $S$ a~oborem hodnot $T$, která je nazývána binární relace $f \subseteq S \times T$. V~této relaci se nevyskytují dvì rùzné dvojice ($s$,$t_1$) a~($s$,$t_2$), kde $s \in S$ a~$t_1$, $t_2 \in T$. Prvky $t_1$ a~$t_2$ jsou rùzné. Z~toho vyplývá, ¾e ka¾dému prvku $s$ z~mno¾iny $S$ je pøiøazen jednoznaènì právì jeden prvek $t \in T$. Tuto definici je mo¾né zapsat ve tvaru:
 $$f: S \rightarrow T,$$ kde $S$ a~$T$ jsou mno¾iny ($D_f$, $H_f$).
 
 Konkrétní pøípad transformace z~této práce tedy bude obsahovat mno¾inu $S$, kde $$ S = \{Available, Chat, Away, DND, XA, Unavailable\} $$ a~mno¾ina $T$, kde $$T = \{120,110,90,70,50,0\},$$ do které budou jednotlivé prvky z~mno¾iny $S$ bijektivnì zobrazeny. Kdy bijekce je zobrazení, které ka¾dému prvku z~cílové mno¾iny, konkrétnì z~mno¾iny $T$, pøiøazuje právì jeden prvek z~mno¾iny poèáteèní, tedy $S$.
@@ -367,25 +362,25 @@ Druhá podstatná transformace, pro kterou bylo èerpáno z~\cite{Temporal}, se tak 
 
 Jak ji¾ bylo uvedeno, hlavním rozdílem mezi temporálními databázemi a~ostatními je schopnost uchovávat èasové údaje. Své uplatnìní nachází v~odvìtvích, kde je potøeba zpracovávat stará a~zároveò nová data, napøíklad v~oblastech medicíny, finanènictví, monitorování a~dal¹ích. Jednotlivé záznamy, které jsou závislé na èase, jsou v~databázích ukládány jako samotné body, tedy diskrétnì. Pøesto¾e v~reálném svìtì je vìt¹ina tìchto údajù z~pohledu èasu spojitých.
 
-K~dal¹ímu popisu temporálních databází nyní budou charakterizovány tøi dùle¾ité pojmy, pomocí nich¾ jsou databáze dále dìleny. Prvním pojmem je \textit{granualita}, která udává nejmen¹í èasovou jednotku, kterou databáze rozli¹ují. Hodnoty, které mù¾e nabývat, jsou hodina, den, rok a~dal¹í. Velikost granuality ovlivòuje velikost objemu dat, který je pøímo úmìrný s~pøesností záznamù. Dal¹ím pojmem je \textit{èas platnosti}, která reprezentuje období, kdy je daný fakt v~modelovém svìtì pravdivý. Posledním termínem je \textit{èas transakce}, která definuje pøítomnost faktu v~databázi a~mo¾nost jej získat. Èas transakce a~èas platnosti jsou na sobì nezávislé a~definují dvì rozdílné èasové osy, kdy ka¾dá mù¾e disponovat s~jinou granualitou. Souhrnný název pro vý¹e uvedené tøi pojmy, který se pou¾ívá, je systém èasových razítek. Pøi pou¾ití tìchto systému lze následnì tvoøit dotazy zamìøené na rùzná èasová období, jako je minulost, pøítomnost a~budoucnost. Tyto dotazy jsou velmi jednoduché a~to díky roz¹íøenému jazyku TSQL, který vychází z~klasické podoby dotazovacího jazyka SQL.
+K~dal¹ímu popisu temporálních databází nyní budou charakterizovány tøi dùle¾ité pojmy, pomocí nich¾ jsou databáze dále dìleny. Prvním pojmem je \textit{granualita}, která udává nejmen¹í èasovou jednotku, kterou databáze rozli¹ují. Hodnoty, které mù¾e nabývat, jsou hodina, den, rok a~dal¹í. Velikost granuality ovlivòuje velikost objemu dat, který je pøímo úmìrný s~pøesností záznamù. Dal¹ím pojmem je \textit{èas platnosti}, která reprezentuje období, kdy je daný fakt v~modelovém svìtì pravdivý. Posledním termínem je \textit{èas transakce}, která definuje pøítomnost faktu v~databázi a~mo¾nost jej získat. Èas transakce a~èas platnosti jsou na sobì nezávislé a~definují dvì rozdílné èasové osy, kdy ka¾dá mù¾e disponovat s~jinou granualitou. Souhrnný název pro vý¹e uvedené tøi pojmy, který se pou¾ívá, je systém èasových razítek. Pøi pou¾ití tìchto systému lze následnì tvoøit dotazy zamìøené na rùzná èasová období jako je minulost, pøítomnost a~budoucnost. Tyto dotazy jsou velmi jednoduché a~to díky roz¹íøenému jazyku TSQL, který vychází z~klasické podoby dotazovacího jazyka SQL.
 
-Temporální databáze jsou rozdìleny, podle systému èasových razítek, na tyto základní: \textit{snímková}, \textit{transakèní}, \textit{platného èasu}, \textit{obojího èasu} (bitemporální). Entity z~databáze, která je pou¾ita v~této práci, je mo¾né zaøadit do kategorie \textit{snímkových tabulek} (snapshot). K~jejím hlavním rysùm patøí zaznamenávání stavu dat v~jistém okam¾iku. Èas transakce ani èas platnosti zde nejsou uplatnìny.
+Temporální databáze jsou rozdìleny podle systému èasových razítek na tyto základní: \textit{snímková}, \textit{transakèní}, \textit{platného èasu}, \textit{obojího èasu} (bitemporální). Entity z~databáze, která je pou¾ita v~této práci, je mo¾né zaøadit do kategorie \textit{snímkových tabulek} (snapshot). K~jejím hlavním rysùm patøí zaznamenávání stavu dat v~jistém okam¾iku. Èas transakce ani èas platnosti zde nejsou uplatnìny.
 
 Konkrétní pøíklad mo¾né transformace je ukázán na èásti tabulky \textit{presence} \ref{tabPresence}, která se ve stejném formátu nachází i~v~databázi, a~modifikované tabulce \textit{presecence\_modify} \ref{tabPresenceModify}.
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{ c  c  c  c  c } 
 \rowcolor[gray]{0.9}
-\textbf{id} 	& \textbf{date}  	& \textbf{toj} 		& \textbf{presence}\\
-87365		&  2011-4-4 13:53:59 	& JabInfo@jabbim.cz	& Available\\
-87369		&  2011-4-4 15:43:07 	& JabInfo@jabbim.cz	& Away\\
-\ldots		& \ldots               	& \ldots		& \ldots\\ \hline
+\textbf{id} 	& \textbf{date}  			& \textbf{toj} 		& \textbf{presence}\\
+87365				&  2011-4-4 13:53:59 	& JabInfo@jabbim.cz	& Available\\
+87369				&  2011-4-4 15:43:07 	& JabInfo@jabbim.cz	& Away\\
+\ldots			& \ldots               	& \ldots					& \ldots\\ \hline
 \end{tabular}
 \caption{Ukázka tabulky \textit{presence}.}
 \label{tabPresence}
 \end{center} 
 \end{table}
-Tabulka \ref{tabPresenceModify} se od pùvodní li¹í pøidáním sloupce \textit{dateEnd} (podbarven ¹edì), který s~atributem \textit{dateStart} vymezuje interval, kdy daná hodnota byla nebo je platná. Tato entita je pouze pøíkladem jak by mohla daná transformace vypadat. V~této práci se ¾ádná nová tabulka nevytváøela a~ani se nemodifikovala ji¾ vytvoøená. Celá transformace je popsána v~dal¹í èásti této podkapitoly.
+Tabulka \ref{tabPresenceModify} se od pùvodní li¹í pøidáním sloupce \textit{dateEnd} (podbarven ¹edì), který s~atributem \textit{dateStart} vymezuje interval, kdy daná hodnota byla nebo je platná. Tato entita je pouze pøíkladem, jak by mohla daná transformace vypadat. V~této práci se ¾ádná nová tabulka nevytváøela a~ani se nemodifikovala ji¾ vytvoøená. Celá transformace je popsána v~dal¹í èásti této podkapitoly.
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{ c  c  >{\columncolor[gray]{.9}}c  c  c c} 
@@ -400,7 +395,7 @@ Tabulka \ref{tabPresenceModify} se od pùvodní li¹í pøidáním sloupce \textit{date
 \end{center} 
 \end{table}
 
-Postup jednotlivých krokù pøi transformaci èasových údajù z~tabulky \textit{presence}, je zobrazen v~následujícím výètu. Tento zjednodu¹ený popis algoritmu vy¾aduje dva vstupní parametry. První je JabberID u¾ivatele, jeho¾ polo¾ky v~databázi mají být transformovány. Druhá nutná polo¾ka je datum, které bude slou¾it jako upøesòující vstupní interval.
+Postup jednotlivých krokù pøi transformaci èasových údajù z~tabulky \textit{presence} je zobrazen v~následujícím výètu. Tento zjednodu¹ený popis algoritmu vy¾aduje dva vstupní parametry. První je JabberID u¾ivatele, jeho¾ polo¾ky v~databázi mají být transformovány. Druhá nutná polo¾ka je datum, která bude slou¾it jako upøesòující vstupní interval.
 
 Data z~tabulky presence jsou transformována na vektor $\vartheta$ o~288 dimenzích, kde z~pohledu èasového je jedna dimenze období vymezené 5 minutami. Den je rozdìlen na úseky po 5 minutách ($\delta=300s$), kterých je 288. Tedy $$\vartheta = (\vartheta_1, \vartheta_0, \ldots, \vartheta_N),$$ kde $N = 288$.
 \begin{enumerate}[leftmargin=\parindent]
@@ -426,7 +421,7 @@ Data z~tabulky presence jsou transformována na vektor $\vartheta$ o~288 dimenzíc
   \begin{enumerate}[label=\arabic{enumi}.\alph*, leftmargin=*, resume]
           \item Èasový interval je men¹í ne¾ interval $\delta$.
   \begin{enumerate}[label=\arabic{enumi}.\arabic*, leftmargin=*, start=1]
-    \item Jsou vybírány dal¹í záznamy z~mno¾iny $\Gamma$ dokud rozdíl mezi èasy v~sekundách není vìt¹í ne¾ interval $\delta$.
+    \item Jsou vybírány dal¹í záznamy z~mno¾iny $\Gamma$, dokud rozdíl mezi èasy v~sekundách není vìt¹í ne¾ interval $\delta$.
     \item Jednotlivé presence záznamù jsou ukládány do pomocného pole, transformované do kvantitativních hodnot, jak je uvedeno v~úvodu této podkapitoly.
     \item Ka¾dý prvek pole je vynásoben poètem sekund, zastoupených v~daném intervalu.
     \item Výbìr nejvìt¹ího prvku z~pomocného pole a~ulo¾ení jej do výsledného vektoru $\vartheta$.
@@ -438,7 +433,7 @@ Data z~tabulky presence jsou transformována na vektor $\vartheta$ o~288 dimenzíc
 
 %section{Metody dolovaní dat}\label{MetodyDolovaniDat}
 \section{Shlukování}\label{KapShluk}
-Základ metod dolování dat je zalo¾en na statistice, posledních poznatcích z~umìlé inteligence èi strojového uèení. Hlavní cíl tìchto netriviálních metod je spoleèný --- snaha zji¹tìné výsledky prezentovat srozumitelnou formou. Pro vìt¹inu pou¾ívaných metod je spoleèná vlastnost pøedpoklad, ¾e objekty popsané pomocí podobných charakteristik patøí do stejné skupiny (uèení na základì podobnosti similarity-based learning). Objekty obsahující atributy, lze pøevést na body v~\textit{n}-rozmìrném prostoru, kde \textit{n} reprezentuje poèet atributù. Vychází se z~pøedstavy podobnosti bodù tvoøící urèité shluky v~prostoru.
+Základ metod dolování dat je zalo¾en na statistice, posledních poznatcích z~umìlé inteligence èi strojového uèení. Hlavní cíl tìchto netriviálních metod je spoleèný --- snaha zji¹tìné výsledky prezentovat srozumitelnou formou. Pro vìt¹inu pou¾ívaných metod je spoleèná vlastnost pøedpoklad, ¾e objekty popsané pomocí podobných charakteristik patøí do stejné skupiny (uèení na základì podobnosti similarity-based learning). Objekty obsahující atributy lze pøevést na body v~\textit{n}-rozmìrném prostoru, kde \textit{n} reprezentuje poèet atributù. Vychází se z~pøedstavy podobnosti bodù tvoøící urèité shluky v~prostoru.
 
 Dal¹í rozdíly mezi metodami, které byly prezentovány v~\cite{Berka}, spoèívají v:
 \begin{itemize}
@@ -475,11 +470,11 @@ na nìkolik metod shlukové analýzy podle \cite{Han}. U~ka¾dé z~nich jsou popsány 
 
 Shlukování je zamìøeno na dìlení objektù do pøedem neznámých skupin. Proces dìlení probíhá na základì specifikace objektù a~jejich odli¹nosti od ostatních shlukù.
 
-Vìt¹ina ní¾e popsaných metod a~algoritmù je zalo¾ena na výpoètu vzdáleností mezi objekty. Tato vzdálenost lze vyjádøit rùznými mírami, podle knihy \cite{Berka} napøíklad pomocí \textit{Hammingovy vzdálenosti} (dH), \textit{Euklidovské vzdálenosti} (dE) a~\textit{Èeby¹evovy vzdálenosti} (dC). Rozdíl mezi tìmito typy urèující vzdálenosti, graficky vyjadøuje obrázek \ref{picStat}. Kde $X1$ je støed, od nìho¾ jsou jednotlivými obrazci znázornìny dané vzdálenosti. Konkrétnì pomyslné body umístìné po obvodu kruhu jsou v¹echny stejnì vzdáleny od støedu $X1$. Tato vzdálenost je oznaèena jako Euklidovská. Dal¹í 2D tìleso ètverec, který je vodorovný s~osami $A1$ a~$A2$ prezentuje Èeby¹evovu vzdálenost. Po obvodu posledního obrazce, ètverce otoèeného o~45° podle osy A1, jsou v¹echny pomyslné body stejnì vzdáleny od bodu $X1$ Hammingovou vzdáleností.
+Vìt¹ina ní¾e popsaných metod a~algoritmù je zalo¾ena na výpoètu vzdáleností mezi objekty. Tato vzdálenost lze vyjádøit rùznými mírami, podle knihy \cite{Berka} napøíklad pomocí \textit{Hammingovy vzdálenosti} (dH), \textit{Euklidovské vzdálenosti} (dE) a~\textit{Èeby¹evovy vzdálenosti} (dC). Rozdíl mezi tìmito typy urèující vzdálenosti graficky vyjadøuje obrázek \ref{picStat}. Kde $X1$ je støed, od nìho¾ jsou jednotlivými obrazci znázornìny dané vzdálenosti. Konkrétnì pomyslné body umístìné po obvodu kruhu jsou v¹echny stejnì vzdáleny od støedu $X1$. Tato vzdálenost je oznaèena jako Euklidovská. Dal¹í 2D tìleso ètverec, který je vodorovný s~osami $A1$ a~$A2$ prezentuje Èeby¹evovu vzdálenost. Po obvodu posledního obrazce, ètverce otoèeného o~45° podle osy A1, jsou v¹echny pomyslné body stejnì vzdáleny od bodu $X1$ Hammingovou vzdáleností.
 
 \begin{figure}[ht]
 \begin{center}
-\input{statistika}
+\input{./pic/statistika}
 \caption{Srovnání výpoètu vzdáleností od bodu $x_{1}$ \cite{Berka}.}
  \label{picStat}
 \end{center}
@@ -494,21 +489,21 @@ Hlavní princip \textit{metody hierarchického shlukování} je zalo¾en na tvorbì st
 %\subsection*{Metody zalo¾ené na møí¾ce}
 K~dal¹ím metodám patøí \textit{metody zalo¾ené na møí¾ce}, které kvantují datový prostor do koneèného poètu pravoúhlých bunìk. Tyto buòky jsou uspoøádány do víceúrovòové møí¾kové struktury. Zmínìná struktura tvoøí základ pro shlukové operace. Hlavní výhoda tohoto pøístupu je rychlost zpracování, které vìt¹inou nebere ohled na poèet datových objektù. Èas zpracování závisí pouze na poètu bunìk v~ka¾dé dimenzi kvantovaného prostoru. Mezi zástupce metod zalo¾ených na møí¾ce patøí metoda STING --- STatistical INformation Grid, který pracuje se statickými informacemi ulo¾enými v~buòkách møí¾ky. Algoritmus je rozdìlen do dvou èástí. První si klade za cíl rekurzivnì rozdìlit datový prostor na pravoúhlé buòky. Druhá fáze testuje spojitost mezi sousedy relevantních bunìk \cite{Rezankova}. Mezi dal¹í metody zalo¾ené na møí¾ce patøí 
 %CLIQUE\footnote{CLustering In QUEst} a 
-WaveCluster\footnote{Clustering Using Wavelet Transformation}, vyu¾ívající vlnkové transformace k~rozdìlení prostoru dat. Tato transformace zdùrazòuje shluky v~prostoru a~objekty jim vzdálené potlaèuje \cite{Han}.
+WaveCluster\footnote{Clustering Using Wavelet Transformation} vyu¾ívající vlnkové transformace k~rozdìlení prostoru dat. Tato transformace zdùrazòuje shluky v~prostoru a~objekty jim vzdálené potlaèuje \cite{Han}.
 
 %\subsection*{Metody zalo¾ené na hustotì}
-\textit{Metody zalo¾ené na hustotì} vychází z~\textit{m}-rozmìrného prostoru, ve kterém jsou zobrazeny objekty ve formì bodù. Místa v~prostoru s~vìt¹í koncentrací objektù ve srovnání s~ostatními oblastmi jsou nazývány shluky. Výchozí pøedpoklad je existence okolí jednotlivých bodù (sousedství). Jedna z~charakteristik metod zalo¾ených na hustotì je schopnost vypoøádat se s~vzdálenými hodnotami, oznaèovanými jako ¹um \cite{Rezankova}. Jako pøíklad je uvedena metoda DBSCAN\footnote{Density-Based Spatial Clustering of Applications with Noise}, která je zalo¾ena na hustotì objektù v~prostoru. U~jednotlivých objektù je zkoumáno jejich okolí. Algoritmus je ovlivòován dvìma parametry, velikosti shluku $\varepsilon$ a~minimálním poètem objektù v~daném shluku $MinPts$, které spolu úzce souvisí (viz \cite{Han}). Bod splòující obì podmínky je oznaèen za jádro. Za pomocí jader je roz¹iøována mno¾ina objektù spojených na základì hustoty. Obsahuje-li jádro $x_{1}$ ve svém okolí dal¹í centrum $x_{2}$, znamená to, ¾e $x_{1}$ je pøímo dosa¾itelné z~$x_{2}$. Tímto zpùsobem jsou vytváøeny výsledné \textit{shluky}. V~opaèném pøípadì, body, které nesplòují dvì zmínìné podmínky, jsou oznaèeny jako \textit{¹um}.
+\textit{Metody zalo¾ené na hustotì} vychází z~\textit{m}-rozmìrného prostoru, ve kterém jsou zobrazeny objekty ve formì bodù. Místa v~prostoru s~vìt¹í koncentrací objektù ve srovnání s~ostatními oblastmi jsou nazývány shluky. Výchozí pøedpoklad je existence okolí jednotlivých bodù (sousedství). Jedna z~charakteristik metod zalo¾ených na hustotì je schopnost vypoøádat se s~vzdálenými hodnotami, oznaèovanými jako ¹um \cite{Rezankova}. Jako pøíklad je uvedena metoda DBSCAN\footnote{Density-Based Spatial Clustering of Applications with Noise}, která je zalo¾ena na hustotì objektù v~prostoru. U~jednotlivých objektù je zkoumáno jejich okolí. Algoritmus je ovlivòován dvìma parametry, velikosti shluku $\varepsilon$ a~minimálním poètem objektù v~daném shluku $MinPts$, které spolu úzce souvisí (viz \cite{Han}). Bod splòující obì podmínky je oznaèen za jádro. Za pomoci jader je roz¹iøována mno¾ina objektù spojených na základì hustoty. Obsahuje-li jádro $x_{1}$ ve svém okolí dal¹í centrum $x_{2}$, znamená to, ¾e $x_{1}$ je pøímo dosa¾itelné z~$x_{2}$. Tímto zpùsobem jsou vytváøeny výsledné \textit{shluky}. V~opaèném pøípadì body, které nesplòují dvì zmínìné podmínky, jsou oznaèeny jako \textit{¹um}.
 
-V¹echny zde doposud zmiòované metody poskytují dobré výsledky pouze s~malým poètem dimenzí, tak jak je to popsáno v~\cite{IIS}. S~narùstajícím poètem atributù roste poèet nerelevantních dimenzí urèených pro shlukování. S~tímto také pøibývá zvìt¹ená produkce za¹umìní a~znesnadnìní nalezení relevantních shlukù. Data jsou roztrou¹ena do mnoha dimenzí a~tím odpadá mo¾nost pou¾ití vzdálenostních funkcí. Zmínìné problémy shlukování velkých dat øe¹í dvì techniky \textit{metoda transformace rysù} a~\textit{metoda výbìru atributù}. Pro efektivní shlukování je mo¾né pou¾ít napøíklad algoritmus CLIQUE\footnote{CLustering In QUEst}.
+V¹echny zde doposud zmiòované metody poskytují dobré výsledky pouze s~malým poètem dimenzí tak, jak je to popsáno v~\cite{IIS}. S~narùstajícím poètem atributù roste poèet nerelevantních dimenzí urèených pro shlukování. S~tímto také pøibývá zvìt¹ená produkce za¹umìní a~znesnadnìní nalezení relevantních shlukù. Data jsou roztrou¹ena do mnoha dimenzí a~tím odpadá mo¾nost pou¾ití vzdálenostních funkcí. Zmínìné problémy shlukování velkých dat øe¹í dvì techniky, které se nazývají: \textit{metoda transformace rysù} a~\textit{metoda výbìru atributù}. Pro efektivní shlukování je mo¾né pou¾ít napøíklad algoritmus CLIQUE\footnote{CLustering In QUEst}.
 
 \subsection*{Metody rozkladu}\label{MetodyRozkladu}
-Metody rozkladu rozdìlují datové prvky do nìkolika podmno¾in, nazývané shluky. Poèet shlukù musí být znám pøed zahájením samotného procesu. Pøiøazení do konkrétních tøíd je podle \cite{Rezankova}, jednoznaèné nebo probíhá na základì míry pøíslu¹nosti objektù do shlukù. Pro velký poèet objektù, se kterými se pracuje, jsou vyu¾ívány rùzné iteraèní optimalizace.
+Metody rozkladu rozdìlují datové prvky do nìkolika podmno¾in nazývané shluky. Poèet shlukù musí být znám pøed zahájením samotného procesu. Pøiøazení do konkrétních tøíd je podle \cite{Rezankova} jednoznaèné nebo probíhá na základì míry pøíslu¹nosti objektù do shlukù. Pro velký poèet objektù, se kterými se pracuje, jsou vyu¾ívány rùzné iteraèní optimalizace.
 
 Hlavním zástupcem u~uvedených metod je algoritmus \textit{k}-means, který je popsán ní¾e. Tvoøí základ pro vìt¹inu metod shlukování nejen pro metody rozkladu. K~dal¹ím metodám se øadí \textit{k}-medoidù, \textit{k}-modù, \textit{k}-histogramù, fuzzy shluková analýza a~dal¹í.
 
 \subsubsection*{\textit{k}-means}\label{kMeans}
-Shlukování pomocí algoritmu \textit{k}-means je pou¾íváno pro data obsahující kvantitativní promìnné a~pro data, která nejsou pøíli¹ za¹umìlá. Základní proces je tvoøen iterativním rozdìlováním objektù do tøíd na základì vzdáleností od jejich støedù. Støed neboli centroid shluku je vektor, jeho¾ vzdálenost od souètu vzdáleností objektù v~této tøídì je minimální. Celý tento proces je prezentován na obrázku \ref{automat} pomocí jednoduchého schématu koneèného automatu. Jednotlivé kroky koneèného automatu odpovídají krokùm \textit{k}-means zobrazeného pomocí algoritmu \ref{algoritmus}.
-\begin{figure}[h]
+Shlukování pomocí algoritmu \textit{k}-means je pou¾íváno pro data obsahující kvantitativní promìnné a~pro data, která nejsou pøíli¹ za¹umìlá. Základní proces je tvoøen iterativním rozdìlováním objektù do tøíd na základì vzdáleností od jejich støedù. Støed, neboli centroid shluku, je vektor, jeho¾ vzdálenost od souètu vzdáleností objektù v~této tøídì je minimální. Celý tento proces je prezentován na obrázku \ref{automat} pomocí jednoduchého schématu koneèného automatu. Jednotlivé kroky koneèného automatu odpovídají krokùm \textit{k}-means zobrazeného pomocí algoritmu \ref{algoritmus}.
+\begin{figure}[ht]
  \begin{center}
    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,%
 		      auto,node distance=2cm,on grid,semithick,
@@ -533,10 +528,10 @@ Pro výpoèet vzdáleností mezi objekty samotnými nebo mezi objekty a~støedem je po
 
 K~hlavním výhodám algoritmu \textit{k}-means patøí jeho relativní efektivnost. Slo¾itost algoritmu je $O(TKN)$, kde $N$ je poèet objektù, $K$ je poèet shlukù a~$T$ je poèet iterací. Obvykle platí, ¾e poèet objektù je mnohem vìt¹í ne¾ poèet iterací i~shlukù. Na druhou stranu má i~øadu nevýhod, kvùli kterým je èasto rùznými zpùsoby modifikován (\textit{k}-medoids, \textit{k}-medians). K~hlavním \uv{nedostatkùm} patøí pøedem nutná znalost poètu shlukù (tøíd) $K$, do kterých budou objekty zaøazeny. Druhý èasto se vyskytující problém je samotné ukonèení algoritmu, které nastane u~nalezení lokálního optima namísto optima globálního. Tato nepøesnost vzniká nevhodnì zvoleným rozmístìním poèáteèních støedù. Pùvodní nemodifikovaná verze algoritmu nedefinuje, jak se má postupovat, jsou-li nalezeny prázdné shluky.
 
-\textit{K}-menas je algoritmus, kterým jsou pøiøazovány objekty (vektory) $x_n$, kde $n=1,\ldots,N$, do $S_k$, kde $k=1,\ldots,K$, shlukù. V~prvním kroku jsou urèeny poèáteèní støedy tøíd, do kterých se budou objekty shlukovat. Urèení poèáteèních centroidù $c_k$ probíhá napøíklad náhodným výbìrem \textit{K} objektù nebo \textit{K} prvních objektù souboru. Druhým krokem jsou zkoumány jednotlivé vzdálenosti objektù $x_n$ od poèáteèních støedù $c_j$ pomocí euklidovské vzdálenosti. Na základì nejmen¹í zji¹tìné vzdálenosti mezi objektem a~centroidem je objekt zaøazen do shluku, kterému nále¾í právì tento støed. Ve tøetím kroku, tak jako u~kroku prvního, jsou hledány nové støedy shlukù. Nyní ji¾ v¹ak nejsou zvoleny náhodnì, ale spoèítány. Jsou vypoèítány na základì prùmìrných jednotlivých hodnot objektù a~ulo¾en jako \textit{m}-rozmìrný vektor. Ètvrtým krokem se algoritmus dostává do koneèné fáze, kdy mohou nastat dva mo¾né pøípady. Novì nalezené støedy nejsou pøíli¹ vzdáleny od pøedchozích centroidù a~proto je algoritmus ukonèen. Druhá èastìji se vyskytující mo¾nost iterativnì provádí algoritmus od druhého kroku, dokud neplatí první mo¾nost nebo dokud se objekty nepøestanou pøemís»ovat úplnì. Pøi popisu tohoto algoritmu bylo èerpáno z~\cite{Rezankova, Berka}. Ní¾e zobrazený algoritmus \ref{algoritmus} prezentuje krok po kroku metodu \textit{k}-means.
+\textit{K}-menas je algoritmus, kterým jsou pøiøazovány objekty (vektory) $x_n$, kde $n=1,\ldots,N$, do $S_k$, kde $k=1,\ldots,K$, shlukù. V~prvním kroku jsou urèeny poèáteèní støedy tøíd, do kterých se budou objekty shlukovat. Urèení poèáteèních centroidù $c_k$ probíhá napøíklad náhodným výbìrem \textit{K} objektù nebo \textit{K} prvních objektù souboru. Druhým krokem jsou zkoumány jednotlivé vzdálenosti objektù $x_n$ od poèáteèních støedù $c_j$ pomocí euklidovské vzdálenosti. Na základì nejmen¹í zji¹tìné vzdálenosti mezi objektem a~centroidem je objekt zaøazen do shluku, kterému nále¾í právì tento støed. Ve tøetím kroku, tak jako u~kroku prvního, jsou hledány nové støedy shlukù. Nyní v¹ak ji¾ nejsou zvoleny náhodnì, ale spoèítány. Jsou vypoèítány na základì prùmìrných jednotlivých hodnot objektù a~ulo¾en jako \textit{m}-rozmìrný vektor. Ètvrtým krokem se algoritmus dostává do koneèné fáze, kdy mohou nastat dva mo¾né pøípady. Novì nalezené støedy nejsou pøíli¹ vzdáleny od pøedchozích centroidù a~proto je algoritmus ukonèen. Druhá èastìji se vyskytující mo¾nost iterativnì provádí algoritmus od druhého kroku, dokud neplatí první mo¾nost nebo dokud se objekty nepøestanou pøemis»ovat úplnì. Pøi popisu tohoto algoritmu bylo èerpáno z~\cite{Rezankova, Berka}. Ní¾e zobrazený algoritmus \ref{algoritmus} prezentuje krok po kroku metodu \textit{k}-means.
 
 \def\lstlistingname{Algoritmus}
-\begin{figure}[h]
+\begin{figure}[ht]
 \lstset{language=Algoritmus ,caption={Metoda \textit{k}-means byla pøevzata z~\cite{Berka}.},label=algoritmus}
 \begin{lstlisting}
 1. náhodnì zvol rozklad do $K$ shlukù
@@ -557,22 +552,22 @@ V~souèasné dobì na programovém trhu existuje mnoho systému, které jsou zamìøeny 
 
 Dal¹ím velmi roz¹íøeným a~èasto pou¾ívaným nástrojem je jazyk \textit{R}. R vychází z~jazyka \textit{S}, který ale není jako jazyk R volnì ¹iøitelný. Statistický a~grafický nástroj R je tedy volnì dostupným jazykem a~prostøedím, které je ovládáno pouze z~pøíkazové øádky. Pro jednodu¹¹í práci jej lze roz¹íøit o~grafické rozhraní jako je RKWard nebo R Commander. Samotnou aplikaci lze roz¹íøit o~mnoho statistických doplòkù, které jsou takté¾ zdarma.
 
-Mnoho programù pro dolování dat je zalo¾ena na pøístupu vizuálního programování. Jedná se o~proces, pøi kterém je u¾ivatelem, za pomoci grafických prostøedkù, navr¾en algoritmus a~dal¹í postup práce. Jako pøíklad lze uvést poloprofesionální aplikaci \textit{Orange}, u~které jsou nejdùle¾itìj¹í èásti psány pomocí C++ a~roz¹íøení lze implementovat v~jazyce Python.
+Mnoho programù pro dolování dat je zalo¾ena na pøístupu vizuálního programování. Jedná se o~proces, pøi kterém je u¾ivatelem za pomoci grafických prostøedkù navr¾en algoritmus a~dal¹í postup práce. Jako pøíklad lze uvést poloprofesionální aplikaci \textit{Orange}, u~které jsou nejdùle¾itìj¹í èásti psány pomocí C++ a~roz¹íøení lze implementovat v~jazyce Python.
 
 Na vybraných technicky zamìøených vysokých ¹kolách existují skupiny, které se zabývají výzkumem a~vývojem nástrojù pro data mining. Jako pøíklad lze uvést ji¾ døíve zmiòovaný FIT-miner z~fakulty informaèních technologií v~Brnì nebo také projekt LISp-Miner z~Vysoké ¹koly ekonomické v~Praze. LISp-Miner je otevøený akademický systém urèený pro výuku a~výzkum metod pro dobývání znalostí z~databází.
 
 
 \subsection*{RapidMiner}
-RapidMiner je, tak jak je popsán na oficiálních stránkách produktu \cite{RapidMiner}, celosvìtovì nejpou¾ívanìj¹í open-source systém pro dolování dat. Je mo¾né jej pou¾ívat jako samotnou aplikaci nebo jej zaèlenit jako komponentu do vlastních výrobkù v~podobì knihovny pro jazyk Java. Pro zájemce je nabízen také ve verzích  pro firmy, které jsou rozdílné v~poplatcích, podpoøe pro zákazníka, záruce a~dal¹ích balíèkù slu¾eb zaji¹»ující celkovou komplexnost a~spolehlivost produktu.
+RapidMiner je, tak jak je popsán na oficiálních stránkách produktu \cite{RapidMiner}, celosvìtovì nejpou¾ívanìj¹í open-source systém pro dolování dat. Je mo¾né jej pou¾ívat jako samotnou aplikaci nebo jej zaèlenit jako komponentu do vlastních výrobkù v~podobì knihovny pro jazyk Java. Pro zájemce je nabízen také ve verzích  pro firmy, které jsou rozdílné v~poplatcích, podpoøe pro zákazníka, záruce a~dal¹ích balíèkù slu¾eb zaji¹»ujících celkovou komplexnost a~spolehlivost produktu.
 
-Jak ji¾ vìt¹ina podobných aplikací, je v~souèasné dobì implementován v~jazyce Java, díky které nabízí flexibilní nejen grafické prostøedí. K~vybraným základním rysùm toho nástroje, tak jak jsou prezentovány firmou \textit{Rapid-i}, patøí: výkonné, pøesto intuitivní grafické u¾ivatelské rozhraní pro návrh procesù, jednoduché øe¹ení pro transformaci dat, kontrola výsledkù ji¾ pøi samotném návrhu a~dal¹í. Nástroj RapidMiner podporuje ¹irokou ¹kálu metod a~algoritmù pro data mining. Mnoho algoritmù je implementováno pøímo v~aplikaci, ale také je pou¾ito metod z~konkurenèního softwaru Weka. V~základní verzi urèené pro veøejnost je k~nalezení pøes 100 procesù k~modelování. Jsou zde zastoupeny jak metody klasifikaèní a~asociaèní, tak i~metody shlukovací, z~nich¾ lze jmenovat napøíklad DBSCAN, \textit{k}-medoids a~hlavnì \textit{k}-means. 
+Jako ji¾ vìt¹ina podobných aplikací je RapidMiner v~souèasné dobì implementován v~jazyce Java, díky které nabízí flexibilní nejen grafické prostøedí. K~vybraným základním rysùm tohoto nástroje, tak jak jsou prezentovány firmou \textit{Rapid-i}, patøí: výkonné, pøesto intuitivní grafické u¾ivatelské rozhraní pro návrh procesù, jednoduché øe¹ení pro transformaci dat, kontrola výsledkù ji¾ pøi samotném návrhu a~dal¹í. Nástroj RapidMiner podporuje ¹irokou ¹kálu metod a~algoritmù pro data mining. Mnoho algoritmù je implementováno pøímo v~aplikaci, ale také je pou¾ito metod z~konkurenèního softwaru Weka. V~základní verzi urèené pro veøejnost je k~nalezení pøes 100 procesù k~modelování. Jsou zde zastoupeny jak metody klasifikaèní a~asociaèní, tak i~metody shlukovací, z~nich¾ lze jmenovat napøíklad DBSCAN, \textit{k}-medoids a~hlavnì \textit{k}-means. 
 
 K~dal¹ím schopnostem RapidMineru je mo¾nost spu¹tìní jeho samotného pomocí grafického rozhraní nebo z~pøíkazové øádky. Jak ji¾ bylo uvedeno døíve, je také mo¾né jej pou¾ít jako knihovnu v~jazyce Java. V~této práci jsou pou¾ity první dvì mo¾nosti. Pomocí grafického prostøedí byl vytvoøen experiment, otestována jeho funkènost a~následnì pro jednotlivá shlukování pou¾ita ¹ablona procesu, která byla volána z~pøíkazové øádky. Tato mo¾nost je k~dispozici díky tomu, ¾e jsou projekty v~programu RapidMiner ukládány do èitelné a~strukturované formy za pomocí znaèkovacího jazyka XML.
 
 \chapter{Implementace}
 Obsahem ètvrté kapitoly je popis praktické èásti této práce. Jsou zde charakterizovány jednotlivé prvky, které byly pou¾ity jak pro získání dat, tak pro jejich následné ulo¾ení. V~první èásti je prezentována struktura architektury této práce. Její grafické znázornìní je ukázáno na obrázku \ref{picArchitektura}.
 
-Cílem této práce je dolování dat z~Jabberu. Jak ji¾ bylo døíve napsáno, Jabber je real-time sí»ová slu¾ba díky ní¾ mohou její u¾ivatelé komunikovat, informovat nebo sdílet svùj status s~jinými u¾ivateli. Celá tato vzájemná komunikace skrývá rozsáhlé mno¾ství informací o~klientech dané sítì. V¹echna tato navzájem vymìnìná nebo poskytnutá data následnì poslou¾í jako zdroj samotnému dolování. Pro jejich uskladnìní je vyu¾ita databáze, jejich¾ strukturální návrh prezentuje obrázek \ref{picDatabase}. 
+Cílem této práce je dolování dat z~Jabberu. Jak ji¾ bylo døíve napsáno, Jabber je sí»ová slu¾ba pracující v~reálném èase díky ní¾ mohou její u¾ivatelé komunikovat, informovat nebo sdílet svùj status s~jinými u¾ivateli. Celá tato vzájemná komunikace skrývá rozsáhlé mno¾ství informací o~klientech dané sítì. V¹echna tato navzájem vymìnìná nebo poskytnutá data následnì poslou¾í jako zdroj samotnému dolování. Pro jejich uskladnìní je vyu¾ita databáze, jejich¾ strukturální návrh prezentuje obrázek \ref{picDatabase}. 
 
 Tøetí èást této kapitoly je zamìøena na Jabber klienta neboli robota, který je implementován v~jazyce C++ pouze s~konzolovým rozhraním. Robot v~této práci hraje roli pasivního u¾ivatele, který informace pouze pøijímá. Ve vybraných pøípadech doká¾e u¾ivatele ze svého seznamu kontaktù vyzvat k~zaslání odpovìdi s~informacemi na odpovìï, o~kterou ¾ádal. Struktura samotného robota je popsána ní¾e a~reprezentována obrázkem \ref{picRobot}. V~èásti o~Jabber robotovi jsou také uvedeny informace o~knihovnì \textit{gloox}, kterou jsou zprostøedkovány v¹echny nále¾itosti Jabber komunikace.
 
@@ -590,13 +585,13 @@ Dal¹ím oddílem, prezentovaným na obrázku \ref{picArchitektura} pod názvem \texti
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[scale=.6]{drawing1.pdf}
+\includegraphics[scale=.6]{./pic/drawing1.pdf}
 \caption{Struktura architektury bakaláøské práce.}
  \label{picArchitektura}
 \end{center}
 \end{figure}
 
-Poslední èástí je \textit{u¾ivatelské rozhraní}, které je implementováno pomocí webových slu¾eb. Jako pøíklad lze uvést slu¾bu, která zobrazuje status u¾ivatele na webové stránce. U¾ivateli pouze staèí vlastnit Jabber úèet a~mít pøidaného tohoto robota do seznamu kontaktù. Od ka¾dého u¾ivatele, je¾ má tohoto robota pøidaného do svého seznamù kontaktù, je sbírána ve¹kerá sí»ová aktivita. Mo¾nosti, které mu nabízí u¾ivatelské rozhraní v~podobì webové prezentace, tudí¾ zále¾í pouze na datech, které sám do sítì rozesílá. Jsou-li podporována v¹echna zde implementována roz¹íøení, která jsou uvedená v~kapitole druhé, je mo¾né vyu¾ít jejich slu¾eb prostøednictvím internetových stránek. Jako dal¹í pøíklad lze uvést zobrazení aktuálního umístìní u¾ivatele na mapách od firmy google, dle informací poskytnutých prostøednictvím dokumentu User Geoloc \cite{Xep0080}.
+Poslední èástí je \textit{u¾ivatelské rozhraní}, které je implementováno pomocí webových slu¾eb. Jako pøíklad lze uvést slu¾bu, která zobrazuje status u¾ivatele na webové stránce. U¾ivateli pouze staèí vlastnit Jabber úèet a~mít pøidaného tohoto robota do seznamu kontaktù. Od ka¾dého u¾ivatele, je¾ má tohoto robota pøidaného do svého seznamù kontaktù, je sbírána ve¹kerá sí»ová aktivita. Mo¾nosti, které mu nabízí u¾ivatelské rozhraní v~podobì webové prezentace, tudí¾ zále¾í pouze na datech, které sám do sítì rozesílá. Jsou-li podporována v¹echna zde implementovaná roz¹íøení, která jsou uvedená v~kapitole druhé, je mo¾né vyu¾ít jejich slu¾eb prostøednictvím internetových stránek. Jako dal¹í pøíklad lze uvést zobrazení aktuálního umístìní u¾ivatele na mapách od firmy google, dle informací poskytnutých prostøednictvím dokumentu User Geoloc \cite{Xep0080}.
 
 %Architektura této práce je rozdìlena na pìt èástí. celkove bych doplnil pred 4.1. podkapitolu architektura.  Do ktere bych nakreslil obrazek (neco jako priloha). A k tomu bych popsal jak jednotlive casti komunikuji. (ty casti, ktere stoji za rec bych popsal do samostatnych podkapitol)
 
@@ -612,7 +607,7 @@ Tabulka \textit{presence} z~pohledu XMPP standardu prezentuje jeden ze tøí zákla
 
 \begin{figure}[ht]
 \begin{center}
-\input{DatabaseSmall}
+\input{./pic/DatabaseSmall}
 \caption{Vybraná èást struktury databáze.}
  \label{picDatabase}
 \end{center}
@@ -620,13 +615,13 @@ Tabulka \textit{presence} z~pohledu XMPP standardu prezentuje jeden ze tøí zákla
 
 Vìt¹ina roz¹íøení standardu XMPP, která jsou popsána ve druhé kapitole, jsou prezentována pomocí pìti tabulek. Konkrétnì to jsou tabulky \textit{geoloc}, \textit{tune}, \textit{mood}, \textit{activity} a~\textit{vcard}. Pro obsah a~názvy atributù v¹ech pìti tabulek s~roz¹íøeními se staly vzory dokumenty jednotlivých XEP, které je definují. Tabulky kromì tìchto atributù obsahují také polo¾ku \textit{jidbare}, která, jak ji¾ název naznaèuje, obsahuje pouze èisté JabberID bez resources. Tato skuteènost vyplývá ji¾ ze samotného návrhu XEP protokolù. V~tabulce \textit{vcard} jsou také polo¾ky, jejich¾ obsah je tvoøen fotografiemi. Obrázky jsou zde ulo¾eny ve stavu, tak jak jsou pøená¹eny po síti, tedy pomocí datového formátu Base64. Base64 je algoritmus, který pøevádí binární data na øetìzec, který je tvoøen pouze znaky ASCII tabulky.
 
-S~posledním roz¹íøením, nazvaném \textit{Software Version} je spjata tabulka resource, její¾  nìkolik sloupcù tvoøí informace o~IM klientovi a~operaèním systému, na kterém bì¾í. Tyto základní údaje jsou definovány v~protokolu \cite{Xep0092}, kde je také mo¾né èerpat bli¾¹í informace. Pokroèilej¹í atributy, jako je \textit{type} a~\textit{osversion} nacházejí svùj podklad v~XEP dokumentu \cite{Xep0115}, takté¾ jako atribut \textit{ver}. V~neposlední øadì se zde nachází zmínka o~podpoøe audia a~videa, a» u¾ v~podobì \textit{jingle} nebo \textit{google}. Pøesto tyto vý¹e uvedené údaje nejsou hlavním dùvodem existence této tabulky. Její primární cíl je uchovávat informace o~pøipojených u¾ivatelích a~v¹ech jejich resources.
+S~posledním roz¹íøením, nazvaném \textit{Software Version}, je spjata tabulka resource, její¾  nìkolik sloupcù tvoøí informace o~IM klientovi a~operaèním systému, na kterém bì¾í. Tyto základní údaje jsou definovány v~protokolu \cite{Xep0092}, kde je také mo¾né èerpat bli¾¹í informace. Pokroèilej¹í atributy, jako je \textit{type} a~\textit{osversion} nacházejí svùj podklad v~XEP dokumentu \cite{Xep0115}, takté¾ jako atribut \textit{ver}. V~neposlední øadì se zde nachází zmínka o~podpoøe audia a~videa, a» u¾ v~podobì \textit{jingle} nebo \textit{google}. Pøesto tyto vý¹e uvedené údaje nejsou hlavním dùvodem existence této tabulky. Její primární cíl je uchovávat informace o~pøipojených u¾ivatelích a~v¹ech jejich resources.
 
 Entita resources tvoøí základ pro tabulku \textit{status}. Její obsah je automaticky generován z~obsahu tabulky popsané vý¹e. Poèet øádkù odpovídá poètu u¾ivatelù, kteøí jsou v~seznamu kontaktù tohoto robota. Primárním cílem je informování o~aktuálním stavu u¾ivatele. Je tedy poskytován stav, ve kterém se u¾ivatel nachází s~pøihlédnutím na prioritu a~resources. Øádek entity obsahuje status a~dostupnost u¾ivatele a~jeho resources s~nejvìt¹í pøihlá¹enou prioritou.
 
 
 \section{Návrh robota}
-V~této èásti bude popsána aplikace, která zaji¹»uje real-time komunikaci s~ostatními entitami  Jabber sítì. Konzolový robot, který je vyvíjen pro operaèní systém Linux, také vhodným zpùsobem pracuje s~databází, kam jsou ukládána jednotlivá získaná data. Jabber jádro sí»ové komunikace \cite{Rfc3920}, je implementováno pomocí volnì dostupné knihovny \textit{gloox}. V~porovnání s~jinými knihovnami disponuje lep¹í podporou a~dokumentací. Gloox plnì implementuje standart XMPP Core \cite{Rfc3920} a~z~vìt¹í èásti i~standard XMPP IM \cite{Rfc3921}. Dodateènì je podporováno kolem tøiceti XEP standardù mezi nì¾ napøíklad patøí vcard-temp \cite{Xep0054}.% a dal¹í. 
+V~této èásti bude popsána aplikace, která zaji¹»uje real-time komunikaci s~ostatními entitami  Jabber sítì. Konzolový robot, který je vyvíjen pro operaèní systém Linux, také vhodným zpùsobem pracuje s~databází, kam jsou ukládána jednotlivá získaná data. Jabber jádro sí»ové komunikace \cite{Rfc3920} je implementováno pomocí volnì dostupné knihovny \textit{gloox}. V~porovnání s~jinými knihovnami disponuje lep¹í podporou a~dokumentací. Gloox plnì implementuje standart XMPP Core \cite{Rfc3920} a~z~vìt¹í èásti i~standard XMPP IM \cite{Rfc3921}. Dodateènì je podporováno kolem tøiceti XEP standardù mezi nì¾ napøíklad patøí vcard-temp \cite{Xep0054}.% a dal¹í. 
 
 Pøi implementaci robota byly vyu¾ity základní prvky objektovì-orientovaného programování. Ka¾dá tøída zde zastupuje jednoznaènì oddìlitelné elementy robota. A» u¾ se jedná o~blok komunikující s~databází, rùzná roz¹íøení nebo o~jádro robota. 
 %V¹echny zde jmenované objekty hrají dùle¾itou roli jak v èásti dekompozice na men¹í ucelené celky tak i v celkové komplexnosti programu. 
@@ -636,14 +631,14 @@ Jako pøíklad lze uvést tøídy, které reprezentují jednotlivá pro tuto práci vhodn
 Struktura návrhu tøíd robota, která je v~základní èásti prezentována obrázkem \ref{picRobot}, je velmi podobná struktuøe návrhu databáze, obrázek \ref{picDatabase}. Mnoho atributù z~robota a~z~databáze jsou ve vztahu jedna ku jedné. Samotná komunikace a~øízení mezi tìmito entitami je zprostøedkováno pomocí knihovny \textit{libpq}. 
 %Libpq je programátorské rozhraní pro databázi PostgreSQL. Je to sada funkcí v jazyce C, které umo¾òují klientským programùm zadávat dotazy na server a následnì na nì obdr¾et odpovìdi. Pomocí této knihovny je øízen pøenos dat mezi robotem, který sbírá data, a databází, kam jsou ukládána. Navázání spojení a následné jednotlivé dotazy probíhají v blokujícím re¾imu. 
 V~souboru \textit{connect.h} jsou, v~podobì pøeddefinovaných konstant, uvedeny v¹echny údaje nutné k~navázání spojení a» u¾ s~databází nebo s~komunikaèním Jabber serverem. 
-%Tudí¾ se stává hlavní èástí urèenou k editaci pøipojení a Jabber úètu na nìm¾ robot bì¾í. K dal¹ímu pouze textovému dokumentu patøí \textit{const.h},  který je zamìøen k definování jednotlivých pøíkazù a dotazù pro databázi. Jsou to pøíkazy pro tvorbu a aktualizaci tabulek, které jsou takté¾ definované jako konstanty. Identifikaèní názvy, pro snadné odli¹ení, jsou psány velkými písmeny a zaèínají textem \textit{DB\_}.
+%Tudí¾ se stává hlavní èástí urèenou k editaci pøipojení a Jabber úètu, na nìm¾ robot bì¾í. K dal¹ímu pouze textovému dokumentu patøí \textit{const.h},  který je zamìøen k definování jednotlivých pøíkazù a dotazù pro databázi. Jsou to pøíkazy pro tvorbu a aktualizaci tabulek, které jsou takté¾ definované jako konstanty. Identifikaèní názvy pro snadné odli¹ení jsou psány velkými písmeny a zaèínají textem \textit{DB\_}.
 
 Komunikace s~databází se nachází v~samostatné tøídì, která zaji¹»uje provázanost mezi ní a~daty. Pomocí funkcí jsou data, získaná z~Jabber komunikace, pøená¹ena a~ukládána do jednotlivých tabulek databáze. Pøi zahájení èinnosti robota je zaji¹tìno navázání pøipojení k~databázi a~provedení nutných inicializaèních krokù. Jako je tvorba nových tabulek, pøi prvním zapnutí aplikace, nebo kontrola existence tìchto entit.
 
 Pro roz¹íøení podle dokumentù XEP popsaných v~kapitole druhé, v~èásti zabývající se implementovanými roz¹íøeními, je základ nadtøída \textit{Extension}. Tato tøída obsahuje základní funkce a~parametry pro v¹echna roz¹íøení. 
 %Jako pøíklad lze uvést u¾ivatelské jméno klienta, který dané roz¹íøení \uv{¹íøí} po síti. 
 Tøídy, které z~Extension dìdí a~jsou prezentovány na návrhu robota uvedeném na obrázku \ref{picRobot}, jsou následující: \textit{Geoloc}, \textit{Tune}, \textit{Mood}, \textit{Activity} a~\textit{SwVersion}.
-%Samotnou strukturou tìchto roz¹íøení, jak ji¾ bylo uvedeno vý¹e, jsou pomocí parametrù kopírovány vlastnosti jednotlivých XEP dokumentù. Tedy ke ka¾dému atributu XML zprávy existuje jak promìnná uchovávající její obsah tak i tzv. \uv{get} a \uv{set} metoda. Pomocí dal¹í metody jsou jednotlivé èásti roz¹íøení rozparsovány, ulo¾eny do tøíd a následnì vlo¾eny do databází. 
+%Samotnou strukturou tìchto roz¹íøení, jak ji¾ bylo uvedeno vý¹e, jsou pomocí parametrù kopírovány vlastnosti jednotlivých XEP dokumentù. Tedy ke ka¾dému atributu XML zprávy existuje jak promìnná uchovávající její obsah, tak i tzv. \uv{get} a \uv{set} metoda. Pomocí dal¹í metody jsou jednotlivé èásti roz¹íøení rozparsovány, ulo¾eny do tøíd a následnì vlo¾eny do databází. 
 Poslední doposud nezmiòované roz¹íøení v~podobì \textit{vcard}, je vyu¾ito z~knihovny gloox, která jej implementuje.
 
 Základní èást, kterou je mo¾né pova¾ovat za jádro aplikace, je tøída \textit{Bot}. 
@@ -654,7 +649,7 @@ kterými je zaji¹»ován pøístup k~jednotlivým zprávám. Neboli jejich prostøednictv
 
 \begin{figure}[ht]
 \begin{center}
-\input{Robotsmall}
+\input{./pic/Robotsmall}
 \caption{Vybraná èást struktury robota.}
  \label{picRobot}
 \end{center}
@@ -667,35 +662,35 @@ K~dal¹ím schopnostem robota, tedy kromì sbírání dat a~jejich následného ukládání
 \section{Pokraèování práce}
 Obsah této podkapitoly je zamìøen na mo¾nosti roz¹íøení robota sbírajícího data. Také jsou zde popsány mo¾né zmìny, které se týkají u¾ivatelského rozhraní. V~závìru jsou shrnuta dal¹í roz¹íøení.
 
-Vìt¹ina slu¾eb, které jsou dostupné na internetu a~jsou podporované rùznými servery, poskytuje pouze informace o~aktuálním stavu klienta. Pomocí vý¹e uvedených standardù by bylo mo¾né pøipojit k~základní webové prezentaci statusu i~informace roz¹íøené. Také zapojení standardu \textit{Entity Capabilities} \cite{Xep0115}, který je popsán na konci druhé kapitoly, by mohlo pøinést nové pokroèilej¹í, u¾iteèné informace. Konkrétnì je to samotná podpora IM aplikací v~oblasti dal¹ích XEP dokumentù. Nezasvìcený u¾ivatel by tímto velice jednoduchým roz¹íøením dokázal zjistit seznam slu¾eb podporovaných jeho IM programem. A» u¾ by se jednalo o~seznam funkcí, které jsou pouze pøijímány, nebo výèet roz¹íøení, k~jejich odbìru je zaregistrován. Jako pøíklad lze uvést zji¹tìní schopnosti, a» u¾ pøijímání nebo odesílání informací o~pøehrávané hudbì, popsané dokumentem \textit{User Tune} \cite{Xep0118}.
+Vìt¹ina slu¾eb, které jsou dostupné na internetu a~jsou podporované rùznými servery, poskytuje pouze informace o~aktuálním stavu klienta. Pomocí vý¹e uvedených standardù by bylo mo¾né pøipojit k~základní webové prezentaci statusu i~informace roz¹íøené. Také zapojení standardu \textit{Entity Capabilities} \cite{Xep0115}, který je popsán na konci druhé kapitoly, by mohlo pøinést nové pokroèilej¹í, u¾iteèné informace. Konkrétnì je to samotná podpora IM aplikací v~oblasti dal¹ích XEP dokumentù. Nezasvìcený u¾ivatel by tímto velice jednoduchým roz¹íøením dokázal zjistit seznam slu¾eb podporovaných jeho IM programem. A» u¾ by se jednalo o~seznam funkcí, které jsou pouze pøijímány, nebo výèet roz¹íøení, k~jejich¾ odbìru je zaregistrován. Jako pøíklad lze uvést zji¹tìní schopnosti, a» u¾ pøijímání nebo odesílání informací o~pøehrávané hudbì popsané dokumentem \textit{User Tune} \cite{Xep0118}.
 
-Dal¹í oblast, ve které lze nalézt mo¾nost roz¹íøení, se také zabývá webovou prezentací. Nyní v¹ak jde ji¾ konkrétnì o~robota vytvoøeného k~úèelu této práce. Informace potøebné k~zobrazení aktuálního stavu klienta na internetové stránce, jsou ulo¾eny v~databázi v~tabulce status. Tato tabulka je automaticky generována z~obsahu jiné entity, která obsahuje údaje o~v¹ech pøipojeních daného u¾ivatele. V¹e pracuje správnì a¾ do té chvíle, kdy u¾ivatel svou IM aplikaci neukonèí korektnì. Nastává situace, kdy na server není zaslána zpráva, která informuje o~zmìnì statusu. Díky tomuto neoèekávanému ukonèení klienta je u¾ivatel prezentován, jako by byl pøipojen i~kdy¾ je tomu naopak. Zdrojová tabulka se v~této chvíli stává neaktuální. Navrhované øe¹ení této situace vyu¾ívá roz¹íøení \textit{XMPP ping} \cite{Xep0199}. Díky nìmu¾ by se mìlo dát zjistit, zda je u¾ivatel stále dostupný nebo ji¾ nikoliv.
+Dal¹í oblast, ve které lze nalézt mo¾nost roz¹íøení, se také zabývá webovou prezentací. Nyní v¹ak jde ji¾ konkrétnì o~robota vytvoøeného k~úèelu této práce. Informace potøebné k~zobrazení aktuálního stavu klienta na internetové stránce, jsou ulo¾eny v~databázi v~tabulce status. Tato tabulka je automaticky generována z~obsahu jiné entity, která obsahuje údaje o~v¹ech pøipojeních daného u¾ivatele. V¹e pracuje správnì a¾ do té chvíle, kdy u¾ivatel svou IM aplikaci neukonèí korektnì. Nastává situace, kdy na server není zaslána zpráva, která informuje o~zmìnì statusu. Díky tomuto neoèekávanému ukonèení klienta je u¾ivatel prezentován, jako by byl pøipojen i~kdy¾ je tomu naopak. Zdrojová tabulka se v~této chvíli stává neaktuální. Navrhované øe¹ení této situace vyu¾ívá roz¹íøení \textit{XMPP ping} \cite{Xep0199}, díky nìmu¾ by se mìlo dát zjistit, zda je u¾ivatel stále dostupný nebo ji¾ nikoliv.
 
-V~oddílu robota by bylo mo¾né pokraèovat v~èásti, která se zaobírá pøíkazy zaslané ze strany u¾ivatele. S~tímto roz¹íøení úzce souvisí rozèlenìní u¾ivatelù do jednotlivých skupin. Ka¾dá takováto èást seznamu kontaktù by vlastnila rùzná práva, která by se stala základem pro poskytování konkrétních slu¾eb. Zaøazení do tìchto skupin by mohlo probíhat pøi ¾ádosti o~poèáteèní autorizaci, která by obsahovala zprávu s~pøesnì definovaným øetìzcem. Funkce, která je ji¾ uvedena vý¹e a~to v~podobì roz¹íøení webové prezentace, by také mohla být poskytována prostøednictvím robota. Konkrétnì se jedná o~zji¹tìní podporovaných a» ji¾ pøijímaných nebo odesílaných roz¹íøení. U¾ivatel by pouze poslal robotovi striktnì pøeddefinovanou zprávu a~jako odpovìï by obdr¾el seznam podporovaných funkcí.
+V~oddílu robota by bylo mo¾né pokraèovat v~èásti, která se zaobírá pøíkazy zaslané ze strany u¾ivatele. S~tímto roz¹íøením úzce souvisí rozèlenìní u¾ivatelù do jednotlivých skupin. Ka¾dá takováto èást seznamu kontaktù by vlastnila rùzná práva, která by se stala základem pro poskytování konkrétních slu¾eb. Zaøazení do tìchto skupin by mohlo probíhat pøi ¾ádosti o~poèáteèní autorizaci, která by obsahovala zprávu s~pøesnì definovaným øetìzcem. Funkce, která je ji¾ uvedena vý¹e a~to v~podobì roz¹íøení webové prezentace, by také mohla být poskytována prostøednictvím robota. Konkrétnì se jedná o~zji¹tìní podporovaných a» ji¾ pøijímaných nebo odesílaných roz¹íøení. U¾ivatel by pouze poslal robotovi striktnì pøeddefinovanou zprávu a~jako odpovìï by obdr¾el seznam podporovaných funkcí.
 
 Také èást zabývající se dolováním z~dat skýtá velké mno¾ství mo¾ností pro její pokraèování. Jako jeden z~pøíkladù lze uvést roz¹íøení zalo¾ené na datech získaných prostøednictvím dokumentu User Tune. Konkrétnì se jedná o~internetové stránky, které by také mimo jiné nabízely prodej hudby. Jako vzor lze brát stránku \textit{Last.fm} \cite{Last}, která jednotlivým u¾ivatelùm vytváøí hudební profily na základì poslouchaných skladeb. Navrhované roz¹íøení by získávalo data pro tvorbu profilu z~informací, které by byly ¹íøeny prostøednictvím sítì Jabber a~dokumentu User Tune. Vyu¾ití dal¹ího standardu User Location by nahradilo manuální nastavení geografické polohy u¾ivatele za automatické a~tím by pøineslo mo¾nosti pro nabízení cílené reklamy.
 
 S~dokumentem User Location souvisí i~dal¹í navrhované pokraèování. Konkrétnì se jedná o~mo¾ný návrh nového XEP standardu, který by vyu¾íval urèení geografické polohy napøíklad k~naplánování cesty. Roz¹íøení by umo¾òovalo konkrétním lokalizaèním souøadnicím pøiøazovat dùle¾ité body, informace a~poznámky. Ty by byly ihned rozeslány zpùsobem, jakým pracují dosavadní roz¹íøení postavená na Personal Eventing Protocol \cite{Xep0060}. Vyu¾ití by nalezlo a» u¾ v~záchranných misích nebo jen k~¹íøení zajímavostí mezi u¾ivateli.
 
-V~mìsíci bøezen, tohoto roku, vy¹la nová verze základních dokumentù RFC. V~této práci, ji¾ ale z~tìchto standardù nejsou zahrnuty ¾ádné zmìny. V~dobì vydání se toti¾ práce dostával do koneèné fáze vývoje. Proto zmìny pøinesené novými protokoly by takté¾ mohly být uplatnìny pøi pøípadném pokraèování této práce.
+V~mìsíci bøezen tohoto roku vy¹la nová verze základních dokumentù RFC. V~této práci ji¾ ale z~tìchto standardù nejsou zahrnuty ¾ádné zmìny. V~dobì vydání se toti¾ práce dostávala do koneèné fáze vývoje. Proto zmìny pøinesené novými protokoly mohly být takté¾ uplatnìny pøi pøípadném pokraèování této práce.
 
 
 \chapter{Vyhodnocení výsledkù}
 
-Pátá kapitola je zamìøena na vyhodnocení výsledkù a~prezentaci zji¹tìných informací. V~první podkapitole jsou uvedeny poznatky zji¹tìné z~ruèního prozkoumávání získaných dat, která jsou ulo¾ena v~databázi. Z~velké èásti je zde popsán jak vznik nepøesností, tak i~jejich pøípadné následné odstranìní. V~závìru této podkapitoly jsou shrnuta kvantitativní fakta zamìøená na databázi, jako je napøíklad poèet záznamù a~velikost samotné databáze.
+Pátá kapitola je zamìøena na vyhodnocení výsledkù a~prezentaci zji¹tìných informací. V~první podkapitole jsou uvedeny poznatky zji¹tìné z~ruèního prozkoumávání získaných dat, která jsou ulo¾ena v~databázi. Z~velké èásti je zde popsán jak vznik nepøesností, tak i~jejich pøípadné následné odstranìní. V~závìru této podkapitoly jsou shrnuta kvantitativní fakta zamìøená na databázi jako je napøíklad poèet záznamù a~velikost samotné databáze.
 
 Druhá podkapitola se zabývá samotným procesem dolováním z~dat, který je provádìn pomocí nástroje RapidMiner \cite{RapidMiner}. Je postavena na informacích získaných z~druhé a~tøetí kapitoly. Prostøednictvím tabulky \ref{tabProcent}, její¾ celá podoba se nachází v~pøíloze \ref{EVyhodnoceni}, jsou prezentovány zji¹tìné informace. Jedná se o~procentuální shodu u¾ivatelù mezi sebou, která je zalo¾ena na datech získaných z~jejich statusù v~Jabber síti.
 
 \section{Manuální rozbor dat}
-Data, která jsou získaná z~Jabber komunikace, jsou ulo¾ena v~databázi PostgreSQL. V~prùbìhu celého vývoje této práce byl obsah databáze dùkladnì kontrolován a~pøípadné problémy øe¹eny v~nejbli¾¹ím mo¾ném termínu. I~tak se ale v~databázi nacházelo nìkolik chyb, které pøi následné analýze dokázaly mírnì znepøesnit výsledky. Jako pøíklad lze uvést zaznamenávání roz¹íøeného statusu o~geografické poloze do tabulky geoloc. V~pøípadì, ¾e u¾ivatel souèasnì pou¾íval pouze jedno pøipojení, bylo v¹e v~poøádku. Men¹í kolize nastala v~situaci, kdy bylo více souèasných pøipojení. Ka¾dé rozesílalo své informace, které byly stejné, a~tím se v~jeden èas v~databázi objevila redundantní data. Tato nepøesnost byla po manuálním rozboru dat objevena a~odstranìna pomocí èasových razítek.
+Data, která jsou získaná z~Jabber komunikace, jsou ulo¾ena v~databázi PostgreSQL. V prùbìhu celého vývoje této práce byl obsah databáze dùkladnì kontrolován a~pøípadné problémy øe¹eny v~nejbli¾¹ím mo¾ném termínu. I~tak se ale v~databázi nacházelo nìkolik chyb, které pøi následné analýze dokázaly mírnì znepøesnit výsledky. Jako pøíklad lze uvést zaznamenávání roz¹íøeného statusu o~geografické poloze do tabulky geoloc. V~pøípadì, ¾e u¾ivatel souèasnì pou¾íval pouze jedno pøipojení, bylo v¹e v~poøádku. Men¹í kolize nastala v~situaci, kdy bylo více souèasných pøipojení. Ka¾dé rozesílalo své informace, které byly stejné, a~tím se v~jeden èas v~databázi objevila redundantní data. Tato nepøesnost byla po manuálním rozboru dat objevena a~odstranìna pomocí èasových razítek.
 
-Nejvìt¹í problém pøi sbírání dat, je tvoøen díky aplikacím, které jsou vyu¾ívány u¾ivateli. Jejich neúplná implementace XEP dokumentù a~vzájemná nepøesná spolupráce s~jinými programy tvoøí velké mno¾ství matoucích dat, které se takté¾ nacházejí v~databázi. Tento problém se v~nejvìt¹í míøe objevuje v~tabulce tune, jejím¾ cílem je uchování informací o~hudbì, kterou u¾ivatelé poslouchají. Podle dokumentu User Tune \cite{Xep0118}, by po skonèení pøehrávání hudby mìl klient rozeslat do \uv{svìta} zprávu, její¾ obsah, nesoucí informace o~právì pøehrávané hudbì, bude prázdný. Tím je sdìleno ukonèení pøehrávání hudby. V~mnoha pøípadech se, ale takto nedìje. Zprávu, která obsahuje informace o~poslední pøehrávané hudbì, u¾ivatel roze¹le jako poslední. Tudí¾ z~analýzy dat obsa¾ených v~databázi je mylnì pøedpokládáno, ¾e klient hudbu stále poslouchá.
+Nejvìt¹í problém pøi sbírání dat je tvoøen díky aplikacím, které jsou vyu¾ívány u¾ivateli. Jejich neúplná implementace XEP dokumentù a~vzájemná nepøesná spolupráce s~jinými programy tvoøí velké mno¾ství matoucích dat, které se takté¾ nacházejí v~databázi. Tento problém se v~nejvìt¹í míøe objevuje v~tabulce tune, jejím¾ cílem je uchování informací o~hudbì, kterou u¾ivatelé poslouchají. Podle dokumentu User Tune \cite{Xep0118}, by po skonèení pøehrávání hudby mìl klient rozeslat do \uv{svìta} zprávu, její¾ obsah, nesoucí informace o~právì pøehrávané hudbì, bude prázdný. Tím je sdìleno ukonèení pøehrávání hudby. V~mnoha pøípadech se ale takto nedìje. Zprávu, která obsahuje informace o~poslední pøehrávané hudbì, u¾ivatel roze¹le jako poslední. Tudí¾ z~analýzy dat obsa¾ených v~databázi je mylnì pøedpokládáno, ¾e klient hudbu stále poslouchá.
 
 Samotný sbìr informací zapoèal ji¾ v~minulém roce v~mìsíci prosinec. V~této dobì v¹ak je¹tì nebyla implementována v¹echna roz¹íøení  a~formát i~obsah vybraných tabulek byl pozdìji modifikován. Základní informace o~u¾ivatelském stavu, které jsou uchovávané v~tabulce presence, ji¾ ale výraznou zmìnou nepro¹ly a~tudí¾ jsou sbírány od samého poèátku bìhu aplikace. V~obsahu této entity pouze nejsou zahrnuty vybrané dny, kdy byl klient mimo provoz. 
 
-Databáze uchovává informace pouze o~poètu kolem 40 u¾ivatelù. Tento fakt výraznì ovlivnil pøesnost a~rozsah nasbíraných dat. Takté¾ malé mno¾ství podpory roz¹íøených statusù ze strany u¾ivatelù a~jejich aplikací, znaènì ovlivnilo obsah databáze. A» u¾ do poètu záznamù nebo umístìní informací do správných entit. S~tímto takté¾ úzce souvisí roz¹íøení User Tune, jeho¾ nesprávné pou¾ití je popsáno v~závìreèné èásti druhé kapitoly.
+Databáze uchovává informace pouze o~poètu kolem 40 u¾ivatelù. Tento fakt výraznì ovlivnil pøesnost a~rozsah nasbíraných dat. Takté¾ malé mno¾ství podpory roz¹íøených statusù ze strany u¾ivatelù a~jejich aplikací znaènì ovlivnilo obsah databáze. A» u¾ do poètu záznamù nebo umístìní informací do správných entit. S~tímto takté¾ úzce souvisí roz¹íøení User Tune, jeho¾ nesprávné pou¾ití je popsáno v~závìreèné èásti druhé kapitoly.
 
-Za dobu, která pøesahuje 4 mìsíce, bylo nasbíráno témìø 200\,MB dat. Napøíklad tabulka, která uchovává data pro data mining popsaný v~následující podkapitole, obsahuje pøe 115 tisíc záznamù. Na druhou stranu entity zamìøené na roz¹íøené statusy, konkrétnì to jsou geoloc, tune, mood a~activity, disponují s~men¹ím poètem záznamù, který se poèítá pouze ve stovkách. Tento omezený poèet, jak ji¾ bylo uvedeno, je výsledkem men¹í podpory tìchto roz¹íøení ze strany klientù.
+Za dobu, která pøesahuje 4 mìsíce, bylo nasbíráno témìø 200\,MB dat. Napøíklad tabulka, která uchovává data pro data mining popsaný v~následující podkapitole, obsahuje pøes 115 tisíc záznamù. Na druhou stranu entity zamìøené na roz¹íøené statusy, konkrétnì to jsou geoloc, tune, mood a~activity, disponují s~men¹ím poètem záznamù, které se poèítají pouze ve stovkách. Tento omezený poèet, jak ji¾ bylo uvedeno, je výsledkem men¹í podpory tìchto roz¹íøení ze strany klientù.
 
 Tabulka \ref{tabSouhrn} souhrnnì prezentuje nasbíraná data v~jednotlivých kategoriích roz¹íøení. Prvními zji¹tìnými údaji je tvoøen druhý sloupec, kterým je shrnut poèet u¾ivatelù podporujících daný standard. Jak druhý tak i~tøetí sloupec se skládá ze dvou èísel, která jsou  vzájemnì oddìlena znakem lomítko \textit{\textfractionsolidus}. První údaj uvádí poèet u¾iteèných záznamù z~celkového poètu. Konkrétnì v~druhém sloupci to je poèet u¾ivatelù, kteøí ¹íøili u¾iteèné informace, k~poètu u¾ivatelù, je¾ ¹íøili jakákoliv data, tedy i~prázdná. Tabulku uzavírá pøehled prùmìrného poètu záznamù na jednoho u¾ivatele.
 
@@ -749,7 +744,7 @@ Pomocí algoritmu \textit{k}-means byli u¾ivatelé rozèlenìni podle svého chování 
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[scale=.75]{doc.pdf}
+\includegraphics[scale=.75]{./pic/g-finally.pdf}
 \caption{Prùbìh statusù shlukù podle èasu.}
  \label{picShluk}
 \end{center}
@@ -798,7 +793,7 @@ Vý¹e zmínìná tabulka \ref{tabProcent} prezentuje pouze vybranou èást u¾ivatelù. 
 Údaje prezentované tabulkou \ref{tabProcent} byly i~manuálnì zkontrolovány a~to vedlo k~závìru, ¾e celý proces poèínaje transformací a¾ po samotné vyhodnocení je navr¾en správnì. Je patrné, ¾e ke 100 procentní shodì nedo¹lo ani u~u¾ivatelù, kteøí vyu¾ívají dva stejné úèty. Tento dùsledek je mo¾né vysvìtlit tím, ¾e ne v¾dy byly oba úèty ve stejném stavu a~ve stejné chvíli zapínány. Takté¾ se dospìlo ke zji¹tìní, které dokazuje, ¾e ke správnému vyhodnocení by bylo potøeba, aby v¹ichni u¾ivatelé mìli pøibli¾nì stejný poèet záznamù obsahujících zmìnu statusu. K~velké procentuální shodì napøíklad do¹lo u~dvou klientù, kteøí mìli v~databázi pouze tøi záznamy, co¾ nemá ¾ádnou vypovídající hodnotu o~jejich podobnosti.
 
 \chapter{Závìr}
-Cílem této bakaláøské práce bylo vytvoøení klienta pro real-time sí» Jabber. Tato aplikace pracuje jako robot, který je schopen reagovat na vhodnì zvolené pøíkazy a~sbírat data z~komunikace. Následujícím krokem bylo analyzování nashromá¾dìných dat, se kterými byl dále proveden proces dolování. Výsledky jsou prezentovány pomocí tabulky, její¾ obsah je tvoøen procentuální shodou jednotlivých u¾ivatelù mezi sebou.
+Cílem této bakaláøské práce bylo vytvoøení klienta pro sí» Jabber pracující v~reálném èase. Tato aplikace pracuje jako robot, který je schopen reagovat na vhodnì zvolené pøíkazy a~sbírat data z~komunikace. Následujícím krokem bylo analyzování nashromá¾dìných dat, se kterými byl dále proveden proces dolování. Výsledky jsou prezentovány pomocí tabulky, její¾ obsah je tvoøen procentuální shodou jednotlivých u¾ivatelù mezi sebou.
 
 Po dùkladném vypracování této práce je mo¾né prohlásit, ¾e v¹echny cíle kladené na tuto práci se podaøilo splnit. Ka¾dému bodu zadání je zde vìnován oddíl, ve kterém je daná problematika podrobnì rozebrána. Prvnímu bodu zadání odpovídá celá druhá kapitola, která je tvoøena popisem protokolu XMPP, na kterém je postavena komunikaèní slu¾ba Jabber. Také je zde rozebrána architektura sítì a~základní stavební kameny XMPP protokolu, které jsou vyu¾ívány sítí Jabber jako nástroj ke zprostøedkování jednotlivých slu¾eb. Druhý bod zadání úzce souvisí s~tvorbou robota, který byl vytvoøen za úèelem získávání dat z~Jabber komunikace. Zdrojové soubory této aplikace jsou pøilo¾eny na kompaktním disku. Implementaèní èástí se vìnuje kapitola ètvrtá, kde je rozebrána jak celková programová architektura této práce tak její jednotlivé bloky. Prvním oddílem kapitoly páté je splnìn tøetí bod zadání. Jsou zde uvedeny poznatky, které byly získány z~manuálního prùzkumu dat. Z~ruèního prohlí¾ení dat byly vyvozeny dùsledky, které tvoøily základ pro splnìní bodu ètvrtého. Tomuto a~následnému bodu zadání je vìnována zbývající èást páté kapitoly, která je doplnìna o~pøílohy nacházející se na konci tohoto dokumentu. Pro automatické zkoumání dat byl vyu¾it nástroj RapidMiner, který je spoleènì s~dal¹ími vybranými programy popsán na konci kapitoly tøetí. Její obsah je zamìøen na popis procesu dolování z~dat a~na jeho zaèlenìní do celého bloku získávání znalostí z~databází. Poslednímu bodu zadání je vyhrazena èást v~kapitole ètvrté, která se zabývá pøípadným pokraèováním této práce.
 

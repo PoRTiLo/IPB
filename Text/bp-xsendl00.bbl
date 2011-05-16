@@ -1,0 +1,144 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\selectlanguage}[1]{\relax}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{Adams}
+Adams, D.: \emph{Programming jabber}. Sebastopol: O'Reilly, první vydání, 2002,
+  455 s., iSBN~05-960-0202-5.
+
+\bibitem{Berka}
+Berka, P.: \emph{Dobývání znalostí z databází}. Praha: Academia, první vydání,
+  2003, 366 s., iSBN~80-200-1062-9.
+
+\bibitem{Bramer}
+Bramer, M.: \emph{Principles of Data mining}. London: Springer, první vydání,
+  2007, 343 s., iSBN~18-462-8765-0.
+
+\bibitem{Fayyad}
+Fayyad, U.~M.; Smyth, P.: \emph{Advances in knowledge discovery and data
+  mining}. California: MIT Press, první vydání, 1996, 611 s.,
+  iSBN~02-625-6097-6.
+
+\bibitem{Han}
+Han, J.; Kamber, M.: \emph{Data mining : concepts and techniques}. San
+  Francisco: Morgan Kaufmann Publisher, druhé vydání, 2006, 770 s.,
+  iSBN~15-586-0901-6.
+
+\bibitem{Xep0080}
+Hildebrand, J.; Saint-Andre, P.: XEP-0080: User Location. [online],
+  {15-09-2009, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0080.html}}
+
+\bibitem{Xep0115}
+Hildebrand, J.; Saint-Andre, P.; Tronçon, R.; aj.: XEP-0115: Entity
+  Capabilities. [online], {26-02-2008, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0115.html}}
+
+\bibitem{IIS}
+Hru¹ka, T.: \emph{Informaèní systémy : IIS/PIS}. Brno: Fakulta informaèních
+  technologií, 2008, 14733 s.
+
+\bibitem{Xml5th}
+{Kolektiv autorù}: Extensible Markup Language (XML) 1.0. [online], 26-11-2008,
+  [cit. \today].
+\newline\urlprefix\url{{http://www.w3.org/TR/2008/REC-xml-20081126/}}
+
+\bibitem{Kosek}
+Kosek, J.: \emph{XML pro ka¾dého : podrobný prùvodce}. Praha: Grada, první
+  vydání, 2000, 163 s., iSBN~80-716-9860-1.
+
+\bibitem{Xep0108}
+Meijer, R.; Saint-Andre, P.: XEP-0108: User Activity. [online], {29-10-2008,
+  [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0108.html}}
+
+\bibitem{Xep0060}
+Millard, P.; Saint-Andre, P.; Meijer, R.: XEP-0060: Publish-Subscribe.
+  [online], {12-07-2010, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0060.html}}
+
+\bibitem{Xep0292}
+Mizzi, S.; Saint-Andre, P.: XEP-0292: vCard4 Over XMPP. [online], {02-26-2008,
+  [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0292.html}}
+
+\bibitem{Moore}
+Moore, D.; Wright, W.: \emph{Jabber developer's handbook}. Indianapolis: Sams
+  Publishing, první vydání, 2004, 487 s., iSBN~06-723-2536-5.
+
+\bibitem{DM}
+Nemrava, M.; Pospí¹il, J.: Dolování dat a jeho aplikace. [online], 2006, [cit.
+  \today].
+\newline\urlprefix\url{{http://www.spatial.cs.umn.edu/paper_ps/dmchap.pdf}}
+
+\bibitem{Xep0054}
+Saint-Andre, P.: XEP-0054: vcard-temp. [online], {07-16-2008, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0054.html}}
+
+\bibitem{Xep0092}
+Saint-Andre, P.: XEP-0092: Software Version. [online], {02-15-2007, [cit.
+  \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0092.html}}
+
+\bibitem{Xep0118}
+Saint-Andre, P.: XEP-0118: User Tune. [online], {30-01-2008, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0118.html}}
+
+\bibitem{Xep0153}
+Saint-Andre, P.: XEP-0153: vCard-Based Avatars. [online], {16-08-2006, [cit.
+  \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0153.html}}
+
+\bibitem{Xep0199}
+Saint-Andre, P.: XEP-0199: XMPP Ping. [online], {03-06-2009, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0199.html}}
+
+\bibitem{Xep0107}
+Saint-Andre, P.; Meijer, R.: XEP-0107: User Mood. [online], {29-10-2008, [cit.
+  \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0107.html}}
+
+\bibitem{Xep0163}
+Saint-Andre, P.; Smith, K.: XEP-0163: Personal Eventing Protocol. [online],
+  {12-07-2010, [cit. \today]}.
+\newline\urlprefix\url{{http://xmpp.org/extensions/xep-0163.html}}
+
+\bibitem{Rfc3920}
+Saint-André, P.: Extensible Messaging and Presence Protocol (XMPP): Core.
+  [online], {10-2004, [cit. \today]}.
+\newline\urlprefix\url{{http://tools.ietf.org/html/rfc3920}}
+
+\bibitem{Rfc3921}
+Saint-André, P.: Extensible Messaging and Presence Protocol (XMPP): Instant
+  Messaging and Presence. [online], {10-2004, [cit. \today]}.
+\newline\urlprefix\url{{http://tools.ietf.org/html/rfc3921}}
+
+\bibitem{Saint}
+Saint-André, P.; Smith, K.; Troncon, R.: \emph{XMPP : the definitive guide :
+  building real-time applications with jabber technologies}. Sebastopol:
+  O'Reilly, první vydání, 2009, 287 s., iSBN~978-059-6521-264.
+
+\bibitem{Temporal}
+{WWW Stránky}: Database Systems. [online], 2007, [cit. \today].
+\newline\urlprefix\url{{http://www.cs.uct.ac.za/mit_notes_devel/Database/Lates%
+t/index.html}}
+
+\bibitem{Last}
+{WWW Stránky}: Last.fm. [online], 02-11-2009 [cit. \today].
+\newline\urlprefix\url{{http://www.last.fm/}}
+
+\bibitem{RapidMiner}
+{WWW Stránky}: RapidMiner. [online], 2011, [cit. \today].
+\newline\urlprefix\url{{http://rapid-i.com/content/view/181/190/}}
+
+\bibitem{Rezankova}
+Øezánková, H.; Húsek, D.; Sná¹el, V.: \emph{Shluková analýza dat}. Praha:
+  Professional Publishing, druhé vydání, 2009, 218 s., iSBN~978-808-6946-818.
+
+\end{thebibliography}

@@ -3,7 +3,7 @@
 # E-mail: bidlom AT fit vutbr cz
 #===========================================
 # asi budete chtit prejmenovat:
-CO=projekt
+CO=bp-xsendl00
 
 all: $(CO).pdf
 
@@ -36,5 +36,5 @@ clean:
 	rm -f *~
 
 pack:
-	tar czvf bp-xsendl00.tar.gz *.tex *.bib *.bst *.cls ./fig/* ./cls/* Makefile Changelog
+	tar czvf bp-xsendl00.tar.gz *.tex *.bib *.bst *.cls ./fig/* ./cls/* ./pic/* Makefile Changelog
 
