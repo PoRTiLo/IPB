@@ -1,0 +1,64 @@
+README : IBP - Bakalářská práce
+         Varianta - Datamining z jabberu/Datamining from Jabber
+         Vedoucí - Mlích Jozef, Ing., UPGM FIT VUT
+         Oponent - Šebek Michal, Ing., UIFS FIT VUT
+
+
+AUTHORS : xsendl00, xsedl00@stud.fit.vutbr.cz, Jaroslav Sendler
+          16.5.2011
+
+
+THANKS : myself, Ing. Mlích Jozef
+
+
+SPECIFIED :
+           1. Prostudujte problematiku komunikace přes jabber.
+           2. Vytvořte jednoduchého jabberového klienta, který je schopen získávat statistická data 
+              pro pozdější analýzu a reagovat na vhodně zvolené příkazy.
+           3. Ručně prozkoumejte získaná data.
+           4. Prozkoumejte data pomocí metod pro dolování dat.
+           5. Graficky prezentujte získané výsledky.
+           6. Diskutujte možné pokračování práce.
+
+
+ChangeLog : Program pracuje na bazi klient & server. 
+
+	SERVER : je spousten se dvema povinnyma parametrema a to cislem zdrojoveho portu a cislo ciloveho portu, jez musi byt v rozsahu 0 - 65535 vcetne, kde je doporuceno spodni hranici cisla portu posunout az na 1024, jelikoz do teto hodnoty jsou nektera cisla vyuzivana systemem.
+
+		:~$ ./server -s 2000 -d 2001
+
+	KLIENT : je spousten taktez jak server se dvema parametrama, cilovy port a zdrojovy port
+
+		parametry :	
+			-p [cislo portu] -povinny
+			-s [cislo portu] -povinny
+
+	Pouziti : vypise vsechny informace o studentech fakulty "FEKT" (jmeno;login;prijmeni;fakulta)
+
+			:~$ ./client -p 2000 -h localhost -NLSF -f FEKT
+
+	          vypise vsechny loginy studentu jmenujici se "Ales" (login)
+
+			:~$ ./client -p 2000 -h localhost -L -n Ales
+
+	          vypise CELOU databazi, neni potreba uvadet nejake parametry
+
+			:~$ ./client -p 2000 -h localhost
+
+
+COMMENT : Jde o to vytvořit robota pro získávání statistických dat "kdo býva nejčastěji online", 
+          "jaké si kdo dává statusy". Kdo z 10 000 kontaktů je online (idealně shlukovat lidi podle 
+          nějakého parametru bydli v Brně, jsou ve skupine "FIT". Vyrobit grafy, atd.
+
+
+NEWS :
+
+
+INSTALL : Program byl vytvořen a testován na počítači pcpanel-l205 s adresou http://pcpanel-l205.fit.vutbr.cz
+          Prelozite jej spuštěním přidaného souboru makefile v adresáři ./src/jabinfo
+		:~$ make
+
+ 
+COPYING / LICENSE : VUT-FIT
+
+BUGS :

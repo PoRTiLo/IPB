@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  3 MAY 2011 15:45
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  16 MAY 2011 15:49
 entering extended mode
  %&-line parsing enabled.
 **projekt
@@ -604,121 +604,6 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 (/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 )
-(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in pdf mode detected.
-)
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
-Package ifvtex Info: VTeX not detected.
-)
-(/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2009/01/23 v0.5 Provides ifxetex conditional
-)
-(/usr/share/texmf-texlive/tex/latex/oberdiek/hycolor.sty
-Package: hycolor 2009/10/02 v1.5 Code for color options of hyperref/bookmark (H
-O)
-
-(/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
-Package: xcolor-patch 2009/10/02 xcolor patch
-))
-\@linkdim=\dimen193
-\Hy@linkcounter=\count157
-\Hy@pagecounter=\count158
-
-(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
-)
-(/usr/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
-)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)
-(/usr/share/texmf-texlive/tex/latex/latexconfig/hyperref.cfg
-File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
-)
-(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2009/08/13 v3.4 Keyval support for LaTeX options (HO)
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2009/07/30 v1.5 Key value parser with default handler suppor
-t (HO)
-))
-Package hyperref Info: Option `unicode' set `true' on input line 2864.
-
-(/usr/share/texmf-texlive/tex/latex/hyperref/puenc.def
-File: puenc.def 2009/10/09 v6.79a Hyperref: PDF Unicode definition (HO)
-)
-Package hyperref Info: Option `colorlinks' set `true' on input line 2864.
-Package hyperref Info: Option `hyperindex' set `true' on input line 2864.
-Package hyperref Info: Option `plainpages' set `false' on input line 2864.
-Package hyperref Info: Hyper figures OFF on input line 2975.
-Package hyperref Info: Link nesting OFF on input line 2980.
-Package hyperref Info: Hyper index ON on input line 2983.
-Package hyperref Info: Plain pages OFF on input line 2990.
-Package hyperref Info: Backreferencing OFF on input line 2995.
-
-Implicit mode ON; LaTeX internals redefined
-Package hyperref Info: Bookmarks ON on input line 3191.
-LaTeX Info: Redefining \url on input line 3428.
-(/usr/share/texmf-texlive/tex/generic/oberdiek/bitset.sty
-Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/intcalc.sty
-Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
-)
-(/usr/share/texmf-texlive/tex/generic/oberdiek/bigintcalc.sty
-Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2009/09/23 v0.6 LuaTeX support for pdfTeX utility functions
- (HO)
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2009/04/17 v1.2 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2009/08/05 v1.0 Some LaTeX kernel commands for general use (HO
-)
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-)))
-\Fld@menulength=\count159
-\Field@Width=\dimen194
-\Fld@charsize=\dimen195
-\Field@toks=\toks38
-Package hyperref Info: Hyper figures OFF on input line 4377.
-Package hyperref Info: Link nesting OFF on input line 4382.
-Package hyperref Info: Hyper index ON on input line 4385.
-Package hyperref Info: backreferencing OFF on input line 4392.
-Package hyperref Info: Link coloring ON on input line 4395.
-Package hyperref Info: Link coloring with OCG OFF on input line 4402.
-Package hyperref Info: PDF/A mode OFF on input line 4407.
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
-Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
-)
-\Hy@abspage=\count160
-\c@Item=\count161
-\c@Hfootnote=\count162
-)
-*hyperref using driver hpdftex*
-(/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
-\Fld@listcount=\count163
-)
 \du=\skip59
  (./projekt.aux)
 \openout1 = `projekt.aux'.
@@ -737,43 +622,22 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 179.
 LaTeX Font Info:    ... okay on input line 179.
 LaTeX Font Info:    Checking defaults for IL2/cmr/m/n on input line 179.
 LaTeX Font Info:    ... okay on input line 179.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 179.
-LaTeX Font Info:    ... okay on input line 179.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 179.
-LaTeX Font Info:    ... okay on input line 179.
 
 (/usr/share/texmf/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count164
-\scratchdimen=\dimen196
+\scratchcounter=\count157
+\scratchdimen=\dimen193
 \scratchbox=\box46
-\nofMPsegments=\count165
-\nofMParguments=\count166
-\everyMPshowfont=\toks39
-\MPscratchCnt=\count167
-\MPscratchDim=\dimen197
-\MPnumerator=\count168
-\everyMPtoPDFconversion=\toks40
+\nofMPsegments=\count158
+\nofMParguments=\count159
+\everyMPshowfont=\toks38
+\MPscratchCnt=\count160
+\MPscratchDim=\dimen194
+\MPnumerator=\count161
+\everyMPtoPDFconversion=\toks39
 )
-\c@lstlisting=\count169
-Package hyperref Info: Link coloring ON on input line 179.
- (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
-Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
-
-(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
-Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
-)
-\c@section@level=\count170
-)
-LaTeX Info: Redefining \ref on input line 179.
-LaTeX Info: Redefining \pageref on input line 179.
- (./projekt.out)
-(./projekt.out)
-\@outlinefile=\write4
-\openout4 = `projekt.out'.
-
-\AtBeginShipoutBox=\box47
-LaTeX Font Info:    Try loading font information for IL2+phv on input line 185.
+\c@lstlisting=\count162
+LaTeX Font Info:    Try loading font information for IL2+phv on input line 182.
 
  (/usr/share/texmf-texlive/tex/cslatex/base/il2phv.fd
 File: il2phv.fd 1998/12/27 CS Helvetica
@@ -787,50 +651,50 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-\@obrlogo=\box48
-\@rtext=\box49
+\@obrlogo=\box47
+\@rtext=\box48
 \@vyskartext=\skip60
 \@vyskaobr=\skip61
 
-<fig/vut-zp2.pdf, id=128, 109.40875pt x 109.40875pt>
+<fig/vut-zp2.pdf, id=9, 109.40875pt x 109.40875pt>
 File: fig/vut-zp2.pdf Graphic file (type pdf)
  <use fig/vut-zp2.pdf>
-Overfull \hbox (109.58464pt too wide) in paragraph at lines 185--185
+Overfull \hbox (109.58464pt too wide) in paragraph at lines 182--182
 [][] 
  []
 
-<fig/fit-zp2.pdf, id=129, 120.45pt x 120.45pt>
+<fig/fit-zp2.pdf, id=10, 120.45pt x 120.45pt>
 File: fig/fit-zp2.pdf Graphic file (type pdf)
  <use fig/fit-zp2.pdf>
-Overfull \hbox (109.58464pt too wide) in paragraph at lines 185--185
+Overfull \hbox (109.58464pt too wide) in paragraph at lines 182--182
 [][] 
  []
 
 [2 <./fig/vut-zp2.pdf> <./fig/fit-zp2.pdf>]
 
 LaTeX Font Warning: Font shape `IL2/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 185.
+(Font)              size <17.28> substituted on input line 182.
 
 
 LaTeX Font Warning: Font shape `IL2/cmr/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 185.
+(Font)              size <17.28> substituted on input line 182.
 
 [3]
 
 LaTeX Font Warning: Font shape `IL2/cmr/m/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 185.
+(Font)              size <17.28> substituted on input line 182.
 
 
 LaTeX Font Warning: Font shape `IL2/cmr/bx/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 185.
+(Font)              size <17.28> substituted on input line 182.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 185.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 182.
 
 (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 185.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 182.
  [4] (./projekt.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 4.
 
@@ -841,43 +705,24 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.30 ...{\'\i }\v ren\IeC {\'\i }}{45}{appendix.G}
-                                                   [1
+) [1
 
 
 ])
-\tf@toc=\write5
-\openout5 = `projekt.toc'.
+\tf@toc=\write4
+\openout4 = `projekt.toc'.
 
- (./obsah.texpdfTeX warning (ext4): destination with the same identifier (name{
-page.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.6 \chapter
-            {Úvod} [2]
+ (./obsah.tex
+[2]
 Kapitola 1.
 LaTeX Font Info:    Try loading font information for IL2+cmss on input line 6.
 (/usr/share/texmf-texlive/tex/latex/cslatex/il2cmss.fd
 File: il2cmss.fd 1997/02/13 CsLaTeX font definitions
-)pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.17 \chapter
-             {XMPP} [3
+) [3
 
 ]
 Kapitola 2.
-pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.31 
-      [4
+[4
 
 ] (./struktura.tex) (./jabinfo.tex) [5] [6]
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 102.
@@ -908,7 +753,7 @@ Kapitola 3.
 [13
 
 ]
-\c@definice=\count171
+\c@definice=\count163
  (./datamining.tex) [14] [15] [16] [17]
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 425.
@@ -992,13 +837,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 18439 strings out of 495027
- 289413 string characters out of 1181420
- 528229 words of memory out of 3000000
- 20833 multiletter control sequences out of 15000+50000
+ 13913 strings out of 495027
+ 225686 string characters out of 1181420
+ 391029 words of memory out of 3000000
+ 16713 multiletter control sequences out of 15000+50000
  26504 words of font info for 73 fonts, out of 3000000 for 9000
  38 hyphenation exceptions out of 8191
- 47i,11n,68p,1576b,1551s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,11n,68p,1576b,1526s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8a.enc}</usr/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-texlive/fonts/type1/public/a
@@ -1018,9 +863,9 @@ r9.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/csss8.pfb></usr/share/te
 xmf-texlive/fonts/type1/public/cs/csti10.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/cs/cstt10.pfb></usr/share/texmf-texlive/fonts/type1/public/cs/cstt8.
 pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on projekt.pdf (50 pages, 487492 bytes).
+Output written on projekt.pdf (50 pages, 398127 bytes).
 PDF statistics:
- 961 PDF objects out of 1000 (max. 8388607)
- 331 named destinations out of 1000 (max. 500000)
- 255 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 266 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
